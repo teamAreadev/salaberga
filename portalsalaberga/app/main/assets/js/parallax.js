@@ -23,22 +23,39 @@ class EnhancedScroll {
         const targetId = e.currentTarget.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            this.scrollTo(targetElement);
+            this.scrollToElement(targetElement);
         }
     }
 
-    scrollTo(targetElement) {   
+    scrollToElement(targetElement) {
         const startPosition = window.pageYOffset;
         const targetPosition = targetElement.getBoundingClientRect().top + startPosition;
-        const distance = targetPosition - startPosition;
+        const windowHeight = window.innerHeight;
+        const targetHeight = targetElement.offsetHeight;
+
+        let targetY;
+        if (targetHeight < windowHeight) {
+            // Centralizar a seção na tela
+            targetY = targetPosition - (windowHeight - targetHeight) / 2;
+        } else {
+            // Rolar até o topo da seção
+            targetY = targetPosition;
+        }
+
+        this.scrollTo(targetY);
+    }
+
+    scrollTo(targetY) {
+        const startPosition = window.pageYOffset;
+        const distance = targetY - startPosition;
         let startTime = null;
 
         const animation = (currentTime) => {
             if (startTime === null) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
-            const run = this.ease(timeElapsed, startPosition, distance, -10000);
+            const run = this.ease(timeElapsed, startPosition, distance, 600);
             window.scrollTo(0, run);
-            if (timeElapsed < -10000) requestAnimationFrame(animation);
+            if (timeElapsed < 600) requestAnimationFrame(animation);
         };
 
         requestAnimationFrame(animation);
