@@ -36,7 +36,6 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <link rel="shortcut icon" href="../main/assets/img/Design sem nome.svg" type="image/x-icon">
 
-   
     <script>
         tailwind.config = {
             theme: {
@@ -367,14 +366,15 @@
                 </button>
                 <div class="theme-toggle-container">
                     <button class="theme-toggle-btn hover:text-ceara-orange transition duration-300 px-1" aria-label="Opções de visualização" aria-expanded="false">
-                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <i class="fa-solid fa-circle-half-stroke" style="color: white;"></i>
                     </button>
-                    <div class="theme-options" style="color: #000000;">
-                        <button class="theme-option" aria-label="Ativar monocromático">Monocromático</button>
-                        <button class="theme-option" aria-label="Ativar escala de cinza invertida">Escala de cinza invertida</button>
-                        <button class="theme-option" aria-label="Ativar cor invertida">Cor invertida</button>
-                        <button class="theme-option" aria-label="Restaurar cores originais">Cores originais</button>
-                    </div>
+                   <div class="theme-options" style="color: #000000;">
+    <!-- <button class="theme-option" data-theme="dark" aria-label="Alternar modo escuro">Modo Escuro</button> -->
+                    <button class="theme-option" data-theme="monochrome" aria-label="Ativar monocromático">Monocromático</button>
+                    <button class="theme-option" data-theme="inverted-grayscale" aria-label="Ativar escala de cinza invertida">Escala de cinza invertida</button>
+                    <button class="theme-option" data-theme="inverted-color" aria-label="Ativar cor invertida">Cor invertida</button>
+                    <button class="theme-option" data-theme="original" aria-label="Restaurar cores originais">Cores originais</button>
+                </div>
                 </div>
                 <!-- <button id="vlibrasButton" class="hover:text-ceara-orange transition duration-300 px-1" aria-label="VLibras">
                     <img src="../main/assets/img/libras.svg" alt="VLibras" style="border-radius: 14%; width: 24px; height: auto;" class="zoom">
@@ -1489,49 +1489,33 @@
             }); 
         </script>
 
-<section id="localizacao" class="py-8">
-    <div class="container mx-auto px-4">
-        <h2 class="localfont text-3xl md:text-4xl font-bold text-center mb-6">
-            <b>Localização</b>
-        </h2>
-        <div class="flex flex-col md:flex-row gap-6">
-            <div class="w-full md:w-1/2">
-                <div class="relative overflow-hidden pt-[56.25%]">
-                    <iframe
-                        class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+        <section id="localizacao">
+            <div class="container">
+                <h2 class="localfont text-4xl font-bold text-center mb-10 text-ceara-green"><b>Localização</b></h2>
+                <div class="map-container">
+                    <div class="map-frame">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="informefont">Informações de Contato</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda,
+                                Maranguape - CE</li>
+                            <li><i class="fas fa-phone"></i> (85) 3101-2100</li>
+                            <li><i class="fas fa-envelope"></i> eeepsalaberga@escola.ce.gov.br</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Escola+Estadual+de+Educa%C3%A7%C3%A3o+Profissional+Salaberga+Torquato+Gomes+de+Matos/@-3.888242,-38.6765803,17z/"
+                            target="_blank" class="directions-button">
+                            <i class="fas fa-directions"></i> Como Chegar
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="contact-info w-full md:w-1/2">
-                <h3 class="informefont">Informações de Contato</h3>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-2">
-                        <i class="fas fa-map-marker-alt mt-1"></i>
-                        <span>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-phone"></i>
-                        <span>(85) 3101-2100</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-envelope"></i>
-                        <span>eeepsalaberga@escola.ce.gov.br</span>
-                    </li>
-                </ul>
-                <a href="https://www.google.com/maps/place/Escola+Estadual+de+Educa%C3%A7%C3%A3o+Profissional+Salaberga+Torquato+Gomes+de+Matos/@-3.888242,-38.6765803,17z/"
-                    target="_blank"
-                    class="directions-button">
-                    <i class="fas fa-directions mr-2"></i>Como Chegar
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
     <footer class="bg-gradient-to-b from-black via-[#000] to-black text-white py-20">
@@ -1561,7 +1545,7 @@
                         <li><a href="https://www.facebook.com/groups/salaberga/"
                                 class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Facebook</a>
                         </li>
-                        <li><a href="#sobre" class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Sobre
+                        <li><a href="#" class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Sobre
                                 Nós</a>
                         </li>
                         <li><a href="#"
