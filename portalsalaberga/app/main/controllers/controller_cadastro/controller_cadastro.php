@@ -7,7 +7,7 @@ if(isset($_POST['cadastrar']) && isset($_POST['UserName']) && isset($_POST['Cpf'
     $email = $_POST['Email'];
     $senha = $_POST['Senha'];
 
-    require_once('../../models/model_cadastro2.php');
+    require_once('../../models/model_cadastro.php');
     cadastrar($nome, $cpf, $email, $senha);
   
   
