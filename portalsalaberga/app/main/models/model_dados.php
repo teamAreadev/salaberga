@@ -80,14 +80,39 @@ function cadastrar($nome, $cpf, $email, $senha)
                 exit();
             } else {
                 // usuário já existe
-                header('Location: ../../views/autenticação/cadastro.php?login=erro2');
+                header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro2');
                 exit();
             }
         } else {
             // usuário não existe
-            header('Location: ../../views/autenticação/cadastro.php?login=erro1');
+            header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro1');
             exit();
         }
+    } catch (PDOException $e) {
+        error_log("Erro no banco de dados: " . $e->getMessage());
+        echo "Erro no banco de dados: " . $e->getMessage();
+    }
+}
+
+function login($email,$senha){
+    require_once('../../config/Database.php');
+    try {
+        // Primeiro, fazer o SELECT para verificar
+        $querySelect = "SELECT email and senha FROM usuario WHERE email = :email AND senha = :senha";
+        $stmtSelect = $conexao->prepare($querySelect);
+        $stmtSelect->bindParam(':email', $email);
+        $stmtSelect->bindParam(':senha', $senha);
+        $stmtSelect->execute();
+        $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!empty($result)) {
+            echo "usuario logado com sucesso";
+        } else {
+                // usuário já existe
+                header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro2');
+                exit();
+            }
+        
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();
