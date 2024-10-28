@@ -119,6 +119,35 @@ function login($email,$senha){
     }
 function recSenha($email){
 
+        // Coloque a mensagem que irá ser enviada para seu e-mail abaixo: 
+        $mensagem = "Mensagem enviada em ".date("d/m/Y").", por:\n \n"; 
+        
+        $nome = $_POST['realname'];
+        $mensagem.= "Nome: ".$nome."\n";
+        
+        $email = $_POST['email'];
+        $mensagem.= "Email: ".$email."\n";
+        
+        $fone = $_POST['fone'];
+        $mensagem.= "Fone: ".$fone."\n \n";
+        
+        $msg = $_POST['msg'];
+        $mensagem.= "Mensagem: \n".$msg."\n";
+        
+        $msg = 'pedro';
+        $mensagem.= "Mensagem: \n".$msg."\n";
+        
+        
+        //Este loop coloca todos os campos do formulário na mensagem do e-mail a ser enviado 
+        while(list($campo, $valor) = each($HTTP_POST_VARS)) { 
+        $mensagem .= ucwords($campo).": ".$valor."\n";
+        } 
+        
+        // Agora iremos fazer com que o PHP envie os dados do formulário para seu e-mail: 
+        mail("sac@alkance.com.br", "SAC - Alkance", $mensagem,"From: $REMOTE_ADDR"); 
+        
+        echo "<script>alert('Seu e-mail foi enviado com sucesso. Obrigado');</script>"; 
+        
         
     }
 }
