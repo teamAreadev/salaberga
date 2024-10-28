@@ -80,12 +80,12 @@ function cadastrar($nome, $cpf, $email, $senha)
                 exit();
             } else {
                 // usuário já existe
-                header('Location: ../../views/autenticação/cadastro.php?login=erro2');
+                header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro2');
                 exit();
             }
         } else {
             // usuário não existe
-            header('Location: ../../views/autenticação/cadastro.php?login=erro1');
+            header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro1');
             exit();
         }
     } catch (PDOException $e) {
@@ -94,36 +94,28 @@ function cadastrar($nome, $cpf, $email, $senha)
     }
 }
 
-function recSenha($email){
+function login($email,$senha){
+    require_once('../../config/Database.php');
+    try {
+        // Primeiro, fazer o SELECT para verificar
+        $querySelect = "SELECT email and senha FROM usuario WHERE email = :email AND senha = :senha";
+        $stmtSelect = $conexao->prepare($querySelect);
+        $stmtSelect->bindParam(':email', $email);
+        $stmtSelect->bindParam(':senha', $senha);
+        $stmtSelect->execute();
+        $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
 
-        // Coloque a mensagem que irá ser enviada para seu e-mail abaixo: 
-        $mensagem = "Mensagem enviada em ".date("d/m/Y").", por:\n \n"; 
+        if (!empty($result)) {
+            echo "usuario logado com sucesso";
+        } else {
+                // usuário já existe
+                header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro2');
+                exit();
+            }
         
-        $nome = $_POST['realname'];
-        $mensagem.= "Nome: ".$nome."\n";
-        
-        $email = $_POST['email'];
-        $mensagem.= "Email: ".$email."\n";
-        
-        $fone = $_POST['fone'];
-        $mensagem.= "Fone: ".$fone."\n \n";
-        
-        $msg = $_POST['msg'];
-        $mensagem.= "Mensagem: \n".$msg."\n";
-        
-        $msg = 'pedro';
-        $mensagem.= "Mensagem: \n".$msg."\n";
-        
-        
-        //Este loop coloca todos os campos do formulário na mensagem do e-mail a ser enviado 
-        while(list($campo, $valor) = each($HTTP_POST_VARS)) { 
-        $mensagem .= ucwords($campo).": ".$valor."\n";
-        } 
-        
-        // Agora iremos fazer com que o PHP envie os dados do formulário para seu e-mail: 
-        mail("sac@alkance.com.br", "SAC - Alkance", $mensagem,"From: $REMOTE_ADDR"); 
-        
-        echo "<script>alert('Seu e-mail foi enviado com sucesso. Obrigado');</script>"; 
-        
-        
+    } catch (PDOException $e) {
+        error_log("Erro no banco de dados: " . $e->getMessage());
+        echo "Erro no banco de dados: " . $e->getMessage();
+    }
 }
+?>
