@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 function verificarSessao($tempo_limite = 10) {
     // Verifica se existe timestamp da última atividade
