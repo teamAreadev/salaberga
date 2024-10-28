@@ -1489,33 +1489,48 @@
             }); 
         </script>
 
-        <section id="localizacao">
-            <div class="container">
-                <h2 class="localfont text-4xl font-bold text-center mb-10 text-ceara-green"><b>Localização</b></h2>
-                <div class="map-container">
-                    <div class="map-frame">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <div class="contact-info">
-                        <h3 class="informefont">Informações de Contato</h3>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt"></i>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda,
-                                Maranguape - CE</li>
-                            <li><i class="fas fa-phone"></i> (85) 3101-2100</li>
-                            <li><i class="fas fa-envelope"></i> eeepsalaberga@escola.ce.gov.br</li>
-                        </ul>
-                        <a href="https://www.google.com/maps/place/Escola+Estadual+de+Educa%C3%A7%C3%A3o+Profissional+Salaberga+Torquato+Gomes+de+Matos/@-3.888242,-38.6765803,17z/"
-                            target="_blank" class="directions-button">
-                            <i class="fas fa-directions"></i> Como Chegar
-                        </a>
-                    </div>
+<section id="localizacao" class="py-8">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-ceara-green">Localização</h2>
+        <div class="flex flex-wrap bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Mapa -->
+            <div class="w-full lg:w-3/5">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
+                        loading="lazy"
+                        class="w-full h-full"
+                        allowfullscreen="">
+                    </iframe>
                 </div>
             </div>
-        </section>
+            
+            <!-- Informações de Contato -->
+            <div class="w-full lg:w-2/5 bg-[#008C45] p-6 text-white">
+                <h3 class="text-2xl mb-6">Informações de Contato</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-3 text-yellow-500"></i>
+                        <span>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone mr-3 text-yellow-500"></i>
+                        <span>(85) 3101-2100</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-yellow-500"></i>
+                        <span>eeepsalaberga@escola.ce.gov.br</span>
+                    </li>
+                </ul>
+                <a href="https://www.google.com/maps?q=EEEP+Salaberga" 
+                   target="_blank"
+                   class="inline-block mt-6 px-6 py-3 bg-black text-white rounded-full hover:bg-blue-600 transition-all">
+                    <i class="fas fa-directions mr-2"></i>Como Chegar
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer class="bg-gradient-to-b from-black via-[#000] to-black text-white py-20">
