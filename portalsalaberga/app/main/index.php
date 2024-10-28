@@ -150,101 +150,7 @@
             margin: 0 auto;
         }
 
-        .img-bg-01,
-        .img-bg-02,
-        .img-bg-03,
-        .img-bg-04,
-        .img-bg-05,
-        .img-bg-06,
-        .img-bg-07,
-        .img-bg-08,
-        .img-bg-09,
-        .img-bg-10,
-        .img-bg-11,
-        .img-bg-12,
-        .img-bg-13,
-        .img-bg-14,
-        .img-bg-15,
-        .img-bg-16 {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            filter: brightness(0.9);
-        }
-
-        .img-bg-01 {
-            background-image: url();
-        }
-
-        .img-bg-02 {
-            background-image: url(https://eeepsalabergampe.netlify.app/img/salas.jpg);
-        }
-
-        .img-bg-03 {
-            background-image: url(https://eeepsalabergampe.netlify.app/img/kml2.jpges/img-03.jpg);
-        }
-
-        .img-bg-04 {
-            background-image: url(https://eeepsalabergampe.netlify.app/img/klm3.jpg);
-        }
-
-        .img-bg-05 {
-            background-image: url();
-        }
-
-        .img-bg-06 {
-            background-image: url();
-        }
-
-        .img-bg-07 {
-            background-image: url();
-        }
-
-        .img-bg-08 {
-            background-image: url();
-        }
-
-        .img-bg-09 {
-            background-image: url();
-        }
-
-        .img-bg-10 {
-            background-image: url();
-        }
-
-        .img-bg-11 {
-            background-image: url();
-        }
-
-        .img-bg-12 {
-            background-image: url();
-        }
-
-        .img-bg-13 {
-            background-image: url();
-        }
-
-        .img-bg-14 {
-            background-image: url();
-        }
-
-        .img-bg-15 {
-            background-image: url();
-        }
-
-        .img-bg-16 {
-            background-image: url();
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-        }
+     
 
         /* Responsive Adjustments */
         @media (max-width: 1200px) {
@@ -658,13 +564,13 @@
     </script>
 
     <main>
-    <section id="home"
+        <section id="home"
             class="relative bg-cover bg-center bg-no-repeat min-h-screen flex flex-col items-center justify-center fade-in overflow-hidden">
             <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
                 <source src="../main/assets/img/background.mp4" type="video/mp4">
                 Seu navegador não suporta o elemento de vídeo.
             </video>
-            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="absolute inset-0 bg-black opacity-70"></div>
 
             <!-- Logo -->
             <div
@@ -694,8 +600,8 @@
                 </a>
             </div>
         </section>
-        
-    <section class="section lb page-section" id="sobre">
+
+        <section class="section lb page-section" id="sobre">
             <div class="container">
                 <div class="section-title row text-center">
                     <div class="col-md-8 offset-md-2">
@@ -828,8 +734,7 @@
             }
         </style>
 
-
-<section id="cursos" class="bg-gray-100 py-12 fade-in" x-data="{ activeSlide: 0 }">
+        <section id="cursos" class="bg-gray-100 py-12 fade-in" x-data="{ activeSlide: 0 }">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8 text-ceara-green">Nossos Cursos</h2>
                 <div class="overflow-x-auto">
@@ -956,128 +861,63 @@
                 </div>
             </div>
         </section>
+
+  <style>
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        transition: all 0.5s ease-in-out;
+    }
+
+    .carousel {
+        scroll-behavior: smooth;
+    }
+
+    .text-xs {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+</style>
+
+<script>
+    function smoothScroll(element, target, duration) {
+        const start = element.scrollLeft;
+        const change = target - start;
+        const startTime = performance.now();
         
-        <style>
-            .hide-scrollbar {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
-
-            .hide-scrollbar::-webkit-scrollbar {
-                display: none;
-            }
-
-            .perspective {
-                perspective: 1000px;
-            }
-
-            .card {
-                transform-style: preserve-3d;
-                transition: transform 0.5s ease;
-            }
-
-            .card:hover {
-                transform: scale(1.05) rotateY(10deg);
-            }
-
-            .carousel {
-                scroll-behavior: smooth;
-            }
-
-            .group:hover .group-hover\:opacity-100 {
-                transition: all 0.3s ease-in-out;
-            }
-
-            .card:not(.active) {
-                transform: scale(0.95) translateZ(-100px);
-                opacity: 0.8;
-            }
-
-            .card.active {
-                transform: scale(1) translateZ(0);
-                opacity: 1;
-            }
-
-            .card {
-                transition: all 0.5s ease-in-out;
-            }
-
-            .card:hover {
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-            }
-
-            .perspective {
-                perspective: 2000px;
-                perspective-origin: center;
-            }
-
-            /* Novas classes para o overlay de conteúdo */
-            .content-overlay {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-                padding: 1rem;
-                overflow-y: auto;
-                mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            }
-
-            .content-overlay::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            .content-overlay::-webkit-scrollbar-thumb {
-                background-color: rgba(255, 255, 255, 0.5);
-                border-radius: 3px;
-            }
-
-            .content-overlay::-webkit-scrollbar-track {
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-
-            .text-xs {
-                font-size: 0.75rem;
-                line-height: 1.4;
-            }
-
-            /* Adiciona uma transição suave ao hover */
-            .group-hover\:opacity-100 {
-                transition: opacity 0.3s ease-in-out;
-            }
-        </style>
-
-        <script>
-            function smoothScroll(element, target, duration) {
-                const start = element.scrollLeft;
-                const change = target - start;
-                const startTime = performance.now();
-                function animation(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    element.scrollLeft = start + change * easeInOutQuad(progress);
-                    if (progress < 1) {
-                        requestAnimationFrame(animation);
-                    }
-                }
+        function animation(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            element.scrollLeft = start + change * easeInOutQuad(progress);
+            if (progress < 1) {
                 requestAnimationFrame(animation);
             }
+        }
+        requestAnimationFrame(animation);
+    }
 
-            function easeInOutQuad(t) {
-                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-            }
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const carousel = document.querySelector('.carousel');
-                let currentIndex = 0;
-                const cardWidth = 300; // Ajustando a largura da carta
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % 5;
-                    smoothScroll(carousel, currentIndex * cardWidth, 1000);
-                }, 5000);
-            });
-        </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.querySelector('.carousel');
+        let currentIndex = 0;
+        const cardWidth = 300; // Ajustando a largura da carta
+        
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 5;
+            smoothScroll(carousel, currentIndex * cardWidth, 1000);
+        }, 5000);
+    });
+</script>
 
         <!--
 <section id="eventos" class="py-24 fade-in">
@@ -1490,7 +1330,7 @@
             }); 
         </script>
 
-<section id="localizacao" class="py-8">
+ <section id="localizacao" class="py-8">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8 text-ceara-green">Localização</h2>
         <div class="flex flex-wrap bg-white rounded-lg shadow-lg overflow-hidden">
@@ -1532,6 +1372,8 @@
         </div>
     </div>
 </section>
+
+
     </main>
 
     <footer class="bg-gradient-to-b from-black via-[#000] to-black text-white py-20">
