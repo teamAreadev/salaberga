@@ -4,14 +4,17 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+
 function pre_cadastro($email, $cpf)
 {
 
-    require('../../config/Database.php');
+    require_once('../../config/Database.php');
+    
     try {
         // Usando prepared statements para prevenir SQL injection
-        $sql = "SELECT email, cpf FROM usuario WHERE email = :email AND cpf = :cpf";
-        $stmt = $conexao->prepare($sql);
+        $stmtSelect = "SELECT email, cpf FROM usuario WHERE email = :email AND cpf = :cpf";
+        $stmt = $conexao->prepare($stmtSelect);
 
         // Bind dos valores
         $stmt->bindParam(':email', $email);
@@ -19,12 +22,15 @@ function pre_cadastro($email, $cpf)
 
         // Executa a consulta
         $stmt->execute();
-        $dados = $stmt->rowCount();
-
-        if ($dados > 0) {
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        if (!empty($dados)) {
+            //se os dados tiverem corretos 
+            $_SESSION['precadastro'] = true;
             header('location:../controller_cadastro/controller_pre_cadastro.php?certo');
             exit();
         } else {
+            //se os dados n estiverem corretos
             header('location:../controller_cadastro/controller_pre_cadastro.php?erro');
             exit();
         }
@@ -48,7 +54,7 @@ function cadastrar($nome, $cpf, $email, $senha)
         $stmtSelect->bindParam(':cpf', $cpf);
         $stmtSelect->execute();
         $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
-        print_r($result);
+        
 
         if (!empty($result)) {
             // Usuário já existe, realizar update da senha
@@ -94,23 +100,35 @@ function cadastrar($nome, $cpf, $email, $senha)
     }
 }
 
-function login($email,$senha){
+function login($email, $senha)
+{
     require_once('../../config/Database.php');
     try {
+
         // Primeiro, fazer o SELECT para verificar
-        $querySelect = "SELECT email and senha FROM usuario WHERE email = :email AND senha = MD5(:senha)";
+        $querySelect = "SELECT email, senha, tipo FROM usuario WHERE email = :email AND senha = MD5(:senha)";
         $stmtSelect = $conexao->prepare($querySelect);
         $stmtSelect->bindParam(':email', $email);
         $stmtSelect->bindParam(':senha', $senha);
         $stmtSelect->execute();
         $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
-
-        if (!empty($result)) {
-            echo "usuario logado com sucesso";
-        } else {
-                echo "usuario não existe";
-            }
         
+                
+        if (!empty($result) && $result['tipo'] == 'aluno' ) {
+            $_SESSION['login'] = true;
+            $_SESSION['aluno'] = true;
+            header('Location: ../controller_login/controller_login.php?login=a');
+            exit();
+        } else if (!empty($result) && $result['tipo'] == 'professor') {
+            $_SESSION['login'] = true;
+            $_SESSION['professor'] = true;
+            header('Location: ../controller_login/controller_login.php?login=p');
+            exit();
+        } else if (empty($result)) {
+            header('Location: ../controller_login/controller_login.php?login=erro');
+            exit();
+        }
+
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();

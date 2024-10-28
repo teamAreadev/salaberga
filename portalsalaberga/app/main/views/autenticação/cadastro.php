@@ -1,17 +1,21 @@
+<?php
+    require_once('../../controllers/controller_sessao/autenticar_sessao.php');
+    require_once('../../controllers/controller_sessao/verificar_sessao.php');
+    verificarSessao(10);
+    print_r($_SESSION) ;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="img\Design sem nome.svg" type="image/x-icon">
-    
-    <?php
-       // require_once('autenticar.php');
-    ?>
-     
-    
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -53,7 +57,7 @@
 
         .image-container {
             flex: 1;
-            background: linear-gradient(40deg, #007A33,#FF8C00);
+            background: linear-gradient(40deg, #007A33, #FF8C00);
             background-size: cover;
             background-position: center;
             position: relative;
@@ -74,12 +78,14 @@
             text-align: center;
             color: #FFFFFF;
         }
+
         .error-message {
-    color: #ff0000;
-    font-size: 0.8rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.5rem;
-}
+            color: #ff0000;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
         .image-overlay h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -155,8 +161,8 @@
             background-color: var(--input-bg);
         }
 
-        .input-group input:focus + label,
-        .input-group input:not(:placeholder-shown) + label {
+        .input-group input:focus+label,
+        .input-group input:not(:placeholder-shown)+label {
             top: 0;
             font-size: 0.8rem;
             color: var(--primary-color);
@@ -233,14 +239,16 @@
             }
         }
 
-        @media (max-width: 768px) {  
+        @media (max-width: 768px) {
+
             .image-container,
-            .logo-container {  
-                display: none;  
-            }  
+            .logo-container {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="main-container">
         <div class="image-container">
@@ -254,7 +262,8 @@
                 <img src="https://i.postimg.cc/ryxHRNkj/lavosier-nas-2.png" alt="Logo EEEP Salaberga" class="logo">
             </div>
             <h2>Cadastro</h2>
-            <form id="cadastroForm" action="../../controllers/controller_cadastro/controller_cadastro.php" method="POST">
+            <form id="cadastroForm" action="../../controllers/controller_cadastro/controller_cadastro.php"
+                method="POST">
                 <div class="input-group">
                     <input type="text" name="UserName" id="username" placeholder=" " required>
                     <label for="username">Nome de usuário</label>
@@ -266,7 +275,7 @@
                     <i class="fas fa-id-card"></i>
                 </div>
                 <div class="input-group">
-                    <input type="email" name ="Email" id="email" placeholder=" " required>
+                    <input type="email" name="Email" id="email" placeholder=" " required>
                     <label for="email">E-mail Institucional</label>
                     <i class="fas fa-envelope"></i>
                 </div>
@@ -286,37 +295,37 @@
                     <span>Forte</span>
                 </div>
                 <?php
-                if (isset($_GET['login']) && $_GET['login'] == 'erro1'){ 
+                if (isset($_GET['login']) && $_GET['login'] == 'erro1') {
                     echo '<br>';
-                ?>
+                    ?>
                     <div class="texto">
                         Email ou Cpf incorreto(s)
                     </div>
                     <style>
                         .texto {
-                        color:red;
+                            color: red;
                         }
                     </style>
-                <?php
+                    <?php
                     echo '<br>';
-                    }
+                }
                 ?>
-                
+
                 <?php
-                    if (isset($_GET['login']) && $_GET['login'] == 'erro2'){ 
+                if (isset($_GET['login']) && $_GET['login'] == 'erro2') {
                     echo '<br>';
-                ?>
+                    ?>
                     <div class="texto">
-                    Email ou Cpf já cadastrados(s)
+                        Email ou Cpf já cadastrados(s)
                     </div>
                     <style>
                         .texto {
-                        color:red;
+                            color: red;
                         }
                     </style>
-                <?php
+                    <?php
                     echo '<br>';
-                    }
+                }
                 ?>
                 <button type="submit" class="btn-confirmar" name="cadastrar">Criar Conta</button>
             </form>
@@ -324,77 +333,78 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('cadastroForm');
-    const togglePassword = document.querySelector('.toggle-password');
-    const passwordInput = document.getElementById('password');
-    const passwordStrength = document.getElementById('passwordStrength');
-    const passwordError = document.getElementById('passwordError');
-    const whatsappInput = document.getElementById('whatsapp');
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('cadastroForm');
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.getElementById('password');
+            const passwordStrength = document.getElementById('passwordStrength');
+            const passwordError = document.getElementById('passwordError');
+            const whatsappInput = document.getElementById('whatsapp');
 
-    togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
-    });
+            togglePassword.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
 
-    passwordInput.addEventListener('input', function() {
-        const strength = calculatePasswordStrength(this.value);
-        passwordStrength.style.width = `${strength}%`;
-        // Remove a atualização do erro aqui
-    });
+            passwordInput.addEventListener('input', function () {
+                const strength = calculatePasswordStrength(this.value);
+                passwordStrength.style.width = `${strength}%`;
+                // Remove a atualização do erro aqui
+            });
 
-    // WhatsApp input formatting
-    whatsappInput.addEventListener('input', function(e) {
-        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-    });
+            // WhatsApp input formatting
+            whatsappInput.addEventListener('input', function (e) {
+                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-        const matricula = document.getElementById('matricula').value;
-        const whatsapp = whatsappInput.value;
-        const password = passwordInput.value;
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const matricula = document.getElementById('matricula').value;
+                const whatsapp = whatsappInput.value;
+                const password = passwordInput.value;
 
-        // Limpa a mensagem de erro anterior
-        passwordError.textContent = '';
+                // Limpa a mensagem de erro anterior
+                passwordError.textContent = '';
 
-        if (username && matricula && whatsapp && password) {
-            if (isPasswordValid(password)) {
-                alert('Cadastro realizado com sucesso!');
-                form.reset();
-                passwordStrength.style.width = '0%';
-            } else {
-                passwordError.textContent = 'A senha deve ter no mínimo 8 caracteres, 1 caractere especial e 1 caractere maiúsculo.';
-                passwordInput.focus(); // Foca no campo de senha
+                if (username && matricula && whatsapp && password) {
+                    if (isPasswordValid(password)) {
+                        alert('Cadastro realizado com sucesso!');
+                        form.reset();
+                        passwordStrength.style.width = '0%';
+                    } else {
+                        passwordError.textContent = 'A senha deve ter no mínimo 8 caracteres, 1 caractere especial e 1 caractere maiúsculo.';
+                        passwordInput.focus(); // Foca no campo de senha
+                    }
+                } else {
+                    alert('Por favor, preencha todos os campos.');
+                }
+            });
+
+            function calculatePasswordStrength(password) {
+                let strength = 0;
+                if (password.length >= 8) strength += 25;
+                if (password.match(/[A-Z]/)) strength += 25;
+                if (password.match(/[a-z]/)) strength += 25;
+                if (password.match(/[0-9]/)) strength += 12.5;
+                if (password.match(/[^A-Za-z0-9]/)) strength += 12.5;
+                return strength;
             }
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
-    });
 
-    function calculatePasswordStrength(password) {
-        let strength = 0;
-        if (password.length >= 8) strength += 25;
-        if (password.match(/[A-Z]/)) strength += 25;
-        if (password.match(/[a-z]/)) strength += 25;
-        if (password.match(/[0-9]/)) strength += 12.5;
-        if (password.match(/[^A-Za-z0-9]/)) strength += 12.5;
-        return strength;
-    }
+            function isPasswordValid(password) {
+                const minLength = 8;
+                const hasUpperCase = /[A-Z]/.test(password);
+                const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
 
-    function isPasswordValid(password) {
-        const minLength = 8;
-        const hasUpperCase = /[A-Z]/.test(password);
-        const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
-        
-        return password.length >= minLength && hasUpperCase && hasSpecialChar;
-    }
-});
+                return password.length >= minLength && hasUpperCase && hasSpecialChar;
+            }
+        });
 
 
     </script>
 </body>
+
 </html>
