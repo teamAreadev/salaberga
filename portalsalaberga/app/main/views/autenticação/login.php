@@ -266,7 +266,11 @@
                 <img src="https://i.postimg.cc/ryxHRNkj/lavosier-nas-2.png" alt="Logo EEEP Salaberga" class="logo">
             </div>
             <h2>Login</h2>
+<<<<<<< Updated upstream
             <form id="cadastroForm" action="../index_aluno.html" ><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
+=======
+            <form id="cadastroForm" action="../../controllers/controller_login/controller_login.php" method="POST"><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
+>>>>>>> Stashed changes
                 <div class="input-group">
                     <input type="text" id="username" placeholder=" " required>
                     <label for="email">E-mail Institucional</label>
@@ -280,7 +284,7 @@
                 <div class="forgot-password">
                     <a href="recuperacaodesenha.php">Esqueceu a senha?</a>
                 </div>
-                <button type="submit" class="btn-confirmar">Entrar</button>
+                <button type="submit" class="btn-confirmar" name="login" >Entrar</button>
             </form>
         </div>
     </div>
