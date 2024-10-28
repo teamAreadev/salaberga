@@ -98,19 +98,17 @@ function login($email,$senha){
     require_once('../../config/Database.php');
     try {
         // Primeiro, fazer o SELECT para verificar
-        $querySelect = "SELECT email and senha FROM usuario WHERE email = :email AND senha = :senha";
+        $querySelect = "SELECT email and senha FROM usuario WHERE email = :email AND senha = MD5(:senha)";
         $stmtSelect = $conexao->prepare($querySelect);
         $stmtSelect->bindParam(':email', $email);
         $stmtSelect->bindParam(':senha', $senha);
         $stmtSelect->execute();
-        $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($result)) {
             echo "usuario logado com sucesso";
         } else {
-                // usuário já existe
-                header('Location: ../../controllers/controller_cadastro/controller_cadastro.php?erro2');
-                exit();
+                echo "usuario não existe";
             }
         
     } catch (PDOException $e) {
