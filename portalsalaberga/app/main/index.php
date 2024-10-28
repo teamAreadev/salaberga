@@ -828,7 +828,7 @@
             }
         </style>
 
-        <section id="cursos" class="bg-gray-100 py-12 fade-in" x-data="{ activeSlide: 0 }">
+<section id="cursos" class="bg-gray-100 py-12 fade-in" x-data="{ activeSlide: 0 }">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8 text-ceara-green">Nossos Cursos</h2>
                 <div class="overflow-x-auto">
@@ -837,7 +837,7 @@
                         <!-- Enfermagem -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 0 }">
-                            <img src="../main/assets/img/img-logoscursos/enfermagen.gif" alt="Curso de Enfermagem"
+                            <img src="../main/assets/img/img-logoscursos/enfermagem.jpg" alt="Curso de Enfermagem"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -861,7 +861,7 @@
                         <!-- Informática -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 1 }">
-                            <img src="../main/assets/img/img-logoscursos/informatica.gif" alt="Curso de Informática"
+                            <img src="../main/assets/img/img-logoscursos/informatica.jpg" alt="Curso de Informática"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -886,7 +886,7 @@
                         <!-- Meio Ambiente -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 2 }">
-                            <img src="../main/assets/img/img-logoscursos/meioambiente.gif" alt="Curso de Meio Ambiente"
+                            <img src="../main/assets/img/img-logoscursos/meio_ambiente.jpg" alt="Curso de Meio Ambiente"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -911,7 +911,7 @@
                         <!-- Edificações -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 4 }">
-                            <img src="../main/assets/img/img-logoscursos/edificacoes.gif" alt="Curso de Edificações"
+                            <img src="../main/assets/img/img-logoscursos/edificações.jpg" alt="Curso de Edificações"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -932,7 +932,7 @@
                         </div>
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 3 }">
-                            <img src="../main/assets/img/img-logoscursos/administracao.gif" alt="Curso de Administração"
+                            <img src="../main/assets/img/img-logoscursos/adm.jpg" alt="Curso de Administração"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -955,7 +955,7 @@
                 </div>
             </div>
         </section>
-
+        
         <style>
             .hide-scrollbar {
                 -ms-overflow-style: none;
