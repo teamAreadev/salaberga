@@ -658,7 +658,43 @@
     </script>
 
     <main>
+    <section id="home"
+            class="relative bg-cover bg-center bg-no-repeat min-h-screen flex flex-col items-center justify-center fade-in overflow-hidden">
+            <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
+                <source src="../main/assets/img/background.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
 
+            <!-- Logo -->
+            <div
+                class="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-full md:w-auto flex justify-center md:justify-start">
+                <!-- <img src="img\Design sem nome.svg" alt="Logo da EEEP Salaberga Torquato Gomes de Matos" class="h-16 md:h-14"> -->
+            </div>
+
+            <div class="container mx-auto px-4 text-center relative z-10 mt-20 md:mt-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">EEEP Salaberga
+                    Torquato<br>Gomes de Matos</h1>
+                <p class="text-xl md:text-2xl mb-12 text-white">Educação de qualidade para um futuro brilhante</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#cursos"
+                        class="bg-ceara-white text-ceara-green hover:bg-ceara-orange hover:text-ceara-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 shadow-lg flex items-center justify-center">
+                        <i class="fas fa-graduation-cap mr-2"></i> Conheça nossos cursos
+                    </a> <!--
+                    <a href="../main/views/autenticação/login.php"
+                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-ceara-green font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 shadow-lg flex items-center justify-center">
+                        <i class="fas fa-user mr-2"></i> Login
+                    </a>
+                -->
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 text-center pb-8">
+                <a href="#sobre" class="text-white hover:text-ceara-orange transition duration-300">
+                    <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
+                </a>
+            </div>
+        </section>
+        
     <section class="section lb page-section" id="sobre">
             <div class="container">
                 <div class="section-title row text-center">
