@@ -117,4 +117,8 @@ function login($email,$senha){
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();
     }
+function recSenha($email){
+
+        
+    }
 }
