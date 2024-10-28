@@ -351,7 +351,7 @@
         <nav class="flex items-center justify-between flex-wrap py-4">
             <!-- Accessibility Controls -->
             <div class="flex items-center space-x-2">
-                <span class="text-sm"><b>Acessibilidade</b></span>
+                <span class="text-sm"><b>Acessibilidad</b></span>
                 <button class="text-sm hover:text-ceara-orange transition duration-300 px-1" aria-label="Diminuir tamanho do texto">
                     <i class="fa-solid fa-a"></i><b>-</b>
                 </button>
