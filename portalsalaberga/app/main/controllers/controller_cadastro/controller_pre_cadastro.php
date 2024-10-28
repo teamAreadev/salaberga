@@ -9,7 +9,7 @@ if (isset($_POST['pre_cadastro']) && isset($_POST['preemail']) && isset($_POST['
     pre_cadastro($email, $cpf);
     
 } else {
-    header('location:../../views/autenticação/precadastro.php');
+    header('location:../../views/autenticação/precadastro.php');hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 }
 
 if (isset($_GET['certo'])) {
