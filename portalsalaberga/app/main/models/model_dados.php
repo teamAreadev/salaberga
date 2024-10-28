@@ -93,3 +93,8 @@ function cadastrar($nome, $cpf, $email, $senha)
         echo "Erro no banco de dados: " . $e->getMessage();
     }
 }
+
+function recSenha($email){
+
+        
+}
