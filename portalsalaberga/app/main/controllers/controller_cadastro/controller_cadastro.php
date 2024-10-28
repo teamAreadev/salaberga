@@ -17,12 +17,11 @@ if (isset($_POST['cadastrar']) && isset($_POST['UserName']) && isset($_POST['Cpf
     $nome = $_POST['UserName'];
     $cpf = $_POST['Cpf'];
     $email = $_POST['Email'];
-    $senha = $_POST['Senha'];
+    $senha = $_POST['Password'];
 
-    require_once('../../models/model_cadastro2.php');
+    require_once('../../models/model_dados.php');
     cadastrar($nome, $cpf, $email, $senha);
 } else {
     header('location:../../views/autenticação/cadastro.php?erro1');
     exit();
 }
-?>

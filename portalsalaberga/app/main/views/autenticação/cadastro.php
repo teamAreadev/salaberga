@@ -271,7 +271,7 @@
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="Senha" id="password" placeholder=" " required>
+                    <input type="password" name="Password" id="password" placeholder=" " required>
                     <label for="password">Senha</label>
                     <i class="fas fa-eye toggle-password"></i>
                 </div>

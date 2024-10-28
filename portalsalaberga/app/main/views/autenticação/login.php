@@ -266,18 +266,20 @@
                 <img src="https://i.postimg.cc/ryxHRNkj/lavosier-nas-2.png" alt="Logo EEEP Salaberga" class="logo">
             </div>
             <h2>Login</h2>
-<<<<<<< Updated upstream
+
+            <form id="cadastroForm" action="../../models/model_dados.php" method="POST"><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
+
             <form id="cadastroForm" action="../index_aluno.html" ><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
-=======
+
             <form id="cadastroForm" action="../../controllers/controller_login/controller_login.php" method="POST"><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
->>>>>>> Stashed changes
+
                 <div class="input-group">
-                    <input type="text" id="username" placeholder=" " required>
+                    <input type="text" name="Email" id="username" placeholder=" " required>
                     <label for="email">E-mail Institucional</label>
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" placeholder=" " required>
+                    <input type="password" name="Password" id="password" placeholder=" " required>
                     <label for="password">Senha</label>
                     <i class="fas fa-eye toggle-password"></i>
                 </div>
