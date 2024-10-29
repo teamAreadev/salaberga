@@ -267,7 +267,7 @@
                 <button type="submit" class="btn-confirmar" name="recsenha">Enviar link de recuperação</button>
             </form>
             <div class="back-to-login">
-                <a href="recusenha.html">Voltar para o login</a>
+                <a href="../../views/autenticação/login.php">Voltar para o login</a>
             </div>
         </div>
     </div>
