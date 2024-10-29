@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded', function() {
                          alt="Ajuste de Turmas" 
                          class="app-icon">
                 </div>
-                <h3 class="app-name">Ajuste de Turmas</h3>
+                <h3 class="app-name">Seesp 2024</h3>
                 <span class="category-tag">Gestão</span>
             </div>
         </a>
