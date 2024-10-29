@@ -263,6 +263,23 @@
                 <?php
                 }
                 ?>
+                <?php
+                if (isset($_GET['login']) && $_GET['login'] == 'erro1') {
+                ?>
+
+                    <div class="texto">
+                        Email incorreto ou não cadastrado.</br>
+                        Tente novamente com um email válido.</br>
+                    </div>  
+                    <style>
+                        .texto {
+                            color: red;
+                        }
+                    </style>
+
+                <?php
+                }
+                ?>
 
                 <button type="submit" class="btn-confirmar" name="recsenha">Enviar link de recuperação</button>
             </form>

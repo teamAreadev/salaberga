@@ -223,7 +223,7 @@
                         <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Suporte</a>
                     </nav>
                     <div class="relative group">
-                        <a href="/perfil" class="flex items-center space-x-2 focus:outline-none group">
+                        <a href="../autenticação/perfil.php" class="flex items-center space-x-2 focus:outline-none group">
                             <img src="" alt="Perfil"
                                 class="h-8 w-8 rounded-full bg-white p-1 border-2 border-transparent group-hover:border-[#FFA500] transition-colors duration-300">
                             <span class="hidden sm:inline group-hover:text-[#FFA500] transition-colors duration-300">Meu
