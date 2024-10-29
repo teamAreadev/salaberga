@@ -36,7 +36,6 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <link rel="shortcut icon" href="../main/assets/img/Design sem nome.svg" type="image/x-icon">
 
-   
     <script>
         tailwind.config = {
             theme: {
@@ -151,101 +150,7 @@
             margin: 0 auto;
         }
 
-        .img-bg-01,
-        .img-bg-02,
-        .img-bg-03,
-        .img-bg-04,
-        .img-bg-05,
-        .img-bg-06,
-        .img-bg-07,
-        .img-bg-08,
-        .img-bg-09,
-        .img-bg-10,
-        .img-bg-11,
-        .img-bg-12,
-        .img-bg-13,
-        .img-bg-14,
-        .img-bg-15,
-        .img-bg-16 {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            filter: brightness(0.9);
-        }
-
-        .img-bg-01 {
-            background-image: url();
-        }
-
-        .img-bg-02 {
-            background-image: url(https://eeepsalabergampe.netlify.app/img/salas.jpg);
-        }
-
-        .img-bg-03 {
-            background-image: url(https://eeepsalabergampe.netlify.app/img/kml2.jpges/img-03.jpg);
-        }
-
-        .img-bg-04 {
-            background-image: url(https://eeepsalabergampe.netlify.app/img/klm3.jpg);
-        }
-
-        .img-bg-05 {
-            background-image: url();
-        }
-
-        .img-bg-06 {
-            background-image: url();
-        }
-
-        .img-bg-07 {
-            background-image: url();
-        }
-
-        .img-bg-08 {
-            background-image: url();
-        }
-
-        .img-bg-09 {
-            background-image: url();
-        }
-
-        .img-bg-10 {
-            background-image: url();
-        }
-
-        .img-bg-11 {
-            background-image: url();
-        }
-
-        .img-bg-12 {
-            background-image: url();
-        }
-
-        .img-bg-13 {
-            background-image: url();
-        }
-
-        .img-bg-14 {
-            background-image: url();
-        }
-
-        .img-bg-15 {
-            background-image: url();
-        }
-
-        .img-bg-16 {
-            background-image: url();
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-        }
+     
 
         /* Responsive Adjustments */
         @media (max-width: 1200px) {
@@ -367,14 +272,15 @@
                 </button>
                 <div class="theme-toggle-container">
                     <button class="theme-toggle-btn hover:text-ceara-orange transition duration-300 px-1" aria-label="Opções de visualização" aria-expanded="false">
-                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <i class="fa-solid fa-circle-half-stroke" style="color: white;"></i>
                     </button>
-                    <div class="theme-options" style="color: #000000;">
-                        <button class="theme-option" aria-label="Ativar monocromático">Monocromático</button>
-                        <button class="theme-option" aria-label="Ativar escala de cinza invertida">Escala de cinza invertida</button>
-                        <button class="theme-option" aria-label="Ativar cor invertida">Cor invertida</button>
-                        <button class="theme-option" aria-label="Restaurar cores originais">Cores originais</button>
-                    </div>
+                   <div class="theme-options" style="color: #000000;">
+    <!-- <button class="theme-option" data-theme="dark" aria-label="Alternar modo escuro">Modo Escuro</button> -->
+                    <button class="theme-option" data-theme="monochrome" aria-label="Ativar monocromático">Monocromático</button>
+                    <button class="theme-option" data-theme="inverted-grayscale" aria-label="Ativar escala de cinza invertida">Escala de cinza invertida</button>
+                    <button class="theme-option" data-theme="inverted-color" aria-label="Ativar cor invertida">Cor invertida</button>
+                    <button class="theme-option" data-theme="original" aria-label="Restaurar cores originais">Cores originais</button>
+                </div>
                 </div>
                 <!-- <button id="vlibrasButton" class="hover:text-ceara-orange transition duration-300 px-1" aria-label="VLibras">
                     <img src="../main/assets/img/libras.svg" alt="VLibras" style="border-radius: 14%; width: 24px; height: auto;" class="zoom">
@@ -664,7 +570,7 @@
                 <source src="../main/assets/img/background.mp4" type="video/mp4">
                 Seu navegador não suporta o elemento de vídeo.
             </video>
-            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="absolute inset-0 bg-black opacity-70"></div>
 
             <!-- Logo -->
             <div
@@ -700,7 +606,7 @@
                 <div class="section-title row text-center">
                     <div class="col-md-8 offset-md-2">
                         <h3>Nossa Historia</h3>
-                        <p class="lead">Explore a história de nosso colégio, desde os primeiros dias até os momentos atuais, em uma linha do tempo visual que revela momentos marcantes, conquistas, e mudanças. Acompanhe a transformação de gerações de estudantes, professores e colaboradores que ajudaram a construir essa história de aprendizado e inspiração.</p>
+                      
                     </div>
                 </div><!-- end title -->
                 <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
@@ -711,8 +617,8 @@
                                 style="width: 207.25px; height: 341px;">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-01">
-                                            <h2>2009</h2>
+                                        <div  class="timeline__content img-bg-01 border-2 shadow-md  p-5 rounded-xl  ">
+                                            <h2 style="color:#008C45">2009</h2>
                                             <p>A escola Santa Rita se torna a primeira escola profissionalizante do município, agora chamada de EEEP Santa Rita, oferecendo cursos técnicos em Enfermagem, Informática e Meio Ambiente.</p>
                                         </div>
                                     </div>
@@ -722,8 +628,8 @@
                                 style="width: 207.25px; height: 341px; transform: translateY(341px);">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-02">
-                                            <h2>2011</h2>
+                                        <div class="timeline__content img-bg-02  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2011</h2>
                                             <p>Formamos as primeiras turmas da nossa escola. Técnicos em Enfermagem, Informática e Meio Ambiente.</p>
                                         </div>
                                     </div>
@@ -733,8 +639,8 @@
                                 style="width: 207.25px; height: 341px;">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-03">
-                                            <h2>2014</h2>
+                                        <div class="timeline__content img-bg-03  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2014</h2>
                                             <p>Neste ano deixamos o prédio da Eeep Santa Rita no bairro da Guabiraba para ocupar o prédio atual, passando a se chamar Eeep Salaberga Torquato Gomes de Matos.</p>
                                         </div>
                                     </div>
@@ -744,8 +650,8 @@
                                 style="width: 207.25px; height: 341px; transform: translateY(341px);">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-05">
-                                            <h2>2016</h2>
+                                        <div class="timeline__content img-bg-05  border-2 shadow-md  p-4 rounded-xl">
+                                            <h2 style="color:#008C45">2016</h2>
                                             <p>Os alunos José Carlos, Ana Byatriz e Gabriella Vital representaram o Brasil na 13ª Olimpíada Internacional de Geografia (IGEO) em Pequi - China, depois de concorrer com 35.000 inscritos até a final.</p>
                                         </div>
                                     </div>
@@ -755,8 +661,8 @@
                                 style="width: 207.25px; height: 341px;">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-06">
-                                            <h2>2019</h2>
+                                        <div class="timeline__content img-bg-06  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2019</h2>
                                             <p>Conquistamos o selo escola sustentável de organização da Secretaria Estadual de Educação com validação da Secretaria Estadual de Meio Ambiente.</p>
                                         </div>
                                     </div>
@@ -768,8 +674,8 @@
                                 style="width: 207.25px; height: 341px; transform: translateY(341px);">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-09">
-                                            <h2>2021</h2>
+                                        <div class="timeline__content img-bg-09  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2021</h2>
                                             <p>Nos colocamos no seleto grupo das 100 melhores escolas públicas do país, ficando em 20º do estado. 77 das 100 melhores foram do nosso estado.</p>
                                         </div>
                                     </div>
@@ -779,8 +685,8 @@
                                 style="width: 207.25px; height: 341px;">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-11">
-                                            <h2>2022</h2>
+                                        <div class="timeline__content img-bg-11  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2022</h2>
                                             <p>Os alunos Kaiky Diniz e Leonardo de Sousa conquistaram vaga na final presencial da ONHB em Campinas (Unicamp).</p>
                                         </div>
                                     </div>
@@ -793,8 +699,8 @@
                                 style="width: 207.25px; height: 341px; transform: translateY(341px);">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">   
-                                        <div class="timeline__content img-bg-14">
-                                            <h2>2023</h2>
+                                        <div class="timeline__content img-bg-14  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2023</h2>
                                             <p>É ofertado pela primeira vez o curso técnico em Administração.</p>
                                         </div>
                                     </div>
@@ -805,8 +711,8 @@
                                 style="width: 207.25px; height: 341px;">
                                 <div class="timeline__item__inner">
                                     <div class="timeline__content__wrap">
-                                        <div class="timeline__content img-bg-16">
-                                            <h2>2024</h2>
+                                        <div class="timeline__content img-bg-16  border-2 shadow-md  p-5 rounded-xl">
+                                            <h2 style="color:#008C45">2024</h2>
                                             <p>Representamos o Brasil na primeira Expociência na Costa Rica por meio do projeto das alunas Natassa Uchôa e Gabriele Ferreira. Orientadas pela professora Diva.</p>
                                         </div>
                                     </div>
@@ -837,7 +743,7 @@
                         <!-- Enfermagem -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 0 }">
-                            <img src="../main/assets/img/img-logoscursos/enfermagen.gif" alt="Curso de Enfermagem"
+                            <img src="../main/assets/img/img-logoscursos/enfermagem.jpg" alt="Curso de Enfermagem"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -861,7 +767,7 @@
                         <!-- Informática -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 1 }">
-                            <img src="../main/assets/img/img-logoscursos/informatica.gif" alt="Curso de Informática"
+                            <img src="../main/assets/img/img-logoscursos/informatica.jpg" alt="Curso de Informática"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -886,7 +792,7 @@
                         <!-- Meio Ambiente -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 2 }">
-                            <img src="../main/assets/img/img-logoscursos/meioambiente.gif" alt="Curso de Meio Ambiente"
+                            <img src="../main/assets/img/img-logoscursos/meio_ambiente.jpg" alt="Curso de Meio Ambiente"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -911,7 +817,7 @@
                         <!-- Edificações -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 4 }">
-                            <img src="../main/assets/img/img-logoscursos/edificacoes.gif" alt="Curso de Edificações"
+                            <img src="../main/assets/img/img-logoscursos/edificações.jpg" alt="Curso de Edificações"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -932,7 +838,7 @@
                         </div>
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 3 }">
-                            <img src="../main/assets/img/img-logoscursos/administracao.gif" alt="Curso de Administração"
+                            <img src="../main/assets/img/img-logoscursos/adm.jpg" alt="Curso de Administração"
                                 class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3
@@ -956,127 +862,62 @@
             </div>
         </section>
 
-        <style>
-            .hide-scrollbar {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
+  <style>
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 
-            .hide-scrollbar::-webkit-scrollbar {
-                display: none;
-            }
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-            .perspective {
-                perspective: 1000px;
-            }
+    .card {
+        transition: all 0.5s ease-in-out;
+    }
 
-            .card {
-                transform-style: preserve-3d;
-                transition: transform 0.5s ease;
-            }
+    .carousel {
+        scroll-behavior: smooth;
+    }
 
-            .card:hover {
-                transform: scale(1.05) rotateY(10deg);
-            }
+    .text-xs {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+</style>
 
-            .carousel {
-                scroll-behavior: smooth;
-            }
-
-            .group:hover .group-hover\:opacity-100 {
-                transition: all 0.3s ease-in-out;
-            }
-
-            .card:not(.active) {
-                transform: scale(0.95) translateZ(-100px);
-                opacity: 0.8;
-            }
-
-            .card.active {
-                transform: scale(1) translateZ(0);
-                opacity: 1;
-            }
-
-            .card {
-                transition: all 0.5s ease-in-out;
-            }
-
-            .card:hover {
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-            }
-
-            .perspective {
-                perspective: 2000px;
-                perspective-origin: center;
-            }
-
-            /* Novas classes para o overlay de conteúdo */
-            .content-overlay {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-                padding: 1rem;
-                overflow-y: auto;
-                mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            }
-
-            .content-overlay::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            .content-overlay::-webkit-scrollbar-thumb {
-                background-color: rgba(255, 255, 255, 0.5);
-                border-radius: 3px;
-            }
-
-            .content-overlay::-webkit-scrollbar-track {
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-
-            .text-xs {
-                font-size: 0.75rem;
-                line-height: 1.4;
-            }
-
-            /* Adiciona uma transição suave ao hover */
-            .group-hover\:opacity-100 {
-                transition: opacity 0.3s ease-in-out;
-            }
-        </style>
-
-        <script>
-            function smoothScroll(element, target, duration) {
-                const start = element.scrollLeft;
-                const change = target - start;
-                const startTime = performance.now();
-                function animation(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    element.scrollLeft = start + change * easeInOutQuad(progress);
-                    if (progress < 1) {
-                        requestAnimationFrame(animation);
-                    }
-                }
+<script>
+    function smoothScroll(element, target, duration) {
+        const start = element.scrollLeft;
+        const change = target - start;
+        const startTime = performance.now();
+        
+        function animation(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            element.scrollLeft = start + change * easeInOutQuad(progress);
+            if (progress < 1) {
                 requestAnimationFrame(animation);
             }
+        }
+        requestAnimationFrame(animation);
+    }
 
-            function easeInOutQuad(t) {
-                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-            }
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const carousel = document.querySelector('.carousel');
-                let currentIndex = 0;
-                const cardWidth = 300; // Ajustando a largura da carta
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % 5;
-                    smoothScroll(carousel, currentIndex * cardWidth, 1000);
-                }, 5000);
-            });
-        </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.querySelector('.carousel');
+        let currentIndex = 0;
+        const cardWidth = 300; // Ajustando a largura da carta
+        
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 5;
+            smoothScroll(carousel, currentIndex * cardWidth, 1000);
+        }, 5000);
+    });
+</script>
 
         <!--
 <section id="eventos" class="py-24 fade-in">
@@ -1489,49 +1330,50 @@
             }); 
         </script>
 
-<section id="localizacao" class="py-8">
+ <section id="localizacao" class="py-8">
     <div class="container mx-auto px-4">
-        <h2 class="localfont text-3xl md:text-4xl font-bold text-center mb-6">
-            <b>Localização</b>
-        </h2>
-        <div class="flex flex-col md:flex-row gap-6">
-            <div class="w-full md:w-1/2">
-                <div class="relative overflow-hidden pt-[56.25%]">
+        <h2 class="text-3xl font-bold text-center mb-8 text-ceara-green">Localização</h2>
+        <div class="flex flex-wrap bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Mapa -->
+            <div class="w-full lg:w-3/5">
+                <div class="aspect-w-16 aspect-h-9">
                     <iframe
-                        class="absolute top-0 left-0 w-full h-full"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
-                        style="border:0;"
-                        allowfullscreen=""
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        class="w-full h-full"
+                        allowfullscreen="">
                     </iframe>
                 </div>
             </div>
-            <div class="contact-info w-full md:w-1/2">
-                <h3 class="informefont">Informações de Contato</h3>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-2">
-                        <i class="fas fa-map-marker-alt mt-1"></i>
+            
+            <!-- Informações de Contato -->
+            <div class="w-full lg:w-2/5 bg-[#008C45] p-6 text-white">
+                <h3 class="text-2xl mb-6">Informações de Contato</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-3 text-yellow-500"></i>
                         <span>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE</span>
                     </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-phone"></i>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone mr-3 text-yellow-500"></i>
                         <span>(85) 3101-2100</span>
                     </li>
-                    <li class="flex items-center gap-2">
-                        <i class="fas fa-envelope"></i>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-yellow-500"></i>
                         <span>eeepsalaberga@escola.ce.gov.br</span>
                     </li>
                 </ul>
-                <a href="https://www.google.com/maps/place/Escola+Estadual+de+Educa%C3%A7%C3%A3o+Profissional+Salaberga+Torquato+Gomes+de+Matos/@-3.888242,-38.6765803,17z/"
-                    target="_blank"
-                    class="directions-button">
+                <a href="https://www.google.com/maps?q=EEEP+Salaberga" 
+                   target="_blank"
+                   class="inline-block mt-6 px-6 py-3 bg-black text-white rounded-full hover:bg-blue-600 transition-all">
                     <i class="fas fa-directions mr-2"></i>Como Chegar
                 </a>
             </div>
         </div>
     </div>
 </section>
+
+
     </main>
 
     <footer class="bg-gradient-to-b from-black via-[#000] to-black text-white py-20">
@@ -1561,7 +1403,7 @@
                         <li><a href="https://www.facebook.com/groups/salaberga/"
                                 class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Facebook</a>
                         </li>
-                        <li><a href="#sobre" class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Sobre
+                        <li><a href="#" class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Sobre
                                 Nós</a>
                         </li>
                         <li><a href="#"
