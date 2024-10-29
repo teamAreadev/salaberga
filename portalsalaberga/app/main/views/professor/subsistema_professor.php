@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </a>
 
-        <a href="https://workspace.google.com/business/signup/welcome?hl=pt-BR&source=gafb-lp_forms-canvas-pt-BR&ga_region=latam&ga_country=pt-BR&ga_lang=pt-BR&_gl=1*14z2bof*_up*MQ..&gclid=Cj0KCQjwj4K5BhDYARIsAD1Ly2r08-v6v09C1_OuotK3awQdTXSHXlxviC9seKxX5qc3cwtqn4IR6Z4aAjn1EALw_wcB&gclsrc=aw.ds&__utma=61317162.681955246.1730218478.1730218478.1730218478.1&__utmb=61317162.0.10.1730218515102&__utmc=61317162&__utmx=-&__utmz=61317162.1730218478.1.1.utmcsr=google|utmgclid=Cj0KCQjwj4K5BhDYARIsAD1Ly2r08-v6v09C1_OuotK3awQdTXSHXlxviC9seKxX5qc3cwtqn4IR6Z4aAjn1EALw_wcB|utmgclsrc=aw.ds|utmccn=latam-BR-all-pt-dr-bkws-all-all-trial-e-dr-1707806-LUAC0011908|utmcmd=cpc|utmctr=KW_google%20forms-ST_google%20forms|utmcct=text-ad-none-any-DEV_c-CRE_477535133211-ADGP_Hybrid%20|%20BKWS%20-%20EXA%20|%20Txt-Forms-KWID_43700057676889044-kwd-10647024857&__utmv=-&__utmk=148067696">
+        <a href="https://docs.google.com/forms/u/0/">
             <div class="app-card">
                 <div class="icon-wrapper">
                     <img src="https://i.postimg.cc/Vkfm4T7j/png-transparent-g-suite-form-google-surveys-email-house-purple-violet-rectangle-removebg-preview.png" 
