@@ -51,7 +51,7 @@ verificarSessao(10);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
-    <title>FUN | Professores</title>
+    <title>Subsistema professor | EEEP Salaberga</title>
     
     <script>
         tailwind.config = {

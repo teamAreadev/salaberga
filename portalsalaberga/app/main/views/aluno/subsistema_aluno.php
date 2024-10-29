@@ -52,7 +52,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
-    <title>FUN</title>
+    <title>Subsistema aluno | EEEP Salaberga</title>
     <style>
         :root {
             --background-color: #f0f7ff;
