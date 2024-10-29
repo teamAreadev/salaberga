@@ -400,7 +400,7 @@ verificarSessao(10);
                         <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
                     </div>
                     <span class="text-sm font-medium text-gray-700 hover:text-primary transition-colors duration-300">
-                        Meu Perfil
+                        <a href="../autenticação/perfil.php">Meu Perfil</a>
                     </span>
                 </div>
             </nav>

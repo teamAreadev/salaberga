@@ -114,7 +114,7 @@ function login($email, $senha)
         $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
 
 
-        $querySelectC = "SELECT telefone FROM cliente WHERE id = '{$result['id']}'";
+        $querySelectC = "SELECT telefone, nome FROM cliente WHERE id = '{$result['id']}'";
         $stmtSelectC = $conexao->query($querySelectC);
         $resultC = $stmtSelectC->fetch(PDO::FETCH_ASSOC);
         
@@ -123,6 +123,7 @@ function login($email, $senha)
 
         if (!empty($result) && $result['tipo'] == 'aluno') {
             $_SESSION['Telefone'] = $resultC['telefone'];
+            $_SESSION['Nome'] = $resultC['nome'];
             $_SESSION['login'] = true;
             $_SESSION['Email'] = $email;
             $_SESSION['aluno'] = true;
@@ -130,9 +131,11 @@ function login($email, $senha)
             exit();
         } else if (!empty($result) && $result['tipo'] == 'professor') {
             $_SESSION['Telefone'] = $resultC['telefone'];
+            $_SESSION['Nome'] = $resultC['nome'];
             $_SESSION['login'] = true;
             $_SESSION['Email'] = $email;
             $_SESSION['professor'] = true;
+            print_r($resultC['nome']) ;
             header('Location: ../controller_login/controller_login.php?login=p');
             exit();
         } else if (empty($result)) {
@@ -223,7 +226,7 @@ function alterarTelefone($telefone)
             $stmtUpdate->bindParam(':telefone', $telefone);
             $stmtUpdate->execute();
             $resultUpdate = $stmtUpdate->fetchAll(PDO::FETCH_ASSOC);
-            
+
        }
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());

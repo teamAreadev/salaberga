@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); print_r($_SESSION);?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -347,7 +347,7 @@
                     </div>
 
                     <div>
-                        <h2 class="text-3xl md:text-3xl font-bold mb-2" id="nomeDisplay">Nome do Usuário</h2>
+                        <h2 class="text-3xl md:text-3xl font-bold mb-2" id="nomeDisplay"><?php $_SESSION['Nome']; ?></h2>
                         <p class="text-sm md:text-base opacity-75">Aluno da EEEP Salaberga</p>
                     </div>
                 </div>
