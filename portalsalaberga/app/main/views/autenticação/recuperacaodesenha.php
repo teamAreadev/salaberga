@@ -247,7 +247,7 @@
                 </div>
 
                 <?php
-                if (isset($_GET['login']) && $_GET['login'] == 'erro' ) {
+                if (isset($_GET['login']) && $_GET['login'] == 'erro') {
                 ?>
 
                     <div class="texto">

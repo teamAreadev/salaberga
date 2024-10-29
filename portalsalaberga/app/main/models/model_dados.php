@@ -136,38 +136,30 @@ function login($email, $senha)
 
 function recSenha($email)
 {
-
-    if (!isset($_SESSION['recsenha']) && !$_SESSION['recsenha']){
-    //variaveis
-    $nome = "Salaberga.com";
-    $data_envio = date('d/m/Y');
-    $hora_envio = date('H:i:s');
-
-    //corpo email
-    $arquivo = "
+    if (!isset($_SESSION['recsenha']) || $_SESSION['recsenha'] === false) {    
+        //variaveis
+        $nome = "Salaberga.com";
+        $data_envio = date('d/m/Y');
+        $hora_envio = date('H:i:s');
+        //corpo email
+        $arquivo = "
 <html>
     <p><b>E-mail: </b>$email</p>
     <p>Este email foi enviado em <b>$data_envio</b> as <b>$hora_envio</b></p>
 </html>
 ";
-
-    //emails para quem será enviado o formulário
-    $destino = $email;
-    $assunto = "contato pelo site";
-
-    //este sempre devera existir para garantir a exibição correta dos caracteres
-
-    $headers = "MINE-Version: 1.0\n";
-    $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-    $headers .= "From: $nome <$email>";
-
-    //enviar
-
-    mail($destino, $assunto, $arquivo, $headers);
-
-    echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
-
+        //emails para quem será enviado o formulário
+        $destino = $email;
+        $assunto = "contato pelo site";
+        //este sempre devera existir para garantir a exibição correta dos caracteres
+        $headers = "MIME-Version: 1.0\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+        $headers .= "From: $nome <$email>";
+        //enviar
+        mail($destino, $assunto, $arquivo, $headers);
+        echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
     } else {
         header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro');
-    }
+        exit();
+    } 
 }

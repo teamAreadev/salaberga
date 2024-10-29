@@ -1,12 +1,12 @@
-
 <?php
 session_start();
 $_SESSION['recsenha'] = true;
 require_once('../../controllers/controller_sessao/verificar_sessao.php');
-    verificarSessao(3600);
+verificarSessao(3600);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -262,12 +262,12 @@ require_once('../../controllers/controller_sessao/verificar_sessao.php');
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('alterarSenhaForm');
             const togglePasswordIcons = document.querySelectorAll('.toggle-password');
 
             togglePasswordIcons.forEach(icon => {
-                icon.addEventListener('click', function () {
+                icon.addEventListener('click', function() {
                     const input = this.previousElementSibling.previousElementSibling;
                     const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
                     input.setAttribute('type', type);
@@ -276,7 +276,7 @@ require_once('../../controllers/controller_sessao/verificar_sessao.php');
                 });
             });
 
-            form.addEventListener('submit', function (e) {
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const novaSenha = document.getElementById('novaSenha').value;
                 const confirmarSenha = document.getElementById('confirmarSenha').value;
