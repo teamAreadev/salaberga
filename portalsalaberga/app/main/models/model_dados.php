@@ -10,7 +10,7 @@ function pre_cadastro($email, $cpf)
 {
 
     require_once('../../config/Database.php');
-    
+
     try {
         // Usando prepared statements para prevenir SQL injection
         $stmtSelect = "SELECT email, cpf FROM usuario WHERE email = :email AND cpf = :cpf";
@@ -23,7 +23,7 @@ function pre_cadastro($email, $cpf)
         // Executa a consulta
         $stmt->execute();
         $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
         if (!empty($dados)) {
             //se os dados tiverem corretos 
             $_SESSION['precadastro'] = true;
@@ -54,7 +54,7 @@ function cadastrar($nome, $cpf, $email, $senha)
         $stmtSelect->bindParam(':cpf', $cpf);
         $stmtSelect->execute();
         $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
-        
+
 
         if (!empty($result)) {
             // Usuário já existe, realizar update da senha
@@ -112,9 +112,9 @@ function login($email, $senha)
         $stmtSelect->bindParam(':senha', $senha);
         $stmtSelect->execute();
         $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
-        
-                
-        if (!empty($result) && $result['tipo'] == 'aluno' ) {
+
+
+        if (!empty($result) && $result['tipo'] == 'aluno') {
             $_SESSION['login'] = true;
             $_SESSION['aluno'] = true;
             header('Location: ../controller_login/controller_login.php?login=a');
@@ -128,10 +128,46 @@ function login($email, $senha)
             header('Location: ../controller_login/controller_login.php?login=erro');
             exit();
         }
-
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();
     }
 }
-?>
+
+function recSenha($email)
+{
+
+    if (!isset($_SESSION['recsenha']) && !$_SESSION['recsenha']){
+    //variaveis
+    $nome = "Salaberga.com";
+    $data_envio = date('d/m/Y');
+    $hora_envio = date('H:i:s');
+
+    //corpo email
+    $arquivo = "
+<html>
+    <p><b>E-mail: </b>$email</p>
+    <p>Este email foi enviado em <b>$data_envio</b> as <b>$hora_envio</b></p>
+</html>
+";
+
+    //emails para quem será enviado o formulário
+    $destino = $email;
+    $assunto = "contato pelo site";
+
+    //este sempre devera existir para garantir a exibição correta dos caracteres
+
+    $headers = "MINE-Version: 1.0\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+    $headers .= "From: $nome <$email>";
+
+    //enviar
+
+    mail($destino, $assunto, $arquivo, $headers);
+
+    echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
+
+    } else {
+        header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro');
+    }
+}
