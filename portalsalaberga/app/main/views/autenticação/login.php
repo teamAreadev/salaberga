@@ -266,11 +266,7 @@
                 <img src="https://i.postimg.cc/ryxHRNkj/lavosier-nas-2.png" alt="Logo EEEP Salaberga" class="logo">
             </div>
             <h2>Login</h2>
-
-            <form id="cadastroForm" action="../../models/model_dados.php" method="POST"><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
-
-            <form id="cadastroForm" action="../index_aluno.html" ><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
-
+            
             <form id="cadastroForm" action="../../controllers/controller_login/controller_login.php" method="POST"><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
 
                 <div class="input-group">
@@ -286,6 +282,25 @@
                 <div class="forgot-password">
                     <a href="recuperacaodesenha.php">Esqueceu a senha?</a>
                 </div>
+                
+                <?php
+                if (isset($_GET['login']) && $_GET['login'] == 'erro') {
+                    echo '<br>';
+                ?>
+
+                    <div class="texto">
+                        Dados de login incorreto(s)
+                    </div>
+                    <style>
+                        .texto {
+                            color: red;
+                        }
+                    </style>
+
+                <?php
+                echo '<br>';}
+                ?>
+                
                 <button type="submit" class="btn-confirmar" name="login" >Entrar</button>
             </form>
         </div>

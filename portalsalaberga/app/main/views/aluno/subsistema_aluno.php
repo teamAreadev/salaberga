@@ -1,4 +1,4 @@
-    <!-- //DEV SGTM (SALABERGA TORQUATO GOMES DE MATOS)
+<!-- //DEV SGTM (SALABERGA TORQUATO GOMES DE MATOS)
 
         S S S S S S S S
     S S S S S S S S S S
@@ -38,7 +38,12 @@
         Qual é o seu superpoder? Talvez seja curiosidade já que você está olhando nosso código fonte.
         What’s your superpower? Perhaps it’s curiosity since you are looking at our source code. -->
 
-
+<?php
+    require_once('../../controllers/controller_sessao/autenticar_sessao.php');
+    require_once('../../controllers/controller_sessao/verificar_sessao.php');
+    verificarSessao(10);
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -46,7 +51,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="https://i.postimg.cc/8czCMpqx/Design-sem-nome-70-removebg-preview.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://i.postimg.cc/8czCMpqx/Design-sem-nome-70-removebg-preview.png"
+        type="image/x-icon">
     <title>FUN</title>
     <style>
         :root {
@@ -200,65 +206,66 @@
 </head>
 
 <body>
-<header class="bg-[#007A33] text-white py-2 px-4 sm:px-6 shadow-lg fixed top-0 left-0 right-0 z-50">
-    <div class="container mx-auto">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <img src="img/Design sem nome.svg" alt="Logo"
-                    class="h-10 w-auto">
-                <h1 class="text-xl sm:text-2xl font-semibold tracking-tight">
-                    <span class="text-[#FFA500]">Fun</span>cionalidades
-                </h1>
-            </div>
-            <div class="flex items-center space-x-4">
-                <nav class="hidden md:flex space-x-4">
-                    <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Início</a>
-                    <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Serviços</a>
-                    <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Suporte</a>
-                </nav>
-                <div class="relative group">
-                    <a href="/perfil" class="flex items-center space-x-2 focus:outline-none group">
-                        <img src="" alt="Perfil"
-                            class="h-8 w-8 rounded-full bg-white p-1 border-2 border-transparent group-hover:border-[#FFA500] transition-colors duration-300">
-                        <span class="hidden sm:inline group-hover:text-[#FFA500] transition-colors duration-300">Meu
-                            Perfil</span>
-                        <svg class="h-4 w-4 fill-current group-hover:text-[#FFA500] transition-colors duration-300"
-                            viewBox="0 0 20 20">
-                            <path
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                        </svg>
-                    </a>
-                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block">
-                        <a href="/configuracoes"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FFA500] hover:text-white">Configurações</a>
-                        <a href="/sair"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FFA500] hover:text-white">Sair</a>
-                    </div>
+
+    <header class="bg-[#007A33] text-white py-2 px-4 sm:px-6 shadow-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="img/Design sem nome.svg" alt="Logo" class="h-10 w-auto">
+                    <h1 class="text-xl sm:text-2xl font-semibold tracking-tight">
+                        <span class="text-[#FFA500]">Fun</span>cionalidades
+                    </h1>
                 </div>
-                <button
-                    class="md:hidden text-white focus:outline-none hover:text-[#FFA500] transition-colors duration-300">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
+                <div class="flex items-center space-x-4">
+                    <nav class="hidden md:flex space-x-4">
+                        <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Início</a>
+                        <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Serviços</a>
+                        <a href="#" class="text-white hover:text-[#FFA500] transition-colors duration-300">Suporte</a>
+                    </nav>
+                    <div class="relative group">
+                        <a href="/perfil" class="flex items-center space-x-2 focus:outline-none group">
+                            <img src="" alt="Perfil"
+                                class="h-8 w-8 rounded-full bg-white p-1 border-2 border-transparent group-hover:border-[#FFA500] transition-colors duration-300">
+                            <span class="hidden sm:inline group-hover:text-[#FFA500] transition-colors duration-300">Meu
+                                Perfil</span>
+                            <svg class="h-4 w-4 fill-current group-hover:text-[#FFA500] transition-colors duration-300"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                            </svg>
+                        </a>
+                        <div
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block">
+                            <a href="/configuracoes"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FFA500] hover:text-white">Configurações</a>
+                            <a href="/sair"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FFA500] hover:text-white">Sair</a>
+                        </div>
+                    </div>
+                    <button
+                        class="md:hidden text-white focus:outline-none hover:text-[#FFA500] transition-colors duration-300">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
+            <!-- Menu móvel -->
+            <nav class="hidden md:hidden mt-4 space-y-2">
+                <a href="#" class="block text-white hover:text-[#FFA500] transition-colors duration-300">Início</a>
+                <a href="#" class="block text-white hover:text-[#FFA500] transition-colors duration-300">Serviços</a>
+                <a href="#" class="block text-white hover:text-[#FFA500] transition-colors duration-300">Suporte</a>
+            </nav>
         </div>
-        <!-- Menu móvel -->
-        <nav class="hidden md:hidden mt-4 space-y-2">
-            <a href="#" class="block text-white hover:text-[#FFA500] transition-colors duration-300">Início</a>
-            <a href="#" class="block text-white hover:text-[#FFA500] transition-colors duration-300">Serviços</a>
-            <a href="#" class="block text-white hover:text-[#FFA500] transition-colors duration-300">Suporte</a>
-        </nav>
-    </div>
-</header>
+    </header>
     <main>
         <div class="app-grid">
-         <a href="index_aluno.php" class="app-icon">
-            <div class="icon"><img src="img\Design sem nome.svg" alt="Salas Virtuais"></div>
-        <span class="app-name">Portal Stgm</span>
-          </a>
+            <a href="index_aluno.php" class="app-icon">
+                <div class="icon"><img src="img\Design sem nome.svg" alt="Salas Virtuais"></div>
+                <span class="app-name">Portal Stgm</span>
+            </a>
             <a href="/suporte" class="app-icon">
                 <div class="icon"><img src="https://i.postimg.cc/cHVHnLbG/apoio-suporte.png" alt="Salas Virtuais"></div>
                 <span class="app-name">Suporte tecnico</span>
