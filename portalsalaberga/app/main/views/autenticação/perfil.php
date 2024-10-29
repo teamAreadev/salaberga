@@ -7,114 +7,30 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-        body {
+  
+  body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ffb84d6b 0%, #008c46c4 100%);
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(0, 140, 69, 0.2) 100%);
         }
 
         .glass-effect {
-            background: #005A24;
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(46, 125, 50, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 140, 69, 0.15);
         }
 
         .profile-header {
-            background: linear-gradient(90deg, #008C45 0%, #ff8c00a5 90%);
+            background: linear-gradient(90deg, #008C45 0%, #FFA500 100%);
         }
 
-        .profile-icon {
-            border: 4px solid white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .profile-icon:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .progress-bar {
-            transition: width 1s ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
-            }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .editable {
-            border-bottom: 2px dashed #005A24;
-            padding: 4px 8px;
-            border-radius: 4px;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .editable:focus {
-            outline: none;
-            border-color: #ff8c00;
-            box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #005A24;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .back-button:hover {
-            background-color: #005a24c7;
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .back-button:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
-        }
-
-        /* Novos estilos para os botões */
+        /* Botões e controles atualizados */
         .action-button {
-            background: linear-gradient(90deg, #008C45 0%, #00a651 90%);
+            background: #008C45;
             color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 12px 16px; /* Padding padrão */
+            border-radius: 8px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
@@ -122,33 +38,16 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 140, 69, 0.2);
         }
 
         .action-button:hover {
+            background: #006633;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .action-button.edit {
-            background: linear-gradient(90deg, #008C45 0%, #00a651 90%);
-        }
-
-        .action-button.password {
-            background: linear-gradient(90deg, #ff8c00 0%, #ffa500 90%);
-        }
-
-        .action-button.delete {
-            background: linear-gradient(90deg, #dc3545 0%, #ff4444 90%);
-        }
-
-        .action-button.logout {
-            background: linear-gradient(90deg, #6c757d 0%, #868e96 90%);
-        }
-
-        /* Estilos para os ícones de foto */
         .photo-control {
-            background: linear-gradient(90deg, #008C45 0%, #00a651 90%);
+            background: #008C45;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -158,35 +57,106 @@
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .photo-control:hover {
+            background: #006633;
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .photo-control.delete {
-            background: linear-gradient(90deg, #dc3545 0%, #ff4444 90%);
+        /* Navegação e tabs */
+        .tab-link {
+            color: #008C45;
+            border-color: #008C45;
         }
 
-        /* Responsividade */
+        .tab-link:hover {
+            color: #006633;
+            border-color: #006633;
+        }
+
+        /* Modal updates */
+        .modal-content {
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 140, 69, 0.25);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Responsividade melhorada */
         @media (max-width: 640px) {
-            .back-button {
-                top: 10px;
-                left: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
+            .profile-header {
+                padding: 20px;
+            }
+            
+            .action-button {
+                padding: 8px 12px; /* Padding reduzido para dispositivos móveis */
+                font-size: 14px; /* Tamanho de fonte reduzido */
+                margin-bottom: 8px;
+                width: auto; /* Remover largura total para botões menores */
             }
 
-            .action-button {
-                width: 100%;
-                margin-bottom: 10px;
+            .photo-control {
+                width: 36px;
+                height: 36px;
             }
         }
 
-        /* Tooltip */
+        /* Tooltips melhorados */
+        .tooltip:before {
+            background: rgba(0, 140, 69, 0.95);
+            font-weight: 500;
+            padding: 8px 12px;
+            font-size: 13px;
+            border-radius: 6px;
+        }
+
+        #logoutBtn {
+            background: #dc3545;
+        }
+
+        #logoutBtn:hover {
+            background: #c82333;
+        }
+
+        .photo-control {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .photo-control:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* Adicionar animação de fade para o preview da imagem */
+        #profileIcon {
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo para o tooltip */
         .tooltip {
             position: relative;
         }
@@ -197,147 +167,365 @@
             bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
-            padding: 5px 10px;
-            background: rgba(0, 90, 36, 0.9);
+            padding: 4px 8px;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             font-size: 12px;
             border-radius: 4px;
+            white-space: nowrap;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            white-space: nowrap;
         }
 
         .tooltip:hover:before {
             opacity: 1;
             visibility: visible;
-            bottom: 120%;
         }
-    </style>
+
+        .modal {
+            animation: fadeIn 0.3s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal input {
+            transition: all 0.3s ease;
+        }
+
+        .modal input:focus {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .modal button {
+            transition: all 0.2s ease;
+        }
+
+        .modal button:hover {
+            transform: translateY(-1px);
+        }
+
+        .modal button:active {
+            transform: translateY(0px);
+        }
+
+</style>
 </head>
-<body>
-    <!-- Botão Voltar -->
-    <a aria-label='Voltar para a página inicial' class='back-button' href="javascript:history.back()">
-        <i class="fas fa-arrow-left"></i>
+<body class="fade-in">
+    <a aria-label='Voltar para a página inicial' class='back-button fixed top-4 left-4 text-ceara-green hover:text-ceara-orange transition-colors' href="javascript:history.back()">
+        <i class="fas fa-arrow-left text-2xl"></i>
     </a>
 
-    <!-- Container Principal -->
     <div class="min-h-screen flex items-center justify-center p-4">
-        <div class="glass-effect w-full max-w-4xl">
-            <!-- Cabeçalho do Perfil -->
+        <div class="glass-effect w-full max-w-4xl animate-fadeIn">
             <div class="profile-header text-white p-6 md:p-10 text-center md:text-left md:flex md:items-center md:justify-between rounded-t-2xl">
                 <div class="md:flex md:items-center">
                     <div class="relative">
-                        <img id="profileIcon" src="https://via.placeholder.com/80" alt="Profile Icon"
-                            class="w-24 h-24 rounded-full profile-icon mx-auto md:mx-0 mb-4 md:mb-0 md:mr-6 pulse">
-                        <div class="absolute bottom-0 right-0 flex hidden" id="photoControls">
-                            <label for="profilePicture" class="photo-control tooltip mr-2" data-tooltip="Adicionar foto">
+                        <img id="profileIcon" src="https://via.placeholder.com/80" alt="Profile Icon" 
+                             class="w-24 h-24 rounded-full profile-icon mx-auto md:mx-0 mb-4 md:mb-0 md:mr-6 border-4 border-white">
+                        <div class="absolute bottom-0 right-0 flex " id="photoControls">
+                            <label for="profilePicture" class="photo-control tooltip mr-2 cursor-pointer" data-tooltip="Adicionar foto">
                                 <i class="fas fa-camera"></i>
                             </label>
-                            <button id="deletePhotoBtn" class="photo-control delete tooltip" data-tooltip="Remover foto">
+                            <button id="deletePhotoBtn" class="photo-control tooltip" data-tooltip="Remover foto">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
-                        <input type="file" id="profilePicture" class="hidden" accept="image/*">
+                        <input type="file" 
+                               id="profilePicture" 
+                               class="hidden" 
+                               accept="image/png, image/jpeg, image/gif"
+                               capture="user">
                     </div>
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-2" id="nomeDisplay"></h2>
+                        <h2 class="text-3xl md:text-3xl font-bold mb-2" id="nomeDisplay">Nome do Usuário</h2>
                         <p class="text-sm md:text-base opacity-75">Aluno da EEEP Salaberga</p>
                     </div>
                 </div>
-
-                <!-- Botões de Ação -->
                 <div class="flex flex-col md:flex-row gap-3 mt-6 md:mt-0">
-                    <button id="editProfileBtn" class="action-button edit">
-                        <i class="fas fa-edit"></i>
-                        Editar Perfil
+                    <button id="editProfileBtn" class="action-button">
+                        <i class="fas fa-edit"></i> Editar Perfil
                     </button>
-                    <a href="/alterar-senha" class="action-button password">
-                        <i class="fas fa-key"></i>
-                        Mudar Senha
+                    <a href="/alterar-senha" class="action-button">
+                        <i class="fas fa-key"></i> Mudar Senha
                     </a>
-                    <button id="deleteProfileBtn" class="action-button delete">
-                        <i class="fas fa-user-times"></i>
-                        Excluir Perfil
-                    </button>
-                    <button id="logoutBtn" class="action-button logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Sair
+                    <button id="logoutBtn" class="action-button">
+                        <i class="fas fa-sign-out-alt"></i> Sair
                     </button>
                 </div>
             </div>
 
-            <!-- Conteúdo do Perfil -->
             <div class="bg-white rounded-b-2xl">
                 <div class="border-b border-gray-200">
                     <nav class="flex -mb-px">
-                        <a href="#" class="tab-link w-full py-4 px-1 text-center border-b-2 font-medium text-sm leading-5 text-blue-600 border-blue-500 focus:outline-none focus:text-blue-800 focus:border-blue-700" data-tab="info">
+                        <a href="#" class="tab-link w-full py-4 px-1 text-center border-b-2 font-medium text-sm leading-5" data-tab="info">
                             Informações
                         </a>
                     </nav>
                 </div>
-
-                <!-- Informações do Perfil -->
-                <div id="infoTab" class="tab-content active p-6 md:p-10">
+                <div id="infoTab" class="tab-content active p-6 md:p-10 fade-in">
                     <h3 class="text-xl font-semibold text-gray-700 mb-4">Informações Pessoais</h3>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div>
+                        <div class="info-card p-4 rounded-lg bg-gray-50">
                             <label class="block text-sm font-medium text-gray-500">Matrícula</label>
-                            <p id="matriculaDisplay" class="mt-1 text-lg text-gray-900 font-medium"></p>
+                            <p id="matriculaDisplay" class="mt-1 text-lg text-gray-900 font-medium">123456</p>
                         </div>
-                        <div>
+                        <div class="info-card p-4 rounded-lg bg-gray-50">
                             <label class="block text-sm font-medium text-gray-500">E-mail</label>
-                            <p id="emailDisplay" class="mt-1 text-lg text-gray-900 font-medium"></p>
+                            <p id="emailDisplay" class="mt-1 text-lg text-gray-900 font-medium">usuario@example.com</p>
                         </div>
-                        <div>
+                        <div class="info-card p-4 rounded-lg bg-gray-50">
                             <label class="block text-sm font-medium text-gray-500">Telefone</label>
-                            <p id="telefoneDisplay" class="mt-1 text-lg text-gray-900 font-medium"></p>
+                            <p id="telefoneDisplay" class="mt-1 text-lg text-gray-900 font-medium">(00) 00000-0000</p>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Confirmação de Exclusão -->
-    <div id="deleteConfirmModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+    <div id="logoutConfirmModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="modal-content relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <div class="mt-3 text-center">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Excluir Perfil</h3>
-                <div class="mt-2 px-7 py-3">
-                    <p class="text-sm text-gray-500" id="modalMessage"></p>
-                </div>
-                <div class="items-center px-4 py-3">
-                    <button id="confirmDelete" class="action-button delete w-full mb-2">
-                        Excluir
-                    </button>
-                    <button id="cancelDelete" class="action-button w-full">
-                        Cancelar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Confirmação de Logout -->
-    <div id="logoutConfirmModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div class="mt-3 text-center">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Sair da Conta</h3>
+                <h3 class="text-lg font-medium text-gray-900">Sair da Conta</h3>
                 <div class="mt-2 px-7 py-3">
                     <p class="text-sm text-gray-500">Tem certeza que deseja sair da sua conta?</p>
                 </div>
                 <div class="items-center px-4 py-3">
-                    <button id="confirmLogout" class="action-button logout w-full mb-2">
-                        Confirmar
-                    </button>
-                    <button id="cancelLogout" class="action-button w-full">
-                        Cancelar
-                    </button>
+                    <button id="confirmLogout" class="action-button w-full mb-2">Confirmar</button>
+                    <button id="cancelLogout" class="action-button w-full">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
+    <script>
 
-    </body>
-    </html>
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // Variáveis para elementos do DOM
+    const profilePicture = document.getElementById('profilePicture');
+    const profileIcon = document.getElementById('profileIcon');
+    const photoControls = document.getElementById('photoControls');
+    const deletePhotoBtn = document.getElementById('deletePhotoBtn');
+    const editProfileBtn = document.getElementById('editProfileBtn');
+    const emailDisplay = document.getElementById('emailDisplay');
+    const telefoneDisplay = document.getElementById('telefoneDisplay');
+    
+    let isEditing = false;
+
+    // Função para formatar telefone
+    const formatPhone = (value) => {
+        if (!value) return "";
+        value = value.replace(/\D/g,'');
+        value = value.replace(/(\d{2})(\d)/,"($1)$2");
+        value = value.replace(/(\d{5})(\d)/,"$1-$2");
+        return value;
+    };
+
+    // Função para validar email
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
+
+    // Função para mostrar notificações
+    const showNotification = (message, type = 'success') => {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 p-4 rounded-lg ${
+            type === 'success' ? 'bg-green-500' : 'bg-red-500'
+        } text-white z-50`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
+    };
+
+    // Gerenciamento de foto de perfil
+    profilePicture.addEventListener('change', async function(e) {
+        const file = e.target.files[0];
+        
+        if (file) {
+            if (file.size > 5 * 1024 * 1024) {
+                showNotification('A imagem deve ter menos de 5MB', 'error');
+                return;
+            }
+
+            if (!file.type.match('image.*')) {
+                showNotification('Por favor, selecione apenas imagens', 'error');
+                return;
+            }
+
+            try {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileIcon.src = e.target.result;
+                    localStorage.setItem('profileImage', e.target.result);
+                    showNotification('Foto atualizada com sucesso!');
+                };
+                reader.readAsDataURL(file);
+            } catch (error) {
+                showNotification('Erro ao carregar a imagem', 'error');
+            }
+        }
+    });
+
+    // Deletar foto
+    deletePhotoBtn.addEventListener('click', function() {
+        profileIcon.src = 'https://via.placeholder.com/80';
+        localStorage.removeItem('profileImage');
+        showNotification('Foto removida com sucesso!');
+    });
+
+    // Editar perfil
+    editProfileBtn.addEventListener('click', async function() {
+        const editModal = document.createElement('div');
+        editModal.classList.add('modal', 'fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center', 'bg-black', 'bg-opacity-50');
+        editModal.innerHTML = `
+            <div class="modal-content bg-white rounded-lg p-6 max-w-md w-full mx-4">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-edit mr-2"></i>
+                    <h2 class="text-xl font-semibold">Editar Perfil</h2>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-500">E-mail</label>
+                    <input type="email" 
+                           id="editEmail" 
+                           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 
+                                  focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                           value="${emailDisplay.textContent}">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-500">Telefone</label>
+                    <input type="tel" 
+                           id="editTelefone" 
+                           maxlength="14"
+                           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2
+                                  focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                           value="${telefoneDisplay.textContent}">
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button id="cancelEdit" 
+                            class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">
+                        Cancelar
+                    </button>
+                    <button id="saveEdit" 
+                            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(editModal);
+
+        // Adicionar máscara ao campo de telefone
+        const telefoneInput = document.getElementById('editTelefone');
+        telefoneInput.addEventListener('input', function(e) {
+            e.target.value = formatPhone(e.target.value);
+        });
+
+        const closeEditModal = () => {
+            editModal.remove();
+        };
+
+        document.getElementById('cancelEdit').addEventListener('click', closeEditModal);
+
+        // Evento para salvar edição
+        document.getElementById('saveEdit').addEventListener('click', async function() {
+            const editEmail = document.getElementById('editEmail').value.trim();
+            const editTelefone = document.getElementById('editTelefone').value.trim();
+
+            // Validação dos campos
+            if (!editEmail || !editTelefone) {
+                showNotification('Por favor, preencha todos os campos', 'error');
+                return;
+            }
+
+            // Validação de email
+            if (!validateEmail(editEmail)) {
+                showNotification('Por favor, insira um email válido', 'error');
+                return;
+            }
+
+            // Validação do formato do telefone
+            if (editTelefone.replace(/\D/g,'').length !== 11) {
+                showNotification('Por favor, insira um telefone válido com DDD', 'error');
+                return;
+            }
+
+            try {
+                // Salvar as informações
+                localStorage.setItem('email', editEmail);
+                localStorage.setItem('telefone', editTelefone);
+
+                // Atualizar informações exibidas
+                emailDisplay.textContent = editEmail;
+                telefoneDisplay.textContent = editTelefone;
+
+                showNotification('Perfil atualizado com sucesso!');
+                closeEditModal();
+            } catch (error) {
+                showNotification('Erro ao atualizar perfil', 'error');
+            }
+        });
+    });
+
+    // Fechar modal ao clicar fora
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            e.target.remove();
+        }
+    });
+
+    // Fechar modal com ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.remove();
+            });
+        }
+    });
+
+    // Carregar dados salvos
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+        profileIcon.src = savedImage;
+    }
+
+    const savedEmail = localStorage.getItem('email');
+    if (savedEmail) {
+        emailDisplay.textContent = savedEmail;
+    }
+
+    const savedTelefone = localStorage.getItem('telefone');
+    if (savedTelefone) {
+        telefoneDisplay.textContent = savedTelefone;
+    }
+}); 
+    </script>
+</body>
