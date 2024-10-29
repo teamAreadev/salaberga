@@ -1,4 +1,4 @@
-<?php session_start(); print_r($_SESSION);?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -347,8 +347,13 @@
                     </div>
 
                     <div>
-                        <h2 class="text-3xl md:text-3xl font-bold mb-2" id="nomeDisplay"><?php $_SESSION['Nome']; ?></h2>
-                        <p class="text-sm md:text-base opacity-75">Aluno da EEEP Salaberga</p>
+                        <h2 class="text-3xl md:text-3xl font-bold mb-2" id="nomeDisplay">
+                            <?php echo $_SESSION['Nome']; ?></h2>
+                        <?php if (isset($_SESSION['Tipo']) && $_SESSION['Tipo'] == 'aluno') { ?>
+                            <p class="text-sm md:text-base opacity-75">Aluno da EEEP Salaberga</p>
+                        <?php } else { ?>
+                            <p class="text-sm md:text-base opacity-75">Professor da EEEP Salaberga</p>
+                        <?php } ?>
                     </div>
                 </div>
 
@@ -380,13 +385,15 @@
                         <div class="info-card p-4 rounded-lg bg-gray-50">
                             <label class="block text-sm font-medium text-gray-500">E-mail</label>
                             <p id="emailDisplay" class="mt-1 text-lg text-gray-900 font-medium">
-                                <?php echo $_SESSION['Email']; ?></p>
+                                <?php echo $_SESSION['Email']; ?>
+                            </p>
                         </div>
                         <div class="info-card p-4 rounded-lg bg-gray-50">
                             <?php if (isset($_SESSION['Telefone'])) { ?>
                                 <label class="block text-sm font-medium text-gray-500">Telefone</label>
                                 <p id="telefoneDisplay" class="mt-1 text-lg text-gray-900 font-medium">
-                                    <?php echo $_SESSION['Telefone']; ?></p>
+                                    <?php echo $_SESSION['Telefone']; ?>
+                                </p>
                             <?php } else { ?>
                                 <button id="editProfileBtn" class="action-button">
                                     <i class="fas fa-edit"></i> Alterar Telefone

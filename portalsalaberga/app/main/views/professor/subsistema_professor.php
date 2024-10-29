@@ -42,7 +42,7 @@
         <?php
 require_once('../../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../../controllers/controller_sessao/verificar_sessao.php');
-verificarSessao(10);
+verificarSessao(60);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -329,7 +329,7 @@ verificarSessao(10);
             </div>
 
             <nav class="hidden md:flex items-center gap-5">
-                <a href="#" class="nav-link">Início</a>
+                <a href="../../" class="nav-link">Início</a>
                 <a href="#" class="nav-link">Suporte</a>
                 
                 <!-- Hub de Acessibilidade -->

@@ -112,9 +112,9 @@ function login($email, $senha)
         $stmtSelect->bindParam(':senha', $senha);
         $stmtSelect->execute();
         $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
+        
 
-
-        $querySelectC = "SELECT telefone, nome FROM cliente WHERE id = '{$result['id']}'";
+        $querySelectC = "SELECT telefone, nome FROM cliente WHERE id_usuario = '{$result['id']}'";
         $stmtSelectC = $conexao->query($querySelectC);
         $resultC = $stmtSelectC->fetch(PDO::FETCH_ASSOC);
         
@@ -122,6 +122,7 @@ function login($email, $senha)
         
 
         if (!empty($result) && $result['tipo'] == 'aluno') {
+            $_SESSION['Tipo'] = $result['tipo'];
             $_SESSION['Telefone'] = $resultC['telefone'];
             $_SESSION['Nome'] = $resultC['nome'];
             $_SESSION['login'] = true;
@@ -135,7 +136,6 @@ function login($email, $senha)
             $_SESSION['login'] = true;
             $_SESSION['Email'] = $email;
             $_SESSION['professor'] = true;
-            print_r($resultC['nome']) ;
             header('Location: ../controller_login/controller_login.php?login=p');
             exit();
         } else if (empty($result)) {
@@ -203,22 +203,21 @@ function recSenha($email)
 
 function alterarTelefone($telefone)
 {
-
+    
     require_once('../../config/Database.php');
     try {
-        // Primeiro, fazer o SELECT para verificar
+        
         $querySelect = "SELECT id FROM usuario WHERE email = :email";
         $stmtSelect = $conexao->prepare($querySelect);
         $stmtSelect->bindParam(':email', $_SESSION['Email']);
         $stmtSelect->execute();
         $resultSelect = $stmtSelect->fetch(PDO::FETCH_ASSOC);
         print_r($resultSelect);
-
+       
         if (!empty($resultSelect)) {
-            
-            
+        
             $queryUpdate = "
-        UPDATE cliente SET telefone = :telefone WHERE id = :id AND (telefone IS NULL)
+        UPDATE cliente SET telefone = :telefone WHERE id_usuario = :id AND (telefone IS NULL)
 ";
 
             $stmtUpdate = $conexao->prepare($queryUpdate);
@@ -226,6 +225,7 @@ function alterarTelefone($telefone)
             $stmtUpdate->bindParam(':telefone', $telefone);
             $stmtUpdate->execute();
             $resultUpdate = $stmtUpdate->fetchAll(PDO::FETCH_ASSOC);
+            header('Location: ../controller_perfil/controller_telefone.php?alt');
 
        }
     } catch (PDOException $e) {

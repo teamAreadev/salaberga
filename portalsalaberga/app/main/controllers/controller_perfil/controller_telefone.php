@@ -1,6 +1,9 @@
 <?php
 
-
+if (isset($_GET['alt'])) {
+   header('Location: ../../views/autenticação/login.php');
+   exit();  
+}
 
 
 if (isset($_POST['Telefone']) && !empty($_POST['Telefone'])) {
