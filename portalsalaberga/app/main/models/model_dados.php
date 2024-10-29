@@ -137,21 +137,20 @@ function login($email, $senha)
 
 function recSenha($email){
     //variaveis
-    $nome = "Salaberga.com";
+    $nome = "Salaberga";
 $data_envio = date('d/m/Y');
 $hora_envio = date('H:i:s');
 
 //corpo email
-$arquivo = "
-<html>
-    <p><b>E-mail: </b>$email</p>
-    <p>Este email foi enviado em <b>$data_envio</b> as <b>$hora_envio</b></p>
-</html>
+$arquivo = "Acesse o link abaixo para fazer a alteração de sua senha:
+https://salaberga.com/banco_testes/portalsalaberga/app/main/views/autentica%C3%A7%C3%A3o/alteraSenha.php
+
+email enviado por $nome, no dia $data_envio as $hora_envio.
 ";
 
 //emails para quem será enviado o formulário
 $destino = $email;
-$assunto = "contato pelo site";
+$assunto = "Recuperação de senha";
 
 //este sempre devera existir para garantir a exibição correta dos caracteres
 
@@ -163,6 +162,6 @@ $headers .= "From: $nome <$email>";
 
 mail($destino, $assunto, $arquivo, $headers);
 
-echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
+echo "<meta http-equiv='refresh' content='10;URL=../views/autenticação/recuperacaodesenha.php'>";
 }
 ?>

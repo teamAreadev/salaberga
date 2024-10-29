@@ -239,9 +239,9 @@
                 <img src="https://i.postimg.cc/ryxHRNkj/lavosier-nas-2.png" alt="Logo EEEP Salaberga" class="logo">
             </div>
             <h2>Recuperação de Senha</h2>
-            <form id="recuperacaoForm" action="../../controllers/controller_recsenha/controoller_recSenha.php" method="post">
+            <form id="recuperacaoForm" action="../../controllers/controller_recsenha/controller_recSenha.php" method="post">
                 <div class="input-group">
-                    <input type="email" name="phpemail" id="email" placeholder=" " required>
+                    <input type="email" name="Email" id="email" placeholder=" " required>
                     <label for="email">Email institucional</label>
                     <i class="fas fa-envelope"></i>
                 </div>
@@ -254,7 +254,7 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        /*document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('recuperacaoForm');
 
             form.addEventListener('submit', function (e) {
@@ -268,7 +268,7 @@
                     alert('Por favor, insira seu email institucional.');
                 }
             });
-        });
+        });*/
     </script>
 </body>
 
