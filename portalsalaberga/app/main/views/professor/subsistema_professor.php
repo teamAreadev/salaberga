@@ -50,6 +50,8 @@ verificarSessao(10);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../assets/js/service-worker2.js"></script>
+    <script src="../../assets/js/manifest2.json"></script>
     <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
     <title>Subsistema professor | EEEP Salaberga</title>
     
