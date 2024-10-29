@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </a>
 
         <!-- Ajuste de Turmas -->
-        <a href="/app/subsystems/seeps2024/index.php">
+        <a href="../../../subsystems/seeps2024">
             <div class="app-card">
                 <div class="icon-wrapper">
                     <img src="https://i.postimg.cc/V63tFbW2/gerenciamento-de-equipe.png" 
