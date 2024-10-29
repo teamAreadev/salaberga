@@ -233,11 +233,41 @@
             transform: translateY(0px);
         }
 
+          .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #005A24;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #005a24c7;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .back-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+        }
+
 </style>
 </head>
 <body class="fade-in">
-    <a aria-label='Voltar para a página inicial' class='back-button fixed top-4 left-4 text-ceara-green hover:text-ceara-orange transition-colors' href="javascript:history.back()">
-        <i class="fas fa-arrow-left text-2xl"></i>
+      <a aria-label='Voltar para a página inicial' class='back-button' href="javascript:history.back()">
+        <i class="fas fa-arrow-left"></i>
     </a>
 
     <div class="min-h-screen flex items-center justify-center p-4">
