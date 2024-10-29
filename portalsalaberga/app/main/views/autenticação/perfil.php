@@ -232,6 +232,28 @@
         .modal button:active {
             transform: translateY(0px);
         }
+        .photo-control {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.photo-control:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+#photoControlsHub {
+    min-width: 160px;
+    z-index: 10;
+}
+
 
           .back-button {
             position: fixed;
@@ -266,7 +288,7 @@
 </style>
 </head>
 <body class="fade-in">
-      <a aria-label='Voltar para a página inicial' class='back-button' href="javascript:history.back()">
+   <a aria-label='Voltar para a página inicial' class='back-button' href="javascript:history.back()">
         <i class="fas fa-arrow-left"></i>
     </a>
 
@@ -275,27 +297,53 @@
             <div class="profile-header text-white p-6 md:p-10 text-center md:text-left md:flex md:items-center md:justify-between rounded-t-2xl">
                 <div class="md:flex md:items-center">
                     <div class="relative">
+                        <!-- Imagem de Perfil -->
                         <img id="profileIcon" src="https://via.placeholder.com/80" alt="Profile Icon" 
                              class="w-24 h-24 rounded-full profile-icon mx-auto md:mx-0 mb-4 md:mb-0 md:mr-6 border-4 border-white">
-                        <div class="absolute bottom-0 right-0 flex " id="photoControls">
-                            <label for="profilePicture" class="photo-control tooltip mr-2 cursor-pointer" data-tooltip="Adicionar foto">
-                                <i class="fas fa-camera"></i>
-                            </label>
-                            <button id="deletePhotoBtn" class="photo-control tooltip" data-tooltip="Remover foto">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                        
+                        <!-- Botão para abrir o hub de controles -->
+                        <button id="controlsToggle" 
+                        class="absolute bottom-0 right-4 bg-gray-800 text-white hover:bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center">
+  
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                
+                        <!-- Hub de controles (inicialmente oculto) -->
+                        <div id="photoControlsHub" 
+                             class="hidden absolute bottom-12 right-0 bg-white rounded-lg shadow-lg p-2 border">
+                            <div class="flex flex-col space-y-2">
+                                <label for="profilePicture" 
+                                       class="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <i class="fas fa-camera text-gray-600"></i>
+                                    <span class="text-black">Adicionar foto</span>
+                                </label>
+                                <button id="takePictureBtn" 
+                                        class="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded">
+                                    <i class="fas fa-video text-gray-600 "></i>
+                                    <span  class="text-black" >Tirar foto</span>
+                                </button>
+                                <button id="deletePhotoBtn" 
+                                        class="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded">
+                                    <i class="fas fa-trash text-gray-600"></i>
+                                    <span class="text-black">Remover foto</span>
+                                </button>
+                            </div>
                         </div>
+                
+                        <!-- Input file oculto -->
                         <input type="file" 
                                id="profilePicture" 
                                class="hidden" 
                                accept="image/png, image/jpeg, image/gif"
                                capture="user">
                     </div>
+                    
                     <div>
                         <h2 class="text-3xl md:text-3xl font-bold mb-2" id="nomeDisplay">Nome do Usuário</h2>
                         <p class="text-sm md:text-base opacity-75">Aluno da EEEP Salaberga</p>
                     </div>
                 </div>
+
                 <div class="flex flex-col md:flex-row gap-3 mt-6 md:mt-0">
                     <button id="editProfileBtn" class="action-button">
                         <i class="fas fa-edit"></i> Editar Perfil
@@ -332,7 +380,6 @@
                             <label class="block text-sm font-medium text-gray-500">Telefone</label>
                             <p id="telefoneDisplay" class="mt-1 text-lg text-gray-900 font-medium">(00) 00000-0000</p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -557,5 +604,81 @@ document.addEventListener('DOMContentLoaded', async function() {
         telefoneDisplay.textContent = savedTelefone;
     }
 }); 
+document.addEventListener('DOMContentLoaded', function() {
+    const profileIcon = document.getElementById('profileIcon');
+    const controlsToggle = document.getElementById('controlsToggle');
+    const photoControlsHub = document.getElementById('photoControlsHub');
+    const profilePicture = document.getElementById('profilePicture');
+    const takePictureBtn = document.getElementById('takePictureBtn');
+    const deletePhotoBtn = document.getElementById('deletePhotoBtn');
+
+    // Carregar foto salva ao iniciar
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+        profileIcon.src = savedImage;
+    }
+
+    // Toggle do hub de controles
+    controlsToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        photoControlsHub.classList.toggle('hidden');
+    });
+
+    // Fechar hub ao clicar fora
+    document.addEventListener('click', function(e) {
+        if (!photoControlsHub.contains(e.target) && e.target !== controlsToggle) {
+            photoControlsHub.classList.add('hidden');
+        }
+    });
+
+    // Manipular upload de arquivo
+    profilePicture.addEventListener('change', function(e) {
+        if (this.files && this.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profileIcon.src = e.target.result;
+                localStorage.setItem('profileImage', e.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+        photoControlsHub.classList.add('hidden');
+    });
+
+    // Tirar foto com a câmera
+    takePictureBtn.addEventListener('click', async function() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const video = document.createElement('video');
+            const canvas = document.createElement('canvas');
+            
+            video.srcObject = stream;
+            await video.play();
+
+            // Capturar frame do vídeo
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            
+            // Converter para base64 e salvar
+            const imageData = canvas.toDataURL('image/jpeg');
+            profileIcon.src = imageData;
+            localStorage.setItem('profileImage', imageData);
+
+            // Parar stream da câmera
+            stream.getTracks().forEach(track => track.stop());
+            photoControlsHub.classList.add('hidden');
+        } catch (err) {
+            console.error('Erro ao acessar a câmera:', err);
+            alert('Não foi possível acessar a câmera');
+        }
+    });
+
+    // Remover foto
+    deletePhotoBtn.addEventListener('click', function() {
+        profileIcon.src = 'https://via.placeholder.com/80';
+        localStorage.removeItem('profileImage');
+        photoControlsHub.classList.add('hidden');
+    });
+});
     </script>
 </body>
