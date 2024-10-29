@@ -209,10 +209,11 @@ function alterarTelefone($telefone)
         $stmtSelect->bindParam(':email', $_SESSION['Email']);
         $stmtSelect->execute();
         $resultSelect = $stmtSelect->fetch(PDO::FETCH_ASSOC);
-
+        print_r($resultSelect);
 
         if (!empty($resultSelect)) {
-
+            
+            
             $queryUpdate = "
         UPDATE cliente SET telefone = :telefone WHERE id = :id AND (telefone IS NULL)
 ";
@@ -222,7 +223,8 @@ function alterarTelefone($telefone)
             $stmtUpdate->bindParam(':telefone', $telefone);
             $stmtUpdate->execute();
             $resultUpdate = $stmtUpdate->fetchAll(PDO::FETCH_ASSOC);
-        }
+            
+       }
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();
