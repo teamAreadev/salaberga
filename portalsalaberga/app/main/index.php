@@ -552,12 +552,12 @@
                     <a href="#cursos"
                         class="bg-ceara-white text-ceara-green hover:bg-ceara-orange hover:text-ceara-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 shadow-lg flex items-center justify-center">
                         <i class="fas fa-graduation-cap mr-2"></i> Conheça nossos cursos
-                    </a> <!--
-                    <a href="../main/views/autenticação/login.php"
+                    </a> 
+                    <a href="../main/views/autenticação/precadastro.php"
                         class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-ceara-green font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 shadow-lg flex items-center justify-center">
-                        <i class="fas fa-user mr-2"></i> Login
+                        <i class="fas fa-user mr-2"></i> Pré-Cadastro
                     </a>
-                -->
+            
                 </div>
             </div>
             <div class="absolute bottom-0 left-0 right-0 text-center pb-8">
