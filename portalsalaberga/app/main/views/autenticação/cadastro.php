@@ -191,6 +191,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 6px var(--shadow-color);
+       margin-top:-40px;
         }
 
         .btn-confirmar:hover {
@@ -245,6 +246,26 @@
                 display: none;
             }
         }
+        
+          .forgot-password {
+            text-align: left;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            margin-top: 5px;
+            position:relative;
+        }
+
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: var(--secondary-color);
+        }
+        
     </style>
 </head>
 
