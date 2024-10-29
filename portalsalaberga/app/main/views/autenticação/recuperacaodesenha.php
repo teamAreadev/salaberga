@@ -245,6 +245,25 @@
                     <label for="email">Email institucional</label>
                     <i class="fas fa-envelope"></i>
                 </div>
+
+                <?php
+                if (isset($_GET['login']) && $_GET['login'] == 'erro' ) {
+                ?>
+
+                    <div class="texto">
+                        Você já recuperou a senha recentemente. </br>
+                        Tente novamente mais tarde.
+                    </div>
+                    <style>
+                        .texto {
+                            color: red;
+                        }
+                    </style>
+
+                <?php
+                }
+                ?>
+
                 <button type="submit" class="btn-confirmar" name="recsenha">Enviar link de recuperação</button>
             </form>
             <div class="back-to-login">
@@ -252,24 +271,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        /*document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('recuperacaoForm');
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const email = document.getElementById('email').value;
-
-                if (email) {
-                    alert('Um link de recuperação foi enviado para o seu email.');
-                    form.reset();
-                } else {
-                    alert('Por favor, insira seu email institucional.');
-                }
-            });
-        });*/
-    </script>
 </body>
 
 </html>
