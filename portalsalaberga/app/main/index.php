@@ -150,9 +150,6 @@
             margin: 0 auto;
         }
 
-     
-
-        /* Responsive Adjustments */
         @media (max-width: 1200px) {
             .container {
                 max-width: 960px;
@@ -193,7 +190,6 @@
             }
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -233,13 +229,11 @@
                 s.parentNode.insertBefore(g, s);
             }(document, "script"));
     </script>
-    <!-- End PushAlert -->
     </head>
-    <!--- Adicione esse CSS no seu arquivo de estilos --->
 <style>
         [x-cloak] { display: none !important; }
         .header-active {
-            color: #FFA500 !important; /* Cor de destaque do header */
+            color: #FFA500 !important;
         }
     </style>
 </head>
@@ -251,11 +245,9 @@
             s.parentNode.insertBefore(g, s);
         }(document, "script"));
     </script>
-    <!-- End PushAlert -->
     <header x-data="{ mobileMenuOpen: false, init() { this.$watch('mobileMenuOpen', value => { if (value) { document.body.classList.add('overflow-hidden'); } else { document.body.classList.remove('overflow-hidden'); } }); window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { this.mobileMenuOpen = false; } }); } }" class="bg-ceara-green text-ceara-white sticky top-0 z-50 shadow-md">
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between flex-wrap py-4">
-            <!-- Accessibility Controls -->
             <div class="flex items-center space-x-2">
                 <span class="text-sm"><b>Acessibilidade</b></span>
                 <button class="text-sm hover:text-ceara-orange transition duration-300 px-1" aria-label="Diminuir tamanho do texto">
@@ -286,7 +278,6 @@
                     <img src="../main/assets/img/libras.svg" alt="VLibras" style="border-radius: 14%; width: 24px; height: auto;" class="zoom">
                 </button> -->
             </div>
-            <!-- Main Navigation -->
             <div class="flex items-center">
                 <div class="hidden lg:flex space-x-4">
                     <a href="#home" class="text-ceara-white hover:text-ceara-orange transition duration-300 header-link">
@@ -305,7 +296,6 @@
                         <i class="fas fa-images mr-1"></i> Parceiros
                     </a>
                 </div>
-                <!-- Mobile Menu Button -->
                 <div class="block lg:hidden">
                     <button @click="mobileMenuOpen = !mobileMenuOpen" class="flex items-center px-3 py-2 border rounded text-ceara-orange border-ceara-orange hover:text-ceara-white hover:border-ceara-white transition duration-300" aria-label="Toggle menu" :aria-expanded="mobileMenuOpen">
                         <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -342,23 +332,19 @@
 <script>
     document.querySelectorAll('.header-link').forEach(link => {
         link.addEventListener('click', function() {
-            // Remove a classe de destaque de todos os links
             document.querySelectorAll('.header-link').forEach(l => l.classList.remove('header-active'));
-            // Adiciona a classe de destaque ao link clicado
             this.classList.add('header-active');
         });
     });
 </script>
 
     <script>
-        // Variáveis globais
         let isReading = false;
         let currentSection = 0;
         const synth = window.speechSynthesis;
         let utterance = null;
         let initialInstructionsGiven = false;
 
-        // Função para iniciar ou parar a narração
         function toggleScreenReader() {
             if (isReading) {
                 stopReading();
@@ -367,7 +353,6 @@
             }
         }
 
-        // Função para iniciar a narração
         function startReading() {
             isReading = true;
             currentSection = 0;
@@ -379,7 +364,6 @@
             announceStatus('Narração ativada');
         }
 
-        // Função para parar a narração
         function stopReading() {
             if (synth.speaking) {
                 synth.cancel();
@@ -392,7 +376,6 @@
             announceStatus('Narração desativada');
         }
 
-        // Função para ler a próxima seção
         function readNextSection() {
             const sections = document.querySelectorAll('section, article, div.section');
             if (currentSection < sections.length) {
@@ -403,7 +386,6 @@
             }
         }
 
-        // Função para lidar com o evento de rolagem
         function handleScroll() {
             if (!isReading) return;
 
@@ -428,7 +410,6 @@
             }
         }
 
-        // Função para rolar até a seção atual
         function scrollToSection(sectionIndex) {
             const sections = document.querySelectorAll('section, article, div.section');
             if (sections[sectionIndex]) {
@@ -436,7 +417,6 @@
             }
         }
 
-        // Função para atualizar o estado visual do botão
         function updateButtonState() {
             const btn = document.getElementById('screenReaderBtn');
             if (isReading) {
@@ -448,12 +428,10 @@
             }
         }
 
-        // Função para anunciar o status da narração
         function announceStatus(message) {
             speakText(message);
         }
 
-        // Função para fornecer instruções iniciais
         function provideInitialInstructions() {
             if (!initialInstructionsGiven) {
                 const instructions = "Bem-vindo. Para ativar a narração de tela, pressione a tecla N ou use a tecla Tab para navegar até o botão de ativação e pressione Enter.";
@@ -462,7 +440,6 @@
             }
         }
 
-        // Função para lidar com cliques em elementos
         function handleElementClick(event) {
             if (!isReading) return;
 
@@ -474,7 +451,6 @@
             }
         }
 
-        // Função para lidar com foco em elementos
         function handleElementFocus(event) {
             if (!isReading) return;
 
@@ -486,7 +462,6 @@
             }
         }
 
-        // Função para obter a descrição de um elemento
         function getElementDescription(element) {
             if (element.tagName === 'IMG') {
                 return element.alt || 'Imagem sem descrição';
@@ -501,14 +476,12 @@
             }
         }
 
-        // Função para falar texto
         function speakText(text) {
             if (synth.speaking) {
                 synth.cancel();
             }
             utterance = new SpeechSynthesisUtterance(text);
 
-            // Configurar a voz (opcional)
             const voices = synth.getVoices();
             const portugueseVoice = voices.find(voice => voice.lang === 'pt-BR');
             if (portugueseVoice) {
@@ -518,24 +491,20 @@
             synth.speak(utterance);
         }
 
-        // Adicionar evento de clique ao botão
         const screenReaderBtn = document.getElementById('screenReaderBtn');
         screenReaderBtn.addEventListener('click', toggleScreenReader);
 
-        // Adicionar atalho de teclado (tecla 'N')
         document.addEventListener('keydown', function (event) {
             if (event.key === 'n' || event.key === 'N') {
                 toggleScreenReader();
             }
         });
 
-        // Focar o botão automaticamente e fornecer instruções quando a página carregar
         window.addEventListener('load', function () {
             screenReaderBtn.focus();
             provideInitialInstructions();
         });
 
-        // Garantir que as vozes estejam carregadas
         if (speechSynthesis.onvoiceschanged !== undefined) {
             speechSynthesis.onvoiceschanged = function () {
                 const voices = synth.getVoices();
@@ -553,11 +522,10 @@
                 if (targetElement) {
                     targetElement.scrollIntoView({
                         behavior: 'smooth',
-                        block: 'start' // ajuste o alinhamento se necessário
+                        block: 'start' 
                     });
 
-                    // Para ajustar a posição, considere o offset
-                    window.scrollBy(0, -100); // ajuste conforme necessário
+                    window.scrollBy(0, -100);
                 }
             });
         });
@@ -566,13 +534,11 @@
     <main>
         <section id="home"
             class="relative bg-cover bg-center bg-no-repeat min-h-screen flex flex-col items-center justify-center fade-in overflow-hidden">
-            <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
-                <source src="../main/assets/img/background.mp4" type="video/mp4">
-                Seu navegador não suporta o elemento de vídeo.
-            </video>
-            <div class="absolute inset-0 bg-black opacity-70"></div>
+            <img src="../main/assets/img/background03.jpeg" class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
+             
+            </img>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
 
-            <!-- Logo -->
             <div
                 class="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-full md:w-auto flex justify-center md:justify-start">
                 <!-- <img src="img\Design sem nome.svg" alt="Logo da EEEP Salaberga Torquato Gomes de Matos" class="h-16 md:h-14"> -->
@@ -605,10 +571,10 @@
             <div class="container">
                 <div class="section-title row text-center">
                     <div class="col-md-8 offset-md-2">
-                        <h3>Nossa Historia</h3>
+                        <h3>Nossa História</h3>
                       
                     </div>
-                </div><!-- end title -->
+                </div>
                 <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
                     <div class="timeline__wrap">
                         <div class="timeline__items"
@@ -740,7 +706,6 @@
                 <div class="overflow-x-auto">
                     <div class="flex space-x-6 pb-6 carousel"
                         x-init="setInterval(() => { activeSlide = (activeSlide + 1) % 5; document.querySelector('.carousel').scrollLeft += 300; if(activeSlide === 0) { document.querySelector('.carousel').scrollLeft = 0; } }, 5000)">
-                        <!-- Enfermagem -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 0 }">
                             <img src="../main/assets/img/img-logoscursos/enfermagem.jpg" alt="Curso de Enfermagem"
@@ -764,7 +729,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Informática -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 1 }">
                             <img src="../main/assets/img/img-logoscursos/informatica.jpg" alt="Curso de Informática"
@@ -789,7 +753,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Meio Ambiente -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 2 }">
                             <img src="../main/assets/img/img-logoscursos/meio_ambiente.jpg" alt="Curso de Meio Ambiente"
@@ -812,9 +775,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Administração -->
 
-                        <!-- Edificações -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale min-w-[300px] relative group card"
                             :class="{ 'active': activeSlide === 4 }">
                             <img src="../main/assets/img/img-logoscursos/edificações.jpg" alt="Curso de Edificações"
@@ -862,62 +823,97 @@
             </div>
         </section>
 
-  <style>
-    .hide-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
+        <style>
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
 
-    .hide-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
 
-    .card {
-        transition: all 0.5s ease-in-out;
-    }
+            .perspective {
+                perspective: 1000px;
+            }
 
-    .carousel {
-        scroll-behavior: smooth;
-    }
+            .card {
+                transform-style: preserve-3d;
+                transition: transform 0.5s ease;
+            }
 
-    .text-xs {
-        font-size: 0.75rem;
-        line-height: 1.4;
-    }
-</style>
+            .card:hover {
+                transform: scale(1.05) rotateY(10deg);
+            }
 
-<script>
-    function smoothScroll(element, target, duration) {
-        const start = element.scrollLeft;
-        const change = target - start;
-        const startTime = performance.now();
-        
-        function animation(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            element.scrollLeft = start + change * easeInOutQuad(progress);
-            if (progress < 1) {
+            .carousel {
+                scroll-behavior: smooth;
+            }
+
+            .group:hover .group-hover\:opacity-100 {
+                transition: all 0.3s ease-in-out;
+            }
+
+          
+
+            .card {
+                transition: all 0.5s ease-in-out;
+            }
+
+            .card:hover {
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            }
+
+            .perspective {
+                perspective: 2000px;
+                perspective-origin: center;
+            }
+
+            .content-overlay {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 1rem;
+                overflow-y: auto;
+                mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            }
+
+       
+        </style>
+
+        <script>
+            function smoothScroll(element, target, duration) {
+                const start = element.scrollLeft;
+                const change = target - start;
+                const startTime = performance.now();
+                function animation(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    element.scrollLeft = start + change * easeInOutQuad(progress);
+                    if (progress < 1) {
+                        requestAnimationFrame(animation);
+                    }
+                }
                 requestAnimationFrame(animation);
             }
-        }
-        requestAnimationFrame(animation);
-    }
 
-    function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
+            function easeInOutQuad(t) {
+                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const carousel = document.querySelector('.carousel');
-        let currentIndex = 0;
-        const cardWidth = 300; // Ajustando a largura da carta
-        
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % 5;
-            smoothScroll(carousel, currentIndex * cardWidth, 1000);
-        }, 5000);
-    });
-</script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const carousel = document.querySelector('.carousel');
+                let currentIndex = 0;
+                const cardWidth = 300; // Ajustando a largura da carta
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % 5;
+                    smoothScroll(carousel, currentIndex * cardWidth, 1000);
+                }, 5000);
+            });
+        </script>
 
         <!--
 <section id="eventos" class="py-24 fade-in">
@@ -985,7 +981,6 @@
             </div>
         </section>
 
-        <!-- Modal -->
         <div id="imageModal"
             class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50 transition-all duration-300 ease-in-out opacity-0">
             <div class="relative max-w-4xl w-full mx-4">
@@ -1021,7 +1016,6 @@
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Elementos do Modal
                 const modal = document.getElementById('imageModal');
                 const modalImage = document.getElementById('modalImage');
                 const closeButton = document.getElementById('closeModal');
@@ -1030,7 +1024,6 @@
                 const galleryImages = document.querySelectorAll('.gallery-img');
                 let currentIndex = 0;
 
-                // Funções do Modal
                 function openModal(index) {
                     if (modal && modalImage && galleryImages[index]) {
                         currentIndex = index;
@@ -1039,7 +1032,6 @@
                         modal.classList.add('flex');
                         document.body.style.overflow = 'hidden';
 
-                        // Adiciona animação de fade in
                         setTimeout(() => {
                             modal.classList.add('opacity-100');
                             modal.classList.remove('opacity-0');
@@ -1049,7 +1041,6 @@
 
                 function closeModal() {
                     if (modal) {
-                        // Adiciona animação de fade out
                         modal.classList.add('opacity-0');
                         modal.classList.remove('opacity-100');
 
@@ -1066,7 +1057,6 @@
                         const newSrc = galleryImages[currentIndex].src;
                         const newAlt = galleryImages[currentIndex].alt;
 
-                        // Adiciona fade na transição da imagem
                         modalImage.style.opacity = '0';
                         setTimeout(() => {
                             modalImage.src = newSrc;
@@ -1086,7 +1076,6 @@
                     updateModalImage();
                 }
 
-                // Event Listeners
                 galleryImages.forEach((img, index) => {
                     img.addEventListener('click', () => openModal(index));
                 });
@@ -1115,14 +1104,12 @@
                     });
                 }
 
-                // Fechar modal ao clicar fora da imagem
                 modal?.addEventListener('click', (e) => {
                     if (e.target === modal) {
                         closeModal();
                     }
                 });
 
-                // Controles de teclado
                 document.addEventListener('keydown', (e) => {
                     if (!modal?.classList.contains('hidden')) {
                         switch (e.key) {
@@ -1139,7 +1126,6 @@
                     }
                 });
 
-                // Adicionar CSS para transições
                 const style = document.createElement('style');
                 style.textContent = `
                     #modalImage {
@@ -1159,19 +1145,15 @@
             });
         </script>
 
-        <!-- Seção Parceiros -->
-
 
         <section id="parceiros" class="bg-white py-8 md:py-16 fade-in overflow-hidden">
             <div class="container mx-auto px-4 md:px-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-ceara-green">Nossos Parceiros
                 </h2>
 
-                <!-- Container do Carrossel -->
                 <div class="relative w-full overflow-hidden">
                     <div class="swiper-container parceiros-swiper w-full">
                         <div class="swiper-wrapper">
-                            <!-- Slides -->
                             <div class="swiper-slide">
                                 <div class="flex items-center justify-center">
                                     <img src="../main/assets/img/logo empresas/fenix Soluções.png" alt="Fenix"
@@ -1275,7 +1257,6 @@
             </div>
         </section>
 
-        <!-- Scripts -->
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script>
@@ -1315,7 +1296,6 @@
                     effect: 'slide',
                 });
 
-                // Opcional: Controle do autoplay com hover
                 const swiperContainer = document.querySelector('.parceiros-swiper');
                 if (swiperContainer) {
                     swiperContainer.addEventListener('mouseenter', function () {
@@ -1330,48 +1310,33 @@
             }); 
         </script>
 
- <section id="localizacao" class="py-8">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-ceara-green">Localização</h2>
-        <div class="flex flex-wrap bg-white rounded-lg shadow-lg overflow-hidden">
-            <!-- Mapa -->
-            <div class="w-full lg:w-3/5">
-                <div class="aspect-w-16 aspect-h-9">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
-                        loading="lazy"
-                        class="w-full h-full"
-                        allowfullscreen="">
-                    </iframe>
+<section id="location">
+            <div class="container">
+                <h2 class="localfont"><b>Localização</b></h2>
+                <div class="map-container">
+                    <div class="map-frame">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.003608944703!2d-38.67658031627441!3d-3.888242185992357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0aca1962c7027%3A0xe5da63c87e731b04!2sEscola%20Estadual%20de%20Educa%C3%A7%C3%A3o%20Profissional%20Salaberga%20Torquato%20Gomes%20de%20Matos!5e1!3m2!1spt-BR!2sbr!4v1728757517751!5m2!1spt-BR!2sbr"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="informefont">Informações de Contato</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda,
+                                Maranguape - CE</li>
+                            <li><i class="fas fa-phone"></i> (85) 3101-2100</li>
+                            <li><i class="fas fa-envelope"></i> eeepsalaberga@escola.ce.gov.br</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Escola+Estadual+de+Educa%C3%A7%C3%A3o+Profissional+Salaberga+Torquato+Gomes+de+Matos/@-3.888242,-38.6765803,17z/"
+                            target="_blank" class="directions-button">
+                            <i class="fas fa-directions"></i> Como Chegar
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Informações de Contato -->
-            <div class="w-full lg:w-2/5 bg-[#008C45] p-6 text-white">
-                <h3 class="text-2xl mb-6">Informações de Contato</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-center">
-                        <i class="fas fa-map-marker-alt mr-3 text-yellow-500"></i>
-                        <span>Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-phone mr-3 text-yellow-500"></i>
-                        <span>(85) 3101-2100</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-envelope mr-3 text-yellow-500"></i>
-                        <span>eeepsalaberga@escola.ce.gov.br</span>
-                    </li>
-                </ul>
-                <a href="https://www.google.com/maps?q=EEEP+Salaberga" 
-                   target="_blank"
-                   class="inline-block mt-6 px-6 py-3 bg-black text-white rounded-full hover:bg-blue-600 transition-all">
-                    <i class="fas fa-directions mr-2"></i>Como Chegar
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
 
     </main>
@@ -1380,7 +1345,6 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
-                <!-- Logo e descrição da empresa -->
                 <div class="md:col-span-3 space-y-6">
                     <img src="https://i.postimg.cc/yx26GhLv/lavosier-nas-3.png" alt="stgm Logo"
                         class="h-12 transition-all duration-300 hover:grayscale-0" style="background-color: #000000;">
@@ -1393,7 +1357,6 @@
                     </p>
                 </div>
 
-                <!-- Links Rápidos -->
                 <div class="md:col-span-3 space-y-4">
                     <h3 class="text-lg font-semibold text-[#FFF]">Links Rápidos</h3>
                     <ul class="space-y-2">
@@ -1403,7 +1366,7 @@
                         <li><a href="https://www.facebook.com/groups/salaberga/"
                                 class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Facebook</a>
                         </li>
-                        <li><a href="#" class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Sobre
+                        <li><a href="#sobre" class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Sobre
                                 Nós</a>
                         </li>
                         <li><a href="#"
@@ -1412,35 +1375,40 @@
                     </ul>
                 </div>
 
-                <!-- Desenvolvedores -->
                 <div class="md:col-span-3 space-y-4">
                     <h3 class="text-lg font-semibold text-[#FFF]">Desenvolvedores</h3>
                     <ul class="space-y-2">
                         <li><a href="https://www.instagram.com/otavio.ce/"
-                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Otavio
-                                Menezes</a>
+                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
+                                <i class="fab fa-instagram text-sm mr-2"></i>Otavio Menezes</a>
                         </li>
                         <li><a href="https://www.instagram.com/mth_fl/"
-                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Matheus
-                                Felix</a>
+                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
+                                <i class="fab fa-instagram text-sm mr-2"></i>Matheus Felix</a>
                         </li>
                         <li><a href="https://www.instagram.com/lvnas._/"
-                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Lavosier
-                            Nascimento</a>
+                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
+                                <i class="fab fa-instagram text-sm mr-2"></i>Lavosier Nascimento</a>
                         </li>
-
                         <li><a href="https://www.instagram.com/rogercavalcantetz/"
-                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Roger
-                                Cavalcante</a>
+                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
+                                <i class="fab fa-instagram text-sm mr-2"></i>Roger Cavalcante</a>
                         </li>
                         <li><a href="https://www.instagram.com/p_.uchoa/"
-                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">Pedro
-                                Uchoa</a>
+                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
+                                <i class="fab fa-instagram text-sm mr-2"></i>Pedro Uchoa</a>
+                        </li>
+                    </ul>
+                
+                    <h3 class="text-lg font-semibold text-[#FFF] mt-6">Colaboradores</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.instagram.com/_jefferson.castro/"
+                                class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
+                                <i class="fab fa-instagram text-sm mr-2"></i>Jefferson Castro</a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Logo do desenvolvedor -->
                 <div class="md:col-span-3 flex flex-col items-center justify-center space-y-4">
                     <img src="https://i.postimg.cc/SsTx6bC0/Dev-2.jpg" alt="DevStgm Logo"
                         class="h-16 w-16 transition-all duration-300 filter grayscale hover:grayscale-0">
@@ -1448,7 +1416,6 @@
                 </div>
             </div>
 
-            <!-- Copyright -->
             <div class="mt-12 pt-8 border-t border-gray-800 text-center">
                 <p class="text-gray-400 text-sm">&copy; 2024 DevStgm. Todos os direitos reservados.</p>
             </div>
