@@ -173,8 +173,7 @@ function recSenha($email)
                 //corpo email
                 $arquivo = "
                 Acesse o link abaixo para fazer a alteração da senha:
-                https://salaberga.com/banco_testes/portalsalaberga/app/main/views/autentica%C3%A7%C3%A3o/login.php
-
+                http://localhost/escola%20projetos/Salaberga/portalsalaberga/app/main/views/autentica%C3%A7%C3%A3o/alteraSenha.php
                 Email enviado por $nome, no dia $data_envio às $hora_envio horas.
                 ";
 
