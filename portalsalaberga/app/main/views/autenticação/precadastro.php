@@ -263,6 +263,30 @@
         </div>
     </div>
     <script>
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const cpfInput = document.getElementById('cpf');
+
+    cpfInput.addEventListener('input', function(e) {
+        let value = e.target.value;
+
+        // Remove tudo que não é número
+        value = value.replace(/\D/g, '');
+
+        // Coloca a pontuação enquanto digita
+        if (value.length > 0) value = value.replace(/^(\d{3})/, '$1.');
+        if (value.length > 3) value = value.replace(/^(\d{3})\.(\d{3})/, '$1.$2.');
+        if (value.length > 6) value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})/, '$1.$2.$3-');
+        if (value.length > 9) value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/, '$1.$2.$3-$4');
+
+        // Limita em 11 números
+        if (value.length > 14) {
+            value = value.substr(0, 14);
+        }
+
+        e.target.value = value;
+    });
+});
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('preCadastroForm');
             const whatsappInput = document.getElementById('whatsapp');
