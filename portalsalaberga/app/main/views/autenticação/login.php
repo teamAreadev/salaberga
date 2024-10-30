@@ -279,6 +279,7 @@
                     <label for="password">Senha</label>
                     <i class="fas fa-eye toggle-password"></i>
                 </div>
+                
                 <div class="forgot-password">
                     <a href="recuperacaodesenha.php">Esqueceu a senha?</a>
                 </div>
