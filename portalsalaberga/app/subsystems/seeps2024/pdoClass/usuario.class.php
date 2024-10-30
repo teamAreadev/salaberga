@@ -18,7 +18,7 @@ Class Usuario {
 	}
 
 	public function logar($email, $senha){
-$pdo = new PDO("mysql:host=localhost;dbname=selecao_2023","root","");
+$pdo = new PDO("mysql:host=localhost;dbname=seeps","root","");
 		try{
 			$status='1';
 			$sql="SELECT * FROM usuario WHERE email= :email and senha= :senha and status= :status;";
