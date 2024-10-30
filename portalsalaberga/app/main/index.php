@@ -1396,7 +1396,7 @@
                         </li>
                         <li><a href="https://www.instagram.com/p_.uchoa/"
                                 class="text-gray-400 hover:text-[#FFA500] transition-colors duration-300">
-                                <i class="fab fa-instagram text-sm mr-2"></i>Pedro Uchoa</a>
+                                <i class="fab fa-instagram text-sm mr-2"></i>Pedro Uchôa</a>
                         </li>
                     </ul>
                 
