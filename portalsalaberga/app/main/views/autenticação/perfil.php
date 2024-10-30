@@ -356,7 +356,12 @@
                         <?php } ?>
                     </div>
                 </div>
-
+                <?php if (isset($_SESSION['Telefone'])){ ?>
+                <button id="editProfileBtn" class="action-button">
+                    <i class="fas fa-edit"></i> Alterar Telefone
+                </button>
+                <?php } ?>
+                <p id="telefoneDisplay" class="mt-1 text-lg text-gray-900 font-medium"></p>
                 <div class="flex flex-col md:flex-row gap-3 mt-6 md:mt-0">
                     <a href="recuperacaodesenha.php" class="action-button">
                         <i class="fas fa-key"></i> Mudar Senha
@@ -422,7 +427,7 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', async function () {
+        document.addEventListener('DOMContentLoaded', async function() {
             // Variáveis para elementos do DOM
             const profilePicture = document.getElementById('profilePicture');
             const profileIcon = document.getElementById('profileIcon');
@@ -460,7 +465,7 @@
             };
 
             // Gerenciamento de foto de perfil
-            profilePicture.addEventListener('change', async function (e) {
+            profilePicture.addEventListener('change', async function(e) {
                 const file = e.target.files[0];
 
                 if (file) {
@@ -476,7 +481,7 @@
 
                     try {
                         const reader = new FileReader();
-                        reader.onload = function (e) {
+                        reader.onload = function(e) {
                             profileIcon.src = e.target.result;
                             localStorage.setItem('profileImage', e.target.result);
                             showNotification('Foto atualizada com sucesso!');
@@ -489,14 +494,14 @@
             });
 
             // Deletar foto
-            deletePhotoBtn.addEventListener('click', function () {
+            deletePhotoBtn.addEventListener('click', function() {
                 profileIcon.src = 'https://via.placeholder.com/80';
                 localStorage.removeItem('profileImage');
                 showNotification('Foto removida com sucesso!');
             });
 
             // Editar perfil
-            editProfileBtn.addEventListener('click', async function () {
+            editProfileBtn.addEventListener('click', async function() {
                 const editModal = document.createElement('div');
                 editModal.classList.add('modal', 'fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center', 'bg-black', 'bg-opacity-50');
                 editModal.innerHTML = `
@@ -534,7 +539,7 @@
 
                 // Adicionar máscara ao campo de telefone
                 const telefoneInput = document.getElementById('editTelefone');
-                telefoneInput.addEventListener('input', function (e) {
+                telefoneInput.addEventListener('input', function(e) {
                     e.target.value = formatPhone(e.target.value);
                 });
 
@@ -545,7 +550,7 @@
                 document.getElementById('cancelEdit').addEventListener('click', closeEditModal);
 
                 // Evento para salvar edição
-                document.getElementById('saveEdit').addEventListener('click', async function () {
+                document.getElementById('saveEdit').addEventListener('click', async function() {
                     const editEmail = document.getElementById('editEmail').value.trim();
                     const editTelefone = document.getElementById('editTelefone').value.trim();
 
@@ -585,14 +590,14 @@
             });
 
             // Fechar modal ao clicar fora
-            window.addEventListener('click', function (e) {
+            window.addEventListener('click', function(e) {
                 if (e.target.classList.contains('modal')) {
                     e.target.remove();
                 }
             });
 
             // Fechar modal com ESC
-            document.addEventListener('keydown', function (e) {
+            document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     const modals = document.querySelectorAll('.modal');
                     modals.forEach(modal => {
@@ -617,7 +622,7 @@
                 telefoneDisplay.textContent = savedTelefone;
             }
         });
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const profileIcon = document.getElementById('profileIcon');
             const controlsToggle = document.getElementById('controlsToggle');
             const photoControlsHub = document.getElementById('photoControlsHub');
@@ -632,23 +637,23 @@
             }
 
             // Toggle do hub de controles
-            controlsToggle.addEventListener('click', function (e) {
+            controlsToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 photoControlsHub.classList.toggle('hidden');
             });
 
             // Fechar hub ao clicar fora
-            document.addEventListener('click', function (e) {
+            document.addEventListener('click', function(e) {
                 if (!photoControlsHub.contains(e.target) && e.target !== controlsToggle) {
                     photoControlsHub.classList.add('hidden');
                 }
             });
 
             // Manipular upload de arquivo
-            profilePicture.addEventListener('change', function (e) {
+            profilePicture.addEventListener('change', function(e) {
                 if (this.files && this.files[0]) {
                     const reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function(e) {
                         profileIcon.src = e.target.result;
                         localStorage.setItem('profileImage', e.target.result);
                     };
@@ -658,7 +663,7 @@
             });
 
             // Tirar foto com a câmera
-            takePictureBtn.addEventListener('click', async function () {
+            takePictureBtn.addEventListener('click', async function() {
                 try {
                     const stream = await navigator.mediaDevices.getUserMedia({
                         video: true
@@ -689,7 +694,7 @@
             });
 
             // Remover foto
-            deletePhotoBtn.addEventListener('click', function () {
+            deletePhotoBtn.addEventListener('click', function() {
                 profileIcon.src = 'https://via.placeholder.com/80';
                 localStorage.removeItem('profileImage');
                 photoControlsHub.classList.add('hidden');

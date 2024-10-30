@@ -201,7 +201,7 @@ function recSenha($email)
             }
         } else {
             //usuário não cadastrado
-            header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro1');
+            header('Location: ../../controllers/controller_recsenha/controller_recSenha.php?login=erro1');
             exit();
         }
     } catch (PDOException $e) {
@@ -226,7 +226,7 @@ function alterarTelefone($telefone)
         if (!empty($resultSelect)) {
         
             $queryUpdate = "
-        UPDATE cliente SET telefone = :telefone WHERE id_usuario = :id AND (telefone IS NULL)
+        UPDATE cliente SET telefone = :telefone WHERE id_usuario = :id 
 ";
 
             $stmtUpdate = $conexao->prepare($queryUpdate);
