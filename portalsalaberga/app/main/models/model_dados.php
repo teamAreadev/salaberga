@@ -164,27 +164,36 @@ function recSenha($email)
 
         if (!empty($result)) {
             if (!isset($_SESSION['recsenha']) || $_SESSION['recsenha'] === false) {
+
                 //variaveis
-                $nome = "Salaberga.com";
+                $nome = 'Salaberga.com';
                 $data_envio = date('d/m/Y');
                 $hora_envio = date('H:i:s');
+
                 //corpo email
                 $arquivo = "
-<html>
-    <p><b>E-mail: </b>$email</p>
-    <p>Este email foi enviado em <b>$data_envio</b> as <b>$hora_envio</b></p>
-</html>
-";
+                Acesse o link abaixo para fazer a alteração da senha:
+                https://salaberga.com/banco_testes/portalsalaberga/app/main/views/autentica%C3%A7%C3%A3o/login.php
+
+                Email enviado por $nome, no dia $data_envio às $hora_envio horas.
+                ";
+
                 //emails para quem será enviado o formulário
                 $destino = $email;
-                $assunto = "contato pelo site";
+                $assunto = "Recuperação de senha.";
+
                 //este sempre devera existir para garantir a exibição correta dos caracteres
+
                 $headers = "MIME-Version: 1.0\n";
                 $headers .= "Content-type: text/html; charset=iso-8859-1\n";
                 $headers .= "From: $nome <$email>";
+
                 //enviar
-                mail($destino, $assunto, $arquivo, $headers);
-                echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
+
+                if(mail($destino, $assunto, $arquivo, $headers)){
+                    
+                    header('location:../controller_recsenha/controller_recSenha.php?certo');
+                }
             } else {
                 //usuario recuperou a senha recentemente
                 header('Location: ../../controllers/controller_recsenha/controller_recSenha.php?login=erro');
