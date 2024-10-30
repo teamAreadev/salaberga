@@ -539,10 +539,6 @@
             </img>
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
-            <div
-                class="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-full md:w-auto flex justify-center md:justify-start">
-                <!-- <img src="img\Design sem nome.svg" alt="Logo da EEEP Salaberga Torquato Gomes de Matos" class="h-16 md:h-14"> -->
-            </div>
 
             <div class="container mx-auto px-4 text-center relative z-10 mt-20 md:mt-0">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">EEEP Salaberga
