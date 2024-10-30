@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperação de Senha | EEEP Salaberga</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="shortcut icon" href="img\Design sem nome.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -254,6 +254,23 @@
                         Você já recuperou a senha recentemente. </br>
                         Tente novamente mais tarde.
                     </div>
+                    <style>
+                        .texto {
+                            color: red;
+                        }
+                    </style>
+
+                <?php
+                }
+                ?>
+                <?php
+                if (isset($_GET['login']) && $_GET['login'] == 'erro1') {
+                ?>
+
+                    <div class="texto">
+                        Email incorreto ou não cadastrado.</br>
+                        Tente novamente com um email válido.</br>
+                    </div>  
                     <style>
                         .texto {
                             color: red;

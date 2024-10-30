@@ -42,7 +42,7 @@
         <?php
 require_once('../../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../../controllers/controller_sessao/verificar_sessao.php');
-verificarSessao(10);
+verificarSessao(60);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -50,8 +50,10 @@ verificarSessao(10);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="https://i.postimg.cc/8czCMpqx/Design-sem-nome-70-removebg-preview.png" type="image/x-icon">
-    <title>FUN | Professores</title>
+    <script src="../../assets/js/service-worker2.js"></script>
+    <script src="../../assets/js/manifest2.json"></script>
+    <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
+    <title>Subsistema professor | EEEP Salaberga</title>
     
     <script>
         tailwind.config = {
@@ -327,7 +329,7 @@ verificarSessao(10);
             </div>
 
             <nav class="hidden md:flex items-center gap-5">
-                <a href="#" class="nav-link">Início</a>
+                <a href="../../" class="nav-link">Início</a>
                 <a href="#" class="nav-link">Suporte</a>
                 
                 <!-- Hub de Acessibilidade -->
@@ -398,7 +400,7 @@ verificarSessao(10);
                         <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
                     </div>
                     <span class="text-sm font-medium text-gray-700 hover:text-primary transition-colors duration-300">
-                        Meu Perfil
+                        <a href="../autenticação/perfil.php">Meu Perfil</a>
                     </span>
                 </div>
             </nav>
@@ -594,14 +596,14 @@ document.addEventListener('DOMContentLoaded', function() {
         </a>
 
         <!-- Ajuste de Turmas -->
-        <a href="https://ajusteturmas.stgm.org.br">
+        <a href="../../../subsystems/seeps2024">
             <div class="app-card">
                 <div class="icon-wrapper">
                     <img src="https://i.postimg.cc/V63tFbW2/gerenciamento-de-equipe.png" 
                          alt="Ajuste de Turmas" 
                          class="app-icon">
                 </div>
-                <h3 class="app-name">Ajuste de Turmas</h3>
+                <h3 class="app-name">Seesp 2024</h3>
                 <span class="category-tag">Gestão</span>
             </div>
         </a>

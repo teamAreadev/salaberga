@@ -7,7 +7,12 @@ if (isset($_GET['login']) && $_GET['login'] == 'a') {
     header('Location: ../../views/professor/subsistema_professor.php');
     exit();
 }
-
+if (isset($_GET['sair'])) {
+    session_start();
+    session_destroy();
+    header('Location: ../../views/autenticação/login.php');
+    exit();
+}
 if (isset($_POST['login']) && isset($_POST['Email']) && isset($_POST['Password']) && !empty($_POST['Email']) && !empty($_POST['Password'])) {
 
     $email = $_POST['Email'];

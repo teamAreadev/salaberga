@@ -15,7 +15,7 @@ function verificarSessaoSenha($tempo_limite = 10) {
     $_SESSION['ultimo_acesso'] = time();
 }
 
-function verificarSessao($tempo_limite = 10) {
+function verificarSessao($tempo_limite = 60) {
     // Verifica se existe timestamp da última atividade
     if (isset($_SESSION['ultimo_acesso'])) {
         // Verifica se já passou do tempo limite

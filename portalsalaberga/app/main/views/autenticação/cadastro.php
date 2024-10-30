@@ -1,7 +1,7 @@
 <?php
     require_once('../../controllers/controller_sessao/autenticar_sessao.php');
     require_once('../../controllers/controller_sessao/verificar_sessao.php');
-    verificarSessao(10);
+    verificarSessao(60);
     
 ?>
 <!DOCTYPE html>
@@ -11,10 +11,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro | EEEP Salaberga</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="shortcut icon" href="img\Design sem nome.svg" type="image/x-icon">
-
+    <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -192,6 +191,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 6px var(--shadow-color);
+       margin-top:-40px;
         }
 
         .btn-confirmar:hover {
@@ -246,6 +246,26 @@
                 display: none;
             }
         }
+        
+          .forgot-password {
+            text-align: left;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            margin-top: 5px;
+            position:relative;
+        }
+
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: var(--secondary-color);
+        }
+        
     </style>
 </head>
 
@@ -294,6 +314,9 @@
                     <span>Média</span>
                     <span>Forte</span>
                 </div>
+                <div class="forgot-password">
+                    <a href="login.php">Ja tem cadastro?</br></br>
+                </div>
                 <?php
                 if (isset($_GET['login']) && $_GET['login'] == 'erro1') {
                     echo '<br>';
@@ -333,6 +356,34 @@
     </div>
 
     <script>
+    
+    
+       
+document.addEventListener('DOMContentLoaded', function() {
+    const cpfInput = document.getElementById('cpf');
+
+    cpfInput.addEventListener('input', function(e) {
+        let value = e.target.value;
+
+        // Remove tudo que não é número
+        value = value.replace(/\D/g, '');
+
+        // Coloca a pontuação enquanto digita
+        if (value.length > 0) value = value.replace(/^(\d{3})/, '$1.');
+        if (value.length > 3) value = value.replace(/^(\d{3})\.(\d{3})/, '$1.$2.');
+        if (value.length > 6) value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})/, '$1.$2.$3-');
+        if (value.length > 9) value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/, '$1.$2.$3-$4');
+
+        // Limita em 11 números
+        if (value.length > 14) {
+            value = value.substr(0, 14);
+        }
+
+        e.target.value = value;
+    });
+});
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('cadastroForm');
             const togglePassword = document.querySelector('.toggle-password');

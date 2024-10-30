@@ -106,21 +106,35 @@ function login($email, $senha)
     try {
 
         // Primeiro, fazer o SELECT para verificar
-        $querySelect = "SELECT email, senha, tipo FROM usuario WHERE email = :email AND senha = MD5(:senha)";
+        $querySelect = "SELECT id, email, senha, tipo FROM usuario WHERE email = :email AND senha = MD5(:senha)";
         $stmtSelect = $conexao->prepare($querySelect);
         $stmtSelect->bindParam(':email', $email);
         $stmtSelect->bindParam(':senha', $senha);
         $stmtSelect->execute();
         $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
+        
 
+        $querySelectC = "SELECT telefone, nome FROM cliente WHERE id_usuario = '{$result['id']}'";
+        $stmtSelectC = $conexao->query($querySelectC);
+        $resultC = $stmtSelectC->fetch(PDO::FETCH_ASSOC);
+        
+
+        
 
         if (!empty($result) && $result['tipo'] == 'aluno') {
+            $_SESSION['Tipo'] = $result['tipo'];
+            $_SESSION['Telefone'] = $resultC['telefone'];
+            $_SESSION['Nome'] = $resultC['nome'];
             $_SESSION['login'] = true;
+            $_SESSION['Email'] = $email;
             $_SESSION['aluno'] = true;
             header('Location: ../controller_login/controller_login.php?login=a');
             exit();
         } else if (!empty($result) && $result['tipo'] == 'professor') {
+            $_SESSION['Telefone'] = $resultC['telefone'];
+            $_SESSION['Nome'] = $resultC['nome'];
             $_SESSION['login'] = true;
+            $_SESSION['Email'] = $email;
             $_SESSION['professor'] = true;
             header('Location: ../controller_login/controller_login.php?login=p');
             exit();
@@ -136,30 +150,86 @@ function login($email, $senha)
 
 function recSenha($email)
 {
-    if (!isset($_SESSION['recsenha']) || $_SESSION['recsenha'] === false) {    
-        //variaveis
-        $nome = "Salaberga.com";
-        $data_envio = date('d/m/Y');
-        $hora_envio = date('H:i:s');
-        //corpo email
-        $arquivo = "
+    require_once('../../config/Database.php');
+    try {
+
+        // Primeiro, fazer o SELECT para verificar
+        $querySelect = "SELECT email FROM usuario WHERE email = :email";
+        $stmtSelect = $conexao->prepare($querySelect);
+        $stmtSelect->bindParam(':email', $email);
+        $stmtSelect->execute();
+        $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
+
+
+
+        if (!empty($result)) {
+            if (!isset($_SESSION['recsenha']) || $_SESSION['recsenha'] === false) {
+                //variaveis
+                $nome = "Salaberga.com";
+                $data_envio = date('d/m/Y');
+                $hora_envio = date('H:i:s');
+                //corpo email
+                $arquivo = "
 <html>
     <p><b>E-mail: </b>$email</p>
     <p>Este email foi enviado em <b>$data_envio</b> as <b>$hora_envio</b></p>
 </html>
 ";
-        //emails para quem será enviado o formulário
-        $destino = $email;
-        $assunto = "contato pelo site";
-        //este sempre devera existir para garantir a exibição correta dos caracteres
-        $headers = "MIME-Version: 1.0\n";
-        $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-        $headers .= "From: $nome <$email>";
-        //enviar
-        mail($destino, $assunto, $arquivo, $headers,"test");
-        echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
-    } else {
-        header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro');
-        exit();
-    } 
+                //emails para quem será enviado o formulário
+                $destino = $email;
+                $assunto = "contato pelo site";
+                //este sempre devera existir para garantir a exibição correta dos caracteres
+                $headers = "MIME-Version: 1.0\n";
+                $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+                $headers .= "From: $nome <$email>";
+                //enviar
+                mail($destino, $assunto, $arquivo, $headers);
+                echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
+            } else {
+                //usuario recuperou a senha recentemente
+                header('Location: ../../controllers/controller_recsenha/controller_recSenha.php?login=erro');
+                exit();
+            }
+        } else {
+            //usuário não cadastrado
+            header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro1');
+            exit();
+        }
+    } catch (PDOException $e) {
+        error_log("Erro no banco de dados: " . $e->getMessage());
+        echo "Erro no banco de dados: " . $e->getMessage();
+    }
+}
+
+function alterarTelefone($telefone)
+{
+    
+    require_once('../../config/Database.php');
+    try {
+        
+        $querySelect = "SELECT id FROM usuario WHERE email = :email";
+        $stmtSelect = $conexao->prepare($querySelect);
+        $stmtSelect->bindParam(':email', $_SESSION['Email']);
+        $stmtSelect->execute();
+        $resultSelect = $stmtSelect->fetch(PDO::FETCH_ASSOC);
+        print_r($resultSelect);
+       
+        if (!empty($resultSelect)) {
+        
+            $queryUpdate = "
+        UPDATE cliente SET telefone = :telefone WHERE id_usuario = :id AND (telefone IS NULL)
+";
+
+            $stmtUpdate = $conexao->prepare($queryUpdate);
+            $stmtUpdate->bindParam(':id', $resultSelect['id']);
+            $stmtUpdate->bindParam(':telefone', $telefone);
+            $stmtUpdate->execute();
+            $resultUpdate = $stmtUpdate->fetchAll(PDO::FETCH_ASSOC);
+            header('Location: ../controller_perfil/controller_telefone.php?alt');
+
+       }
+    } catch (PDOException $e) {
+        error_log("Erro no banco de dados: " . $e->getMessage());
+        echo "Erro no banco de dados: " . $e->getMessage();
+    }
 }
