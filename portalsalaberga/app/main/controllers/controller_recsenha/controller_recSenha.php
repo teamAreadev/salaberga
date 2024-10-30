@@ -3,7 +3,7 @@ if (isset($_GET['login']) && $_GET['login'] == 'erro') {
     header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro');
     exit();
 }
-if ($_GET['']) {
+if ($_GET['login'] && $_GET['login'] == 'erro1') {
     header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro1');
     exit();
 }

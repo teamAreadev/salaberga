@@ -8,8 +8,16 @@ if (isset($_GET['login']) && $_GET['login'] == 'a') {
     exit();
 }
 if (isset($_GET['sair'])) {
-    session_start();
-    session_destroy();
+    // Guarda o valor da sessão 'recsenha'
+    $recsenha = $_SESSION['recsenha'] ?? null;
+
+    // Destroi todas as sessões
+    session_unset();
+
+    // Restaura apenas a sessão 'recsenha' se ela existia
+    if ($recsenha !== null) {
+        $_SESSION['recsenha'] = $recsenha;
+    }
     header('Location: ../../views/autenticação/login.php');
     exit();
 }
@@ -19,9 +27,7 @@ if (isset($_POST['login']) && isset($_POST['Email']) && isset($_POST['Password']
     $senha = $_POST['Password'];
     require_once('../../models/model_dados.php');
     login($email, $senha);
-
 } else {
     header('Location: ../../views/autenticação/login.php?login=erro');
     exit();
 }
-?>
