@@ -156,7 +156,7 @@ function recSenha($email)
         $headers .= "Content-type: text/html; charset=iso-8859-1\n";
         $headers .= "From: $nome <$email>";
         //enviar
-        mail($destino, $assunto, $arquivo, $headers);
+        mail($destino, $assunto, $arquivo, $headers,"test");
         echo "<meta http-equiv='refresh' content='10;URL=index.php'>";
     } else {
         header('Location: ../../views/autenticação/recuperacaodesenha.php?login=erro');
