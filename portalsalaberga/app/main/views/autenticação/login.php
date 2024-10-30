@@ -250,6 +250,51 @@
                 display: none;
             }
         }
+
+        .password-links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Forgot Password (direita) */
+.forgot-password {
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.forgot-password a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: var(--secondary-color);
+}
+
+/* Forgot Password 2 (esquerda) */
+.forgot-password2 {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.forgot-password2 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password2 a:hover {
+    color: var(--secondary-color);
+
+}
     </style>
 </head>
 
@@ -280,10 +325,15 @@
                     <i class="fas fa-eye toggle-password"></i>
                 </div>
                 
-                <div class="forgot-password">
-                    <a href="recuperacaodesenha.php">Esqueceu a senha?</a>
-                </div>
-                
+                <div class="password-links-container">
+        <div class="forgot-password2">
+            <a href="./cadastro.php">Criar conta</a>
+        </div>
+
+        <div class="forgot-password">
+            <a href="./recuperacaodesenha.php">Esqueceu sua senha?</a>
+        </div>
+        </div>
                 <?php
                 if (isset($_GET['login']) && $_GET['login'] == 'erro') {
                     echo '<br>';
