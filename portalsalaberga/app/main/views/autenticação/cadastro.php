@@ -315,7 +315,7 @@
                     <span>Forte</span>
                 </div>
                 <div class="forgot-password"> 
-    </br><a href="login.php">Ja tem cadastro?</br></br>
+   <a href="login.php">Ja tem cadastro?</a>
                 </div>
                 <?php
                 if (isset($_GET['login']) && $_GET['login'] == 'erro1') {
