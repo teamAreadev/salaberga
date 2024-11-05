@@ -726,15 +726,13 @@ html {
                     <div class="text-center">
                         <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">ENFERMAGEM</h3>
-                        <p class="text-gray-600 mb-4 text-sm">
-                            Formação técnica em cuidados de saúde e assistência ao paciente
-                        </p>
+                        
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
-                            <span ><i style = "margin-left: -60px; position:relative;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: -34px; position:relative;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: -33px; position:relative;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: -30px; position:relative;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -128px; position:relative;" class="fas fa-wheelchair mr-2"></i>PCD: 5</span>
+                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -750,15 +748,13 @@ html {
                     <div class="text-center">
                         <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">INFORMÁTICA</h3>
-                        <p class="text-gray-600 mb-4 text-sm">
-                            Desenvolvimento de sistemas e manutenção de computadores
-                        </p>
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i>Total Inscritos: 200</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Pública: 50</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Privada: 40</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Escola Pública: 60</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i>PCD: 10</span>
+                    
+                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
+                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -774,15 +770,13 @@ html {
                     <div class="text-center">
                         <i class="fas fa-briefcase text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">ADMINISTRAÇÃO</h3>
-                        <p class="text-gray-600 mb-4 text-sm">
-                            Gestão empresarial e processos administrativos
-                        </p>
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i>Total Inscritos: 150</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Pública: 35</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Privada: 25</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Escola Pública: 45</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i>PCD: 7</span>
+                      
+                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
+                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -798,15 +792,13 @@ html {
                     <div class="text-center">
                         <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">EDIFICAÇÕES</h3>
-                        <p class="text-gray-600 mb-4 text-sm">
-                            Projetos de construção civil e supervisão de obras
-                        </p>
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i>Total Inscritos: 180</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Pública: 40</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Privada: 30</span>
-                            <span><i class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i>PCD: 6</span>
+                    
+                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
+                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
