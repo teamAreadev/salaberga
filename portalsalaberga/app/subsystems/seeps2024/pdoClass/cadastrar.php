@@ -11,8 +11,12 @@ require_once('candidato.class.php');
       return $num;
     }
   
+	// Criar uma instância da classe Candidato
+$candidato = new Candidato();
+// Chamar o método pesquisarCotas()
+$candidato->pesquisarCotas();
 
-
+/*
 $nome = $_POST['nome'];
 $dn = $_POST['dn'];
 $c1 = $_POST['c1'];
@@ -70,16 +74,6 @@ $ge = ($ge6 + $ge7 + $ge8 + $ge9)/4;
 $hi = ($hi6 + $hi7 + $hi8 + $hi9)/4;
 $re = ($re6 + $re7 + $re8 + $re9)/4;
 
-/*
-$lp = ($lp6 + $lp7 + $lp8)/3;
-$ar = ($ar6 + $ar7 + $ar8)/3;
-$ef = ($ef6 + $ef7 + $ef8)/3;
-$li = ($li6 + $li7 + $li8)/3;
-$ma = ($ma6 + $ma7 + $ma8)/3;
-$ci = ($ci6 + $ci7 + $ci8)/3;
-$ge = ($ge6 + $ge7 + $ge8)/3;
-$hi = ($hi6 + $hi7 + $hi8)/3;
-*/
 
 $media = ($lp+$ar+$ef+$li+$ma+$ci+$ge+$hi+$re)/9;
 
@@ -147,9 +141,9 @@ echo $media;
 
 			   echo  header('location:success.php');
 
+
+
 */
-
-
 
 
 
