@@ -717,7 +717,7 @@ html {
             </div>
         </nav>
     </header>
-<main class="flex-grow py-16 px-4 mt-20">
+<main class="flex-grow py-16 px-4 mt-20 font-poppins">
     <section class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
@@ -725,14 +725,14 @@ html {
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
                     <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 22px">ENFERMAGEM</h3>
+                    <h3 class="text-4xl font-bold" style="font-size: 25px">ENFERMAGEM</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
                         <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">ENFERMAGEM</h3>
+                        <h3 class="text-4xl font-bold mb-4" style="font-size: 25px">ENFERMAGEM</h3>
                         
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
+                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4 " >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
                             <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
                             <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
@@ -747,12 +747,12 @@ html {
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
                     <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 22px">INFORMÁTICA</h3>
+                    <h3 class="text-4xl font-bold" style="font-size: 25px">INFORMÁTICA</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
                         <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">INFORMÁTICA</h3>
+                        <h3 class="text-4xl font-bold mb-4" style="font-size: 25px">INFORMÁTICA</h3>
                     
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
@@ -768,13 +768,13 @@ html {
             <!-- Administração -->
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
-                    <i class="fas fa-briefcase text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 22px">ADMINISTRAÇÃO</h3>
+                    <i class="fas fa-briefcase text-4x1 text-ceara-green mb-4"></i>
+                    <h3 class="text-4xl font-bold" style="font-size:25px">ADMINISTRAÇÃO</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
                         <i class="fas fa-briefcase text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">ADMINISTRAÇÃO</h3>
+                        <h3 class="text-4xl font-bold mb-4  " style="font-size:25px; ">ADMINISTRAÇÃO</h3>
                       
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
@@ -791,12 +791,12 @@ html {
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
                     <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 22px">EDIFICAÇÕES</h3>
+                    <h3 class="text-4xl font-bold" style="font-size: 25px">EDIFICAÇÕES</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
                         <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">EDIFICAÇÕES</h3>
+                        <h3 class="text-4xl font-bold mb-4" style="font-size: 25px">EDIFICAÇÕES</h3>
                     
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
