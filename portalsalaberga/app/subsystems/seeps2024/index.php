@@ -172,7 +172,7 @@ html {
 }
 
 .login-button:hover {
-  background-color: var(--primary);
+  background-color: var(--ceara-green-dark);
   transform: translateY(-1px);
 }
 
@@ -433,7 +433,7 @@ html {
 }
 
 .btn-success:hover {
-  background-color: var(--primary);
+  background-color: var(--ceara-green-dark);
   transform: translateY(-1px);
 }
 
