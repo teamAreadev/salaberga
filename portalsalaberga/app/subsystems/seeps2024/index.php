@@ -863,15 +863,13 @@ document.querySelectorAll('.course-card a').forEach(link => {
                     Sistema de Ensino e Educação Profissional Salaberga
                 </p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
+                    <a  target="_blank" href="https://www.facebook.com/groups/salaberga/" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
+                    <a  target="_blank" href="https://www.instagram.com/eeepsalabergampe/" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
+                  
                 </div>
             </div>
 
@@ -882,8 +880,8 @@ document.querySelectorAll('.course-card a').forEach(link => {
                 </h4>
                 <ul class="space-y-3">
                     <li>
-                        <a href="#" class="text-sm relative inline-block transition-all hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
-                            Sobre
+                        <a  target="_blank" href="https://salaberga.com" class="text-sm relative inline-block transition-all hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
+                            Portal Salaberga
                         </a>
                     </li>
                     <li>
@@ -907,11 +905,16 @@ document.querySelectorAll('.course-card a').forEach(link => {
                 <div class="space-y-3">
                     <p class="flex items-center text-sm transition-all hover:translate-x-1 group">
                         <i class="fas fa-envelope text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
-                        otavio.filho@aluno.uece.br
+                        eeepsantaritama@gmail.com
                     </p>
                     <p class="flex items-center text-sm transition-all hover:translate-x-1 group">
                         <i class="fas fa-map-marker-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
-                        Rua Tenente Roma, 300
+                        Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE
+                    </p>
+
+                    <p class="flex items-center text-sm transition-all hover:translate-x-1 group">
+                        <i class="fas fa-phone-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
+                        (85) 3101-2100
                     </p>
                 </div>
             </div>
