@@ -678,6 +678,27 @@ if(fone.value.length == 9)
         </div>
         </div>
 
+        <div id="separador3esquerda">               
+        <select name="pcd" class="form-control" required id="selectLot">
+          <option disabled selected >
+            PCD
+          </option>     
+          <option value=1 id="optModal" style="color: green; font-weight: bold">
+            <strong>
+              SIM
+            </strong>
+          </option>
+          <option value=0 id="optModal" style="color: red; font-weight: bold">
+            <strong>
+              NÃO
+            </strong>
+          </option>
+        </select>
+        </div>
+        </div>
+
+        
+
       <div id="separador2">
         <div id="separador4esquerda">
         <input required type="text"  class="form-control"  maxlength="4" maxlength="10" id="inputModal3" placeholder="6° - PORT." name ="lp6" >
