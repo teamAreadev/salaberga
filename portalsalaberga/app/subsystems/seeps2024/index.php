@@ -679,7 +679,12 @@ html {
         transform: translateX(-50%);
     }
 }
-
+.logo-img {
+    width: 200px;  /* Ajuste para o tamanho que preferir */
+    height: auto;  /* Mantém a proporção da imagem */
+    background-image: none; 
+    margin-top: 10px;
+}
 
 </style>
 <body class="min-h-screen flex flex-col">
@@ -688,8 +693,8 @@ html {
         <nav class="nav-container">
             <div class="nav-content">
                 <div class="logo-container">
-                    <img src="assets/images/logosgtmPRETO.png" alt="Logo EEEP" class="logo-img">
-                </div>
+    <img src="assets/images/LOGO_new.png" alt="Logo EEEP" class="logo-img w-32 h-auto"> <!-- Aumenta o tamanho da logo -->
+</div>
                 
                 <div class="nav-actions">
                     <button id="mobile-menu" class="mobile-menu-btn">
