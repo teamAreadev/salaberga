@@ -712,29 +712,29 @@ html {
             </div>
         </nav>
     </header>
-    <main class="flex-grow py-16 px-4 mt-20">
+<main class="flex-grow py-16 px-4 mt-20">
     <section class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <!-- Enfermagem -->
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
-                    <i class="fas fa-stethoscope text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                    <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
                     <h3 class="text-4xl font-bold" style="font-size: 22px">ENFERMAGEM</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
-                        <i class="fas fa-stethoscope text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                        <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">ENFERMAGEM</h3>
                         <p class="text-gray-600 mb-4 text-sm">
                             Formação técnica em cuidados de saúde e assistência ao paciente
                         </p>
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i><strong>Total Inscritos:</strong> 120</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Pública:</strong> 30</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Privada:</strong> 20</span>
-                            <span><i class="fas fa-school mr-2"></i><strong>Cota Escola Pública:</strong> 50</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i><strong>PCD:</strong> 5</span>
+                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
+                            <span ><i style = "margin-left: -60px; position:relative;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
+                            <span ><i style = "margin-left: -34px; position:relative;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: -33px; position:relative;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: -30px; position:relative;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -128px; position:relative;" class="fas fa-wheelchair mr-2"></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -743,22 +743,22 @@ html {
             <!-- Informática -->
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
-                    <i class="fas fa-laptop text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                    <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
                     <h3 class="text-4xl font-bold" style="font-size: 22px">INFORMÁTICA</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
-                        <i class="fas fa-laptop text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                        <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">INFORMÁTICA</h3>
                         <p class="text-gray-600 mb-4 text-sm">
                             Desenvolvimento de sistemas e manutenção de computadores
                         </p>
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i><strong>Total Inscritos:</strong> 200</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Pública:</strong> 50</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Privada:</strong> 40</span>
-                            <span><i class="fas fa-school mr-2"></i><strong>Cota Escola Pública:</strong> 60</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i><strong>PCD:</strong> 10</span>
+                            <span><i class="fas fa-users mr-2"></i>Total Inscritos: 200</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Pública: 50</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Privada: 40</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Escola Pública: 60</span>
+                            <span><i class="fas fa-wheelchair mr-2"></i>PCD: 10</span>
                         </div>
                     </div>
                 </div>
@@ -767,22 +767,22 @@ html {
             <!-- Administração -->
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
-                    <i class="fas fa-cogs text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                    <i class="fas fa-briefcase text-4xl text-ceara-green mb-4"></i>
                     <h3 class="text-4xl font-bold" style="font-size: 22px">ADMINISTRAÇÃO</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
-                        <i class="fas fa-cogs text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                        <i class="fas fa-briefcase text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">ADMINISTRAÇÃO</h3>
                         <p class="text-gray-600 mb-4 text-sm">
                             Gestão empresarial e processos administrativos
                         </p>
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i><strong>Total Inscritos:</strong> 150</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Pública:</strong> 35</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Privada:</strong> 25</span>
-                            <span><i class="fas fa-school mr-2"></i><strong>Cota Escola Pública:</strong> 45</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i><strong>PCD:</strong> 7</span>
+                            <span><i class="fas fa-users mr-2"></i>Total Inscritos: 150</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Pública: 35</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Privada: 25</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Escola Pública: 45</span>
+                            <span><i class="fas fa-wheelchair mr-2"></i>PCD: 7</span>
                         </div>
                     </div>
                 </div>
@@ -791,22 +791,22 @@ html {
             <!-- Edificações -->
             <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
                 <div class="p-6 text-center front">
-                    <i class="fas fa-hard-hat text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                    <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
                     <h3 class="text-4xl font-bold" style="font-size: 22px">EDIFICAÇÕES</h3>
                 </div>
                 <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="text-center">
-                        <i class="fas fa-hard-hat text-4xl text-ceara-green mb-4"></i> <!-- Ícone modificado -->
+                        <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
                         <h3 class="text-4xl font-bold mb-4" style="font-size: 22px">EDIFICAÇÕES</h3>
                         <p class="text-gray-600 mb-4 text-sm">
                             Projetos de construção civil e supervisão de obras
                         </p>
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4">
-                            <span><i class="fas fa-users mr-2"></i><strong>Total Inscritos:</strong> 180</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Pública:</strong> 40</span>
-                            <span><i class="fas fa-map-marker-alt mr-2"></i><strong>Cota Bairro Privada:</strong> 30</span>
-                            <span><i class="fas fa-school mr-2"></i><strong>Cota Escola Pública:</strong> 50</span>
-                            <span><i class="fas fa-wheelchair mr-2"></i><strong>PCD:</strong> 6</span>
+                            <span><i class="fas fa-users mr-2"></i>Total Inscritos: 180</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Pública: 40</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Bairro Privada: 30</span>
+                            <span><i class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i class="fas fa-wheelchair mr-2"></i>PCD: 6</span>
                         </div>
                     </div>
                 </div>
