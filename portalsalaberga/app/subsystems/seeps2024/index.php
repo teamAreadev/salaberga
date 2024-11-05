@@ -729,10 +729,10 @@ html {
                         
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -97px; position:relative;margin-top:10px ; margin-right: 5px mr-2 " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -751,10 +751,10 @@ html {
                     
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ;margin-right: 5px mr-2 " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -773,10 +773,10 @@ html {
                       
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ;margin-right: 5px mr-2  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
@@ -795,10 +795,10 @@ html {
                     
                         <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
                             <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-users mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ; margin-right: 12px  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
+                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
+                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
+                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
+                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ;margin-right: 5px mr-2  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
                         </div>
                     </div>
                 </div>
