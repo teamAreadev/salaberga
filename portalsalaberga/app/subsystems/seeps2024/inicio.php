@@ -113,9 +113,42 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-4 gap-4 mt-4">
+                        
+                        <input placeholder="Nome" type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="6o Ano">
                         <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
                         <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
                         <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="9o Ano">
                         <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
                     </div>
                 `,
@@ -172,8 +205,40 @@
                     </div>
                     <div class="grid grid-cols-4 gap-4 mt-4">
                         <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="7o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="7o Ano">
                         <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
                         <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade6" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade7" class="swal2-input" placeholder="9o Ano">
+                        <input type="number" id="grade8" class="swal2-input" placeholder="9o Ano">
                         <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
                     </div>
                 `,
