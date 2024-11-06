@@ -21,7 +21,7 @@ Class Usuario {
 
 		try{
 			try{
-				$pdo = new PDO("mysql:host=localhost;dbname=u750204740_seeps","u750204740_seeps","Gl311426!@##");
+				$pdo = new PDO("mysql:host=localhost;dbname=seeps","root","");
 
 			}catch(PDOException $e){
 				echo "erro". $e->getMessage();
