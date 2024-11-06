@@ -851,9 +851,9 @@ document.querySelectorAll('.course-card a').forEach(link => {
     }); 
 });
 </script>
-<footer class=" text-white font-sans w-full mt-auto py-6" style="background-color: #008C45">
+<footer class="text-white font-sans w-full mt-auto py-6" style="background-color: #008C45">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <!-- Identificação Institucional -->
             <div class="p-2">
                 <h4 class="text-orange-400 text-xl font-bold mb-4 relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-8 after:h-0.5 after:bg-orange-400 hover:after:w-10 after:transition-all">
@@ -863,13 +863,12 @@ document.querySelectorAll('.course-card a').forEach(link => {
                     Sistema de Ensino e Educação Profissional Salaberga
                 </p>
                 <div class="flex gap-4">
-                    <a  target="_blank" href="https://www.facebook.com/groups/salaberga/" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
+                    <a aria-label="Visite nossa página no Facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/groups/salaberga/" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a  target="_blank" href="https://www.instagram.com/eeepsalabergampe/" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
+                    <a aria-label="Visite nosso perfil no Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eeepsalabergampe/" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-orange-400 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-400/30">
                         <i class="fab fa-instagram"></i>
                     </a>
-                  
                 </div>
             </div>
 
@@ -880,17 +879,17 @@ document.querySelectorAll('.course-card a').forEach(link => {
                 </h4>
                 <ul class="space-y-3">
                     <li>
-                        <a  target="_blank" href="https://salaberga.com" class="text-sm relative inline-block transition-all hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
+                        <a target="_blank" rel="noopener noreferrer" href="https://salaberga.com" class="text-sm relative inline-block transition-all duration-300 hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
                             Portal Salaberga
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-sm relative inline-block transition-all hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
+                        <a href="#" class="text-sm relative inline-block transition-all duration-300 hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
                             Documentação
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-sm relative inline-block transition-all hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
+                        <a href="#" class="text-sm relative inline-block transition-all duration-300 hover:text-orange-400 hover:pl-3 before:content-[''] before:absolute before:left-0 before:bottom-[-2px] before:w-0 before:h-0.5 before:bg-orange-400 hover:before:w-full before:transition-all">
                             Requisitos
                         </a>
                     </li>
@@ -903,23 +902,61 @@ document.querySelectorAll('.course-card a').forEach(link => {
                     CONTATO
                 </h4>
                 <div class="space-y-3">
-                    <p class="flex items-center text-sm transition-all hover:translate-x-1 group">
+                    <a class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
                         <i class="fas fa-envelope text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
                         eeepsantaritama@gmail.com
-                    </p>
-                    <p class="flex items-center text-sm transition-all hover:translate-x-1 group">
+                    </a>
+                    <a href="https://www.google.com/maps/place/Escola+Estadual+de+Educa%C3%A7%C3%A3o+Profissional+Salaberga+Torquato+Gomes+de+Matos/@-3.888242,-38.6765803,17z/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
                         <i class="fas fa-map-marker-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
                         Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE
-                    </p>
-
-                    <a href="tel:+558531012100" class="flex items-center text-sm transition-all hover:translate-x-1 group">
-    <i class="fas fa-phone-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
-    (85) 3101-2100
-</a>
+                    </a>
+                    <a href="tel:+558531012100" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
+                        <i class="fas fa-phone-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
+                        (85) 3101-2100
+                    </a>
                 </div>
             </div>
+
+            <!-- Desenvolvedores -->
+            <div class="p-2">
+                <h4 class="text-orange-400 text-xl font-bold mb-4 relative after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-8 after:h-0.5 after:bg-orange-400 hover:after:w-10 after:transition-all">
+                    DESENVOLVEDORES
+                </h4>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
+                            <i class="fab fa-instagram text-orange-400 mr-3 transition-all group-hover:scale-110"></i>
+                            Otavio Menezes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/mth_fl/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
+                            <i class="fab fa-instagram text-orange-400 mr-3 transition-all group-hover:scale-110"></i>
+                            Matheus Felix
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/lvnas._/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
+                            <i class="fab fa-instagram text-orange-400 mr-3 transition-all group-hover:scale-110"></i>
+                            Lavosier Nascimento
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/rogercavalcantetz/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
+                            <i class="fab fa-instagram text-orange-400 mr-3 transition-all group-hover:scale-110"></i>
+                            Roger Cavalcante
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/p_.uchoa/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm transition-all duration-300 hover:translate-x-1 group">
+                            <i class="fab fa-instagram text-orange-400 mr-3 transition-all group-hover:scale-110"></i>
+                            Pedro Uchôa
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
+
         <!-- Copyright -->
         <div class="border-t border-white/10 pt-4 text-center text-sm">
             <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
