@@ -855,7 +855,7 @@ document.querySelectorAll('.course-card a').forEach(link => {
 </script>
 <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <!-- Identificação Institucional -->
             <div class="p-2">
                 <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
@@ -870,6 +870,29 @@ document.querySelectorAll('.course-card a').forEach(link => {
                         <i class="fab fa-instagram text-sm"></i>
                     </a>
                 </div>
+            </div>
+
+            <!-- Sistema -->
+            <div class="p-2">
+                <h4 class="text-orange-400 text-lg font-bold mb-3">SISTEMA</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a target="_blank" rel="noopener noreferrer" href="https://salaberga.com" 
+                           class="text-sm hover:text-orange-400 transition-colors">
+                            Portal Salaberga
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm hover:text-orange-400 transition-colors">
+                            Documentação
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm hover:text-orange-400 transition-colors">
+                            Requisitos
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <!-- Contato -->
