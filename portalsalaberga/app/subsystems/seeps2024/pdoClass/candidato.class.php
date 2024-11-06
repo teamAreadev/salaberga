@@ -47,11 +47,6 @@ class Candidato
 
 		} catch (PDOException $erro) {
 
-
-
-
-
-
 			echo $erro;
 		} finally {
 
@@ -123,50 +118,6 @@ class Candidato
 			echo "Erro na conexão: " . $e->getMessage();
 		}
 	}
-
-
-
-	/* Este código:
-
-Inicia uma sessão usando session_start()
-
-Para cada curso, cria um array associativo com as seguintes informações:
-
-pcd: total de candidatos PCD
-bairropublica: total de candidatos do bairro com escola pública
-bairroprivada: total de candidatos do bairro com escola privada
-total: total de candidatos no curso
-publica: total de candidatos de escola pública
-Armazena os dados de cada curso em uma sessão separada usando:
-
-Php
-Insert code
-
-$_SESSION["curso_1"]
-$_SESSION["curso_2"]
-$_SESSION["curso_3"]
-$_SESSION["curso_4"]
-Exibe os resultados formatados
-
-Você pode acessar esses dados em qualquer parte do seu sistema usando:
-
-Php
-Insert code
-
-$dadosCurso1 = $_SESSION["curso_1"];
-$dadosCurso2 = $_SESSION["curso_2"];
-// etc.
-E para acessar informações específicas:
-
-Php
-Insert code
-
-$pcdCurso1 = $_SESSION["curso_1"]["pcd"];
-$publicaCurso2 = $_SESSION["curso_2"]["publica"];
-// etc. */
-
-
-
 
 
 	public function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
