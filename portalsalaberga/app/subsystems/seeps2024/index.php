@@ -912,10 +912,10 @@ document.querySelectorAll('.course-card a').forEach(link => {
                         Av. Marta Maria Carvalho Nojoza, sn - Outra Banda, Maranguape - CE
                     </p>
 
-                    <p class="flex items-center text-sm transition-all hover:translate-x-1 group">
-                        <i class="fas fa-phone-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
-                        (85) 3101-2100
-                    </p>
+                    <a href="tel:+558531012100" class="flex items-center text-sm transition-all hover:translate-x-1 group">
+    <i class="fas fa-phone-alt text-orange-400 mr-3 transition-all group-hover:scale-110 group-hover:text-orange-400"></i>
+    (85) 3101-2100
+</a>
                 </div>
             </div>
         </div>
