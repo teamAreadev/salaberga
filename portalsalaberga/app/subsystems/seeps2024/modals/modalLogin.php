@@ -1,4 +1,4 @@
-<!--INICIO DA MODAL ESCOLAS PÚBLICAS >>> CADASTRAR -> CANDIDATO-->
+
 <div class="modal fade" id="modal-container-743975" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
