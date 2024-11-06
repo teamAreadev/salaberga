@@ -19,8 +19,6 @@ class Candidato
 			$consulta->BindValue(':bairro', $bairro);
 			$consulta->execute();
 
-
-
 			$sql2 = "select * from candidato where nome=:nome2;";
 			$consulta2 = $pdo->prepare($sql2);
 			$consulta2->BindValue(':nome2', $nome);
@@ -29,7 +27,6 @@ class Candidato
 			foreach ($dados as $valor => $d) {
 				$x = $d['id_candidato'];
 			}
-
 
 			$sql3 = "insert into nota values(:lp, :ar, :ef, :li, :ma, :ci, :ge, :hi, :re, :id, :publica, :media);";
 			$consulta3 = $pdo->prepare($sql3);
