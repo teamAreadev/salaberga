@@ -20,7 +20,13 @@ Class Usuario {
 	public function logar($email, $senha){
 
 		try{
-			$pdo = new PDO("mysql:host=localhost;dbname=seeps","root","");
+			try{
+				$pdo = new PDO("mysql:host=localhost;dbname=u750204740_seeps","u750204740_seeps","Gl311426!@##");
+
+			}catch(PDOException $e){
+				echo "erro". $e->getMessage();
+			}
+			
 			$status='1';
 			$sql="SELECT * FROM usuario WHERE email= :email and senha= :senha and status= :status;";
 			$consulta = $pdo->prepare($sql);
@@ -32,9 +38,9 @@ Class Usuario {
 			if($consulta->rowCount()>0){
 				session_start();
 				$_SESSION['email'] = $email;
-				header('Location: inicio.php');
+				header('Location: ../seeps2024/inicio.php');
 			}else{
-				header('Location: index.php');
+				header('Location: ../seeps2024/index.php');
 			}
 		}catch(PDOException $erro){
 			ECHO '<script>alert('.$erro.');</script>';
