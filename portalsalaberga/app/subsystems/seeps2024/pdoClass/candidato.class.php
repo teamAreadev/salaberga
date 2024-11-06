@@ -19,33 +19,32 @@ class Candidato
 			$consulta->BindValue(':bairro', $bairro);
 			$consulta->execute();
 
-
-
-			$sql2 = "select * from candidato where nome=:nome2;";
+			$sql2="select * from candidato where nome=:nome2;";
 			$consulta2 = $pdo->prepare($sql2);
-			$consulta2->BindValue(':nome2', $nome);
+			$consulta2->BindValue(':nome2',$nome);
 			$consulta2->execute();
-			$dados = $consulta2->fetchAll();
-			foreach ($dados as $valor => $d) {
-				$x = $d['id_candidato'];
-			}
+   			$dados = $consulta2->fetchAll();
+		   			foreach($dados as $valor =>$d){
+		   				$x = $d['id_candidato'];
+		   			}
 
 
-			$sql3 = "insert into nota values(:lp, :ar, :ef, :li, :ma, :ci, :ge, :hi, :re, :id, :publica, :media);";
+			$sql3="insert into nota values(:lp, :ar, :ef, :li, :ma, :ci, :ge, :hi, :re, :id, :publica, :media);";
 			$consulta3 = $pdo->prepare($sql3);
-			$consulta3->BindValue(':lp', $lp);
-			$consulta3->BindValue(':ar', $ar);
-			$consulta3->BindValue(':ef', $ef);
-			$consulta3->BindValue(':li', $li);
-			$consulta3->BindValue(':ma', $ma);
-			$consulta3->BindValue(':ci', $ci);
-			$consulta3->BindValue(':ge', $ge);
-			$consulta3->BindValue(':hi', $hi);
-			$consulta3->BindValue(':re', $re);
-			$consulta3->BindValue(':id', $x);
-			$consulta3->BindValue(':publica', $publica);
-			$consulta3->BindValue(':media', $m);
+			$consulta3->BindValue(':lp',$lp);
+			$consulta3->BindValue(':ar',$ar);
+			$consulta3->BindValue(':ef',$ef);
+			$consulta3->BindValue(':li',$li);
+			$consulta3->BindValue(':ma',$ma);
+			$consulta3->BindValue(':ci',$ci);
+			$consulta3->BindValue(':ge',$ge);
+			$consulta3->BindValue(':hi',$hi);
+			$consulta3->BindValue(':re',$re);
+			$consulta3->BindValue(':id',$x);
+			$consulta3->BindValue(':publica',$publica);
+			$consulta3->BindValue(':media',$m);
 			$consulta3->execute();
+
 		} catch (PDOException $erro) {
 
 
@@ -56,161 +55,31 @@ class Candidato
 			echo $erro;
 		} finally {
 
-
-
-
-
-
 			echo '<script language="JavaScript"> 
-
-
-
-
-
-
         window.location="success.php"; 
-
-
-
-
-
-
         </script>';
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public function pesquisarCotas()
 	{
-
-
-
-
-
-
 		try {
 
-
-
-
-
-
 			require_once('../Database.php');
-
-
-
-
-
-
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
-
-
-
-
-
-
-
-
-
-
 			// Iniciar a sessão
-
-
-
-
-
 
 			session_start();
 
-
-
-
-
-
-
-
-
-
-
-
-
 			// Array para armazenar todos os resultados
-
-
-
-
-
 
 			$resultados = [];
 
-
-
-
-
-
-
-
-
-
-
-
-
 			// Para cada curso (1 a 4)
 
-
-
-
-
-
 			for ($curso = 1; $curso <= 4; $curso++) {
-
-
-
-
-
-
 				// Criar array para armazenar dados do curso
 
-
-
-
-
-
 				$dadosCurso = [];
-
-
-
-
-
-
 
 				// 1. PCD
 				$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM candidato 
