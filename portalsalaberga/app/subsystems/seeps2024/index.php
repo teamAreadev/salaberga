@@ -1,9 +1,6 @@
-<?php
-require_once('modals/modalLogin.php');
-if(isset($_SESSION['email'])){
-    header('location:inicio.php');
-}
-?>
+<?php 
+require_once("session_manager.php");
+       			?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -721,97 +718,62 @@ html {
     </header>
 <main class="flex-grow py-16 px-4 mt-20 font-poppins">
     <section class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            <!-- Enfermagem -->
-            <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <?php
+        $cursos = [
+            1 => ['nome' => 'ENFERMAGEM', 'icone' => 'fa-user-nurse'],
+            2 => ['nome' => 'INFORMÁTICA', 'icone' => 'fa-laptop-code'],
+            3 => ['nome' => 'ADMINISTRAÇÃO', 'icone' => 'fa-briefcase'],
+            4 => ['nome' => 'EDIFICAÇÕES', 'icone' => 'fa-building']
+        ];
+
+        foreach ($cursos as $id => $curso) {
+            $dados = $_SESSION["curso_$id"] ?? [];
+            ?>
+            <div class="course-card relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onmouseenter="toggleCard(this)">
                 <div class="p-6 text-center front">
-                    <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 25px">ENFERMAGEM</h3>
+                    <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
+                    <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome']; ?></h3>
                 </div>
-                <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                    <div class="text-center">
-                        <i class="fas fa-user-nurse text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 25px">ENFERMAGEM</h3>
+                <div class="absolute inset-0 bg-white transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
+                    <div class="text-center p-4">
+                        <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
                         
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4 " >
-                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -97px; position:relative;margin-top:10px ; margin-right: 5px mr-2 " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
+                        <div class="flex flex-col items-center space-y-4">
+                            <div class="info-text">
+                                <i class="fas fa-users info-icon text-ceara-green"></i>
+                                <span>Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span>
+                            </div>
+                            <div class="info-text">
+                                <i class="fas fa-home info-icon text-ceara-green"></i>
+                                <span>Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
+                            </div>
+                            <div class="info-text">
+                                <i class="fas fa-home info-icon text-ceara-green"></i>
+                                <span>Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
+                            </div>
+                            <div class="info-text">
+                                <i class="fas fa-book info-icon text-ceara-green"></i>
+                                <span>Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span>
+                            </div>
+                            <div class="info-text">
+                                <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
+                                <span>PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        <?php } ?>
+    </div>
 
-            <!-- Informática -->
-            <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
-                <div class="p-6 text-center front">
-                    <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 25px">INFORMÁTICA</h3>
-                </div>
-                <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                    <div class="text-center">
-                        <i class="fas fa-laptop-code text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 25px">INFORMÁTICA</h3>
-                    
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
-                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ;margin-right: 5px mr-2 " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Administração -->
-            <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
-                <div class="p-6 text-center front">
-                    <i class="fas fa-briefcase text-4x1 text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size:25px">ADMINISTRAÇÃO</h3>
-                </div>
-                <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                    <div class="text-center">
-                        <i class="fas fa-briefcase text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4  " style="font-size:25px; ">ADMINISTRAÇÃO</h3>
-                      
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
-                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ;margin-right: 5px mr-2  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Edificações -->
-            <div class="course-card h-[300px] relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onclick="toggleCard(this)">
-                <div class="p-6 text-center front">
-                    <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 25px">EDIFICAÇÕES</h3>
-                </div>
-                <div class="absolute inset-0 bg-white p-6 transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                    <div class="text-center">
-                        <i class="fas fa-building text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-4xl font-bold mb-4" style="font-size: 25px">EDIFICAÇÕES</h3>
-                    
-                        <div class="flex flex-col items-center text-sm text-gray-500 mb-4" >
-                            <span ><i style = "margin-left: -25px; position:relative; margin-top:10px;" class="fas fa-users mr-2"></i>Total Inscritos: 120</span>
-                            <span ><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Pública: 30</span>
-                            <span><i style = "margin-left: 1px; position:relative;margin-top:10px;" class="fas fa-home mr-2"></i>Cota Bairro Privada: 20</span>
-                            <span><i  style = "margin-left: 4px; position:relative;margin-top:10px;" class="fas fa-book mr-2"></i>Cota Escola Pública: 50</span>
-                            <span><i  style = "margin-left: -95px; position:relative;margin-top:10px ;margin-right: 5px mr-2  " class="fas fa-wheelchair mr-2" ></i>PCD: 5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <script>
+        function toggleCard(element) {
+            const back = element.querySelector('.back');
+            back.style.transform = back.style.transform === 'translateY(0px)' ? 'translateY(100%)' : 'translateY(0)';
+        }
+    </script>
     </section>
 </main>
 <script>
@@ -855,7 +817,7 @@ document.querySelectorAll('.course-card a').forEach(link => {
 </script>
 <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             <!-- Identificação Institucional -->
             <div class="p-2">
                 <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
@@ -870,29 +832,6 @@ document.querySelectorAll('.course-card a').forEach(link => {
                         <i class="fab fa-instagram text-sm"></i>
                     </a>
                 </div>
-            </div>
-
-            <!-- Sistema -->
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">SISTEMA</h4>
-                <ul class="space-y-2">
-                    <li>
-                        <a target="_blank" rel="noopener noreferrer" href="https://salaberga.com" 
-                           class="text-sm hover:text-orange-400 transition-colors">
-                            Portal Salaberga
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm hover:text-orange-400 transition-colors">
-                            Documentação
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-sm hover:text-orange-400 transition-colors">
-                            Requisitos
-                        </a>
-                    </li>
-                </ul>
             </div>
 
             <!-- Contato -->
