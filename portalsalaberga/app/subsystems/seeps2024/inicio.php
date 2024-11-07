@@ -333,8 +333,6 @@
                            text-gray-700
                            transition-all duration-300 ease-in-out
                            hover:bg-gray-50
-                         
-                           
                            z-50"
                     aria-controls="sidebar-menu-mobile"
                     aria-expanded="false"
@@ -344,36 +342,53 @@
                     
                     <!-- Ícone Menu (3 barras) -->
                     <svg
-                        class="transform transition-transform duration-300 ease-in-out w-5 h-5" 
-                        id="menu-icon"
+                        class="transform transition-transform duration-300 ease-in-out w-6 h-6" 
+                        id="menu-icon-mobile"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="#2d3748"
                     >
-                        <g id="menu-lines">
+                        <g id="menu-lines-mobile">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2.5"
                                 d="M4 6h16"
-                                class="transform origin-center transition-transform duration-300"
+                                class="menu-line"
                             />
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2.5"
                                 d="M4 12h16"
-                                class="transform origin-center transition-transform duration-300"
+                                class="menu-line"
                             />
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2.5"
                                 d="M4 18h16"
-                                class="transform origin-center transition-transform duration-300"
+                                class="menu-line"
                             />
                         </g>
+                    </svg>
+
+                    <!-- Ícone de Fechar (X) -->
+                    <svg
+                        class="hidden transform transition-transform duration-300 ease-in-out w-6 h-6" 
+                        id="close-icon-mobile"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#2d3748"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
                     </svg>
                 </button>
             </div>
@@ -381,7 +396,7 @@
             <!-- Sidebar Menu Mobile -->
             <div 
                 id="sidebar-menu-mobile" 
-                class="fixed top-0 left-0 h-full w-64 bg-ceara-white shadow-md transform -translate-x-full 
+                class="fixed top-0 right-0 h-full w-64 bg-ceara-white shadow-md transform translate-x-full 
                        transition-transform duration-300 ease-in-out z-50"
             >
                 <div class="p-4 space-y-4">
@@ -449,7 +464,7 @@
                         </button>
 
                         <!-- Botão Sair -->
-                        <button 
+                        <a href="../seeps2024/index.php"
                             class="w-full flex items-center px-4 py-3 text-base rounded-full
                                    border-2 border-red-600 text-red-600 font-semibold
                                    transition-all duration-300 ease-in-out
@@ -460,96 +475,97 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                             </svg>
                             Sair
-                        </button>
+                        </a>
                     </nav>
                 </div>
             </div>
 
+            <!-- Sidebar Menu Desktop -->
             <div 
-    id="sidebar-menu-desktop" 
-    class="fixed top-0 left-0 h-full w-72 bg-ceara-white shadow-md transform -translate-x-full 
-           transition-transform duration-300 ease-in-out z-50"
->
-    <div class="p-6 space-y-6">
-        <!-- Cabeçalho da Sidebar -->
-        <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-semibold text-gray-dark">Menu</h2>
-            <button 
-                onclick="toggleSidebarDesktop()"
-                class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                id="sidebar-menu-desktop" 
+                class="fixed top-0 right-0 h-full w-72 bg-ceara-white shadow-md transform translate-x-full 
+                       transition-transform duration-300 ease-in-out z-50"
             >
-                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
+                <div class="p-6 space-y-6">
+                    <!-- Cabeçalho da Sidebar -->
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-semibold text-gray-dark">Menu</h2>
+                        <button 
+                            onclick="toggleSidebarDesktop()"
+                            class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                        >
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
 
-        <!-- Divisor -->
-        <div class="border-t border-gray-600"></div>
+                    <!-- Divisor -->
+                    <div class="border-t border-gray-600"></div>
 
-        <!-- Botões do Menu -->
-        <nav class="space-y-4">
-            <!-- Botão Atualizar -->
-            <button 
-                onclick="showUpdateModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-ceara-orange text-ceara-orange font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-ceara-orange"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                </svg>
-                Atualizar
-            </button>
+                    <!-- Botões do Menu -->
+                    <nav class="space-y-4">
+                        <!-- Botão Atualizar -->
+                        <button 
+                            onclick="showUpdateModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-orange text-ceara-orange font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-orange"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            Atualizar
+                        </button>
 
-            <!-- Botão Relatórios -->
-            <button 
-                onclick="showReportsModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-ceara-green text-ceara-green font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-ceara-green"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-                Relatórios
-            </button>
+                        <!-- Botão Relatórios -->
+                        <button 
+                            onclick="showReportsModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-green text-ceara-green font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-green"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Relatórios
+                        </button>
 
-            <!-- Botão Resultados -->
-            <button 
-                onclick="showResultsModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-gray-600 text-gray-600 font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-gray-500"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-                Resultados
-            </button>
-
-            <!-- Botão Sair -->
-            <button 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-red-600 text-red-600 font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-red-500"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-                </svg>
-                Sair
-            </button>
-        </nav>
-    </div>
-</div>
+                        <!-- Botão Resultados -->
+                        <button 
+                            onclick="showResultsModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-gray-600 text-gray-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-gray-500"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Resultados
+                        </button>
+        
+                        <!-- Botão Sair -->
+                        <a href="../seeps2024/index.php"
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-red-600 text-red-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-red-500"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                            </svg>
+                            Sair
+                        </a>
+                    </nav>
+                </div>
+            </div>
 
             <!-- Botão Menu Desktop -->
             <div class="hidden sm:flex items-center">
@@ -560,8 +576,6 @@
                            text-gray-700
                            transition-all duration-300 ease-in-out
                            hover:bg-gray-50
-                         
-                          
                            z-50"
                     aria-controls="sidebar-menu-desktop"
                     aria-expanded="false"
@@ -608,41 +622,39 @@
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('sidebar-menu-mobile');
             const overlay = document.getElementById('sidebar-overlay');
-            const isHidden = mobileMenu.classList.contains('-translate-x-full');
+            const menuIcon = document.getElementById('menu-icon-mobile');
+            const closeIcon = document.getElementById('close-icon-mobile');
+            const isHidden = mobileMenu.classList.contains('translate-x-full');
 
-            // Toggle menu
-            mobileMenu.classList.toggle('-translate-x-full');
+            //
+// Toggle menu
+            mobileMenu.classList.toggle('translate-x-full');
             overlay.classList.toggle('hidden');
             overlay.classList.toggle('overlay-visible');
             document.body.classList.toggle('sidebar-active');
+
+            // Atualiza ícones
+            if (isHidden) {
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
 
             // Atualiza aria-expanded
             const button = document.querySelector('[aria-controls="sidebar-menu-mobile"]');
             button.setAttribute('aria-expanded', !isHidden);
         }
 
-        // Fecha sidebar ao clicar no overlay
-        document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
-
-        // Fecha sidebar com a tecla ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-            
-                const mobileMenu = document.getElementById('sidebar-menu-mobile');
-                const overlay = document.getElementById('sidebar-overlay');
-                if (!mobileMenu.classList.contains('-translate-x-full')) {
-                    toggleMobileMenu();
-                }
-            }
-        });
-
         function toggleSidebarDesktop() {
             const desktopMenu = document.getElementById('sidebar-menu-desktop');
             const overlay = document.getElementById('sidebar-overlay-desktop');
-            const isHidden = desktopMenu.classList.contains('-translate-x-full');
+            const menuIcon = document.getElementById('menu-icon-desktop');
+            const isHidden = desktopMenu.classList.contains('translate-x-full');
 
             // Toggle menu
-            desktopMenu.classList.toggle('-translate-x-full');
+            desktopMenu.classList.toggle('translate-x-full');
             overlay.classList.toggle('hidden');
             overlay.classList.toggle('overlay-visible');
             document.body.classList.toggle('sidebar-active');
@@ -653,20 +665,24 @@
         }
 
         // Fecha sidebar ao clicar no overlay
+        document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
         document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
 
         // Fecha sidebar com a tecla ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                const mobileMenu = document.getElementById('sidebar-menu-mobile');
                 const desktopMenu = document.getElementById('sidebar-menu-desktop');
-                if (!desktopMenu.classList.contains('-translate-x-full')) {
+                if (!mobileMenu.classList.contains('translate-x-full')) {
+                    toggleMobileMenu();
+                }
+                if (!desktopMenu.classList.contains('translate-x-full')) {
                     toggleSidebarDesktop();
                 }
             }
         });
     </script>
 </header>
-
 
 <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -751,92 +767,108 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       
-
-        function showReportsModal() {
-            Swal.fire({
-                title: 'Relatórios',
-                html: `
-                    <div class="form-group">
-                        <label class="form-label">Curso</label>
-                        <select id="course" class="form-select">
-                            <option>Enfermagem</option>
-                            <option>Informática</option>
-                            <option>Administração</option>
-                            <option>Edificações</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tipo</label>
-                        <select id="type" class="form-select">
-                            <option>Pública Geral</option>
-                            <option>Privada Geral</option>
-                            <option>Pública AC</option>
-                            <option>Privada AC</option>
-                            <option>Pública Cota</option>
-                            <option>Privada Cota</option>
-                        </select>
-                    </div>
-                `,
-                confirmButtonText: 'Gerar Relatório',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                customClass: {
-                    confirmButton: 'button button-update',
-                    cancelButton: 'button button-exit'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const course = document.getElementById('course').value;
-                    const type = document.getElementById('type').value;
-                    Swal.fire(`Gerando relatório de ${course} - ${type}...`);
-                }
-            });
+      function showReportsModal() {
+    Swal.fire({
+        title: 'Relatórios',
+        html: `
+            <div class="p-4">
+                <div class="mb-4">
+                    <label class="block text-gray-dark text-sm font-bold mb-2" for="course">Curso</label>
+                    <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                        <option value="">Selecione um curso</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Edificações">Edificações</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-dark text-sm font-bold mb-2" for="type">Tipo</label>
+                    <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                        <option value="">Selecione um tipo</option>
+                        <option value="Pública Geral">Pública Geral</option>
+                        <option value="Privada Geral">Privada Geral</option>
+                        <option value="Pública AC">Pública AC</option>
+                        <option value="Privada AC">Privada AC</option>
+                        <option value="Pública Cota">Pública Cota</option>
+                        <option value="Privada Cota">Privada Cota</option>
+                    </select>
+                </div>
+            </div>
+        `,
+        confirmButtonText: 'Gerar Relatório',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-400 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo.');
+            } else {
+                return { course, type };
+            }
         }
-
-        function showResultsModal() {
-            Swal.fire({
-                title: 'Resultados',
-                html: `
-                    <div class="form-group">
-                        <label class="form-label">Curso</label>
-                        <select id="course" class="form-select">
-                            <option>Enfermagem</option>
-                            <option>Informática</option>
-                            <option>Administração</option>
-                            <option>Edificações</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="type" class="block mb-2">Tipo</label>
-                        <select id="type" class="swal2-select">
-                            <option>Pública</option>
-                            <option>Privada</option>
-                        </select>
-                    </div>
-                `,
-                confirmButtonText: 'Ver Resultados',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                focusConfirm: false,
-                preConfirm: () => {
-                    const course = document.getElementById('course').value;
-                    const type = document.getElementById('type').value;
-
-                    if (!course || !type) {
-                        Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
-                    }
-
-                    return {
-                        course,
-                        type
-                    };
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(`Exibindo resultados de ${result.value.course} - ${result.value.type}...`);
-                }
-            });
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(`Gerando relatório de ${result.value.course} - ${result.value.type}...`);
         }
+    });
+}
+
+
+function showResultsModal() {
+    Swal.fire({
+        title: 'Resultados',
+        html: `
+            <div class="p-4">
+                <div class="mb-4">
+                    <label class="block text-gray-dark text-sm font-bold mb-2" for="course">Curso</label>
+                    <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                        <option value="">Selecione um curso</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Edificações">Edificações</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-dark text-sm font-bold mb-2" for="type">Tipo</label>
+                    <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                        <option value="">Selecione um tipo</option>
+                        <option value="Pública">Pública</option>
+                        <option value="Privada">Privada</option>
+                    </select>
+                </div>
+            </div>
+        `,
+        confirmButtonText: 'Ver Resultados',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
+
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
+            }
+
+            return { course, type };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(`Exibindo resultados de ${result.value.course} - ${result.value.type}...`);
+        }
+    });
+}
+
     </script>
 
 
