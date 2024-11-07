@@ -716,6 +716,7 @@
     </div>
 </main>
 
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       
@@ -902,7 +903,6 @@
         </div>
     </footer>
     <script>
-// Configuração personalizada do SweetAlert2
 const modalConfig = {
     allowOutsideClick: false,
     allowEscapeKey: false,
@@ -910,7 +910,7 @@ const modalConfig = {
         popup: 'rounded-2xl shadow-2xl bg-white border border-gray-200 custom-scrollbar',
         title: 'text-gray-800',
         htmlContainer: 'text-gray-600',
-        input: 'bg-white border-gray-300 text-gray-800 rounded-lg focus:ring-2 focus:ring-ceara-green',
+        input: 'bg-white border-gray-300 text-gray-800 rounded-lg',
         confirmButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-ceara-green to-primary text-white font-medium rounded-lg hover:from-primary hover:to-ceara-green focus:ring-4 focus:ring-ceara-green/50 transition-all duration-300',
         cancelButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-600 focus:ring-4 focus:ring-gray-400/50 transition-all duration-300'
     },
@@ -922,270 +922,215 @@ const modalConfig = {
     hideClass: {
         popup: 'animate__animated animate__fadeOutDown animate__faster'
     },
-    didOpen: () => {
-        // Este evento é disparado quando o modal é aberto
-    },
+    didOpen: () => {},
     preConfirm: (courseId) => {
         return validateAndCollectData(courseId);
     }
 };
 
-// Funções para os modais dos cursos
+// Função para abrir os modais
 function showEnfermagemPublicModal() {
-    showModal('p-1', 'Enfermagem - Escola Pública', 'ceara-green');
+    showModal('Enfermagem', 'Escola Pública');
 }
 
 function showEnfermagemPrivateModal() {
-    showModal('c-1', 'Enfermagem - Escola Privada', 'ceara-green');
+    showModal('Enfermagem', 'Escola Privada');
 }
 
 function showInformaticaPublicModal() {
-    showModal('p-2', 'Informática - Escola Pública', 'primary');
+    showModal('Informática', 'Escola Pública');
 }
 
 function showInformaticaPrivateModal() {
-    showModal('c-2', 'Informática - Escola Privada', 'primary');
+    showModal('Informática', 'Escola Privada');
 }
 
 function showAdministracaoPublicModal() {
-    showModal('p-3', 'Administração - Escola Pública', 'ceara-orange');
+    showModal('Administração', 'Escola Pública');
 }
 
 function showAdministracaoPrivateModal() {
-    showModal('c-3', 'Administração - Escola Privada', 'ceara-orange');
+    showModal('Administração', 'Escola Privada');
 }
 
 function showEdificacoesPublicModal() {
-    showModal('p-4', 'Edificações - Escola Pública', 'secondary');
+    showModal('Edificações', 'Escola Pública');
 }
 
 function showEdificacoesPrivateModal() {
-    showModal('c-4', 'Edificações - Escola Privada', 'secondary');
+    showModal('Edificações', 'Escola Privada');
 }
 
 // Função genérica para mostrar modal
-function showModal(courseId, title, color) {
-    const courseMap = {
-        'p-1': 'enfermagem',
-        'c-1': 'enfermagem',
-        'p-2': 'informatica',
-        'c-2': 'informatica',
-        'p-3': 'administracao',
-        'c-3': 'administracao',
-        'p-4': 'edificacoes',
-        'c-4': 'edificacoes'
-    };
-
-    const selectedCourse = courseMap[courseId];
-
+function showModal(courseName, schoolType) {
     Swal.fire({
         ...modalConfig,
-        title: `<div class="text-2xl font-bold mb-2 text-${color}"> ${title} </div>`,
+        title: `<div class="text-2xl font-bold mb-2 text-ceara-green"> ${courseName} - ${schoolType} </div>`,
         width: '80%',
-        html: createModalContent(courseId, selectedCourse),
+        html: createModalContent(courseName, schoolType),
         confirmButtonText: 'Cadastrar',
         showCancelButton: true,
         cancelButtonText: 'Cancelar',
         showLoaderOnConfirm: true,
-        preConfirm: () => validateAndCollectData(courseId)
+        preConfirm: () => validateAndCollectData(courseName)
     }).then(handleModalResult);
 }
 
 // Função para criar o conteúdo do modal
-function createModalContent(courseId, selectedCourse) {
+function createModalContent(courseName, schoolType) {
+    const subjects = [
+        { id: 'lp', name: 'Português' },
+        { id: 'ar', name: 'Arte' },
+        { id: 'ef', name: 'Ed. Física' },
+        { id: 'li', name: 'Inglês' },
+        { id: 'ci', name: 'Ciências' },
+        { id: 'ge', name: 'Geografia' },
+        { id: 'hi', name: 'História' },
+        { id: 're', name: 'Religião' },
+        { id: 'ma', name: 'Matemática' }
+    ];
+
+    // Criando formulários separados para cada curso
+    let forms = '';
+
+    // Formulário para Enfermagem
+    forms += createForm('Enfermagem', schoolType, subjects);
+    // Formulário para Informática
+    forms += createForm('Informática', schoolType, subjects);
+    // Formulário para Administração
+    forms += createForm('Administração', schoolType, subjects);
+    // Formulário para Edificações
+    forms += createForm('Edificações', schoolType, subjects);
+
+    return forms;
+}
+
+// Função para criar um formulário específico
+function createForm(course, schoolType, subjects) {
     return `
-    <form id="gradeForm_${courseId}" class="space-y-8" method=" ..\seeps2024\controllers\controller.php">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-2">
-                <label class="block text-sm font-medium text-gray-700">
-                    Nome Completo <span class="text-red-500">*</span>
-                </label>
-                <input type="text" id="name_${courseId}" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400" placeholder="Digite seu nome completo" required>
+        <form id="gradeForm_${course}" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        Nome Completo <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="name_${course}" name="name" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        Data de Nascimento <span class="text-red-500">*</span>
+                    </label>
+                    <input type="date" id="birthDate_${course}" name="birthDate" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg" required>
+                </div>
             </div>
-            <div class="space-y-2">
-                <label class="block text-sm font-medium text-gray-700">
-                    Data de Nascimento <span class="text-red-500">*</span>
-                </label>
-                <input type="date" id="birthDate_${courseId}" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700" required>
+            <div class="relative mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Curso Selecionado</label>
+                <input type="text" value="${course}" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" disabled />
             </div>
-        </div>
-        <div class="relative group mb-6">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Curso Selecionado</label>
-            <select name="curso" id="course_${courseId}" 
-                    class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" 
-                    required 
-                    disabled>
-                <option value="enfermagem" ${selectedCourse === 'enfermagem' ? 'selected' : ''}>Enfermagem</option>
-                <option value="informatica" ${selectedCourse === 'informatica' ? 'selected' : ''}>Informática</option>
-                <option value="administracao" ${selectedCourse === 'administracao' ? 'selected' : ''}>Administração</option>
-                <option value="edificacoes" ${selectedCourse === 'edificacoes' ? 'selected' : ''}>Edificações</option>
-            </select>
-        </div>
-        ${[6, 7, 8, 9].map(year => createGradeInputs(year, courseId)).join('')}
-    </form>`;
+            <div class="relative mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" disabled />
+            </div>
+            ${[6, 7, 8, 9].map(year => createGradeInputs(year, course, subjects)).join('')}
+        </form>`;
 }
 
 // Função para criar inputs de notas
-function createGradeInputs(year, courseId) {
-    const subjects = [
-        'Português', 'Arte', 'Ed. Física', 'Inglês', 'Ciências',
-        'Geografia', 'História', 'Religião', 'Matemática'
-    ];
-
+function createGradeInputs(year, courseName, subjects) {
     return `
-    <div class="py-6 animate-fadeIn">
-        <div class="flex items-center space-x-4 mb-6">
-            <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
-            <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            ${subjects.map(subject => `
-                <div class="space-y-2 group">
-                    <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
-                        ${subject}
-                    </label>
-                    <div class="relative">
-                        <input type="text"
-                            id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
-                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400 group-hover:border-ceara-green/50"
-                            placeholder="0.0"
-                            required
-                            maxlength="4"
-                            oninput="formatGrade(this)"
-                            onblur="validateGrade(this)">
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                            <span class="text-gray-400 text-sm">/ 10</span>
+        <div class="py-6 animate-fadeIn">
+            <div class="flex items-center space-x-4 mb-6">
+                <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
+                <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                ${subjects.map(subject => `
+                    <div class="space-y-2 group">
+                        <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
+                            ${subject.name}
+                        </label>
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="${subject.id}${year}_${courseName}"
+                                name="${subject.id}${year}"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400 group-hover:border-ceara-green/50"
+                                placeholder="0.0"
+                                required
+                                maxlength="4"
+                                oninput="formatGrade(this)"
+                                onblur="validateGrade(this)"
+                            >
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <span class="text-gray-400 text-sm">/ 10</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('')}
-        </div>
-    </div>`;
+                `).join('')}
+            </div>
+        </div>`;
 }
 
-// Função para formatar as notas
-function formatGrade(input) {
-    let value = input.value.replace(/[^\d.]/g, '');
-    if (value === '1.00') {
-        value = '10.0';
-    }
-    if (value.indexOf('.') !== -1) {
-        const parts = value.split('.');
-        if (parts[1].length > 2) {
-            parts[1] = parts[1].slice(0, 2);
-            value = parts.join('.');
-        }
-    }
-    if (parseFloat(value) > 10) {
-        value = '10.0';
-    }
-    input.value = value;
-}
-
-// Função para validar a nota
-function validateGrade(input) {
-    let value = parseFloat(input.value);
-    if (!isNaN(value) && value >= 0 && value <= 10) {
-        input.value = value === 10 ? '10.0' : value.toFixed(1);
-        input.classList.remove('border-red-500');
-        input.classList.add('border-gray-300');
-    } else {
-        input.classList.add('border-red-500');
-        input.classList.remove('border-gray-300');
-        showError('A nota deve estar entre 0 e 10');
-    }
-}
-
-// Função para validar e coletar dados
-function validateAndCollectData(courseId) {
-    const form = document.getElementById(`gradeForm_${courseId}`);
+// Funções de validação e coleta de dados
+function validateAndCollectData(courseName) {
+    const form = document.getElementById(`gradeForm_${courseName}`);
+    
     if (!form.checkValidity()) {
         showError('Por favor, preencha todos os campos corretamente');
         return false;
     }
-    return collectFormData(courseId);
+
+    return collectFormData(courseName);
 }
 
-// Função para coletar dados do formulário
-function collectFormData(courseId) {
+function collectFormData(courseName) {
     const formData = {
-        courseId: courseId,
-        name: document.getElementById(`name_${courseId}`).value,
-        birthDate: document.getElementById(`birthDate_${courseId}`).value,
-        selectedCourse: document.getElementById(`course_${courseId}`).value,
-        grades: {}
+        courseName: courseName,
+        name: document.getElementById(`name_${courseName}`).value,
+        birthDate: document.getElementById(`birthDate_${courseName}`).value
     };
 
+    const subjects = ['lp', 'ar', 'ef', 'li', 'ci', 'ge', 'hi', 're', 'ma'];
+    
     [6, 7, 8, 9].forEach(year => {
-        formData.grades[year] = {};
-        const subjects = [
-            'portugues', 'arte', 'edfisica', 'ingles', 'ciencias',
-            'geografia', 'historia', 'religiao', 'matematica'
-        ];
         subjects.forEach(subject => {
-            const inputId = `${courseId}_${year}${subject}`;
+            const inputId = `${subject.id}${year}_${courseName}`;
             const input = document.getElementById(inputId);
             if (input) {
-                formData.grades[year][subject] = parseFloat(input.value) || 0;
+                formData[inputId] = parseFloat(input.value) || 0;
             }
         });
     });
 
+    console.log(formData); // Para verificar os dados coletados
     return formData;
 }
 
-// Função para mostrar erro
+// Funções de formatação e validação de notas
+function formatGrade(input) {
+    // Lógica para formatar a nota
+}
+
+function validateGrade(input) {
+    // Lógica para validar a nota
+}
+
 function showError(message) {
-    const toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        background: '#FFFFFF',
-        customClass: {
-            popup: 'rounded-lg border border-red-500/20 shadow-lg',
-            title: 'text-gray-800 text-sm font-medium'
-        }
-    });
-
-    toast.fire({
-        icon: 'error',
-        title: message
-    });
+    // Função para exibir mensagens de erro
 }
 
-// Função para mostrar mensagem de sucesso
-function showSuccessMessage(message) {
-    Swal.fire({
-        ...modalConfig,
-        icon: 'success',
-        iconColor: '#008C45',
-        title: '<span class="text-2xl font-bold text-gray-800">Sucesso!</span>',
-        html: `<p class="text-gray-600">${message}</p>`,
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        background: '#FFFFFF',
-        customClass: {
-            popup: 'rounded-2xl border border-ceara-green/20 shadow-lg'
-        }
-    });
-}
+// Exporta as funções necessárias
+window.showEnfermagemPublicModal = showEnfermagemPublicModal;
+window.showEnfermagemPrivateModal = showEnfermagemPrivateModal;
+window.showInformaticaPublicModal = showInformaticaPublicModal;
+window.showInformaticaPrivateModal = showInformaticaPrivateModal;
+window.showAdministracaoPublicModal = showAdministracaoPublicModal;
+window.showAdministracaoPrivateModal = showAdministracaoPrivateModal;
+window.showEdificacoesPublicModal = showEdificacoesPublicModal;
+window.showEdificacoesPrivateModal = showEdificacoesPrivateModal;
+window.formatGrade = formatGrade;
+window.validateGrade = validateGrade;
 
-// Função para lidar com o resultado do modal
-function handleModalResult(result) {
-    if (result.isConfirmed) {
-        showSuccessMessage('Cadastro realizado com sucesso!');
-        console.log('Dados do formulário:', result.value);
-    }
-}
-
-// Função para lidar com a mudança de curso (caso necessário)
-function handleCourseChange(value, courseId) {
-    console.log(`Curso alterado para: ${value}`);
-    // Adicione aqui qualquer lógica adicional necessária quando o curso for alterado
-}
 </script>
     <style>
 
