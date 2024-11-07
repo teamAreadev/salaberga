@@ -83,6 +83,6 @@ if (isset($oi)) {
     $cand->cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $media);
 } else {
 
-    header('location:../inicio2.php');
+    header('location:../inicio.php');
     exit();
 }
