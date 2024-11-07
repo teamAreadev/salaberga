@@ -1066,38 +1066,34 @@ function createGradeInputs(year, courseId) {
     ];
 
     return `
-    <form action="controller/controller.php" method="POST">
-      <div class="py-6 animate-fadeIn">
-          <div class="flex items-center space-x-4 mb-6">
-              <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
-              <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              ${subjects.map(subject => `
-                  <div class="space-y-2 group">
-                      <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
-                          ${subject}
-                      </label>
-                      <div class="relative">
-                          <input type="text"
-                              name="notas"
-                              id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
-                              class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400 group-hover:border-ceara-green/50"
-                              placeholder="0.0"
-                              required
-                              maxlength="4"
-                              oninput="formatGrade(this)"
-                              onblur="validateGrade(this)">
-                          <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                              <span class="text-gray-400 text-sm">/ 10</span>
-                          </div>
-                      </div>
-                  </div>
-              `).join('')}
-          </div>
-      </div>
-      </form>`;
-    
+    <div class="py-6 animate-fadeIn">
+        <div class="flex items-center space-x-4 mb-6">
+            <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
+            <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            ${subjects.map(subject => `
+                <div class="space-y-2 group">
+                    <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
+                        ${subject}
+                    </label>
+                    <div class="relative">
+                        <input type="text"
+                            id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
+                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400 group-hover:border-ceara-green/50"
+                            placeholder="0.0"
+                            required
+                            maxlength="4"
+                            oninput="formatGrade(this)"
+                            onblur="validateGrade(this)">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <span class="text-gray-400 text-sm">/ 10</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    </div>`;
 }
 
 // Função para formatar as notas
