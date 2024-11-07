@@ -827,7 +827,11 @@ html {
         const password = document.getElementById('password').value;
         const remember = document.getElementById('remember').checked;
 
-       
+        // Aqui você pode adicionar sua lógica de autenticação
+        console.log('Email:', email);
+        console.log('Password:', password);
+        console.log('Remember:', remember);
+
         // Fechar o modal após o envio
         closeModal();
     });
@@ -838,8 +842,7 @@ html {
             closeModal();
         }
     });
-});
-</script>
+});</script>
 <style>  @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
