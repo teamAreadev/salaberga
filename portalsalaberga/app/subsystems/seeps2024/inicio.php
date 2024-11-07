@@ -317,7 +317,7 @@
                 <img 
                     src="assets/images/LOGO_new.png" 
                     alt="Logo SEEPS" 
-                    class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105 logo-img"
+                    class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 scale-105 logo-img"
                     style="margin-top: 10px;"
                 >
             </div>
@@ -615,6 +615,8 @@
 
         body.sidebar-active {
             overflow: hidden;
+
+            
         }
     </style>
 
