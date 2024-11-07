@@ -317,7 +317,7 @@
                 <img 
                     src="assets/images/LOGO_new.png" 
                     alt="Logo SEEPS" 
-                    class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105 logo-img"
+                    class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 scale-105 logo-img"
                     style="margin-top: 10px;"
                 >
             </div>
@@ -333,8 +333,6 @@
                            text-gray-700
                            transition-all duration-300 ease-in-out
                            hover:bg-gray-50
-                         
-                           
                            z-50"
                     aria-controls="sidebar-menu-mobile"
                     aria-expanded="false"
@@ -344,36 +342,53 @@
                     
                     <!-- Ícone Menu (3 barras) -->
                     <svg
-                        class="transform transition-transform duration-300 ease-in-out w-5 h-5" 
-                        id="menu-icon"
+                        class="transform transition-transform duration-300 ease-in-out w-6 h-6" 
+                        id="menu-icon-mobile"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="#2d3748"
                     >
-                        <g id="menu-lines">
+                        <g id="menu-lines-mobile">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2.5"
                                 d="M4 6h16"
-                                class="transform origin-center transition-transform duration-300"
+                                class="menu-line"
                             />
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2.5"
                                 d="M4 12h16"
-                                class="transform origin-center transition-transform duration-300"
+                                class="menu-line"
                             />
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2.5"
                                 d="M4 18h16"
-                                class="transform origin-center transition-transform duration-300"
+                                class="menu-line"
                             />
                         </g>
+                    </svg>
+
+                    <!-- Ícone de Fechar (X) -->
+                    <svg
+                        class="hidden transform transition-transform duration-300 ease-in-out w-6 h-6" 
+                        id="close-icon-mobile"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#2d3748"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
                     </svg>
                 </button>
             </div>
@@ -381,7 +396,7 @@
             <!-- Sidebar Menu Mobile -->
             <div 
                 id="sidebar-menu-mobile" 
-                class="fixed top-0 left-0 h-full w-64 bg-ceara-white shadow-md transform -translate-x-full 
+                class="fixed top-0 right-0 h-full w-64 bg-ceara-white shadow-md transform translate-x-full 
                        transition-transform duration-300 ease-in-out z-50"
             >
                 <div class="p-4 space-y-4">
@@ -390,6 +405,93 @@
                         <h2 class="text-xl font-semibold text-gray-dark">Menu</h2>
                         <button 
                             onclick="toggleMobileMenu()"
+                            class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                        >
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Divisor -->
+                    <div class="border-t border-gray-600"></div>
+
+                    <!-- Botões do Menu -->
+                    <nav class="space-y-4">
+                        <!-- Botão Atualizar -->
+                            <button 
+                                onclick="showUpdateModal()" 
+                                class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                    border-2 border-ceara-orange text-ceara-orange font-semibold
+                                    transition-all duration-300 ease-in-out
+                                    hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                    focus:outline-none focus:ring-2 focus:ring-ceara-orange"
+                            >
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                Atualizar
+                            </button>
+
+                        <!-- Botão Relatórios -->
+                        <button 
+                            onclick="showReportsModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-green text-ceara-green font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-green"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Relatórios
+                        </button>
+
+                        <!-- Botão Resultados -->
+                        <button 
+                            onclick="showResultsModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-gray-600 text-gray-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-gray-500"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Resultados
+                        </button>
+
+                        <!-- Botão Sair -->
+                        <a href="../seeps2024/index.php"
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-red-600 text-red-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-red-500"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                            </svg>
+                            Sair
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu Desktop -->
+            <div 
+                id="sidebar-menu-desktop" 
+                class="fixed top-0 right-0 h-full w-72 bg-ceara-white shadow-md transform translate-x-full 
+                       transition-transform duration-300 ease-in-out z-50"
+            >
+                <div class="p-6 space-y-6">
+                    <!-- Cabeçalho da Sidebar -->
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-semibold text-gray-dark">Menu</h2>
+                        <button 
+                            onclick="toggleSidebarDesktop()"
                             class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
                         >
                             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -447,9 +549,9 @@
                             </svg>
                             Resultados
                         </button>
-
+        
                         <!-- Botão Sair -->
-                        <button 
+                        <a href="../seeps2024/index.php"
                             class="w-full flex items-center px-4 py-3 text-base rounded-full
                                    border-2 border-red-600 text-red-600 font-semibold
                                    transition-all duration-300 ease-in-out
@@ -460,96 +562,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                             </svg>
                             Sair
-                        </button>
+                        </a>
                     </nav>
                 </div>
             </div>
-
-            <div 
-    id="sidebar-menu-desktop" 
-    class="fixed top-0 left-0 h-full w-72 bg-ceara-white shadow-md transform -translate-x-full 
-           transition-transform duration-300 ease-in-out z-50"
->
-    <div class="p-6 space-y-6">
-        <!-- Cabeçalho da Sidebar -->
-        <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-semibold text-gray-dark">Menu</h2>
-            <button 
-                onclick="toggleSidebarDesktop()"
-                class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
-            >
-                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Divisor -->
-        <div class="border-t border-gray-600"></div>
-
-        <!-- Botões do Menu -->
-        <nav class="space-y-4">
-            <!-- Botão Atualizar -->
-            <button 
-                onclick="showUpdateModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-ceara-orange text-ceara-orange font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-ceara-orange"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                </svg>
-                Atualizar
-            </button>
-
-            <!-- Botão Relatórios -->
-            <button 
-                onclick="showReportsModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-ceara-green text-ceara-green font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-ceara-green"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-                Relatórios
-            </button>
-
-            <!-- Botão Resultados -->
-            <button 
-                onclick="showResultsModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-gray-600 text-gray-600 font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-gray-500"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-                Resultados
-            </button>
-
-            <!-- Botão Sair -->
-            <button 
-                class="w-full flex items-center px-4 py-3 text-base rounded-full
-                       border-2 border-red-600 text-red-600 font-semibold
-                       transition-all duration-300 ease-in-out
-                       hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
-                       focus:outline-none focus:ring-2 focus:ring-red-500"
-            >
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-                </svg>
-                Sair
-            </button>
-        </nav>
-    </div>
-</div>
 
             <!-- Botão Menu Desktop -->
             <div class="hidden sm:flex items-center">
@@ -560,8 +576,6 @@
                            text-gray-700
                            transition-all duration-300 ease-in-out
                            hover:bg-gray-50
-                         
-                          
                            z-50"
                     aria-controls="sidebar-menu-desktop"
                     aria-expanded="false"
@@ -601,6 +615,8 @@
 
         body.sidebar-active {
             overflow: hidden;
+
+            
         }
     </style>
 
@@ -608,41 +624,39 @@
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('sidebar-menu-mobile');
             const overlay = document.getElementById('sidebar-overlay');
-            const isHidden = mobileMenu.classList.contains('-translate-x-full');
+            const menuIcon = document.getElementById('menu-icon-mobile');
+            const closeIcon = document.getElementById('close-icon-mobile');
+            const isHidden = mobileMenu.classList.contains('translate-x-full');
 
-            // Toggle menu
-            mobileMenu.classList.toggle('-translate-x-full');
+            //
+// Toggle menu
+            mobileMenu.classList.toggle('translate-x-full');
             overlay.classList.toggle('hidden');
             overlay.classList.toggle('overlay-visible');
             document.body.classList.toggle('sidebar-active');
+
+            // Atualiza ícones
+            if (isHidden) {
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
 
             // Atualiza aria-expanded
             const button = document.querySelector('[aria-controls="sidebar-menu-mobile"]');
             button.setAttribute('aria-expanded', !isHidden);
         }
 
-        // Fecha sidebar ao clicar no overlay
-        document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
-
-        // Fecha sidebar com a tecla ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-            
-                const mobileMenu = document.getElementById('sidebar-menu-mobile');
-                const overlay = document.getElementById('sidebar-overlay');
-                if (!mobileMenu.classList.contains('-translate-x-full')) {
-                    toggleMobileMenu();
-                }
-            }
-        });
-
         function toggleSidebarDesktop() {
             const desktopMenu = document.getElementById('sidebar-menu-desktop');
             const overlay = document.getElementById('sidebar-overlay-desktop');
-            const isHidden = desktopMenu.classList.contains('-translate-x-full');
+            const menuIcon = document.getElementById('menu-icon-desktop');
+            const isHidden = desktopMenu.classList.contains('translate-x-full');
 
             // Toggle menu
-            desktopMenu.classList.toggle('-translate-x-full');
+            desktopMenu.classList.toggle('translate-x-full');
             overlay.classList.toggle('hidden');
             overlay.classList.toggle('overlay-visible');
             document.body.classList.toggle('sidebar-active');
@@ -653,20 +667,24 @@
         }
 
         // Fecha sidebar ao clicar no overlay
+        document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
         document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
 
         // Fecha sidebar com a tecla ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                const mobileMenu = document.getElementById('sidebar-menu-mobile');
                 const desktopMenu = document.getElementById('sidebar-menu-desktop');
-                if (!desktopMenu.classList.contains('-translate-x-full')) {
+                if (!mobileMenu.classList.contains('translate-x-full')) {
+                    toggleMobileMenu();
+                }
+                if (!desktopMenu.classList.contains('translate-x-full')) {
                     toggleSidebarDesktop();
                 }
             }
         });
     </script>
 </header>
-
 
 <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -675,11 +693,10 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Enfermagem</h3>
                 <div class="space-y-4">
-                    <button onclick="showEnfermagemPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Pública</button>
-                    <button onclick="showEnfermagemPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Privada</button>
+                    <button onclick="enfermagemPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Pública</button>
+                    <button onclick="enfermagemPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Privada</button>
                 </div>
             </div>
-            <!-- Repetir para outros cursos -->
         </div>
 
         <!-- Card Informática -->
@@ -687,8 +704,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
                 <div class="space-y-4">
-                    <button onclick="showInformaticaPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Pública</button>
-                    <button onclick="showInformaticaPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Privada</button>
+                    <button onclick="informaticaPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Pública</button>
+                    <button onclick="informaticaPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -698,8 +715,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Administração</h3>
                 <div class="space-y-4">
-                    <button onclick="showAdministracaoPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Pública</button>
-                    <button onclick="showAdministracaoPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Privada</button>
+                    <button onclick="administracaoPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Pública</button>
+                    <button onclick="administracaoPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -709,8 +726,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
                 <div class="space-y-4">
-                    <button onclick="showEdificacoesPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Pública</button>
-                    <button onclick="showEdificacoesPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Privada</button>
+                    <button onclick="edificacoesPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Pública</button>
+                    <button onclick="edificacoesPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -718,95 +735,287 @@
 </main>
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       
-
-        function showReportsModal() {
-            Swal.fire({
-                title: 'Relatórios',
-                html: `
-                    <div class="form-group">
-                        <label class="form-label">Curso</label>
-                        <select id="course" class="form-select">
-                            <option>Enfermagem</option>
-                            <option>Informática</option>
-                            <option>Administração</option>
-                            <option>Edificações</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Tipo</label>
-                        <select id="type" class="form-select">
-                            <option>Pública Geral</option>
-                            <option>Privada Geral</option>
-                            <option>Pública AC</option>
-                            <option>Privada AC</option>
-                            <option>Pública Cota</option>
-                            <option>Privada Cota</option>
-                        </select>
-                    </div>
-                `,
-                confirmButtonText: 'Gerar Relatório',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                customClass: {
-                    confirmButton: 'button button-update',
-                    cancelButton: 'button button-exit'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const course = document.getElementById('course').value;
-                    const type = document.getElementById('type').value;
-                    Swal.fire(`Gerando relatório de ${course} - ${type}...`);
-                }
-            });
+      function showReportsModal() {
+    Swal.fire({
+        title: 'Relatórios',
+        html: `
+            <div class="p-4">
+                <div class="mb-4">
+                  
+                    <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                        <option value="">Selecione um curso</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Edificações">Edificações</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    
+                    <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                        <option value="">Selecione um tipo</option>
+                        <option value="Pública Geral">Pública Geral</option>
+                        <option value="Privada Geral">Privada Geral</option>
+                        <option value="Pública AC">Pública AC</option>
+                        <option value="Privada AC">Privada AC</option>
+                        <option value="Pública Cota">Pública Cota</option>
+                        <option value="Privada Cota">Privada Cota</option>
+                    </select>
+                </div>
+            </div>
+        `,
+        confirmButtonText: 'Gerar Relatório',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-400 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo.');
+            } else {
+                return { course, type };
+            }
         }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(`Gerando relatório de ${result.value.course} - ${result.value.type}...`);
+        }
+    });
+}
 
-        function showResultsModal() {
-            Swal.fire({
-                title: 'Resultados',
-                html: `
-                    <div class="form-group">
-                        <label class="form-label">Curso</label>
-                        <select id="course" class="form-select">
-                            <option>Enfermagem</option>
-                            <option>Informática</option>
-                            <option>Administração</option>
-                            <option>Edificações</option>
-                        </select>
-                    </div>
+function showUpdateModal() {
+    Swal.fire({
+        customClass: {
+            popup: 'rounded-lg',
+            title: 'text-gray-dark text-xl font-bold',
+            confirmButton: 'bg-ceara-orange text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 mx-2',
+            cancelButton: 'bg-gray-600 text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 mx-2',
+            actions: 'space-x-4' // Adiciona espaçamento entre os botões
+        },
+        title: 'Atualizar Notas',
+        html: `
+            <div class="p-4">
+                <div class="mb-4">
+                    <label class="block text-gray-dark text-sm font-bold mb-2" for="studentId">ID do Aluno</label>
+                    <input type="number" id="studentId" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
                     <div class="mb-4">
-                        <label for="type" class="block mb-2">Tipo</label>
-                        <select id="type" class="swal2-select">
-                            <option>Pública</option>
-                            <option>Privada</option>
-                        </select>
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="portugues">Português</label>
+                        <input type="number" step="0.1" min="0" max="10" id="portugues" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
                     </div>
-                `,
-                confirmButtonText: 'Ver Resultados',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                focusConfirm: false,
-                preConfirm: () => {
-                    const course = document.getElementById('course').value;
-                    const type = document.getElementById('type').value;
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="arte">Arte</label>
+                        <input type="number" step="0.1" min="0" max="10" id="arte" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="edFisica">Ed. Física</label>
+                        <input type="number" step="0.1" min="0" max="10" id="edFisica" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="ingles">Inglês</label>
+                        <input type="number" step="0.1" min="0" max="10" id="ingles" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="ciencias">Ciências</label>
+                        <input type="number" step="0.1" min="0" max="10" id="ciencias" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="geografia">Geografia</label>
+                        <input type="number" step="0.1" min="0" max="10" id="geografia" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="historia">História</label>
+                        <input type="number" step="0.1" min="0" max="10" id="historia" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="religiao">Religião</label>
+                        <input type="number" step="0.1" min="0" max="10" id="religiao" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-dark text-sm font-bold mb-2" for="matematica">Matemática</label>
+                        <input type="number" step="0.1" min="0" max="10" id="matematica" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    </div>
+                </div>
+            </div>
+        `,
+        confirmButtonText: 'Atualizar',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const studentId = document.getElementById('studentId').value;
+            const notas = {
+                portugues: document.getElementById('portugues').value,
+                arte: document.getElementById('arte').value,
+                edFisica: document.getElementById('edFisica').value,
+                ingles: document.getElementById('ingles').value,
+                ciencias: document.getElementById('ciencias').value,
+                geografia: document.getElementById('geografia').value,
+                historia: document.getElementById('historia').value,
+                religiao: document.getElementById('religiao').value,
+                matematica: document.getElementById('matematica').value
+            };
 
-                    if (!course || !type) {
-                        Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
-                    }
+            if (!studentId) {
+                Swal.showValidationMessage('Por favor, insira o ID do aluno.');
+                return;
+            }
 
-                    return {
-                        course,
-                        type
-                    };
+            // Validação das notas
+            for (let [materia, nota] of Object.entries(notas)) {
+                if (nota === '') {
+                    Swal.showValidationMessage(`Por favor, insira a nota de ${materia}.`);
+                    return;
                 }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(`Exibindo resultados de ${result.value.course} - ${result.value.type}...`);
+                if (nota < 0 || nota > 10) {
+                    Swal.showValidationMessage(`A nota de ${materia} deve estar entre 0 e 10.`);
+                    return;
+                }
+            }
+
+            return { studentId, notas };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Notas atualizadas com sucesso!',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
                 }
             });
         }
+    });
+}
+
+
+const styles = `
+    .swal2-popup {
+        background-color: var(--ceara-white) !important;
+    }
+
+    .swal2-actions {
+        gap: 1rem !important; /* Adiciona 1rem de espaço entre os botões */
+    }
+
+    .swal2-input, .swal2-textarea {
+        border-color: var(--gray-600) !important;
+        transition: all var(--transition-duration) var(--transition-timing) !important;
+    }
+
+    .swal2-input:focus, .swal2-textarea:focus {
+        border-color: var(--ceara-orange) !important;
+        box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2) !important;
+    }
+
+    .form-input:hover, .swal2-input:hover {
+        transform: scale(var(--hover-scale));
+    }
+
+    .swal2-confirm {
+        background-color: var(--ceara-orange) !important;
+        margin: 0 0.5rem !important; /* Adiciona margem lateral */
+    }
+
+    .swal2-cancel {
+        background-color: var(--gray-600) !important;
+        margin: 0 0.5rem !important; /* Adiciona margem lateral */
+    }
+
+    .swal2-confirm:hover, .swal2-cancel:hover {
+        transform: scale(var(--hover-scale));
+    }
+
+    /* Ajuste para telas menores */
+    @media (max-width: 640px) {
+        .swal2-actions {
+            flex-direction: column;
+            gap: 0.5rem !important;
+        }
+
+        .swal2-confirm, .swal2-cancel {
+            margin: 0.25rem 0 !important;
+            width: 100%;
+        }
+    }
+`;
+
+
+
+function showResultsModal() {
+    Swal.fire({
+        title: 'Resultados',
+        html: `
+            <div class="p-4">
+                <div class="mb-4">
+                
+                    <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                        <option value="">Selecione um curso</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Edificações">Edificações</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                  
+                    <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                        <option value="">Selecione um tipo</option>
+                        <option value="Pública">Pública</option>
+                        <option value="Privada">Privada</option>
+                    </select>
+                </div>
+            </div>
+        `,
+        confirmButtonText: 'Ver Resultados',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
+
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
+            }
+
+            return { course, type };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(`Exibindo resultados de ${result.value.course} - ${result.value.type}...`);
+        }
+    });
+}
+
+
     </script>
 
 
@@ -929,36 +1138,36 @@ const modalConfig = {
     }
 };
 
-// Função para abrir os modais
-function showEnfermagemPublicModal() {
+// Funções para abrir os modais
+function enfermagemPub() {
     showModal('Enfermagem', 'Escola Pública');
 }
 
-function showEnfermagemPrivateModal() {
+function enfermagemPriv() {
     showModal('Enfermagem', 'Escola Privada');
 }
 
-function showInformaticaPublicModal() {
+function informaticaPub() {
     showModal('Informática', 'Escola Pública');
 }
 
-function showInformaticaPrivateModal() {
+function informaticaPriv() {
     showModal('Informática', 'Escola Privada');
 }
 
-function showAdministracaoPublicModal() {
+function administracaoPub() {
     showModal('Administração', 'Escola Pública');
 }
 
-function showAdministracaoPrivateModal() {
+function administracaoPriv() {
     showModal('Administração', 'Escola Privada');
 }
 
-function showEdificacoesPublicModal() {
+function edificacoesPub() {
     showModal('Edificações', 'Escola Pública');
 }
 
-function showEdificacoesPrivateModal() {
+function edificacoesPriv() {
     showModal('Edificações', 'Escola Privada');
 }
 
@@ -991,54 +1200,205 @@ function createModalContent(courseName, schoolType) {
         { id: 'ma', name: 'Matemática' }
     ];
 
-    // Criando formulários separados para cada curso
-    let forms = '';
-
-    // Formulário para Enfermagem
-    forms += createForm('Enfermagem', schoolType, subjects);
-    // Formulário para Informática
-    forms += createForm('Informática', schoolType, subjects);
-    // Formulário para Administração
-    forms += createForm('Administração', schoolType, subjects);
-    // Formulário para Edificações
-    forms += createForm('Edificações', schoolType, subjects);
-
-    return forms;
+    // Chama a função correspondente ao curso
+    switch (courseName) {
+        case 'Enfermagem':
+            return createEnfermagemForm(schoolType, subjects);
+        case 'Informática':
+            return createInformaticaForm(schoolType, subjects);
+        case 'Administração':
+            return createAdministracaoForm(schoolType, subjects);
+        case 'Edificações':
+            return createEdificacoesForm(schoolType, subjects);
+        default:
+            return '';
+    }
 }
 
-// Função para criar um formulário específico
-function createForm(course, schoolType, subjects) {
+// Funções para criar formulários específicos
+function createEnfermagemForm(schoolType, subjects) {
+    return createForm('Enfermagem', schoolType, subjects);
+}
+
+function createInformaticaForm(schoolType, subjects) {
+    return createForm('Informática', schoolType, subjects);
+}
+
+function createAdministracaoForm(schoolType, subjects) {
+    return createForm('Administração', schoolType, subjects);
+}
+
+function createEdificacoesForm(schoolType, subjects) {
+    return createForm('Edificações', schoolType, subjects);
+}
+
+// Função para criar um formulário genérico
+// Função para criar o conteúdo do modal com formulários específicos
+function createModalContent(courseName, schoolType) {
+    switch (courseName) {
+        case 'Enfermagem':
+            return createEnfermagemForm(schoolType);
+        case 'Informática':
+            return createInformaticaForm(schoolType);
+        case 'Administração':
+            return createAdministracaoForm(schoolType);
+        case 'Edificações':
+            return createEdificacoesForm(schoolType);
+        default:
+            return '';
+    }
+}
+
+// Função específica para o formulário de Enfermagem
+function createEnfermagemForm(schoolType) {
     return `
-        <form id="gradeForm_${course}" class="space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">
-                        Nome Completo <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" id="name_${course}" name="name" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg" placeholder="Digite seu nome completo" required>
+        <form id="enfermagemForm" class="space-y-2 max-w-2xl mx-auto p-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2">
+                    <label class="block text-xs font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" placeholder="Digite seu nome completo" required>
                 </div>
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">
-                        Data de Nascimento <span class="text-red-500">*</span>
-                    </label>
-                    <input type="date" id="birthDate_${course}" name="birthDate" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg" required>
+                
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                    <input type="date" name="data_nascimento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
                 </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">CPF <span class="text-red-500">*</span></label>
+                    <input type="text" name="cpf" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">RG <span class="text-red-500">*</span></label>
+                    <input type="text" name="rg" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
+                    <input type="tel" name="telefone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Celular</label>
+                    <input type="tel" name="celular" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
+                    <input type="text" name="cep" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Número</label>
+                    <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Número</label>
+                    <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Complemento</label>
+                    <input type="text" name="complemento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <!-- Continuação dos campos... seguindo o mesmo padrão -->
+                
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
+                    <input type="text" name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
+                    <input type="text" name="cidade" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+        </form>`;
+}
+// Função específica para o formulário de Informática
+function createInformaticaForm(schoolType) {
+    return `
+        <form id="informaticaForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
             </div>
-            <div class="relative mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Curso Selecionado</label>
-                <input type="text" value="${course}" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" disabled />
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
             </div>
-            <div class="relative mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Escola</label>
-                <input type="text" value="${schoolType}" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" disabled />
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+                <input type="text" value="Informática" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
             </div>
-            ${[6, 7, 8, 9].map(year => createGradeInputs(year, course, subjects)).join('')}
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <!-- Adicione campos específicos para Informática aqui -->
         </form>`;
 }
 
+// Função específica para o formulário de Administração
+function createAdministracaoForm(schoolType) {
+    return `
+        <form id="administracaoForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+                <input type="text" value="Administração" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <!-- Adicione campos específicos para Administração aqui -->
+        </form>`;
+}
+
+// Função específica para o formulário de Edificações
+function createEdificacoesForm(schoolType) {
+    return `
+        <form id="edificacoesForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+                <input type="text" value="Edificações" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <!-- Adicione campos específicos para Edificações aqui -->
+        </form>`;
+}
+
+
 // Função para criar inputs de notas
 function createGradeInputs(year, courseName, subjects) {
-    return `
+     `
         <div class="py-6 animate-fadeIn">
             <div class="flex items-center space-x-4 mb-6">
                 <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
@@ -1095,7 +1455,7 @@ function collectFormData(courseName) {
     
     [6, 7, 8, 9].forEach(year => {
         subjects.forEach(subject => {
-            const inputId = `${subject.id}${year}_${courseName}`;
+            const inputId = `${subject}${year}_${courseName}`;
             const input = document.getElementById(inputId);
             if (input) {
                 formData[inputId] = parseFloat(input.value) || 0;
@@ -1121,16 +1481,14 @@ function showError(message) {
 }
 
 // Exporta as funções necessárias
-window.showEnfermagemPublicModal = showEnfermagemPublicModal;
-window.showEnfermagemPrivateModal = showEnfermagemPrivateModal;
-window.showInformaticaPublicModal = showInformaticaPublicModal;
-window.showInformaticaPrivateModal = showInformaticaPrivateModal;
-window.showAdministracaoPublicModal = showAdministracaoPublicModal;
-window.showAdministracaoPrivateModal = showAdministracaoPrivateModal;
-window.showEdificacoesPublicModal = showEdificacoesPublicModal;
-window.showEdificacoesPrivateModal = showEdificacoesPrivateModal;
-window.formatGrade = formatGrade;
-window.validateGrade = validateGrade;
+window.enfermagemPub = enfermagemPub;
+window.enfermagemPriv = enfermagemPriv;
+window.informaticaPub = informaticaPub;
+window.informaticaPriv = informaticaPriv;
+window.administracaoPub = administracaoPub;
+window.administracaoPriv = administracaoPriv;
+window.edificacoesPub = edificacoesPub;
+window.edificacoesPriv = edificacoesPriv;
 
 </script>
     <style>
