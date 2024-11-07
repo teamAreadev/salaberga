@@ -1,5 +1,5 @@
 <?php 
-require_once("session_manager.php");
+require_once("models/session_manager.php");
        			?>
 
 <!DOCTYPE html>
