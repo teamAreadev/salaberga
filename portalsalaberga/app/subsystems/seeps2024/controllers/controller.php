@@ -2,6 +2,9 @@
 
 require_once('../models/model.php');
 
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 //cadastro
 if (isset($oi)) {
 
@@ -20,8 +23,8 @@ if (isset($oi)) {
 
 
     $nome = $_POST['nome'];
-    $dn = $_POST['dn'];
-    $c1 = $_POST['c1'];
+    $nasc = $_POST['nasc'];
+    $curso = $_POST['curso'];
     $c2 = 1;
     $bairro = $_POST['bairro'];
     $publica = $_POST['publica'];
@@ -81,8 +84,4 @@ if (isset($oi)) {
 
     $cand = new candidato();
     $cand->cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $media);
-} else {
-
-    header('location:../inicio.php');
-    exit();
-}
+} 
