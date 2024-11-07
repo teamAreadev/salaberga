@@ -38,7 +38,7 @@ Class Usuario {
 			if($consulta->rowCount()>0){
 				session_start();
 				$_SESSION['email'] = $email;
-				header('Location: ../seeps2024/inicio.php');
+				header('Location: ../seeps2024/inicio2.php');
 			}else{
 				header('Location: ../seeps2024/index.php');
 			}

@@ -615,6 +615,8 @@
 
         body.sidebar-active {
             overflow: hidden;
+
+            
         }
     </style>
 
