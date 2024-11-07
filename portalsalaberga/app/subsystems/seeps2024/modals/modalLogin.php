@@ -46,7 +46,7 @@
 
                                 <!-- Login Button -->
                                 <div id="separadorBtn">
-                                <button type="submit" class="btn btn-success" value="Enviar" id="btn1"><SPAN id="btnTexto">ENTRAR</SPAN></b></button>            
+                                
                                 </div>
 
                            

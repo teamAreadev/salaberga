@@ -1139,7 +1139,6 @@ const modalConfig = {
     }
 };
 
-// Funções para os modais dos cursos
 function showEnfermagemPublicModal() {
     showModal('p-1', 'Enfermagem - Escola Pública', 'ceara-green');
 }
@@ -1172,7 +1171,6 @@ function showEdificacoesPrivateModal() {
     showModal('c-4', 'Edificações - Escola Privada', 'secondary');
 }
 
-// Função genérica para mostrar modal
 function showModal(courseId, title, color) {
     const courseMap = {
         'p-1': 'enfermagem',
@@ -1200,7 +1198,6 @@ function showModal(courseId, title, color) {
     }).then(handleModalResult);
 }
 
-// Função para criar o conteúdo do modal
 function createModalContent(courseId, selectedCourse) {
     return `
     <form id="gradeForm_${courseId}" class="space-y-8" method=" ..\seeps2024\controllers\controller.php">

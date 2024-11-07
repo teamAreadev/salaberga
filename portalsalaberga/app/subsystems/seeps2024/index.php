@@ -18,6 +18,7 @@ require_once("session_manager.php");
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -701,21 +702,161 @@ html {
                         <i class="fas fa-bars"></i>
                     </button>
 
-                    <div class="nav-links">
-                        <button 
-                            id="modal-743975" 
-                            href="#modal-container-743975" 
-                            
-                            class="login-button"
-                            data-toggle="modal">
-                            
-                            ENTRAR
-                        </button>
-                    </div>
+                   <!-- Botão que aciona o modal -->
+<div class="nav-links">
+    <button 
+        id="openLoginModal"
+        class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
+        ENTRAR
+    </button>
+</div>
+
+<!-- Modal (inicialmente escondido) -->
+<div id="loginModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">Login</h3>
+            <button id="closeLoginModal" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <form id="loginForm" class="space-y-4">
+            <!-- Email Input -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="seu@email.com"
+                    required
+                >
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="********"
+                    required
+                >
+            </div>
+
+            <!-- Remember Me Checkbox -->
+            <div class="flex items-center">
+                <input 
+                    type="checkbox" 
+                    id="remember" 
+                    name="remember" 
+                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                >
+                <label for="remember" class="ml-2 block text-sm text-gray-900">
+                    Lembrar-me
+                </label>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex justify-end space-x-3 mt-6">
+                <button 
+                    type="button" 
+                    id="cancelButton"
+                    class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                >
+                    Cancelar
+                </button>
+                <button type="submit" class="btn btn-success" value="Enviar" id="btn1"><SPAN id="btnTexto">ENTRAR</SPAN></b></button>         
+            </div>
+        </form>
+    </div>
+</div>
                 </div>
             </div>
         </nav>
     </header>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('loginModal');
+    const openButton = document.getElementById('openLoginModal');
+    const closeButton = document.getElementById('closeLoginModal');
+    const cancelButton = document.getElementById('cancelButton');
+    const loginForm = document.getElementById('loginForm');
+
+    // Função para abrir o modal
+    function openModal() {
+        modal.classList.remove('hidden');
+        // Adiciona animação de fade in
+        modal.classList.add('fade-in');
+    }
+
+    // Função para fechar o modal
+    function closeModal() {
+        modal.classList.add('hidden');
+    }
+
+    // Event Listeners
+    openButton.addEventListener('click', openModal);
+    closeButton.addEventListener('click', closeModal);
+    cancelButton.addEventListener('click', closeModal);
+
+    // Fechar modal quando clicar fora dele
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Prevenir fechamento quando clicar dentro do modal
+    modal.querySelector('.relative').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Manipular envio do formulário
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const remember = document.getElementById('remember').checked;
+
+       
+        // Fechar o modal após o envio
+        closeModal();
+    });
+
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+});
+</script>
+<style>  @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-10%); }
+        to { transform: translateY(0); }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .fade-in > div {
+        animation: slideIn 0.3s ease-out;
+    }</style>
 <main class="flex-grow py-16 px-4 mt-20 font-poppins">
     <section class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
