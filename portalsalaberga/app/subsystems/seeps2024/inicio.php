@@ -1253,73 +1253,61 @@ function createModalContent(courseName, schoolType) {
 function createEnfermagemForm(schoolType) {
     return `
         <form id="enfermagemForm" class="space-y-2 max-w-2xl mx-auto p-4">
-            <div class="grid grid-cols-2 gap-4">
-                <div class="col-span-2">
-                    <label class="block text-xs font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
-                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" placeholder="Digite seu nome completo" required>
-                </div>
-                
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
-                    <input type="date" name="data_nascimento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
+            <div class="grid grid-cols-4 gap-4">
+    <div class="col-span-4">
+        <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
+    </div>
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+        <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+    </div>
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+        <input type="text" value="Enfermagem" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+    </div>
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+        <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
+        <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
+        <input type="tel" name="telefone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Celular</label>
+        <input type="tel" name="celular" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
+        <input type="text" name="cep" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Número</label>
+        <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Número</label>
+        <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Complemento</label>
+        <input type="text" name="complemento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
+        <input type="text" name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+    </div>
+    <div>
+        <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
+        <input type="text" name="cidade" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+    </div>
+</div>
 
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">CPF <span class="text-red-500">*</span></label>
-                    <input type="text" name="cpf" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">RG <span class="text-red-500">*</span></label>
-                    <input type="text" name="rg" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
-                    <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
-                    <input type="tel" name="telefone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Celular</label>
-                    <input type="tel" name="celular" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
-                    <input type="text" name="cep" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Número</label>
-                    <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Número</label>
-                    <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Complemento</label>
-                    <input type="text" name="complemento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-                </div>
-
-                <!-- Continuação dos campos... seguindo o mesmo padrão -->
-                
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-                    <input type="text" name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-                    <input type="text" name="cidade" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-                </div>
 
         </form>`;
 }
