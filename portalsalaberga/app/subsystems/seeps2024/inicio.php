@@ -691,16 +691,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Enfermagem</h3>
                 <div class="space-y-4">
-                    <button
-                        onclick="showEnfermagemPublicModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">
-                        Escola Pública
-                    </button>
-                    <button
-                        onclick="showEnfermagemPrivateModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">
-                        Escola Privada
-                    </button>
+                    <button onclick="showEnfermagemPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Pública</button>
+                    <button onclick="showEnfermagemPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -710,16 +702,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
                 <div class="space-y-4">
-                    <button
-                        onclick="showInformaticaPublicModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
-                        Escola Pública
-                    </button>
-                    <button
-                        onclick="showInformaticaPrivateModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
-                        Escola Privada
-                    </button>
+                    <button onclick="showInformaticaPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Pública</button>
+                    <button onclick="showInformaticaPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -729,16 +713,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Administração</h3>
                 <div class="space-y-4">
-                    <button
-                        onclick="showAdministracaoPublicModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">
-                        Escola Pública
-                    </button>
-                    <button
-                        onclick="showAdministracaoPrivateModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">
-                        Escola Privada
-                    </button>
+                    <button onclick="showAdministracaoPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Pública</button>
+                    <button onclick="showAdministracaoPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -748,16 +724,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
                 <div class="space-y-4">
-                    <button
-                        onclick="showEdificacoesPublicModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">
-                        Escola Pública
-                    </button>
-                    <button
-                        onclick="showEdificacoesPrivateModal()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">
-                        Escola Privada
-                    </button>
+                    <button onclick="showEdificacoesPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Pública</button>
+                    <button onclick="showEdificacoesPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -968,8 +936,8 @@ function showResultsModal() {
     <script>
 // Configuração personalizada do SweetAlert2
 const modalConfig = {
-    allowOutsideClick: false,  // Impede o fechamento ao clicar fora
-    allowEscapeKey: false,     // Impede o fechamento com a tecla ESC
+    allowOutsideClick: false,
+    allowEscapeKey: false,
     customClass: {
         popup: 'rounded-2xl shadow-2xl bg-white border border-gray-200 custom-scrollbar',
         title: 'text-gray-800',
@@ -986,12 +954,10 @@ const modalConfig = {
     hideClass: {
         popup: 'animate__animated animate__fadeOutDown animate__faster'
     },
-    // Agora, vamos garantir que o modal não feche quando o usuário clicar fora ou pressionar ESC
     didOpen: () => {
-        // Este evento é disparado quando o modal é aberto, permitindo que você defina outras ações, se necessário.
+        // Este evento é disparado quando o modal é aberto
     },
-    preConfirm: () => {
-        // Aqui você pode verificar a validade do formulário antes de continuar
+    preConfirm: (courseId) => {
         return validateAndCollectData(courseId);
     }
 };
@@ -1031,13 +997,24 @@ function showEdificacoesPrivateModal() {
 
 // Função genérica para mostrar modal
 function showModal(courseId, title, color) {
+    const courseMap = {
+        'p-1': 'enfermagem',
+        'c-1': 'enfermagem',
+        'p-2': 'informatica',
+        'c-2': 'informatica',
+        'p-3': 'administracao',
+        'c-3': 'administracao',
+        'p-4': 'edificacoes',
+        'c-4': 'edificacoes'
+    };
+
+    const selectedCourse = courseMap[courseId];
+
     Swal.fire({
         ...modalConfig,
-        title: `<div class="text-2xl font-bold mb-2 text-${color}">
-            ${title}
-        </div>`,
+        title: `<div class="text-2xl font-bold mb-2 text-${color}"> ${title} </div>`,
         width: '80%',
-        html: createModalContent(courseId),
+        html: createModalContent(courseId, selectedCourse),
         confirmButtonText: 'Cadastrar',
         showCancelButton: true,
         cancelButtonText: 'Cancelar',
@@ -1047,116 +1024,100 @@ function showModal(courseId, title, color) {
 }
 
 // Função para criar o conteúdo do modal
-function createModalContent(courseId) {
+function createModalContent(courseId, selectedCourse) {
     return `
-        <form id="gradeForm_${courseId}" class="space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">
-                        Nome Completo
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" 
-                           id="name_${courseId}" 
-                           class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
-                                  focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
-                                  transition-all duration-300 text-gray-700 placeholder-gray-400"
-                           placeholder="Digite seu nome completo"
-                           required>
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">
-                        Data de Nascimento
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input type="date" 
-                           id="birthDate_${courseId}" 
-                           class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
-                                  focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
-                                  transition-all duration-300 text-gray-700"
-                           required>
-                </div>
+    <form id="gradeForm_${courseId}" class="space-y-8" method=" ..\seeps2024\controllers\controller.php">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <label class="block text-sm font-medium text-gray-700">
+                    Nome Completo <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="name_${courseId}" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400" placeholder="Digite seu nome completo" required>
             </div>
-            ${[6, 7, 8, 9].map(year => createGradeInputs(year, courseId)).join('')}
-        </form>
-    `;
+            <div class="space-y-2">
+                <label class="block text-sm font-medium text-gray-700">
+                    Data de Nascimento <span class="text-red-500">*</span>
+                </label>
+                <input type="date" id="birthDate_${courseId}" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700" required>
+            </div>
+        </div>
+        <div class="relative group mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Curso Selecionado</label>
+            <select name="curso" id="course_${courseId}" 
+                    class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" 
+                    required 
+                    disabled>
+                <option value="enfermagem" ${selectedCourse === 'enfermagem' ? 'selected' : ''}>Enfermagem</option>
+                <option value="informatica" ${selectedCourse === 'informatica' ? 'selected' : ''}>Informática</option>
+                <option value="administracao" ${selectedCourse === 'administracao' ? 'selected' : ''}>Administração</option>
+                <option value="edificacoes" ${selectedCourse === 'edificacoes' ? 'selected' : ''}>Edificações</option>
+            </select>
+        </div>
+        ${[6, 7, 8, 9].map(year => createGradeInputs(year, courseId)).join('')}
+    </form>`;
 }
 
 // Função para criar inputs de notas
 function createGradeInputs(year, courseId) {
     const subjects = [
-        'Português', 'Arte', 'Ed. Física', 'Inglês',
-        'Ciências', 'Geografia', 'História', 'Religião',
-        'Matemática'
+        'Português', 'Arte', 'Ed. Física', 'Inglês', 'Ciências',
+        'Geografia', 'História', 'Religião', 'Matemática'
     ];
 
     return `
-        <div class="py-6 animate-fadeIn">
-            <div class="flex items-center space-x-4 mb-6">
-                <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
-                <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                ${subjects.map(subject => `
-                    <div class="space-y-2 group">
-                        <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
-                            ${subject}
-                        </label>
-                        <div class="relative">
-                            <input type="text" 
-                                   id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
-                                   class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
-                                          focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
-                                          transition-all duration-300 text-gray-700 placeholder-gray-400
-                                          group-hover:border-ceara-green/50"
-                                   placeholder="0.0"
-                                   required
-                                   maxlength="4"
-                                   oninput="formatGrade(this)"
-                                   onblur="validateGrade(this)">
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <span class="text-gray-400 text-sm">/ 10</span>
-                            </div>
+    <div class="py-6 animate-fadeIn">
+        <div class="flex items-center space-x-4 mb-6">
+            <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
+            <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            ${subjects.map(subject => `
+                <div class="space-y-2 group">
+                    <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
+                        ${subject}
+                    </label>
+                    <div class="relative">
+                        <input type="text"
+                            id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
+                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 transition-all duration-300 text-gray-700 placeholder-gray-400 group-hover:border-ceara-green/50"
+                            placeholder="0.0"
+                            required
+                            maxlength="4"
+                            oninput="formatGrade(this)"
+                            onblur="validateGrade(this)">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <span class="text-gray-400 text-sm">/ 10</span>
                         </div>
                     </div>
-                `).join('')}
-            </div>
+                </div>
+            `).join('')}
         </div>
-    `;
+    </div>`;
 }
 
 // Função para formatar as notas
 function formatGrade(input) {
-    let value = input.value.replace(/[^\d.]/g, ''); // Permite apenas números e ponto.
-
-    // Se o valor for "1.00", converte para "10.0"
+    let value = input.value.replace(/[^\d.]/g, '');
     if (value === '1.00') {
         value = '10.0';
     }
-
-    // Se já contém um ponto, limita a dois dígitos após o ponto
     if (value.indexOf('.') !== -1) {
         const parts = value.split('.');
         if (parts[1].length > 2) {
-            parts[1] = parts[1].slice(0, 2); // Limita a dois dígitos após o ponto
+            parts[1] = parts[1].slice(0, 2);
             value = parts.join('.');
         }
     }
-
-    // Se o valor for maior que 10, limita para "10.0"
     if (parseFloat(value) > 10) {
         value = '10.0';
     }
-
     input.value = value;
 }
 
 // Função para validar a nota
 function validateGrade(input) {
     let value = parseFloat(input.value);
-
     if (!isNaN(value) && value >= 0 && value <= 10) {
-        // Formata para uma casa decimal se não for 10
         input.value = value === 10 ? '10.0' : value.toFixed(1);
         input.classList.remove('border-red-500');
         input.classList.add('border-gray-300');
@@ -1172,9 +1133,9 @@ function validateAndCollectData(courseId) {
     const form = document.getElementById(`gradeForm_${courseId}`);
     if (!form.checkValidity()) {
         showError('Por favor, preencha todos os campos corretamente');
-        return false; // Não fecha o modal
+        return false;
     }
-    return collectFormData(courseId); // Só fecha se os dados forem válidos
+    return collectFormData(courseId);
 }
 
 // Função para coletar dados do formulário
@@ -1183,17 +1144,16 @@ function collectFormData(courseId) {
         courseId: courseId,
         name: document.getElementById(`name_${courseId}`).value,
         birthDate: document.getElementById(`birthDate_${courseId}`).value,
+        selectedCourse: document.getElementById(`course_${courseId}`).value,
         grades: {}
     };
 
     [6, 7, 8, 9].forEach(year => {
         formData.grades[year] = {};
         const subjects = [
-            'portugues', 'arte', 'edfisica', 'ingles',
-            'ciencias', 'geografia', 'historia', 'religiao',
-            'matematica'
+            'portugues', 'arte', 'edfisica', 'ingles', 'ciencias',
+            'geografia', 'historia', 'religiao', 'matematica'
         ];
-
         subjects.forEach(subject => {
             const inputId = `${courseId}_${year}${subject}`;
             const input = document.getElementById(inputId);
@@ -1250,8 +1210,13 @@ function handleModalResult(result) {
     if (result.isConfirmed) {
         showSuccessMessage('Cadastro realizado com sucesso!');
         console.log('Dados do formulário:', result.value);
-        // Aqui você pode adicionar a lógica para enviar os dados para o servidor
     }
+}
+
+// Função para lidar com a mudança de curso (caso necessário)
+function handleCourseChange(value, courseId) {
+    console.log(`Curso alterado para: ${value}`);
+    // Adicione aqui qualquer lógica adicional necessária quando o curso for alterado
 }
 </script>
     <style>
