@@ -1,304 +1,880 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página similar</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>SEEPS - Sistema de Ensino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ceara-green': '#008C45',
+                        'ceara-orange': '#FFA500',
+                        'ceara-white': '#FFFFFF',
+                        primary: '#4CAF50',
+                        secondary: '#FFB74D',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --ceara-green: #008C45;
+            --ceara-green-dark: #004d00;
+            --ceara-orange: #FFA500;
+            --ceara-white: #ffffff;
+            --gray-600: #666666;
+            --gray-dark: #333333;
+            --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.2);
+            --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-duration: 0.4s;
+            --hover-scale: 1.02;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header-main {
+            background-color: var(--ceara-white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            color: var(--ceara-white);
+            transition: all var(--transition-duration) var(--transition-timing);
+        }
+
+        .button:hover {
+            transform: scale(var(--hover-scale));
+        }
+
+        .button-update {
+            background-color: var(--ceara-orange);
+        }
+
+        .button-reports {
+            background-color: var(--ceara-green-dark);
+        }
+
+        .button-results {
+            background-color: var(--gray-600);
+        }
+
+        .button-exit {
+            background-color: #dc2626;
+        }
+
+        /* Main Content Styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .course-card {
+            background-color: var(--ceara-white);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform var(--transition-duration) var(--transition-timing);
+        }
+
+        .course-card:hover {
+            transform: scale(var(--hover-scale));
+        }
+
+        .course-card h3 {
+            margin-bottom: 1rem;
+            color: var(--gray-dark);
+        }
+
+        .card-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .card-buttons .button {
+            width: 100%;
+        }
+
+        /* Course-specific colors */
+        .enfermagem .button {
+            background-color: #dc2626;
+        }
+
+        .informatica .button {
+            background-color: #2563eb;
+        }
+
+        .administracao .button {
+            background-color: #16a34a;
+        }
+
+        .edificacoes .button {
+            background-color: #d97706;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--ceara-green);
+            color: var(--ceara-white);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: var(--ceara-white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color var(--transition-duration) var(--transition-timing);
+        }
+
+        .social-icon:hover {
+            color: var(--ceara-orange);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: var(--ceara-white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray-dark);
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--gray-600);
+            border-radius: 0.25rem;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        .footer-link {
+            position: relative;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(249, 115, 22);
+            /* tailwind: orange-500 */
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* Media Queries - apenas se precisar de algo muito específico que o Tailwind não cubra */
+        @media (max-width: 640px) {
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-800 text-white">
-    <header class="bg-gray-800 text-white py-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <img src="logo.svg" alt="Logo" class="h-8 animate-bounce">
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#" class="hover:text-gray-400 transition duration-300 ease-in-out">RELATORIOS</a></li>
-                    <li><a href="#" class="hover:text-gray-400 transition duration-300 ease-in-out">RESULTADO</a></li>
-                </ul>
-            </nav>
-            <div class="flex space-x-2">
-                <button class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition duration-300 ease-in-out" onclick="showUpdateModal()">ATUALIZAR</button>
-                <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300 ease-in-out">SAIR</button>
+
+<body>
+    <header class="header-main" class="bg-white:bg-gray-800 shadow-md fixed w-full top-0 left-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex justify-center items-center">
+    <img 
+        src="assets/images/LOGO_new.png" 
+        alt="Logo SEEPS" 
+        class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105 logo-img"
+        style="margin-top: 10px;"
+    >
+</div>
+        <!-- Overlay para fundo escuro quando sidebar estiver aberta -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+
+<!-- Botão Menu Mobile -->
+<div class="flex items-center sm:hidden">
+    <button
+        type="button"
+        class="relative inline-flex items-center justify-center p-2 
+               rounded-lg bg-white
+               text-gray-700
+               transition-all duration-300 ease-in-out
+               hover:bg-gray-50
+               focus:outline-none focus:ring-2 focus:ring-offset-2
+               focus:ring-green-500
+               shadow-sm hover:shadow-md
+               z-50"
+        aria-controls="sidebar-menu"
+        aria-expanded="false"
+        onclick="toggleSidebar()"
+    >
+        <span class="sr-only">Abrir menu principal</span>
+        
+        <!-- Ícone Menu (3 barras) -->
+        <svg
+            class="transform transition-transform duration-300 ease-in-out w-5 h-5 " 
+            id="menu-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#2d3748"
+        >
+            <g id="menu-lines">
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M4 6h16"
+                    class="transform origin-center transition-transform duration-300"
+                />
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M4 12h16"
+                    class="transform origin-center transition-transform duration-300"
+                />
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M4 18h16"
+                    class="transform origin-center transition-transform duration-300"
+                />
+            </g>
+        </svg>
+    </button>
+</div>
+
+<!-- Sidebar Menu -->
+<div 
+    id="sidebar-menu" 
+    class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full 
+           transition-transform duration-300 ease-in-out z-50"
+>
+    <div class="p-4 space-y-4">
+        <!-- Cabeçalho da Sidebar -->
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-semibold text-gray-800">Menu</h2>
+            <button 
+                onclick="toggleSidebar()"
+                class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            >
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Botões do Menu -->
+        <div class="space-y-2">
+            <button 
+                onclick="showUpdateModal()" 
+                class="w-full text-left px-4 py-2 text-sm rounded-lg
+                       bg-orange-500 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500
+                       flex items-center space-x-2"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                <span>Atualizar</span>
+            </button>
+
+            <button 
+                onclick="showReportsModal()" 
+                class="w-full text-left px-4 py-2 text-sm rounded-lg
+                       bg-green-800 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-700
+                       flex items-center space-x-2"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span>Relatórios</span>
+            </button>
+
+            <button 
+                onclick="showResultsModal()" 
+                class="w-full text-left px-4 py-2 text-sm rounded-lg
+                       bg-gray-600 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500
+                       flex items-center space-x-2"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                <span>Resultados</span>
+            </button>
+
+            <button 
+                class="w-full text-left px-4 py-2 text-sm rounded-lg
+                       bg-red-600 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500
+                       flex items-center space-x-2"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+                <span>Sair</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .sidebar-open {
+        transform: translateX(0) !important;
+    }
+
+    .overlay-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    body.sidebar-active {
+        overflow: hidden;
+    }
+</style>
+
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('sidebar-overlay');
+    const menuIcon = document.getElementById('menu-icon');
+    const body = document.body;
+
+    sidebar.classList.toggle('sidebar-open');
+    overlay.classList.toggle('hidden');
+    menuIcon.classList.toggle('menu-open');
+    body.classList.toggle('sidebar-active');
+
+    // Adiciona um pequeno delay para a opacidade do overlay
+    setTimeout(() => {
+        overlay.classList.toggle('overlay-visible');
+    }, 50);
+}
+
+// Fecha sidebar ao clicar no overlay
+document.getElementById('sidebar-overlay').addEventListener('click', toggleSidebar);
+
+// Fecha sidebar com a tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const sidebar = document.getElementById('sidebar-menu');
+        if (sidebar.classList.contains('sidebar-open')) {
+            toggleSidebar();
+        }
+    }
+});
+</script>
+
+        <!-- Botão Menu Desktop -->
+<div class="hidden sm:flex items-center">
+    <button
+        type="button"
+        class="relative inline-flex items-center justify-center p-2 
+               rounded-lg bg-white
+               text-gray-700
+               transition-all duration-300 ease-in-out
+               hover:bg-gray-50
+               focus:outline-none focus:ring-2 focus:ring-offset-2
+               focus:ring-green-500
+               shadow-sm hover:shadow-md
+               z-50"
+        aria-controls="sidebar-menu-desktop"
+        aria-expanded="false"
+        onclick="toggleSidebarDesktop()"
+    >
+        <svg
+            class="transform transition-transform duration-300 ease-in-out w-6 h-6"
+            id="menu-icon-desktop"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#4B5563"
+        >
+            <g id="menu-lines-desktop">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16"/>
+            </g>
+        </svg>
+    </button>
+</div>
+
+<!-- Overlay para Desktop -->
+<div id="sidebar-overlay-desktop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+
+<!-- Sidebar Desktop -->
+<div 
+    id="sidebar-menu-desktop" 
+    class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform -translate-x-full 
+           transition-transform duration-300 ease-in-out z-50"
+>
+    <div class="p-6 space-y-6">
+        <!-- Cabeçalho da Sidebar -->
+        <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-semibold text-gray-800">Menu</h2>
+            <button 
+                onclick="toggleSidebarDesktop()"
+                class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            >
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Divisor -->
+        <div class="border-t border-gray-200"></div>
+
+        <!-- Botões do Menu -->
+        <nav class="space-y-4">
+            <!-- Botão Atualizar -->
+            <button 
+                onclick="showUpdateModal()" 
+                class="w-full flex items-center px-4 py-3 text-base rounded-lg
+                       bg-orange-500 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-orange-600 hover:shadow-md transform hover:-translate-y-0.5
+                       focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                Atualizar
+            </button>
+
+            <!-- Botão Relatórios -->
+            <button 
+                onclick="showReportsModal()" 
+                class="w-full flex items-center px-4 py-3 text-base rounded-lg
+                       bg-green-800 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-green-900 hover:shadow-md transform hover:-translate-y-0.5
+                       focus:outline-none focus:ring-2 focus:ring-green-700"
+            >
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Relatórios
+            </button>
+
+            <!-- Botão Resultados -->
+            <button 
+                onclick="showResultsModal()" 
+                class="w-full flex items-center px-4 py-3 text-base rounded-lg
+                       bg-gray-600 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-gray-700 hover:shadow-md transform hover:-translate-y-0.5
+                       focus:outline-none focus:ring-2 focus:ring-gray-500"
+            >
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                Resultados
+            </button>
+
+            <!-- Botão Sair -->
+            <button 
+                class="w-full flex items-center px-4 py-3 text-base rounded-lg
+                       bg-red-600 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-red-700 hover:shadow-md transform hover:-translate-y-0.5
+                       focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+                Sair
+            </button>
+        </nav>
+    </div>
+</div>
+
+<script>
+function toggleSidebarDesktop() {
+    const sidebar = document.getElementById('sidebar-menu-desktop');
+    const overlay = document.getElementById('sidebar-overlay-desktop');
+    const menuIcon = document.getElementById('menu-icon-desktop');
+    const body = document.body;
+
+    sidebar.classList.toggle('sidebar-open');
+    overlay.classList.toggle('hidden');
+    menuIcon.classList.toggle('menu-open');
+    body.classList.toggle('sidebar-active');
+
+    setTimeout(() => {
+        overlay.classList.toggle('overlay-visible');
+    }, 50);
+}
+
+// Fecha sidebar ao clicar no overlay
+document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
+
+// Fecha sidebar com a tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const sidebarDesktop = document.getElementById('sidebar-menu-desktop');
+        if (sidebarDesktop.classList.contains('sidebar-open')) {
+            toggleSidebarDesktop();
+        }
+    }
+});
+
+// Adiciona classe para telas maiores
+const mediaQuery = window.matchMedia('(min-width: 640px)');
+function handleScreenChange(e) {
+    const sidebarDesktop = document.getElementById('sidebar-menu-desktop');
+    const overlayDesktop = document.getElementById('sidebar-overlay-desktop');
+    
+    if (!e.matches) {
+        sidebarDesktop.classList.remove('sidebar-open');
+        overlayDesktop.classList.add('hidden');
+        overlayDesktop.classList.remove('overlay-visible');
+    }
+}
+
+mediaQuery.addListener(handleScreenChange);
+</script>
+
+<style>
+/* Adicione estes estilos aos já existentes */
+@media (min-width: 640px) {
+    #sidebar-menu-desktop {
+        width: 18rem;
+    }
+}
+
+.sidebar-open {
+    transform: translateX(0) !important;
+}
+
+.overlay-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.sidebar-active {
+    overflow: hidden;
+}
+</style>
+
+        <!-- Menu Mobile -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-2 bg-white dark:bg-gray-800 shadow-lg">
+                <button
+                    onclick="showUpdateModal()"
+                    class="w-full text-left px-4 py-2 rounded-lg
+                       bg-orange-500 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    Atualizar
+                </button>
+
+                <button
+                    onclick="showReportsModal()"
+                    class="w-full text-left px-4 py-2 rounded-lg
+                       bg-green-800 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-700">
+                    Relatórios
+                </button>
+
+                <button
+                    onclick="showResultsModal()"
+                    class="w-full text-left px-4 py-2 rounded-lg
+                       bg-gray-600 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    Resultados
+                </button>
+
+                <button
+                    class="w-full text-left px-4 py-2 rounded-lg
+                       bg-red-600 text-white font-medium
+                       transition-all duration-300 ease-in-out
+                       hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                    Sair
+                </button>
             </div>
         </div>
     </header>
 
-    <div class="flex flex-col items-center justify-center h-screen">
-        <div class="grid grid-cols-4 gap-4 w-full max-w-6xl">
-            <!-- Enfermagem -->
-            <div class="flex flex-col items-center p-4 bg-red-500 rounded-lg shadow-md hover:scale-105 transition duration-300 ease-in-out">
-                <img src="enfermagem.svg" alt="Enfermagem" class="h-16 w-16 mb-2 animate-pulse">
-                <span class="text-white font-bold">ENFERMAGEM</span>
-                <div class="flex flex-col items-center mt-2">
-                    <span class="text-white">CADASTRAR CANDIDATO</span>
-                    <div class="flex space-x-2 mt-2">
-                        <button class="bg-white text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition duration-300 ease-in-out" onclick="showPublicModal('Enfermagem')">PÚBLICA</button>
-                        <button class="bg-white text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition duration-300 ease-in-out" onclick="showPrivateModal('Enfermagem')">PRIVADA</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Informática -->
-            <div class="flex flex-col items-center p-4 bg-blue-500 rounded-lg shadow-md hover:scale-105 transition duration-300 ease-in-out">
-                <img src="informatica.svg" alt="Informática" class="h-16 w-16 mb-2 animate-pulse">
-                <span class="text-white font-bold">INFORMÁTICA</span>
-                <div class="flex flex-col items-center mt-2">
-                    <span class="text-white">CADASTRAR CANDIDATO</span>
-                    <div class="flex space-x-2 mt-2">
-                        <button class="bg-white text-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out" onclick="showPublicModal('Informática')">PÚBLICA</button>
-                        <button class="bg-white text-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out" onclick="showPrivateModal('Informática')">PRIVADA</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Administração -->
-            <div class="flex flex-col items-center p-4 bg-green-500 rounded-lg shadow-md hover:scale-105 transition duration-300 ease-in-out">
-                <img src="administracao.svg" alt="Administração" class="h-16 w-16 mb-2 animate-pulse">
-                <span class="text-white font-bold">ADMINISTRAÇÃO</span>
-                <div class="flex flex-col items-center mt-2">
-                    <span class="text-white">CADASTRAR CANDIDATO</span>
-                    <div class="flex space-x-2 mt-2">
-                        <button class="bg-white text-green-500 px-4 py-2 rounded-md hover:bg-green-500 hover:text-white transition duration-300 ease-in-out" onclick="showPublicModal('Administração')">PÚBLICA</button>
-                        <button class="bg-white text-green-500 px-4 py-2 rounded-md hover:bg-green-500 hover:text-white transition duration-300 ease-in-out" onclick="showPrivateModal('Administração')">PRIVADA</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Edificações -->
-            <div class="flex flex-col items-center p-4 bg-yellow-500 rounded-lg shadow-md hover:scale-105 transition duration-300 ease-in-out">
-                <img src="edificacoes.svg" alt="Edificações" class="h-16 w-16 mb-2 animate-pulse">
-                <span class="text-white font-bold">EDIFICAÇÕES</span>
-                <div class="flex flex-col items-center mt-2">
-                    <span class="text-white">CADASTRAR CANDIDATO</span>
-                    <div class="flex space-x-2 mt-2">
-                        <button class="bg-white text-yellow-500 px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-white transition duration-300 ease-in-out" onclick="showPublicModal('Edificações')">PÚBLICA</button>
-                        <button class="bg-white text-yellow-500 px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-white transition duration-300 ease-in-out" onclick="showPrivateModal('Edificações')">PRIVADA</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="mt-8 text-gray-400 text-sm">
-            <p>Sistema</p>
-            <p>Objetivo: o cadastro de candidatos pretendentes aos cursos da EEEP Salaberga Torquato Gomes de Matos de acordo com a portaria 1342/2014 datada de 17/11/2014.</p>
-            <p>Requisito: Mantenha o Java Script de seu navegador ativo, pois sua autenticação é feita por referência linguagem, o que o torna mais leve e rápido.</p>
-            <p>Suporte: (85) 98631 7549 - otavio@aluno.uece.br</p>
-        </div>
-    </div>
+    <!-- Espaçador para compensar o header fixo -->
+    <div class="h-16"></div>
 
     <script>
-        function showPublicModal(course) {
-            Swal.fire({
-                title: `SEEPS 2024 - ESCOLA PÚBLICA (${course})`,
-                html: `
-                    <input type="text" id="name" class="swal2-input" placeholder="Nome">
-                    <input type="text" id="birthDate" class="swal2-input" placeholder="Data de Nascimento">
-                    <div class="flex space-x-2">
-                        <div class="w-1/2">
-                            <label for="course" class="block mb-2">Curso</label>
-                            <select id="course" class="swal2-select">
-                                <option>Enfermagem</option>
-                                <option>Informática</option>
-                                <option>Administração</option>
-                                <option>Edificações</option>
-                            </select>
-                        </div>
-                        <div class="w-1/2">
-                            <label for="neighborhood" class="block mb-2">Bairro</label>
-                            <select id="neighborhood" class="swal2-select">
-                                <option>Outra Banda</option>
-                                <option>Outros</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-4 gap-4 mt-4">
-                        <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
-                        <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
-                        <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
-                        <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
-                    </div>
-                `,
-                confirmButtonText: 'Cadastrar',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                focusConfirm: false,
-                preConfirm: () => {
-                    const name = document.getElementById('name').value;
-                    const birthDate = document.getElementById('birthDate').value;
-                    const course = document.getElementById('course').value;
-                    const neighborhood = document.getElementById('neighborhood').value;
-                    const grade6 = document.getElementById('grade6').value;
-                    const grade7 = document.getElementById('grade7').value;
-                    const grade8 = document.getElementById('grade8').value;
-                    const grade9 = document.getElementById('grade9').value;
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const isHidden = mobileMenu.classList.contains('hidden');
 
-                    if (!name || !birthDate || !course || !neighborhood || !grade6 || !grade7 || !grade8 || !grade9) {
-                        Swal.showValidationMessage('Por favor, preencha todos os campos.');
-                    }
+            // Toggle menu
+            mobileMenu.classList.toggle('hidden');
 
-                    return { name, birthDate, course, neighborhood, grade6, grade7, grade8, grade9 };
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(`Candidato ${result.value.name} cadastrado com sucesso!`);
-                }
-            });
+            // Toggle ícones do botão
+            const button = document.querySelector('[aria-controls="mobile-menu"]');
+            const menuIcon = button.querySelector('svg:first-of-type');
+            const closeIcon = button.querySelector('svg:last-of-type');
+
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+
+            // Atualiza aria-expanded
+            button.setAttribute('aria-expanded', isHidden);
         }
 
-        function showPrivateModal(course) {
-            Swal.fire({
-                title: `SEEPS 2024 - ESCOLA PRIVADA (${course})`,
-                html: `
-                    <input type="text" id="name" class="swal2-input" placeholder="Nome">
-                    <input type="text" id="birthDate" class="swal2-input" placeholder="Data de Nascimento">
-                    <div class="flex space-x-2">
-                        <div class="w-1/2">
-                            <label for="course" class="block mb-2">Curso</label>
-                            <select id="course" class="swal2-select">
-                                <option>Enfermagem</option>
-                                <option>Informática</option>
-                                <option>Administração</option>
-                                <option>Edificações</option>
-                            </select>
-                        </div>
-                        <div class="w-1/2">
-                            <label for="neighborhood" class="block mb-2">Bairro</label>
-                            <select id="neighborhood" class="swal2-select">
-                                <option>Outra Banda</option>
-                                <option>Outros</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-4 gap-4 mt-4">
-                        <input type="number" id="grade6" class="swal2-input" placeholder="6o Ano">
-                        <input type="number" id="grade7" class="swal2-input" placeholder="7o Ano">
-                        <input type="number" id="grade8" class="swal2-input" placeholder="8o Ano">
-                        <input type="number" id="grade9" class="swal2-input" placeholder="9o Ano">
-                    </div>
-                `,
-                confirmButtonText: 'Cadastrar',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                focusConfirm: false,
-                preConfirm: () => {
-                    const name = document.getElementById('name').value;
-                    const birthDate = document.getElementById('birthDate').value;
-                    const course = document.getElementById('course').value;
-                    const neighborhood = document.getElementById('neighborhood').value;
-                    const grade6 = document.getElementById('grade6').value;
-                    const grade7 = document.getElementById('grade7').value;
-                    const grade8 = document.getElementById('grade8').value;
-                    const grade9 = document.getElementById('grade9').value;
+        // Fechar menu mobile ao clicar fora
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
 
-                    if (!name || !birthDate || !course || !neighborhood || !grade6 || !grade7 || !grade8 || !grade9) {
-                        Swal.showValidationMessage('Por favor, preencha todos os campos.');
-                    }
+            if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                menuButton.querySelector('svg:first-of-type').classList.remove('hidden');
+                menuButton.querySelector('svg:last-of-type').classList.add('hidden');
+                menuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 
-                    return { name, birthDate, course, neighborhood, grade6, grade7, grade8, grade9 };
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(`Candidato ${result.value.name} cadastrado com sucesso!`);
-                }
-            });
-        }
-
-        function showUpdateModal() {
-            const modal = document.createElement('div');
-            modal.innerHTML = `
-            <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-                    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div class="sm:flex sm:items-start">
-                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">SEEPS 2025</h3>
-                                    <div class="mt-2">
-                                        <p class="text-sm text-gray-500">Atualizar Cadastro</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <form class="mt-5 space-y-6">
-                                <div class="grid grid-cols-3 gap-6">
-                                    <div>
-                                        <label for="id" class="block text-sm font-medium text-gray-700">ID</label>
-                                        <input type="text" name="id" id="id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    </div>
-                                    <div>
-                                        <label for="port" class="block text-sm font-medium text-gray-700">Portfólio</label>
-                                        <input type="text" name="port" id="port" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    </div>
-                                    <div>
-                                        <label for="arte" class="block text-sm font-medium text-gray-700">Arte</label>
-                                        <input type="text" name="arte" id="arte" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                    </div>
-                                </div>
-                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                    <button type="button" onclick="updateCadastro()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
-                                        Atualizar
-                                    </button>
-                                    <button type="button" onclick="fecharModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                                        Cancelar
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+<main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <!-- Card Enfermagem -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Enfermagem</h3>
+                <div class="space-y-4">
+                    <button
+                        onclick="showEnfermagemPublicModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">
+                        Escola Pública
+                    </button>
+                    <button
+                        onclick="showEnfermagemPrivateModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">
+                        Escola Privada
+                    </button>
                 </div>
             </div>
-            `;
-            document.body.appendChild(modal);
-        }
+        </div>
 
-        function updateCadastro() {
-            const id = document.getElementById('id').value;
-            const port = document.getElementById('port').value;
-            const arte = document.getElementById('arte').value;
+        <!-- Card Informática -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
+                <div class="space-y-4">
+                    <button
+                        onclick="showInformaticaPublicModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        Escola Pública
+                    </button>
+                    <button
+                        onclick="showInformaticaPrivateModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            if (!id || !port || !arte) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro',
-                    text: 'Por favor, preencha todos os campos!'
-                });
-                return;
-            }
+        <!-- Card Administração -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Administração</h3>
+                <div class="space-y-4">
+                    <button
+                        onclick="showAdministracaoPublicModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">
+                        Escola Pública
+                    </button>
+                    <button
+                        onclick="showAdministracaoPrivateModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            Swal.fire({
-                icon: 'success',
-                title: 'Sucesso',
-                text: `Cadastro atualizado para ID: ${id}`
-            });
+        <!-- Card Edificações -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
+                <div class="space-y-4">
+                    <button
+                        onclick="showEdificacoesPublicModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">
+                        Escola Pública
+                    </button>
+                    <button
+                        onclick="showEdificacoesPrivateModal()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
-            fecharModal();
-        }
-
-        function fecharModal() {
-            const modal = document.querySelector('.fixed.z-10.inset-0');
-            if (modal) {
-                modal.remove();
-            }
-        }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      
 
         function showReportsModal() {
             Swal.fire({
                 title: 'Relatórios',
                 html: `
-                    <div class="mb-4">
-                        <label for="course" class="block mb-2">Curso</label>
-                        <select id="course" class="swal2-select">
+                    <div class="form-group">
+                        <label class="form-label">Curso</label>
+                        <select id="course" class="form-select">
                             <option>Enfermagem</option>
                             <option>Informática</option>
                             <option>Administração</option>
                             <option>Edificações</option>
                         </select>
                     </div>
-                    <div class="mb-4">
-                        <label for="type" class="block mb-2">Tipo</label>
-                        <select id="type" class="swal2-select">
+                    <div class="form-group">
+                        <label class="form-label">Tipo</label>
+                        <select id="type" class="form-select">
                             <option>Pública Geral</option>
                             <option>Privada Geral</option>
                             <option>Pública AC</option>
@@ -311,20 +887,15 @@
                 confirmButtonText: 'Gerar Relatório',
                 showCancelButton: true,
                 cancelButtonText: 'Cancelar',
-                focusConfirm: false,
-                preConfirm: () => {
-                    const course = document.getElementById('course').value;
-                    const type = document.getElementById('type').value;
-                    
-                    if (!course || !type) {
-                        Swal.showValidationMessage('Por favor, selecione um curso e um tipo de relatório.');
-                    }
-                    
-                    return { course, type };
+                customClass: {
+                    confirmButton: 'button button-update',
+                    cancelButton: 'button button-exit'
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire(`Gerando relatório de ${result.value.course} - ${result.value.type}...`);
+                    const course = document.getElementById('course').value;
+                    const type = document.getElementById('type').value;
+                    Swal.fire(`Gerando relatório de ${course} - ${type}...`);
                 }
             });
         }
@@ -333,9 +904,9 @@
             Swal.fire({
                 title: 'Resultados',
                 html: `
-                    <div class="mb-4">
-                        <label for="course" class="block mb-2">Curso</label>
-                        <select id="course" class="swal2-select">
+                    <div class="form-group">
+                        <label class="form-label">Curso</label>
+                        <select id="course" class="form-select">
                             <option>Enfermagem</option>
                             <option>Informática</option>
                             <option>Administração</option>
@@ -357,12 +928,15 @@
                 preConfirm: () => {
                     const course = document.getElementById('course').value;
                     const type = document.getElementById('type').value;
-                    
+
                     if (!course || !type) {
                         Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
                     }
-                    
-                    return { course, type };
+
+                    return {
+                        course,
+                        type
+                    };
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -371,5 +945,372 @@
             });
         }
     </script>
+
+
+
+
+
+    <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Identificação Institucional -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
+                    <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
+                    <div class="flex gap-3">
+                        <a aria-label="Facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/groups/salaberga/"
+                            class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a aria-label="Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eeepsalabergampe/"
+                            class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contato -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">CONTATO</h4>
+                    <div class="space-y-2 text-sm">
+                        <a class="flex items-center hover:text-orange-400 transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            eeepsantaritama@gmail.com
+                        </a>
+                        <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            (85) 3101-2100
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desenvolvedores -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
+                    <div class="flex gap-4">
+                        <!-- Primeira coluna (3 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Otavio Menezes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/mth_fl/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Matheus Felix
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/lvnas._/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Lavosier Nascimento
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Segunda coluna (2 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.instagram.com/rogercavalcantetz/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Roger Cavalcante
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/p_.uchoa/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Pedro Uchôa
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/10 pt-3 text-center text-xs">
+                <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    // Configuração personalizada do SweetAlert2
+    const modalConfig = {
+        customClass: {
+            popup: 'rounded-2xl shadow-2xl bg-white border border-gray-200 custom-scrollbar',
+            title: 'text-gray-800',
+            htmlContainer: 'text-gray-600',
+            input: 'bg-white border-gray-300 text-gray-800 rounded-lg focus:ring-2 focus:ring-ceara-green',
+            confirmButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-ceara-green to-primary text-white font-medium rounded-lg hover:from-primary hover:to-ceara-green focus:ring-4 focus:ring-ceara-green/50 transition-all duration-300',
+            cancelButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-600 focus:ring-4 focus:ring-gray-400/50 transition-all duration-300'
+        },
+        buttonsStyling: false,
+        background: '#FFFFFF',
+        showClass: {
+            popup: 'animate__animated animate__fadeInUp animate__faster'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutDown animate__faster'
+        }
+    };
+
+    // Funções para os modais dos cursos
+    function showEnfermagemPublicModal() {
+        showModal('p-1', 'Enfermagem - Escola Pública', 'ceara-green');
+    }
+
+    function showEnfermagemPrivateModal() {
+        showModal('c-1', 'Enfermagem - Escola Privada', 'ceara-green');
+    }
+
+    function showInformaticaPublicModal() {
+        showModal('p-2', 'Informática - Escola Pública', 'primary');
+    }
+
+    function showInformaticaPrivateModal() {
+        showModal('c-2', 'Informática - Escola Privada', 'primary');
+    }
+
+    function showAdministracaoPublicModal() {
+        showModal('p-3', 'Administração - Escola Pública', 'ceara-orange');
+    }
+
+    function showAdministracaoPrivateModal() {
+        showModal('c-3', 'Administração - Escola Privada', 'ceara-orange');
+    }
+
+    function showEdificacoesPublicModal() {
+        showModal('p-4', 'Edificações - Escola Pública', 'secondary');
+    }
+
+    function showEdificacoesPrivateModal() {
+        showModal('c-4', 'Edificações - Escola Privada', 'secondary');
+    }
+
+    // Função genérica para mostrar modal
+    function showModal(courseId, title, color) {
+        Swal.fire({
+            ...modalConfig,
+            title: `<div class="text-2xl font-bold mb-2 text-${color}">
+                ${title}
+            </div>`,
+            width: '80%',
+            html: createModalContent(courseId),
+            confirmButtonText: 'Cadastrar',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            showLoaderOnConfirm: true,
+            preConfirm: () => validateAndCollectData(courseId)
+        }).then(handleModalResult);
+    }
+
+    // Função para criar o conteúdo do modal
+    function createModalContent(courseId) {
+        return `
+            <form id="gradeForm_${courseId}" class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">
+                            Nome Completo
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" 
+                               id="name_${courseId}" 
+                               class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+                                      focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
+                                      transition-all duration-300 text-gray-700 placeholder-gray-400"
+                               placeholder="Digite seu nome completo"
+                               required>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">
+                            Data de Nascimento
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="date" 
+                               id="birthDate_${courseId}" 
+                               class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+                                      focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
+                                      transition-all duration-300 text-gray-700"
+                               required>
+                    </div>
+                </div>
+                ${[6, 7, 8, 9].map(year => createGradeInputs(year, courseId)).join('')}
+            </form>
+        `;
+    }
+
+    // Função para criar inputs de notas
+    function createGradeInputs(year, courseId) {
+        const subjects = [
+            'Português', 'Arte', 'Ed. Física', 'Inglês',
+            'Ciências', 'Geografia', 'História', 'Religião',
+            'Matemática'
+        ];
+
+        return `
+            <div class="py-6 animate-fadeIn">
+                <div class="flex items-center space-x-4 mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
+                    <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    ${subjects.map(subject => `
+                        <div class="space-y-2 group">
+                            <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
+                                ${subject}
+                            </label>
+                            <div class="relative">
+                                <input type="text" 
+                                       id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
+                                       class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+                                              focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
+                                              transition-all duration-300 text-gray-700 placeholder-gray-400
+                                              group-hover:border-ceara-green/50"
+                                       placeholder="0.0"
+                                       required
+                                       maxlength="3"
+                                       oninput="formatGrade(this)"
+                                       onblur="validateGrade(this)">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <span class="text-gray-400 text-sm">/ 10</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    // Função para formatar a nota
+    function formatGrade(input) {
+        let value = input.value.replace(/[^\d]/g, '');
+        
+        if (value.length >= 2) {
+            value = value.slice(0, -1) + '.' + value.slice(-1);
+        }
+        
+        if (parseFloat(value) > 10) {
+            value = '10.0';
+        }
+        
+        input.value = value;
+    }
+
+    // Função para validar notas
+    function validateGrade(input) {
+        const value = parseFloat(input.value);
+        
+        if (!isNaN(value) && value >= 0 && value <= 10) {
+            input.value = value.toFixed(1);
+            input.classList.remove('border-red-500');
+            input.classList.add('border-gray-300');
+        } else {
+            input.classList.add('border-red-500');
+            input.classList.remove('border-gray-300');
+            showError('A nota deve estar entre 0 e 10');
+            input.value = '';
+        }
+    }
+
+    // Função para validar e coletar dados
+    function validateAndCollectData(courseId) {
+        const form = document.getElementById(`gradeForm_${courseId}`);
+        if (!form.checkValidity()) {
+            showError('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        return collectFormData(courseId);
+    }
+
+    // Função para coletar dados do formulário
+    function collectFormData(courseId) {
+        const formData = {
+            courseId: courseId,
+            name: document.getElementById(`name_${courseId}`).value,
+            birthDate: document.getElementById(`birthDate_${courseId}`).value,
+            grades: {}
+        };
+
+        [6, 7, 8, 9].forEach(year => {
+            formData.grades[year] = {};
+            const subjects = [
+                'portugues', 'arte', 'edfisica', 'ingles',
+                'ciencias', 'geografia', 'historia', 'religiao',
+                'matematica'
+            ];
+
+            subjects.forEach(subject => {
+                const inputId = `${courseId}_${year}${subject}`;
+                const input = document.getElementById(inputId);
+                if (input) {
+                    formData.grades[year][subject] = parseFloat(input.value) || 0;
+                }
+            });
+        });
+
+        return formData;
+    }
+
+    // Função para mostrar erro
+    function showError(message) {
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#FFFFFF',
+            customClass: {
+                popup: 'rounded-lg border border-red-500/20 shadow-lg',
+                title: 'text-gray-800 text-sm font-medium'
+            }
+        });
+
+        toast.fire({
+            icon: 'error',
+            title: message
+        });
+    }
+
+    // Função para mostrar mensagem de sucesso
+    function showSuccessMessage(message) {
+        Swal.fire({
+            ...modalConfig,
+            icon: 'success',
+            iconColor: '#008C45',
+            title: '<span class="text-2xl font-bold text-gray-800">Sucesso!</span>',
+            html: `<p class="text-gray-600">${message}</p>`,
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            background: '#FFFFFF',
+            customClass: {
+                popup: 'rounded-2xl border border-ceara-green/20 shadow-lg'
+            }
+        });
+    }
+
+    // Função para lidar com o resultado do modal
+    function handleModalResult(result) {
+        if (result.isConfirmed) {
+            showSuccessMessage('Cadastro realizado com sucesso!');
+            console.log('Dados do formulário:', result.value);
+            // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+        }
+    }
+</script>
+    <style>
+
+    </style>
 </body>
+
 </html>
