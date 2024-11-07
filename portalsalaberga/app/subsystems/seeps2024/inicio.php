@@ -743,7 +743,7 @@
         html: `
             <div class="p-4">
                 <div class="mb-4">
-                    <label class="block text-gray-dark text-sm font-bold mb-2" for="course">Curso</label>
+                  
                     <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
                         <option value="">Selecione um curso</option>
                         <option value="Enfermagem">Enfermagem</option>
@@ -753,7 +753,7 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-dark text-sm font-bold mb-2" for="type">Tipo</label>
+                    
                     <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
                         <option value="">Selecione um tipo</option>
                         <option value="Pública Geral">Pública Geral</option>
@@ -970,7 +970,7 @@ function showResultsModal() {
         html: `
             <div class="p-4">
                 <div class="mb-4">
-                    <label class="block text-gray-dark text-sm font-bold mb-2" for="course">Curso</label>
+                
                     <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um curso</option>
                         <option value="Enfermagem">Enfermagem</option>
@@ -980,7 +980,7 @@ function showResultsModal() {
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-dark text-sm font-bold mb-2" for="type">Tipo</label>
+                  
                     <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um tipo</option>
                         <option value="Pública">Pública</option>
