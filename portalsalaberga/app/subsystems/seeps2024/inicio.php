@@ -693,8 +693,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Enfermagem</h3>
                 <div class="space-y-4">
-                    <button onclick="showEnfermagemPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Pública</button>
-                    <button onclick="showEnfermagemPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Privada</button>
+                    <button onclick="enfermagemPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Pública</button>
+                    <button onclick="enfermagemPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -704,8 +704,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
                 <div class="space-y-4">
-                    <button onclick="showInformaticaPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Pública</button>
-                    <button onclick="showInformaticaPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Privada</button>
+                    <button onclick="informaticaPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Pública</button>
+                    <button onclick="informaticaPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -715,8 +715,8 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Administração</h3>
                 <div class="space-y-4">
-                    <button onclick="showAdministracaoPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Pública</button>
-                    <button onclick="showAdministracaoPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Privada</button>
+                    <button onclick="administracaoPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Pública</button>
+                    <button onclick="administracaoPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300">Escola Privada</button>
                 </div>
             </div>
         </div>
@@ -726,13 +726,14 @@
             <div class="flex flex-col h-full justify-between">
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
                 <div class="space-y-4">
-                    <button onclick="showEdificacoesPublicModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Pública</button>
-                    <button onclick="showEdificacoesPrivateModal()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Privada</button>
+                    <button onclick="edificacoesPub()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Pública</button>
+                    <button onclick="edificacoesPriv()" class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola Privada</button>
                 </div>
             </div>
         </div>
     </div>
 </main>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -1137,36 +1138,36 @@ const modalConfig = {
     }
 };
 
-// Função para abrir os modais
-function showEnfermagemPublicModal() {
+// Funções para abrir os modais
+function enfermagemPub() {
     showModal('Enfermagem', 'Escola Pública');
 }
 
-function showEnfermagemPrivateModal() {
+function enfermagemPriv() {
     showModal('Enfermagem', 'Escola Privada');
 }
 
-function showInformaticaPublicModal() {
+function informaticaPub() {
     showModal('Informática', 'Escola Pública');
 }
 
-function showInformaticaPrivateModal() {
+function informaticaPriv() {
     showModal('Informática', 'Escola Privada');
 }
 
-function showAdministracaoPublicModal() {
+function administracaoPub() {
     showModal('Administração', 'Escola Pública');
 }
 
-function showAdministracaoPrivateModal() {
+function administracaoPriv() {
     showModal('Administração', 'Escola Privada');
 }
 
-function showEdificacoesPublicModal() {
+function edificacoesPub() {
     showModal('Edificações', 'Escola Pública');
 }
 
-function showEdificacoesPrivateModal() {
+function edificacoesPriv() {
     showModal('Edificações', 'Escola Privada');
 }
 
@@ -1199,54 +1200,205 @@ function createModalContent(courseName, schoolType) {
         { id: 'ma', name: 'Matemática' }
     ];
 
-    // Criando formulários separados para cada curso
-    let forms = '';
-
-    // Formulário para Enfermagem
-    forms += createForm('Enfermagem', schoolType, subjects);
-    // Formulário para Informática
-    forms += createForm('Informática', schoolType, subjects);
-    // Formulário para Administração
-    forms += createForm('Administração', schoolType, subjects);
-    // Formulário para Edificações
-    forms += createForm('Edificações', schoolType, subjects);
-
-    return forms;
+    // Chama a função correspondente ao curso
+    switch (courseName) {
+        case 'Enfermagem':
+            return createEnfermagemForm(schoolType, subjects);
+        case 'Informática':
+            return createInformaticaForm(schoolType, subjects);
+        case 'Administração':
+            return createAdministracaoForm(schoolType, subjects);
+        case 'Edificações':
+            return createEdificacoesForm(schoolType, subjects);
+        default:
+            return '';
+    }
 }
 
-// Função para criar um formulário específico
-function createForm(course, schoolType, subjects) {
+// Funções para criar formulários específicos
+function createEnfermagemForm(schoolType, subjects) {
+    return createForm('Enfermagem', schoolType, subjects);
+}
+
+function createInformaticaForm(schoolType, subjects) {
+    return createForm('Informática', schoolType, subjects);
+}
+
+function createAdministracaoForm(schoolType, subjects) {
+    return createForm('Administração', schoolType, subjects);
+}
+
+function createEdificacoesForm(schoolType, subjects) {
+    return createForm('Edificações', schoolType, subjects);
+}
+
+// Função para criar um formulário genérico
+// Função para criar o conteúdo do modal com formulários específicos
+function createModalContent(courseName, schoolType) {
+    switch (courseName) {
+        case 'Enfermagem':
+            return createEnfermagemForm(schoolType);
+        case 'Informática':
+            return createInformaticaForm(schoolType);
+        case 'Administração':
+            return createAdministracaoForm(schoolType);
+        case 'Edificações':
+            return createEdificacoesForm(schoolType);
+        default:
+            return '';
+    }
+}
+
+// Função específica para o formulário de Enfermagem
+function createEnfermagemForm(schoolType) {
     return `
-        <form id="gradeForm_${course}" class="space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">
-                        Nome Completo <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" id="name_${course}" name="name" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg" placeholder="Digite seu nome completo" required>
+        <form id="enfermagemForm" class="space-y-2 max-w-2xl mx-auto p-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2">
+                    <label class="block text-xs font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" placeholder="Digite seu nome completo" required>
                 </div>
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">
-                        Data de Nascimento <span class="text-red-500">*</span>
-                    </label>
-                    <input type="date" id="birthDate_${course}" name="birthDate" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg" required>
+                
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                    <input type="date" name="data_nascimento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
                 </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">CPF <span class="text-red-500">*</span></label>
+                    <input type="text" name="cpf" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">RG <span class="text-red-500">*</span></label>
+                    <input type="text" name="rg" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
+                    <input type="tel" name="telefone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Celular</label>
+                    <input type="tel" name="celular" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
+                    <input type="text" name="cep" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div class="col-span-2">
+                    <label class="block text-xs font-medium text-gray-700">Endereço <span class="text-red-500">*</span></label>
+                    <input type="text" name="endereco" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Número</label>
+                    <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Complemento</label>
+                    <input type="text" name="complemento" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
+                </div>
+
+                <!-- Continuação dos campos... seguindo o mesmo padrão -->
+                
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
+                    <input type="text" name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
+                    <input type="text" name="cidade" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
+                </div>
+
+        </form>`;
+}
+// Função específica para o formulário de Informática
+function createInformaticaForm(schoolType) {
+    return `
+        <form id="informaticaForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
             </div>
-            <div class="relative mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Curso Selecionado</label>
-                <input type="text" value="${course}" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" disabled />
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
             </div>
-            <div class="relative mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Escola</label>
-                <input type="text" value="${schoolType}" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 cursor-not-allowed opacity-75" disabled />
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+                <input type="text" value="Informática" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
             </div>
-            ${[6, 7, 8, 9].map(year => createGradeInputs(year, course, subjects)).join('')}
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <!-- Adicione campos específicos para Informática aqui -->
         </form>`;
 }
 
+// Função específica para o formulário de Administração
+function createAdministracaoForm(schoolType) {
+    return `
+        <form id="administracaoForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+                <input type="text" value="Administração" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <!-- Adicione campos específicos para Administração aqui -->
+        </form>`;
+}
+
+// Função específica para o formulário de Edificações
+function createEdificacoesForm(schoolType) {
+    return `
+        <form id="edificacoesForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
+                <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
+                <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
+                <input type="text" value="Edificações" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
+                <input type="text" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
+            </div>
+            <!-- Adicione campos específicos para Edificações aqui -->
+        </form>`;
+}
+
+
 // Função para criar inputs de notas
 function createGradeInputs(year, courseName, subjects) {
-    return `
+     `
         <div class="py-6 animate-fadeIn">
             <div class="flex items-center space-x-4 mb-6">
                 <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
@@ -1303,7 +1455,7 @@ function collectFormData(courseName) {
     
     [6, 7, 8, 9].forEach(year => {
         subjects.forEach(subject => {
-            const inputId = `${subject.id}${year}_${courseName}`;
+            const inputId = `${subject}${year}_${courseName}`;
             const input = document.getElementById(inputId);
             if (input) {
                 formData[inputId] = parseFloat(input.value) || 0;
@@ -1329,16 +1481,14 @@ function showError(message) {
 }
 
 // Exporta as funções necessárias
-window.showEnfermagemPublicModal = showEnfermagemPublicModal;
-window.showEnfermagemPrivateModal = showEnfermagemPrivateModal;
-window.showInformaticaPublicModal = showInformaticaPublicModal;
-window.showInformaticaPrivateModal = showInformaticaPrivateModal;
-window.showAdministracaoPublicModal = showAdministracaoPublicModal;
-window.showAdministracaoPrivateModal = showAdministracaoPrivateModal;
-window.showEdificacoesPublicModal = showEdificacoesPublicModal;
-window.showEdificacoesPrivateModal = showEdificacoesPrivateModal;
-window.formatGrade = formatGrade;
-window.validateGrade = validateGrade;
+window.enfermagemPub = enfermagemPub;
+window.enfermagemPriv = enfermagemPriv;
+window.informaticaPub = informaticaPub;
+window.informaticaPriv = informaticaPriv;
+window.administracaoPub = administracaoPub;
+window.administracaoPriv = administracaoPriv;
+window.edificacoesPub = edificacoesPub;
+window.edificacoesPriv = edificacoesPriv;
 
 </script>
     <style>
