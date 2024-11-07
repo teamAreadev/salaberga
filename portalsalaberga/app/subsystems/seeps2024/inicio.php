@@ -24,19 +24,19 @@
         }
     </script>
     <style>
-        :root {
-            --ceara-green: #008C45;
-            --ceara-green-dark: #004d00;
-            --ceara-orange: #FFA500;
-            --ceara-white: #ffffff;
-            --gray-600: #666666;
-            --gray-dark: #333333;
-            --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.2);
-            --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-duration: 0.4s;
-            --hover-scale: 1.02;
-        }
+    :root {
+    --ceara-green: #008C45;
+    --ceara-green-dark: #004d00;
+    --ceara-orange: #FFA500;
+    --ceara-white: #ffffff;
+    --gray-600: #666666;
+    --gray-dark: #333333;
+    --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-duration: 0.4s;
+    --hover-scale: 1.02;
+}
 
         * {
             margin: 0;
@@ -308,253 +308,175 @@
 </head>
 
 <body>
-    <header class="header-main" class="bg-white:bg-gray-800 shadow-md fixed w-full top-0 left-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex justify-center items-center">
-    <img 
-        src="assets/images/LOGO_new.png" 
-        alt="Logo SEEPS" 
-        class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105 logo-img"
-        style="margin-top: 10px;"
-    >
-</div>
-        <!-- Overlay para fundo escuro quando sidebar estiver aberta -->
-<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
 
-<!-- Botão Menu Mobile -->
-<div class="flex items-center sm:hidden">
-    <button
-        type="button"
-        class="relative inline-flex items-center justify-center p-2 
-               rounded-lg bg-white
-               text-gray-700
-               transition-all duration-300 ease-in-out
-               hover:bg-gray-50
-               focus:outline-none focus:ring-2 focus:ring-offset-2
-               focus:ring-green-500
-               shadow-sm hover:shadow-md
-               z-50"
-        aria-controls="sidebar-menu"
-        aria-expanded="false"
-        onclick="toggleSidebar()"
-    >
-        <span class="sr-only">Abrir menu principal</span>
-        
-        <!-- Ícone Menu (3 barras) -->
-        <svg
-            class="transform transition-transform duration-300 ease-in-out w-5 h-5 " 
-            id="menu-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="#2d3748"
-        >
-            <g id="menu-lines">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M4 6h16"
-                    class="transform origin-center transition-transform duration-300"
-                />
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M4 12h16"
-                    class="transform origin-center transition-transform duration-300"
-                />
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M4 18h16"
-                    class="transform origin-center transition-transform duration-300"
-                />
-            </g>
-        </svg>
-    </button>
-</div>
+<header class="header-main bg-white:bg-gray-800 shadow-md fixed w-full top-0 left-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex justify-center items-center">
+                <img 
+                    src="assets/images/LOGO_new.png" 
+                    alt="Logo SEEPS" 
+                    class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105 logo-img"
+                    style="margin-top: 10px;"
+                >
+            </div>
+            <!-- Overlay para fundo escuro quando sidebar estiver aberta -->
+            <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
 
-<!-- Sidebar Menu -->
-<div 
-    id="sidebar-menu" 
-    class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full 
-           transition-transform duration-300 ease-in-out z-50"
->
-    <div class="p-4 space-y-4">
-        <!-- Cabeçalho da Sidebar -->
-        <div class="flex items-center justify-between mb-6">
-            <h2 class="text-xl font-semibold text-gray-800">Menu</h2>
-            <button 
-                onclick="toggleSidebar()"
-                class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            <!-- Botão Menu Mobile -->
+            <div class="flex items-center sm:hidden">
+                <button
+                    type="button"
+                    class="relative inline-flex items-center justify-center p-2 
+                           rounded-lg bg-white
+                           text-gray-700
+                           transition-all duration-300 ease-in-out
+                           hover:bg-gray-50
+                         
+                           
+                           z-50"
+                    aria-controls="sidebar-menu-mobile"
+                    aria-expanded="false"
+                    onclick="toggleMobileMenu()"
+                >
+                    <span class="sr-only">Abrir menu principal</span>
+                    
+                    <!-- Ícone Menu (3 barras) -->
+                    <svg
+                        class="transform transition-transform duration-300 ease-in-out w-5 h-5" 
+                        id="menu-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#2d3748"
+                    >
+                        <g id="menu-lines">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M4 6h16"
+                                class="transform origin-center transition-transform duration-300"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M4 12h16"
+                                class="transform origin-center transition-transform duration-300"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M4 18h16"
+                                class="transform origin-center transition-transform duration-300"
+                            />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Sidebar Menu Mobile -->
+            <div 
+                id="sidebar-menu-mobile" 
+                class="fixed top-0 left-0 h-full w-64 bg-ceara-white shadow-md transform -translate-x-full 
+                       transition-transform duration-300 ease-in-out z-50"
             >
-                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
+                <div class="p-4 space-y-4">
+                    <!-- Cabeçalho da Sidebar -->
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-semibold text-gray-dark">Menu</h2>
+                        <button 
+                            onclick="toggleMobileMenu()"
+                            class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                        >
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
 
-        <!-- Botões do Menu -->
-        <div class="space-y-2">
-            <button 
-                onclick="showUpdateModal()" 
-                class="w-full text-left px-4 py-2 text-sm rounded-lg
-                       bg-orange-500 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500
-                       flex items-center space-x-2"
-            >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                </svg>
-                <span>Atualizar</span>
-            </button>
+                    <!-- Divisor -->
+                    <div class="border-t border-gray-600"></div>
 
-            <button 
-                onclick="showReportsModal()" 
-                class="w-full text-left px-4 py-2 text-sm rounded-lg
-                       bg-green-800 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-700
-                       flex items-center space-x-2"
-            >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-                <span>Relatórios</span>
-            </button>
+                    <!-- Botões do Menu -->
+                    <nav class="space-y-4">
+                        <!-- Botão Atualizar -->
+                        <button 
+                            onclick="showUpdateModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-orange text-ceara-orange font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-orange"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            Atualizar
+                        </button>
 
-            <button 
-                onclick="showResultsModal()" 
-                class="w-full text-left px-4 py-2 text-sm rounded-lg
-                       bg-gray-600 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500
-                       flex items-center space-x-2"
-            >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-                <span>Resultados</span>
-            </button>
+                        <!-- Botão Relatórios -->
+                        <button 
+                            onclick="showReportsModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-green text-ceara-green font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-green"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Relatórios
+                        </button>
 
-            <button 
-                class="w-full text-left px-4 py-2 text-sm rounded-lg
-                       bg-red-600 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500
-                       flex items-center space-x-2"
-            >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-                </svg>
-                <span>Sair</span>
-            </button>
-        </div>
-    </div>
-</div>
+                        <!-- Botão Resultados -->
+                        <button 
+                            onclick="showResultsModal()" 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-gray-600 text-gray-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-gray-500"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Resultados
+                        </button>
 
-<style>
-    .sidebar-open {
-        transform: translateX(0) !important;
-    }
+                        <!-- Botão Sair -->
+                        <button 
+                            class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-red-600 text-red-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-red-500"
+                        >
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                            </svg>
+                            Sair
+                        </button>
+                    </nav>
+                </div>
+            </div>
 
-    .overlay-visible {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    body.sidebar-active {
-        overflow: hidden;
-    }
-</style>
-
-<script>
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar-menu');
-    const overlay = document.getElementById('sidebar-overlay');
-    const menuIcon = document.getElementById('menu-icon');
-    const body = document.body;
-
-    sidebar.classList.toggle('sidebar-open');
-    overlay.classList.toggle('hidden');
-    menuIcon.classList.toggle('menu-open');
-    body.classList.toggle('sidebar-active');
-
-    // Adiciona um pequeno delay para a opacidade do overlay
-    setTimeout(() => {
-        overlay.classList.toggle('overlay-visible');
-    }, 50);
-}
-
-// Fecha sidebar ao clicar no overlay
-document.getElementById('sidebar-overlay').addEventListener('click', toggleSidebar);
-
-// Fecha sidebar com a tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const sidebar = document.getElementById('sidebar-menu');
-        if (sidebar.classList.contains('sidebar-open')) {
-            toggleSidebar();
-        }
-    }
-});
-</script>
-
-        <!-- Botão Menu Desktop -->
-<div class="hidden sm:flex items-center">
-    <button
-        type="button"
-        class="relative inline-flex items-center justify-center p-2 
-               rounded-lg bg-white
-               text-gray-700
-               transition-all duration-300 ease-in-out
-               hover:bg-gray-50
-               focus:outline-none focus:ring-2 focus:ring-offset-2
-               focus:ring-green-500
-               shadow-sm hover:shadow-md
-               z-50"
-        aria-controls="sidebar-menu-desktop"
-        aria-expanded="false"
-        onclick="toggleSidebarDesktop()"
-    >
-        <svg
-            class="transform transition-transform duration-300 ease-in-out w-6 h-6"
-            id="menu-icon-desktop"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="#4B5563"
-        >
-            <g id="menu-lines-desktop">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16"/>
-            </g>
-        </svg>
-    </button>
-</div>
-
-<!-- Overlay para Desktop -->
-<div id="sidebar-overlay-desktop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
-
-<!-- Sidebar Desktop -->
-<div 
+            <div 
     id="sidebar-menu-desktop" 
-    class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform -translate-x-full 
+    class="fixed top-0 left-0 h-full w-72 bg-ceara-white shadow-md transform -translate-x-full 
            transition-transform duration-300 ease-in-out z-50"
 >
     <div class="p-6 space-y-6">
         <!-- Cabeçalho da Sidebar -->
         <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-semibold text-gray-800">Menu</h2>
+            <h2 class="text-2xl font-semibold text-gray-dark">Menu</h2>
             <button 
                 onclick="toggleSidebarDesktop()"
-                class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
             >
                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -563,18 +485,18 @@ document.addEventListener('keydown', (e) => {
         </div>
 
         <!-- Divisor -->
-        <div class="border-t border-gray-200"></div>
+        <div class="border-t border-gray-600"></div>
 
         <!-- Botões do Menu -->
         <nav class="space-y-4">
             <!-- Botão Atualizar -->
             <button 
                 onclick="showUpdateModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-lg
-                       bg-orange-500 text-white font-medium
+                class="w-full flex items-center px-4 py-3 text-base rounded-full
+                       border-2 border-ceara-orange text-ceara-orange font-semibold
                        transition-all duration-300 ease-in-out
-                       hover:bg-orange-600 hover:shadow-md transform hover:-translate-y-0.5
-                       focus:outline-none focus:ring-2 focus:ring-orange-500"
+                       hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                       focus:outline-none focus:ring-2 focus:ring-ceara-orange"
             >
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
@@ -585,11 +507,11 @@ document.addEventListener('keydown', (e) => {
             <!-- Botão Relatórios -->
             <button 
                 onclick="showReportsModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-lg
-                       bg-green-800 text-white font-medium
+                class="w-full flex items-center px-4 py-3 text-base rounded-full
+                       border-2 border-ceara-green text-ceara-green font-semibold
                        transition-all duration-300 ease-in-out
-                       hover:bg-green-900 hover:shadow-md transform hover:-translate-y-0.5
-                       focus:outline-none focus:ring-2 focus:ring-green-700"
+                       hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                       focus:outline-none focus:ring-2 focus:ring-ceara-green"
             >
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -600,10 +522,10 @@ document.addEventListener('keydown', (e) => {
             <!-- Botão Resultados -->
             <button 
                 onclick="showResultsModal()" 
-                class="w-full flex items-center px-4 py-3 text-base rounded-lg
-                       bg-gray-600 text-white font-medium
+                class="w-full flex items-center px-4 py-3 text-base rounded-full
+                       border-2 border-gray-600 text-gray-600 font-semibold
                        transition-all duration-300 ease-in-out
-                       hover:bg-gray-700 hover:shadow-md transform hover:-translate-y-0.5
+                       hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
                        focus:outline-none focus:ring-2 focus:ring-gray-500"
             >
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -614,10 +536,10 @@ document.addEventListener('keydown', (e) => {
 
             <!-- Botão Sair -->
             <button 
-                class="w-full flex items-center px-4 py-3 text-base rounded-lg
-                       bg-red-600 text-white font-medium
+                class="w-full flex items-center px-4 py-3 text-base rounded-full
+                       border-2 border-red-600 text-red-600 font-semibold
                        transition-all duration-300 ease-in-out
-                       hover:bg-red-700 hover:shadow-md transform hover:-translate-y-0.5
+                       hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
                        focus:outline-none focus:ring-2 focus:ring-red-500"
             >
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -629,151 +551,122 @@ document.addEventListener('keydown', (e) => {
     </div>
 </div>
 
-<script>
-function toggleSidebarDesktop() {
-    const sidebar = document.getElementById('sidebar-menu-desktop');
-    const overlay = document.getElementById('sidebar-overlay-desktop');
-    const menuIcon = document.getElementById('menu-icon-desktop');
-    const body = document.body;
-
-    sidebar.classList.toggle('sidebar-open');
-    overlay.classList.toggle('hidden');
-    menuIcon.classList.toggle('menu-open');
-    body.classList.toggle('sidebar-active');
-
-    setTimeout(() => {
-        overlay.classList.toggle('overlay-visible');
-    }, 50);
-}
-
-// Fecha sidebar ao clicar no overlay
-document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
-
-// Fecha sidebar com a tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const sidebarDesktop = document.getElementById('sidebar-menu-desktop');
-        if (sidebarDesktop.classList.contains('sidebar-open')) {
-            toggleSidebarDesktop();
-        }
-    }
-});
-
-// Adiciona classe para telas maiores
-const mediaQuery = window.matchMedia('(min-width: 640px)');
-function handleScreenChange(e) {
-    const sidebarDesktop = document.getElementById('sidebar-menu-desktop');
-    const overlayDesktop = document.getElementById('sidebar-overlay-desktop');
-    
-    if (!e.matches) {
-        sidebarDesktop.classList.remove('sidebar-open');
-        overlayDesktop.classList.add('hidden');
-        overlayDesktop.classList.remove('overlay-visible');
-    }
-}
-
-mediaQuery.addListener(handleScreenChange);
-</script>
-
-<style>
-/* Adicione estes estilos aos já existentes */
-@media (min-width: 640px) {
-    #sidebar-menu-desktop {
-        width: 18rem;
-    }
-}
-
-.sidebar-open {
-    transform: translateX(0) !important;
-}
-
-.overlay-visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-body.sidebar-active {
-    overflow: hidden;
-}
-</style>
-
-        <!-- Menu Mobile -->
-        <div class="sm:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-2 bg-white dark:bg-gray-800 shadow-lg">
+            <!-- Botão Menu Desktop -->
+            <div class="hidden sm:flex items-center">
                 <button
-                    onclick="showUpdateModal()"
-                    class="w-full text-left px-4 py-2 rounded-lg
-                       bg-orange-500 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    Atualizar
-                </button>
-
-                <button
-                    onclick="showReportsModal()"
-                    class="w-full text-left px-4 py-2 rounded-lg
-                       bg-green-800 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-700">
-                    Relatórios
-                </button>
-
-                <button
-                    onclick="showResultsModal()"
-                    class="w-full text-left px-4 py-2 rounded-lg
-                       bg-gray-600 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    Resultados
-                </button>
-
-                <button
-                    class="w-full text-left px-4 py-2 rounded-lg
-                       bg-red-600 text-white font-medium
-                       transition-all duration-300 ease-in-out
-                       hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
-                    Sair
+                    type="button"
+                    class="relative inline-flex items-center justify-center p-2 
+                           rounded-lg bg-white
+                           text-gray-700
+                           transition-all duration-300 ease-in-out
+                           hover:bg-gray-50
+                         
+                          
+                           z-50"
+                    aria-controls="sidebar-menu-desktop"
+                    aria-expanded="false"
+                    onclick="toggleSidebarDesktop()"
+                >
+                    <svg
+                        class="transform transition-transform duration-300 ease-in-out w-6 h-6"
+                        id="menu-icon-desktop"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#4B5563"
+                    >
+                        <g id="menu-lines-desktop">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16"/>
+                        </g>
+                    </svg>
                 </button>
             </div>
-        </div>
-    </header>
 
-    <!-- Espaçador para compensar o header fixo -->
-    <div class="h-16"></div>
+            <!-- Overlay para Desktop -->
+            <div id="sidebar-overlay-desktop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+        </div>
+    </div>
+
+    <style>
+        .sidebar-open {
+            transform: translateX(0) !important;
+        }
+
+        .overlay-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.sidebar-active {
+            overflow: hidden;
+        }
+    </style>
 
     <script>
         function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const isHidden = mobileMenu.classList.contains('hidden');
+            const mobileMenu = document.getElementById('sidebar-menu-mobile');
+            const overlay = document.getElementById('sidebar-overlay');
+            const isHidden = mobileMenu.classList.contains('-translate-x-full');
 
             // Toggle menu
-            mobileMenu.classList.toggle('hidden');
-
-            // Toggle ícones do botão
-            const button = document.querySelector('[aria-controls="mobile-menu"]');
-            const menuIcon = button.querySelector('svg:first-of-type');
-            const closeIcon = button.querySelector('svg:last-of-type');
-
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            mobileMenu.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            overlay.classList.toggle('overlay-visible');
+            document.body.classList.toggle('sidebar-active');
 
             // Atualiza aria-expanded
-            button.setAttribute('aria-expanded', isHidden);
+            const button = document.querySelector('[aria-controls="sidebar-menu-mobile"]');
+            button.setAttribute('aria-expanded', !isHidden);
         }
 
-        // Fechar menu mobile ao clicar fora
-        document.addEventListener('click', (e) => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
+        // Fecha sidebar ao clicar no overlay
+        document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
 
-            if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                menuButton.querySelector('svg:first-of-type').classList.remove('hidden');
-                menuButton.querySelector('svg:last-of-type').classList.add('hidden');
-                menuButton.setAttribute('aria-expanded', 'false');
+        // Fecha sidebar com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+            
+                const mobileMenu = document.getElementById('sidebar-menu-mobile');
+                const overlay = document.getElementById('sidebar-overlay');
+                if (!mobileMenu.classList.contains('-translate-x-full')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
+
+        function toggleSidebarDesktop() {
+            const desktopMenu = document.getElementById('sidebar-menu-desktop');
+            const overlay = document.getElementById('sidebar-overlay-desktop');
+            const isHidden = desktopMenu.classList.contains('-translate-x-full');
+
+            // Toggle menu
+            desktopMenu.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            overlay.classList.toggle('overlay-visible');
+            document.body.classList.toggle('sidebar-active');
+
+            // Atualiza aria-expanded
+            const button = document.querySelector('[aria-controls="sidebar-menu-desktop"]');
+            button.setAttribute('aria-expanded', !isHidden);
+        }
+
+        // Fecha sidebar ao clicar no overlay
+        document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
+
+        // Fecha sidebar com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const desktopMenu = document.getElementById('sidebar-menu-desktop');
+                if (!desktopMenu.classList.contains('-translate-x-full')) {
+                    toggleSidebarDesktop();
+                }
             }
         });
     </script>
+</header>
+
 
 <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -1041,272 +934,293 @@ body.sidebar-active {
         </div>
     </footer>
     <script>
-    // Configuração personalizada do SweetAlert2
-    const modalConfig = {
-        customClass: {
-            popup: 'rounded-2xl shadow-2xl bg-white border border-gray-200 custom-scrollbar',
-            title: 'text-gray-800',
-            htmlContainer: 'text-gray-600',
-            input: 'bg-white border-gray-300 text-gray-800 rounded-lg focus:ring-2 focus:ring-ceara-green',
-            confirmButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-ceara-green to-primary text-white font-medium rounded-lg hover:from-primary hover:to-ceara-green focus:ring-4 focus:ring-ceara-green/50 transition-all duration-300',
-            cancelButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-600 focus:ring-4 focus:ring-gray-400/50 transition-all duration-300'
-        },
-        buttonsStyling: false,
-        background: '#FFFFFF',
-        showClass: {
-            popup: 'animate__animated animate__fadeInUp animate__faster'
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutDown animate__faster'
-        }
-    };
-
-    // Funções para os modais dos cursos
-    function showEnfermagemPublicModal() {
-        showModal('p-1', 'Enfermagem - Escola Pública', 'ceara-green');
+// Configuração personalizada do SweetAlert2
+const modalConfig = {
+    allowOutsideClick: false,  // Impede o fechamento ao clicar fora
+    allowEscapeKey: false,     // Impede o fechamento com a tecla ESC
+    customClass: {
+        popup: 'rounded-2xl shadow-2xl bg-white border border-gray-200 custom-scrollbar',
+        title: 'text-gray-800',
+        htmlContainer: 'text-gray-600',
+        input: 'bg-white border-gray-300 text-gray-800 rounded-lg focus:ring-2 focus:ring-ceara-green',
+        confirmButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-ceara-green to-primary text-white font-medium rounded-lg hover:from-primary hover:to-ceara-green focus:ring-4 focus:ring-ceara-green/50 transition-all duration-300',
+        cancelButton: 'inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-600 focus:ring-4 focus:ring-gray-400/50 transition-all duration-300'
+    },
+    buttonsStyling: false,
+    background: '#FFFFFF',
+    showClass: {
+        popup: 'animate__animated animate__fadeInUp animate__faster'
+    },
+    hideClass: {
+        popup: 'animate__animated animate__fadeOutDown animate__faster'
+    },
+    // Agora, vamos garantir que o modal não feche quando o usuário clicar fora ou pressionar ESC
+    didOpen: () => {
+        // Este evento é disparado quando o modal é aberto, permitindo que você defina outras ações, se necessário.
+    },
+    preConfirm: () => {
+        // Aqui você pode verificar a validade do formulário antes de continuar
+        return validateAndCollectData(courseId);
     }
+};
 
-    function showEnfermagemPrivateModal() {
-        showModal('c-1', 'Enfermagem - Escola Privada', 'ceara-green');
-    }
+// Funções para os modais dos cursos
+function showEnfermagemPublicModal() {
+    showModal('p-1', 'Enfermagem - Escola Pública', 'ceara-green');
+}
 
-    function showInformaticaPublicModal() {
-        showModal('p-2', 'Informática - Escola Pública', 'primary');
-    }
+function showEnfermagemPrivateModal() {
+    showModal('c-1', 'Enfermagem - Escola Privada', 'ceara-green');
+}
 
-    function showInformaticaPrivateModal() {
-        showModal('c-2', 'Informática - Escola Privada', 'primary');
-    }
+function showInformaticaPublicModal() {
+    showModal('p-2', 'Informática - Escola Pública', 'primary');
+}
 
-    function showAdministracaoPublicModal() {
-        showModal('p-3', 'Administração - Escola Pública', 'ceara-orange');
-    }
+function showInformaticaPrivateModal() {
+    showModal('c-2', 'Informática - Escola Privada', 'primary');
+}
 
-    function showAdministracaoPrivateModal() {
-        showModal('c-3', 'Administração - Escola Privada', 'ceara-orange');
-    }
+function showAdministracaoPublicModal() {
+    showModal('p-3', 'Administração - Escola Pública', 'ceara-orange');
+}
 
-    function showEdificacoesPublicModal() {
-        showModal('p-4', 'Edificações - Escola Pública', 'secondary');
-    }
+function showAdministracaoPrivateModal() {
+    showModal('c-3', 'Administração - Escola Privada', 'ceara-orange');
+}
 
-    function showEdificacoesPrivateModal() {
-        showModal('c-4', 'Edificações - Escola Privada', 'secondary');
-    }
+function showEdificacoesPublicModal() {
+    showModal('p-4', 'Edificações - Escola Pública', 'secondary');
+}
 
-    // Função genérica para mostrar modal
-    function showModal(courseId, title, color) {
-        Swal.fire({
-            ...modalConfig,
-            title: `<div class="text-2xl font-bold mb-2 text-${color}">
-                ${title}
-            </div>`,
-            width: '80%',
-            html: createModalContent(courseId),
-            confirmButtonText: 'Cadastrar',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            showLoaderOnConfirm: true,
-            preConfirm: () => validateAndCollectData(courseId)
-        }).then(handleModalResult);
-    }
+function showEdificacoesPrivateModal() {
+    showModal('c-4', 'Edificações - Escola Privada', 'secondary');
+}
 
-    // Função para criar o conteúdo do modal
-    function createModalContent(courseId) {
-        return `
-            <form id="gradeForm_${courseId}" class="space-y-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="block text-sm font-medium text-gray-700">
-                            Nome Completo
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input type="text" 
-                               id="name_${courseId}" 
-                               class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
-                                      focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
-                                      transition-all duration-300 text-gray-700 placeholder-gray-400"
-                               placeholder="Digite seu nome completo"
-                               required>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-sm font-medium text-gray-700">
-                            Data de Nascimento
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <input type="date" 
-                               id="birthDate_${courseId}" 
-                               class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
-                                      focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
-                                      transition-all duration-300 text-gray-700"
-                               required>
-                    </div>
+// Função genérica para mostrar modal
+function showModal(courseId, title, color) {
+    Swal.fire({
+        ...modalConfig,
+        title: `<div class="text-2xl font-bold mb-2 text-${color}">
+            ${title}
+        </div>`,
+        width: '80%',
+        html: createModalContent(courseId),
+        confirmButtonText: 'Cadastrar',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: () => validateAndCollectData(courseId)
+    }).then(handleModalResult);
+}
+
+// Função para criar o conteúdo do modal
+function createModalContent(courseId) {
+    return `
+        <form id="gradeForm_${courseId}" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        Nome Completo
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" 
+                           id="name_${courseId}" 
+                           class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+                                  focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
+                                  transition-all duration-300 text-gray-700 placeholder-gray-400"
+                           placeholder="Digite seu nome completo"
+                           required>
                 </div>
-                ${[6, 7, 8, 9].map(year => createGradeInputs(year, courseId)).join('')}
-            </form>
-        `;
-    }
-
-    // Função para criar inputs de notas
-    function createGradeInputs(year, courseId) {
-        const subjects = [
-            'Português', 'Arte', 'Ed. Física', 'Inglês',
-            'Ciências', 'Geografia', 'História', 'Religião',
-            'Matemática'
-        ];
-
-        return `
-            <div class="py-6 animate-fadeIn">
-                <div class="flex items-center space-x-4 mb-6">
-                    <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
-                    <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    ${subjects.map(subject => `
-                        <div class="space-y-2 group">
-                            <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
-                                ${subject}
-                            </label>
-                            <div class="relative">
-                                <input type="text" 
-                                       id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
-                                       class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
-                                              focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
-                                              transition-all duration-300 text-gray-700 placeholder-gray-400
-                                              group-hover:border-ceara-green/50"
-                                       placeholder="0.0"
-                                       required
-                                       maxlength="3"
-                                       oninput="formatGrade(this)"
-                                       onblur="validateGrade(this)">
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <span class="text-gray-400 text-sm">/ 10</span>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('')}
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        Data de Nascimento
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="date" 
+                           id="birthDate_${courseId}" 
+                           class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+                                  focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
+                                  transition-all duration-300 text-gray-700"
+                           required>
                 </div>
             </div>
-        `;
+            ${[6, 7, 8, 9].map(year => createGradeInputs(year, courseId)).join('')}
+        </form>
+    `;
+}
+
+// Função para criar inputs de notas
+function createGradeInputs(year, courseId) {
+    const subjects = [
+        'Português', 'Arte', 'Ed. Física', 'Inglês',
+        'Ciências', 'Geografia', 'História', 'Religião',
+        'Matemática'
+    ];
+
+    return `
+        <div class="py-6 animate-fadeIn">
+            <div class="flex items-center space-x-4 mb-6">
+                <h3 class="text-xl font-bold text-gray-800">${year}º Ano</h3>
+                <div class="flex-1 h-0.5 bg-gradient-to-r from-ceara-green to-transparent rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                ${subjects.map(subject => `
+                    <div class="space-y-2 group">
+                        <label class="block text-sm font-medium text-gray-700 group-hover:text-ceara-green transition-colors">
+                            ${subject}
+                        </label>
+                        <div class="relative">
+                            <input type="text" 
+                                   id="${courseId}_${year}${subject.toLowerCase().replace(' ', '')}"
+                                   class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+                                          focus:border-ceara-green focus:ring-2 focus:ring-ceara-green/50 
+                                          transition-all duration-300 text-gray-700 placeholder-gray-400
+                                          group-hover:border-ceara-green/50"
+                                   placeholder="0.0"
+                                   required
+                                   maxlength="4"
+                                   oninput="formatGrade(this)"
+                                   onblur="validateGrade(this)">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <span class="text-gray-400 text-sm">/ 10</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// Função para formatar as notas
+function formatGrade(input) {
+    let value = input.value.replace(/[^\d.]/g, ''); // Permite apenas números e ponto.
+
+    // Se o valor for "1.00", converte para "10.0"
+    if (value === '1.00') {
+        value = '10.0';
     }
 
-    // Função para formatar a nota
-    function formatGrade(input) {
-        let value = input.value.replace(/[^\d]/g, '');
-        
-        if (value.length >= 2) {
-            value = value.slice(0, -1) + '.' + value.slice(-1);
+    // Se já contém um ponto, limita a dois dígitos após o ponto
+    if (value.indexOf('.') !== -1) {
+        const parts = value.split('.');
+        if (parts[1].length > 2) {
+            parts[1] = parts[1].slice(0, 2); // Limita a dois dígitos após o ponto
+            value = parts.join('.');
         }
-        
-        if (parseFloat(value) > 10) {
-            value = '10.0';
-        }
-        
-        input.value = value;
     }
 
-    // Função para validar notas
-    function validateGrade(input) {
-        const value = parseFloat(input.value);
-        
-        if (!isNaN(value) && value >= 0 && value <= 10) {
-            input.value = value.toFixed(1);
-            input.classList.remove('border-red-500');
-            input.classList.add('border-gray-300');
-        } else {
-            input.classList.add('border-red-500');
-            input.classList.remove('border-gray-300');
-            showError('A nota deve estar entre 0 e 10');
-            input.value = '';
-        }
+    // Se o valor for maior que 10, limita para "10.0"
+    if (parseFloat(value) > 10) {
+        value = '10.0';
     }
 
-    // Função para validar e coletar dados
-    function validateAndCollectData(courseId) {
-        const form = document.getElementById(`gradeForm_${courseId}`);
-        if (!form.checkValidity()) {
-            showError('Por favor, preencha todos os campos corretamente');
-            return false;
-        }
-        return collectFormData(courseId);
+    input.value = value;
+}
+
+// Função para validar a nota
+function validateGrade(input) {
+    let value = parseFloat(input.value);
+
+    if (!isNaN(value) && value >= 0 && value <= 10) {
+        // Formata para uma casa decimal se não for 10
+        input.value = value === 10 ? '10.0' : value.toFixed(1);
+        input.classList.remove('border-red-500');
+        input.classList.add('border-gray-300');
+    } else {
+        input.classList.add('border-red-500');
+        input.classList.remove('border-gray-300');
+        showError('A nota deve estar entre 0 e 10');
     }
+}
 
-    // Função para coletar dados do formulário
-    function collectFormData(courseId) {
-        const formData = {
-            courseId: courseId,
-            name: document.getElementById(`name_${courseId}`).value,
-            birthDate: document.getElementById(`birthDate_${courseId}`).value,
-            grades: {}
-        };
-
-        [6, 7, 8, 9].forEach(year => {
-            formData.grades[year] = {};
-            const subjects = [
-                'portugues', 'arte', 'edfisica', 'ingles',
-                'ciencias', 'geografia', 'historia', 'religiao',
-                'matematica'
-            ];
-
-            subjects.forEach(subject => {
-                const inputId = `${courseId}_${year}${subject}`;
-                const input = document.getElementById(inputId);
-                if (input) {
-                    formData.grades[year][subject] = parseFloat(input.value) || 0;
-                }
-            });
-        });
-
-        return formData;
+// Função para validar e coletar dados
+function validateAndCollectData(courseId) {
+    const form = document.getElementById(`gradeForm_${courseId}`);
+    if (!form.checkValidity()) {
+        showError('Por favor, preencha todos os campos corretamente');
+        return false; // Não fecha o modal
     }
+    return collectFormData(courseId); // Só fecha se os dados forem válidos
+}
 
-    // Função para mostrar erro
-    function showError(message) {
-        const toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            background: '#FFFFFF',
-            customClass: {
-                popup: 'rounded-lg border border-red-500/20 shadow-lg',
-                title: 'text-gray-800 text-sm font-medium'
+// Função para coletar dados do formulário
+function collectFormData(courseId) {
+    const formData = {
+        courseId: courseId,
+        name: document.getElementById(`name_${courseId}`).value,
+        birthDate: document.getElementById(`birthDate_${courseId}`).value,
+        grades: {}
+    };
+
+    [6, 7, 8, 9].forEach(year => {
+        formData.grades[year] = {};
+        const subjects = [
+            'portugues', 'arte', 'edfisica', 'ingles',
+            'ciencias', 'geografia', 'historia', 'religiao',
+            'matematica'
+        ];
+
+        subjects.forEach(subject => {
+            const inputId = `${courseId}_${year}${subject}`;
+            const input = document.getElementById(inputId);
+            if (input) {
+                formData.grades[year][subject] = parseFloat(input.value) || 0;
             }
         });
+    });
 
-        toast.fire({
-            icon: 'error',
-            title: message
-        });
-    }
+    return formData;
+}
 
-    // Função para mostrar mensagem de sucesso
-    function showSuccessMessage(message) {
-        Swal.fire({
-            ...modalConfig,
-            icon: 'success',
-            iconColor: '#008C45',
-            title: '<span class="text-2xl font-bold text-gray-800">Sucesso!</span>',
-            html: `<p class="text-gray-600">${message}</p>`,
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            background: '#FFFFFF',
-            customClass: {
-                popup: 'rounded-2xl border border-ceara-green/20 shadow-lg'
-            }
-        });
-    }
-
-    // Função para lidar com o resultado do modal
-    function handleModalResult(result) {
-        if (result.isConfirmed) {
-            showSuccessMessage('Cadastro realizado com sucesso!');
-            console.log('Dados do formulário:', result.value);
-            // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+// Função para mostrar erro
+function showError(message) {
+    const toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        background: '#FFFFFF',
+        customClass: {
+            popup: 'rounded-lg border border-red-500/20 shadow-lg',
+            title: 'text-gray-800 text-sm font-medium'
         }
+    });
+
+    toast.fire({
+        icon: 'error',
+        title: message
+    });
+}
+
+// Função para mostrar mensagem de sucesso
+function showSuccessMessage(message) {
+    Swal.fire({
+        ...modalConfig,
+        icon: 'success',
+        iconColor: '#008C45',
+        title: '<span class="text-2xl font-bold text-gray-800">Sucesso!</span>',
+        html: `<p class="text-gray-600">${message}</p>`,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        background: '#FFFFFF',
+        customClass: {
+            popup: 'rounded-2xl border border-ceara-green/20 shadow-lg'
+        }
+    });
+}
+
+// Função para lidar com o resultado do modal
+function handleModalResult(result) {
+    if (result.isConfirmed) {
+        showSuccessMessage('Cadastro realizado com sucesso!');
+        console.log('Dados do formulário:', result.value);
+        // Aqui você pode adicionar a lógica para enviar os dados para o servidor
     }
+}
 </script>
     <style>
 
