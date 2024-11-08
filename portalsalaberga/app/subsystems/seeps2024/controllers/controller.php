@@ -15,11 +15,32 @@ function virg($num)
 }
 
 $nome = $_POST['nome'];
-$nasc = $_POST['nasc'];
-$curso = $_POST['curso'];
+$dn = $_POST['nasc'];
+switch ($_POST['curso']) {
+
+    case 'Enfermagem':
+
+        $c1 = 1;
+        break;
+    case 'Informática':
+
+        $c1 = 2;
+        break;
+    case 'Administração':
+
+        $c1 = 3;
+        break;
+    case 'Edificações':
+
+        $c1 = 4;
+        break;
+};
+
 $c2 = 1;
 $bairro = $_POST['bairro'];
 $publica = $_POST['publica'];
+$pcd = $_POST['pcd'];
+
 $lp6 = virg($_POST['lp6']);
 $ar6 = virg($_POST['a6']);
 $ef6 = virg($_POST['ef6']);
@@ -73,7 +94,7 @@ $re = ($re6 + $re7 + $re8 + $re9) / 4;
 
 $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
-echo $media;
+
 $model = new model_usuario();
 $test = $model->cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 
