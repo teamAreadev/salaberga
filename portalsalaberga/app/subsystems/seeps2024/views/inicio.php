@@ -314,7 +314,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex justify-center items-center">
-                    <img src="assets/images/LOGO_new.png" alt="Logo SEEPS"
+                    <img src="../assets/images/LOGO_new.png" alt="Logo SEEPS"
                         class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 scale-105 logo-img"
                         style="margin-top: 10px;">
                 </div>
@@ -419,7 +419,7 @@
                             </button>
 
                             <!-- Botão Sair -->
-                            <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                            <a href="../index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full
                                    border-2 border-red-600 text-red-600 font-semibold
                                    transition-all duration-300 ease-in-out
                                    hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100

@@ -62,13 +62,29 @@ class model_usuario extends connect
         if ($result_cadastrar_candidato && $result_cadastrar_nota) {
 
             return "candidato cadastrado com sucesso";
-            
         } elseif ($result_cadastrar_candidato) {
 
             return "ERRO ao cadastrar a nota";
         } elseif ($result_cadastrar_nota) {
 
             return "ERRO ao cadastrar o candidato";
+        }
+    }
+
+    function logar($email, $password)
+    {
+
+        $result_logar = $this->connect->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
+        $result_logar->bindValue(':email', $email);
+        $result_logar->bindValue(':senha', $password);
+        $result_logar->execute();
+
+        if ($result_logar->rowCount() > 0) {
+
+            return "certo";
+        } else {
+
+            return "erro";
         }
     }
 }
