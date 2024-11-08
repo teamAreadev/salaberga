@@ -314,7 +314,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex justify-center items-center">
-                    <img src="assets/images/LOGO_new.png" alt="Logo SEEPS"
+                    <img src="../assets/images/LOGO_new.png" alt="Logo SEEPS"
                         class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 scale-105 logo-img"
                         style="margin-top: 10px;">
                 </div>
