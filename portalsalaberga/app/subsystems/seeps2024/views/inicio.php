@@ -1073,11 +1073,8 @@
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <select name="pcd" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
-                        <option selected="true" disabled>PCD</option>
-                        <option value="1">Sim</option>
-                        <option value="0">Não</option>                        
-                    </select>
+                     PCD <input type="checkbox" name="pcd" value="" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md">
+
                 </div>
             </div>
 
