@@ -1144,7 +1144,6 @@
             }).then(handleModalResult);
         }
 
-        // Função para criar o conteúdo do modal
         function createModalContent(courseName, schoolType) {
             const subjects = [
                 { id: 'lp', name: 'Português' },
@@ -1158,7 +1157,6 @@
                 { id: 'ma', name: 'Matemática' }
             ];
 
-            // Chama a função correspondente ao curso
             switch (courseName) {
                 case 'Enfermagem':
                     return createEnfermagemForm(schoolType, subjects);
@@ -1173,7 +1171,6 @@
             }
         }
 
-        // Funções para criar formulários específicos
         function createEnfermagemForm(schoolType, subjects) {
             return createForm('Enfermagem', schoolType, subjects);
         }
@@ -1207,825 +1204,554 @@
             }
         }
 
-        // Função específica para o formulário de Enfermagem
+        
+
+
+
         function createEnfermagemForm(schoolType) {
-            return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
-    <div class="grid grid-cols-4 gap-4">
-        <div class="col-span-4">
-            <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
-            <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
-            <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
-            <input type="text" name="curso" value="Enfermagem" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="curso" value="Enfermagem">
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
-            <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="Escola" value="${schoolType}">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
-            <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
+        return `
+        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-6 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-center mb-4">Formulário de Enfermagem</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo <span class="text-red-500">*</span></label>
+                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Nome Completo" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento <span class="text-red-500">*</span></label>
+                    <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Curso Selecionado</label>
+                    <input type="text" name="curso" value="Enfermagem" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="curso" value="Enfermagem">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Escola</label>
+                    <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="Escola" value="${schoolType}">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Bairro <span class="text-red-500">*</span></label>
+                    <select name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                        <option value="">Selecione um bairro</option>
+                        <option value="bairro1">Outra Banda</option>
+                        <option value="bairro2">Outros Bairros</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PCD</label>
+                    <select name="pcd" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </div>
+            </div>
 
-                                                        <!--Portugues-->
-        
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
-            <input type="tel" name="lp6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Celular</label>
-            <input type="tel" name="lp7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
-            <input type="text" name="lp8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-         <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="lp9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
+            <h2 class="text-lg font-semibold text-center mt-6 mb-4 border-b pb-2">Notas por Matéria</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Português:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="lp6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="lp7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="lp8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="lp9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
-                                                        <!--Artes-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="a6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="a7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="a8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="a9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                    <!--Educação Fisíca-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="ef7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="ef8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Inglês-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="i7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="i8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Matemática-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="m7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="m8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                         <!--Ciências-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="c7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="c8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Geografia-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="g7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="g8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                            <!--História-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="h7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="h8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                                <!--Religião-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="r7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="r8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>  
-    </div>
-    
-    <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-md">Cadastrar</button>
-</form>
-`;
-        }
-        // Função específica para o formulário de Informática
-        function createInformaticaForm(schoolType) {
-            return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
-    <div class="grid grid-cols-4 gap-4">
-        <div class="col-span-4">
-            <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
-            <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
-            <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
-            <input type="text" name="curso" value="Informática" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="curso" value="Informática">
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
-            <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="Escola" value="${schoolType}">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
-            <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Artes:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="a6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º">
+                        <input type="text" name="a7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="a8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="a9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
-                                                        <!--Portugues-->
-        
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
-            <input type="tel" name="lp6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Celular</label>
-            <input type="tel" name="lp7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
-            <input type="text" name="lp8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-         <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="lp9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Matemática:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="m6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="m7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="m8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="m9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
-                                                        <!--Artes-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="a6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="a7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="a8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="a9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                    <!--Educação Fisíca-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="ef7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="ef8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Inglês-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="i7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="i8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Matemática-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="m7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="m8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                         <!--Ciências-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="c7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="c8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Geografia-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="g7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="g8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                            <!--História-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="h7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="h8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                                <!--Religião-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="r7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="r8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>  
-    </div>
-    
-    <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-md">Cadastrar</button>
-</form>`;
-        }
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Ciências:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="c6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="c7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="c8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="c9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">História:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="h6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="h7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="h8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="h9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Geografia:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="g6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="g7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="g8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="g9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Inglês:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="i6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="i7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="i8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="i9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Educação Física:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="ef6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="ef7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="ef8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="ef9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Religião:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="r6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="r7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="r8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="r9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="mt-6 w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">Cadastrar</button>
+        </form>`;
+    }
+
+    function createInformaticaForm(schoolType) {
+        return `
+        <form id="informaticaForm" action="controllers/controller.php" method="POST" class="space-y-6 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-center mb-4">Formulário de Informática</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo <span class="text-red-500">*</span></label>
+                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Nome Completo" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento <span class="text-red-500">*</span></label>
+                    <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Curso Selecionado</label>
+                    <input type="text" name="curso" value="Informática" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="curso" value="Informática">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Escola</label>
+                    <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="Escola" value="${schoolType}">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Bairro <span class="text-red-500">*</span></label>
+                    <select name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                        <option value="">Selecione um bairro</option>
+                        <option value="Outra Banda"></option>
+                        <option value="Outros Bairros">Bairro 2</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PCD</label>
+                    <select name="pcd" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2 class="text-lg font-semibold text-center mt-6 mb-4 border-b pb-2">Notas por Matéria</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Português:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="lp6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="lp7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="lp8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="lp9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Artes:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="a6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º">
+                        <input type="text" name="a7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="a8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="a9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Matemática:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="m6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="m7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="m8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="m9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Ciências:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="c6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="c7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="c8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="c9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">História:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="h6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="h7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="h8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="h9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Geografia:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="g6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="g7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="g8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="g9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Inglês:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="i6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="i7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="i8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="i9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Educação Física:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="ef6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="ef7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="ef8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="ef9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Religião:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="r6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="r7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="r8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="r9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="mt-6 w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">Cadastrar</button>
+        </form>`;
+    }
 
         // Função específica para o formulário de Administração
         function createAdministracaoForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
-    <div class="grid grid-cols-4 gap-4">
-        <div class="col-span-4">
-            <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
-            <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
-            <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
-            <input type="text" name="curso" value="Administração" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="curso" value="Administração">
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
-            <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="Escola" value="${schoolType}">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
-            <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
+        <form id="informaticaForm" action="controllers/controller.php" method="POST" class="space-y-6 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-center mb-4">Formulário de Informática</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo <span class="text-red-500">*</span></label>
+                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Nome Completo" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento <span class="text-red-500">*</span></label>
+                    <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Curso Selecionado</label>
+                    <input type="text" name="curso" value="Informática" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="curso" value="Informática">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Escola</label>
+                    <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="Escola" value="${schoolType}">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Bairro <span class="text-red-500">*</span></label>
+                    <select name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                        <option value="">Selecione um bairro</option>
+                        <option value="Outra Banda">Bairro 1</option>
+                        <option value="Outros Bairros">Bairro 2</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PCD</label>
+                    <select name="pcd" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </div>
+            </div>
 
-                                                        <!--Portugues-->
-        
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
-            <input type="tel" name="lp6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Celular</label>
-            <input type="tel" name="lp7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
-            <input type="text" name="lp8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-         <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="lp9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
+            <h2 class="text-lg font-semibold text-center mt-6 mb-4 border-b pb-2">Notas por Matéria</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Português:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="lp6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="lp7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="lp8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="lp9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
-                                                        <!--Artes-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="a6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="a7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="a8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="a9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                    <!--Educação Fisíca-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="ef7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="ef8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Inglês-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="i7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="i8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Matemática-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="m7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="m8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                         <!--Ciências-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="c7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="c8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Geografia-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="g7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="g8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                            <!--História-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="h7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="h8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                                <!--Religião-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="r7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="r8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>  
-    </div>
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Artes:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="a6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º">
+                        <input type="text" name="a7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="a8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="a9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
-    <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-md">Cadastrar</button>
-</form>`;
-        }
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Matemática:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="m6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="m7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="m8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="m9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Ciências:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="c6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="c7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="c8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="c9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">História:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="h6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="h7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="h8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="h9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Geografia:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="g6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="g7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="g8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="g9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Inglês:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="i6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="i7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="i8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="i9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Educação Física:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="ef6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="ef7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="ef8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="ef9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Religião:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="r6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="r7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="r8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="r9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="mt-6 w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">Cadastrar</button>
+        </form>`;
+    }
         // Função específica para o formulário de Edificações
         function createEdificacoesForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
-    <div class="grid grid-cols-4 gap-4">
-        <div class="col-span-4">
-            <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
-            <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="Digite seu nome completo" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Data de Nascimento <span class="text-red-500">*</span></label>
-            <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Curso Selecionado</label>
-            <input type="text" name="curso" value="Edificações" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="curso" value="Edificações">
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Tipo de Escola</label>
-            <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" disabled>
-            <input type="hidden" name="Escola" value="${schoolType}">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
-            <input type="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
+         <form id="informaticaForm" action="controllers/controller.php" method="POST" class="space-y-6 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold text-center mb-4">Formulário de Informática</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo <span class="text-red-500">*</span></label>
+                    <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Nome Completo" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento <span class="text-red-500">*</span></label>
+                    <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Curso Selecionado</label>
+                    <input type="text" name="curso" value="Informática" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="curso" value="Informática">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Escola</label>
+                    <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
+                    <input type="hidden" name="Escola" value="${schoolType}">
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Bairro <span class="text-red-500">*</span></label>
+                    <select name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                        <option value="">Selecione um bairro</option>
+                        <option value="bairro1">Outra Banda</option>
+                        <option value="bairro2">Outros Bairros</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PCD</label>
+                    <select name="pcd" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </div>
+            </div>
 
-                                                        <!--Portugues-->
-        
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Telefone <span class="text-red-500">*</span></label>
-            <input type="tel" name="lp6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Celular</label>
-            <input type="tel" name="lp7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">CEP <span class="text-red-500">*</span></label>
-            <input type="text" name="lp8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-         <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="lp9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
+            <h2 class="text-lg font-semibold text-center mt-6 mb-4 border-b pb-2">Notas por Matéria</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Português:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="lp6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="lp7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="lp8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="lp9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
 
-                                                        <!--Artes-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Número</label>
-            <input type="text" name="a6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="a7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="a8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="a9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                    <!--Educação Fisíca-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="ef7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="ef8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="ef9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Inglês-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="i7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="i8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="i9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Matemática-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="m7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="m8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="m9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                         <!--Ciências-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="c7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="c8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="c9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                        <!--Geografia-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="g7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="g8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="g9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                            <!--História-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="h7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="h8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="h9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        
-                                                                <!--Religião-->
-        
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Complemento</label>
-            <input type="text" name="r7" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Bairro <span class="text-red-500">*</span></label>
-            <input type="text" name="r8" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>
-        <div>
-            <label class="block text-xs font-medium text-gray-700">Cidade <span class="text-red-500">*</span></label>
-            <input type="text" name="r9" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-1 px-2 text-sm" required>
-        </div>  
-    </div>
-    
-    <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-md">Cadastrar</button>
-</form>`;
-        }
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Artes:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="a6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º">
+                        <input type="text" name="a7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="a8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="a9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Matemática:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="m6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="m7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="m8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="m9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Ciências:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="c6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="c7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="c8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="c9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">História:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="h6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="h7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="h8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="h9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Geografia:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="g6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="g7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="g8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="g9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Inglês:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="i6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="i7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="i8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="i9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-gray-50 p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Educação Física:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="ef6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="ef7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="ef8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="ef9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+
+                <div class="flex items-center bg-white p-2 rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 w-32">Religião:</label>
+                    <div class="flex space-x-2 flex-1">
+                        <input type="text" name="r6" class="block w-16 border border-gray-300 rounded-md" placeholder="6º" required>
+                        <input type="text" name="r7" class="block w-16 border border-gray-300 rounded-md" placeholder="7º">
+                        <input type="text" name="r8" class="block w-16 border border-gray-300 rounded-md" placeholder="8º">
+                        <input type="text" name="r9" class="block w-16 border border-gray-300 rounded-md" placeholder="9º">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="mt-6 w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">Cadastrar</button>
+        </form>`;
+    }
 
 
         // Função para criar inputs de notas
