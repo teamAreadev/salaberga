@@ -759,7 +759,7 @@ require_once("models/session_manager.php");
         <nav class="nav-container">
             <div class="nav-content">
                 <div class="logo-container">
-                    <img src="assets/images/LOGO_new.png" alt="Logo EEEP" class="logo-img w-32 h-auto"> <!-- Aumenta o tamanho da logo -->
+                    <img src="../seeps2024/assets/images/LOGO_new.png" alt="Logo EEEP" class="logo-img w-36 h-auto"> <!-- Aumenta o tamanho da logo -->
                 </div>
 
                 <div class="nav-actions">
