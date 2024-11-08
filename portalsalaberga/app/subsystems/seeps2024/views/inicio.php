@@ -314,7 +314,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex justify-center items-center">
-                    <img src="assets/images/LOGO_new.png" alt="Logo SEEPS"
+                    <img src="../assets/images/LOGO_new.png" alt="Logo SEEPS"
                         class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 scale-105 logo-img"
                         style="margin-top: 10px;">
                 </div>
@@ -419,7 +419,7 @@
                             </button>
 
                             <!-- Botão Sair -->
-                            <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                            <a href="../index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full
                                    border-2 border-red-600 text-red-600 font-semibold
                                    transition-all duration-300 ease-in-out
                                    hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
@@ -1210,7 +1210,7 @@
         // Função específica para o formulário de Enfermagem
         function createEnfermagemForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
@@ -1415,7 +1415,7 @@
         // Função específica para o formulário de Informática
         function createInformaticaForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
@@ -1620,7 +1620,7 @@
         // Função específica para o formulário de Administração
         function createAdministracaoForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
@@ -1825,7 +1825,7 @@
         // Função específica para o formulário de Edificações
         function createEdificacoesForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
