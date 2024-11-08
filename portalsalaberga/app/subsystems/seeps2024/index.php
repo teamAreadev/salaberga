@@ -763,90 +763,115 @@ require_once("models/session_manager.php");
                 </div>
 
                 <div class="nav-actions">
-                    <button id="mobile-menu" class="mobile-menu-btn">
-                        <span class="sr-only">Abrir menu</span>
-                        <i class="fas fa-bars"></i>
-                    </button>
+    <button id="mobile-menu" class="mobile-menu-btn">
+        <span class="sr-only">Abrir menu</span>
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+    <button
+        id="openLoginModal"
+        class="px-6 py-2 text-white bg-[#008C45] rounded-lg hover:bg-[#004d00] 
+               focus:outline-none focus:ring-2 focus:ring-[#008C45] transition duration-200">
+        ENTRAR
+    </button>
+</div>
 
-                    <!-- Botão que aciona o modal -->
-                    <div class="nav-links">
-                        <button
-                            id="openLoginModal"
-                            class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
-                            ENTRAR
-                        </button>
-                    </div>
+<!-- Modal (inicialmente escondido) -->
+<div id="loginModal" 
+     class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm 
+            overflow-y-auto h-full w-full z-50">
+    <!-- Adicionado mt-[-8%] para subir o modal -->
+    <div class="flex items-center justify-center min-h-screen p-4 mt-[-4%]">
+        <div class="relative w-96 shadow-[0_6px_12px_rgba(0,0,0,0.2)] 
+                    rounded-2xl bg-white p-6">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-[#333333]">Login</h3>
+                <button id="closeLoginModal" 
+                        class="text-[#666666] hover:text-[#333333] 
+                               transition-colors duration-400 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
 
-                    <!-- Modal (inicialmente escondido) -->
-                    <div id="loginModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-                        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-                            <!-- Modal Header -->
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Login</h3>
-                                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-500 focus:outline-none">
-                                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Modal Body -->
-                            <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
-                                <!-- Email Input -->
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="seu@email.com"
-                                        required>
-                                </div>
-
-                                <!-- Password Input -->
-                                <div>
-                                    <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
-                                    <input
-                                        type="password"
-                                        id="password"
-                                        name="password"
-                                        class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="********"
-                                        required>
-                                </div>
-
-                                <!-- Remember Me Checkbox -->
-                                <div class="flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        id="remember"
-                                        name="remember"
-                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                    <label for="remember" class="ml-2 block text-sm text-gray-900">
-                                        Lembrar-me
-                                    </label>
-                                </div>
-
-                                <!-- Modal Footer -->
-                                <div class="flex justify-end space-x-3 mt-6">
-                                    <button
-                                        type="button"
-                                        id="cancelButton"
-                                        class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400">
-                                        Cancelar
-                                    </button>
-                                    <button type="submit" class="btn btn-success" id="btn1">ENTRAR</button>
-
-                                    <?php if (isset($_GET['erro'])) { ?>
-
-                                        <h2>Email ou senha incorretos</h2>
-                                    <?php } ?>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            <!-- Modal Body -->
+            <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
+                <!-- Nome Input -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-[#333333]">Nome</label>
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        class="mt-1 block w-full px-4 py-3 border border-[#666666] 
+                               rounded-lg shadow-sm focus:outline-none focus:ring-2 
+                               focus:ring-[#008C45] focus:border-[#008C45]
+                               transition-all duration-400"
+                        placeholder="Digite seu nome"
+                        required>
                 </div>
+
+                <!-- Senha Input -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-[#333333]">Senha</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="mt-1 block w-full px-4 py-3 border border-[#666666] 
+                               rounded-lg shadow-sm focus:outline-none focus:ring-2 
+                               focus:ring-[#008C45] focus:border-[#008C45]
+                               transition-all duration-400"
+                        placeholder="Digite sua senha"
+                        required>
+                </div>
+
+                <!-- Lembrar-me Checkbox -->
+                <div class="flex items-center">
+                    <input
+                        type="checkbox"
+                        id="remember"
+                        name="remember"
+                        class="w-5 h-5 text-[#008C45] border-[#666666] rounded 
+                               focus:ring-[#008C45] transition-all duration-400">
+                    <label for="remember" class="ml-2 text-sm text-[#666666]">
+                        Lembrar-me
+                    </label>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="flex space-x-3 pt-4">
+                    <button
+                        type="button"
+                        id="cancelButton"
+                        class="flex-1 px-4 py-3 text-[#666666] bg-white 
+                               border border-[#666666] rounded-lg hover:bg-gray-100 
+                               transition-all duration-400">
+                        Cancelar
+                    </button>
+                    <button 
+                        type="submit" 
+                        class="flex-1 px-4 py-3 text-white bg-[#008C45] 
+                               rounded-lg hover:bg-[#004d00] 
+                               transition-all duration-400
+                               shadow-[0_4px_8px_rgba(0,0,0,0.1)]">
+                        Entrar
+                    </button>
+                </div>
+
+                <?php if (isset($_GET['erro'])) { ?>
+                    <div class="text-[#FFA500] text-center mt-4 bg-[rgba(255,165,0,0.1)] 
+                              p-3 rounded-lg border border-[#FFA500]">
+                        <p class="text-sm">Email ou senha incorretos</p>
+                    </div>
+                <?php } ?>
+            </form>
+        </div>
+    </div>
+</div>
             </div>
         </nav>
     </header>
