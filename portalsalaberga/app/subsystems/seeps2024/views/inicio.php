@@ -1210,7 +1210,7 @@
         // Função específica para o formulário de Enfermagem
         function createEnfermagemForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
@@ -1415,7 +1415,7 @@
         // Função específica para o formulário de Informática
         function createInformaticaForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
@@ -1620,7 +1620,7 @@
         // Função específica para o formulário de Administração
         function createAdministracaoForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
@@ -1825,7 +1825,7 @@
         // Função específica para o formulário de Edificações
         function createEdificacoesForm(schoolType) {
             return `
-        <form id="enfermagemForm" action="controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
+        <form id="enfermagemForm" action="../controllers/controller.php" method="POST" class="space-y-2 max-w-2xl mx-auto p-4">
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
             <label class="block text-sm font-medium text-gray-700">Nome Completo <span class="text-red-500">*</span></label>
