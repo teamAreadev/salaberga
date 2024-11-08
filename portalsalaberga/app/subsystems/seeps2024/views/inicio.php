@@ -1214,34 +1214,29 @@
             <h2 class="text-xl font-semibold text-center mb-4">Formulário de Enfermagem</h2>
             <div class="grid grid-cols-1 gap-4">
                 <div class="flex flex-col">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo <span class="text-red-500">*</span></label>
                     <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Nome Completo" required>
                 </div>
                 <div class="flex flex-col">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento <span class="text-red-500">*</span></label>
                     <input type="date" name="nasc" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="flex flex-col">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Curso Selecionado</label>
                     <input type="text" name="curso" value="Enfermagem" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
                     <input type="hidden" name="curso" value="Enfermagem">
                 </div>
                 <div class="flex flex-col">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Escola</label>
                     <input type="text" name="${schoolType}" value="${schoolType}" class="mt-1 block w-full bg-gray-50 border border-gray-300 rounded-md" disabled>
                     <input type="hidden" name="Escola" value="${schoolType}">
                 </div>
                 <div class="flex flex-col">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Bairro <span class="text-red-500">*</span></label>
                     <select name="bairro" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
-                        <option value="">Selecione um bairro</option>
+                        <option selected="true" disabled>Selecione um bairro</option>
                         <option value="1">Outra Banda</option>
                         <option value="0">Outros Bairros</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">PCD</label>
                     <select name="pcd" class="mt-1 block w-full border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                        <option selected="true" disabled>PCD</option>
                         <option value="1">Sim</option>
                         <option value="0">Não</option>                        
                     </select>
