@@ -309,67 +309,82 @@
 
 <body>
 
-<header class="w-full bg-white shadow-sm">
-    <nav class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <img 
-                    src="../assets/images/LOGO_new.png" 
-                    alt="Logo EEEP" 
-                    class="w-36 h-auto mt-2.5"
-                >
-            </div>
+    <header class="header-main bg-white:bg-gray-800 shadow-md fixed w-full top-0 left-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex justify-center items-center">
+                    <img src="../assets/images/LOGO_new.png" alt="Logo SEEPS"
+                        class="h-16 w-auto sm:h-20 md:h-16 lg:h-16 transition-transform duration-300 scale-105 logo-img"
+                        style="margin-top: 10px;">
+                </div>
+                <!-- Overlay para fundo escuro quando sidebar estiver aberta -->
+                <div id="sidebar-overlay"
+                    class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
 
-            <!-- Menu Button -->
-            <div class="flex items-center">
-                <button 
-                    id="mobile-menu" 
-                    class="p-2 rounded-lg transition-all duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
-                    aria-label="Menu"
-                    onclick="toggleSidebar()"
-                >
-                    <svg 
-                        class="w-8 h-8 text-[#008C45] transition-transform duration-200" 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                    >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
+                <!-- Botão Menu Mobile -->
+                <div class="flex items-center sm:hidden">
+                    <button type="button" class="relative inline-flex items-center justify-center p-2 
+                           rounded-lg bg-white
+                           text-gray-700
+                           transition-all duration-300 ease-in-out
+                           hover:bg-gray-50
+                           z-50" aria-controls="sidebar-menu-mobile" aria-expanded="false"
+                        onclick="toggleMobileMenu()">
+                        <span class="sr-only">Abrir menu principal</span>
 
-            <!-- Sidebar -->
-            <div 
-                id="sidebar" 
-                class="fixed top-0 right-0 w-64 h-3/4 bg-white shadow-lg rounded-l-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50"
-            >
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-bold text-gray-800">Menu</h3>
-                        <button 
-                            id="closeSidebar" 
-                            class="p-2 rounded-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            aria-label="Fechar menu"
-                            onclick="toggleSidebar()"
-                        >
-                            <svg 
-                                class="w-6 h-6 text-[#008C45]" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <!-- Menu Items -->
-                    <ul class="flex flex-col space-y-3">
-                        <li>
-                            <button onclick="showUpdateModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+                        <!-- Ícone Menu (3 barras) -->
+                        <svg class="transform transition-transform duration-300 ease-in-out w-6 h-6"
+                            id="menu-icon-mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="#2d3748">
+                            <g id="menu-lines-mobile">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16"
+                                    class="menu-line" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16"
+                                    class="menu-line" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16"
+                                    class="menu-line" />
+                            </g>
+                        </svg>
+
+                        <!-- Ícone de Fechar (X) -->
+                        <svg class="hidden transform transition-transform duration-300 ease-in-out w-6 h-6"
+                            id="close-icon-mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="#2d3748">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Sidebar Menu Mobile -->
+                <div id="sidebar-menu-mobile" class="fixed top-0 right-0 h-full w-64 bg-ceara-white shadow-md transform translate-x-full 
+                       transition-transform duration-300 ease-in-out z-50">
+                    <div class="p-4 space-y-4">
+                        <!-- Cabeçalho da Sidebar -->
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-xl font-semibold text-gray-dark">Menu</h2>
+                            <button onclick="toggleMobileMenu()"
+                                class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Divisor -->
+                        <div class="border-t border-gray-600"></div>
+
+                        <!-- Botões do Menu -->
+                        <nav class="space-y-4">
+                            <!-- Botão Atualizar -->
+                            <button onclick="showUpdateModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                    border-2 border-ceara-orange text-ceara-orange font-semibold
+                                    transition-all duration-300 ease-in-out
+                                    hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                    focus:outline-none focus:ring-2 focus:ring-ceara-orange">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -533,44 +548,79 @@
                 pointer-events: auto;
             }
 
-    #mobile-menu:hover svg {
-        transform: scale(1.1);
-        transition: transform 0.2s ease;
-    }
+            body.sidebar-active {
+                overflow: hidden;
 
-    /* Estilos adicionais para o sidebar */
-    #sidebar {
-        background: linear-gradient(to bottom right, #f9f9f9, #ffffff);
-        border-right: 1px solid #e0e0e0;
-    }
 
-    #sidebar h3 {
-        border-bottom: 2px solid #008C45;
-        padding-bottom: 10px;
-    }
+            }
+        </style>
 
-    #sidebar ul {
-        padding-top: 10px;
-    }
-</style>
+        <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.getElementById('sidebar-menu-mobile');
+                const overlay = document.getElementById('sidebar-overlay');
+                const menuIcon = document.getElementById('menu-icon-mobile');
+                const closeIcon = document.getElementById('close-icon-mobile');
+                const isHidden = mobileMenu.classList.contains('translate-x-full');
 
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.querySelector('.sidebar-overlay');
+                //
+                // Toggle menu
+                mobileMenu.classList.toggle('translate-x-full');
+                overlay.classList.toggle('hidden');
+                overlay.classList.toggle('overlay-visible');
+                document.body.classList.toggle('sidebar-active');
 
-        // Toggle sidebar visibility
-        if (sidebar.classList.contains('translate-x-full')) {
-            sidebar.classList.remove('translate-x-full');
-            sidebar.classList.add('translate-x-0');
-            overlay.classList.add('active');
-        } else {
-            sidebar.classList.remove('translate-x-0');
-            sidebar.classList.add('translate-x-full');
-            overlay.classList.remove('active');
-        }
-    }
-</script>
+                // Atualiza ícones
+                if (isHidden) {
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+
+                // Atualiza aria-expanded
+                const button = document.querySelector('[aria-controls="sidebar-menu-mobile"]');
+                button.setAttribute('aria-expanded', !isHidden);
+            }
+
+            function toggleSidebarDesktop() {
+                const desktopMenu = document.getElementById('sidebar-menu-desktop');
+                const overlay = document.getElementById('sidebar-overlay-desktop');
+                const menuIcon = document.getElementById('menu-icon-desktop');
+                const isHidden = desktopMenu.classList.contains('translate-x-full');
+
+                // Toggle menu
+                desktopMenu.classList.toggle('translate-x-full');
+                overlay.classList.toggle('hidden');
+                overlay.classList.toggle('overlay-visible');
+                document.body.classList.toggle('sidebar-active');
+
+                // Atualiza aria-expanded
+                const button = document.querySelector('[aria-controls="sidebar-menu-desktop"]');
+                button.setAttribute('aria-expanded', !isHidden);
+            }
+
+            // Fecha sidebar ao clicar no overlay
+            document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
+            document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
+
+            // Fecha sidebar com a tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const mobileMenu = document.getElementById('sidebar-menu-mobile');
+                    const desktopMenu = document.getElementById('sidebar-menu-desktop');
+                    if (!mobileMenu.classList.contains('translate-x-full')) {
+                        toggleMobileMenu();
+                    }
+                    if (!desktopMenu.classList.contains('translate-x-full')) {
+                        toggleSidebarDesktop();
+                    }
+                }
+            });
+        </script>
+    </header>
+
     <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <!-- Card Enfermagem -->
