@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/projetos GitHub\Salaberga\portalsalaberga\app\subsystems\seeps2024\config\Database.php');
+require_once('config/Database.php');
 session_start();
 
 try {
