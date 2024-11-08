@@ -87,41 +87,7 @@
             align-items: center;
             height: 4rem;
         }
-        
-        .mobile-menu-btn {
-        display: none;
-        padding: 0.5rem;
-        color: var(--ceara-green);
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 1.5rem;
-        outline: none;
-        /* Remove o outline padrão */
-        -webkit-tap-highlight-color: transparent;
-        /* Remove o highlight em dispositivos móveis */
-    }
 
-    /* Remove o outline azul ao clicar */
-    .mobile-menu-btn:focus {
-        outline: none;
-    }
-
-    /* Opcional: adiciona um efeito visual próprio para feedback */
-    .mobile-menu-btn:active {
-        transform: scale(0.95);
-    }
-
-    .mobile-menu-btn i {
-        font-size: 1.8rem;
-    }
-
-    @media (max-width: 768px) {
-        .mobile-menu-btn {
-            display: block;
-            padding: 0.5rem;
-        }
-    }
         /* Logo Styles */
         .logo-container {
             display: flex;
@@ -338,24 +304,10 @@
                 transform: translateX(-50%);
             }
         }
-
-
-        
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
-<header class="w-full bg-white shadow-sm">
-    <nav class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <img 
-                    src="../assets/images/LOGO_new.png" 
-                    alt="Logo EEEP" 
-                    class="w-36 h-auto mt-2.5"
-                >
-            </div>
+<body>
 
     <header class="header-main bg-white:bg-gray-800 shadow-md fixed w-full top-0 left-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -370,109 +322,305 @@
                 <div id="sidebar-overlay"
                     class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
 
-            <!-- Sidebar -->
-            <div 
-                id="sidebar" 
-                class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50"
-            >
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-bold text-gray-800">Menu</h3>
-                        <button 
-                            id="closeSidebar" 
-                            class="p-2 rounded-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            aria-label="Fechar menu"
-                        >
-                            <svg 
-                                class="w-6 h-6 text-[#008C45]" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <!-- Menu Items -->
-                    <ul class="flex flex-col space-y-3">
-                        <li>
-                            <button onclick="showUpdateModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+                <!-- Botão Menu Mobile -->
+                <div class="flex items-center sm:hidden">
+                    <button type="button" class="relative inline-flex items-center justify-center p-2 
+                           rounded-lg bg-white
+                           text-gray-700
+                           transition-all duration-300 ease-in-out
+                           hover:bg-gray-50
+                           z-50" aria-controls="sidebar-menu-mobile" aria-expanded="false"
+                        onclick="toggleMobileMenu()">
+                        <span class="sr-only">Abrir menu principal</span>
+
+                        <!-- Ícone Menu (3 barras) -->
+                        <svg class="transform transition-transform duration-300 ease-in-out w-6 h-6"
+                            id="menu-icon-mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="#2d3748">
+                            <g id="menu-lines-mobile">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16"
+                                    class="menu-line" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16"
+                                    class="menu-line" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16"
+                                    class="menu-line" />
+                            </g>
+                        </svg>
+
+                        <!-- Ícone de Fechar (X) -->
+                        <svg class="hidden transform transition-transform duration-300 ease-in-out w-6 h-6"
+                            id="close-icon-mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="#2d3748">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Sidebar Menu Mobile -->
+                <div id="sidebar-menu-mobile" class="fixed top-0 right-0 h-full w-64 bg-ceara-white shadow-md transform translate-x-full 
+                       transition-transform duration-300 ease-in-out z-50">
+                    <div class="p-4 space-y-4">
+                        <!-- Cabeçalho da Sidebar -->
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-xl font-semibold text-gray-dark">Menu</h2>
+                            <button onclick="toggleMobileMenu()"
+                                class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Divisor -->
+                        <div class="border-t border-gray-600"></div>
+
+                        <!-- Botões do Menu -->
+                        <nav class="space-y-4">
+                            <!-- Botão Atualizar -->
+                            <button onclick="showUpdateModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                    border-2 border-ceara-orange text-ceara-orange font-semibold
+                                    transition-all duration-300 ease-in-out
+                                    hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                    focus:outline-none focus:ring-2 focus:ring-ceara-orange">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                                 </svg>
                                 Atualizar
                             </button>
-                        </li>
-                        <li>
-                            <button onclick="showReportsModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
+
+                            <!-- Botão Relatórios -->
+                            <button onclick="showReportsModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-green text-ceara-green font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-green">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                                 Relatórios
                             </button>
-                        </li>
-                        <li>
-                            <button onclick="showResultsModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+
+                            <!-- Botão Resultados -->
+                            <button onclick="showResultsModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-gray-600 text-gray-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-gray-500">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                 </svg>
                                 Resultados
                             </button>
-                        </li>
-                        <li>
-                            <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                            <!-- Botão Sair -->
+                            <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-red-600 text-red-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-red-500">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                 </svg>
                                 Sair
                             </a>
-                        </li>
-                    </ul>
+                        </nav>
+                    </div>
                 </div>
+
+                <!-- Sidebar Menu Desktop -->
+                <div id="sidebar-menu-desktop" class="fixed top-0 right-0 h-full w-72 bg-ceara-white shadow-md transform translate-x-full 
+                       transition-transform duration-300 ease-in-out z-50">
+                    <div class="p-6 space-y-6">
+                        <!-- Cabeçalho da Sidebar -->
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-2xl font-semibold text-gray-dark">Menu</h2>
+                            <button onclick="toggleSidebarDesktop()"
+                                class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Divisor -->
+                        <div class="border-t border-gray-600"></div>
+
+                        <!-- Botões do Menu -->
+                        <nav class="space-y-4">
+                            <!-- Botão Atualizar -->
+                            <button onclick="showUpdateModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-orange text-ceara-orange font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Atualizar
+                            </button>
+
+                            <!-- Botão Relatórios -->
+                            <button onclick="showReportsModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-ceara-green text-ceara-green font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-ceara-green">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Relatórios
+                            </button>
+
+                            <!-- Botão Resultados -->
+                            <button onclick="showResultsModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-gray-600 text-gray-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                                Resultados
+                            </button>
+
+                            <!-- Botão Sair -->
+                            <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full
+                                   border-2 border-red-600 text-red-600 font-semibold
+                                   transition-all duration-300 ease-in-out
+                                   hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100
+                                   focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                                Sair
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Botão Menu Desktop -->
+                <div class="hidden sm:flex items-center">
+                    <button type="button" class="relative inline-flex items-center justify-center p-2 
+                           rounded-lg bg-white
+                           text-gray-700
+                           transition-all duration-300 ease-in-out
+                           hover:bg-gray-50
+                           z-50" aria-controls="sidebar-menu-desktop" aria-expanded="false"
+                        onclick="toggleSidebarDesktop()">
+                        <svg class="transform transition-transform duration-300 ease-in-out w-6 h-6"
+                            id="menu-icon-desktop" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="#4B5563">
+                            <g id="menu-lines-desktop">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Overlay para Desktop -->
+                <div id="sidebar-overlay-desktop"
+                    class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
             </div>
         </div>
-    </nav>
-</header>
 
-<!-- Overlay -->
-<div class="sidebar-overlay fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible transition-all duration-300 ease-in-out z-40"></div>
+        <style>
+            .sidebar-open {
+                transform: translateX(0) !important;
+            }
 
-<style>
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
+            .overlay-visible {
+                opacity: 1;
+                pointer-events: auto;
+            }
 
-    #mobile-menu:hover svg {
-        transform: scale(1.1);
-        transition: transform 0.2s ease;
-    }
-</style>
+            body.sidebar-active {
+                overflow: hidden;
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('sidebar');
-    const toggleButton = document.getElementById('mobile-menu');
-    const closeButton = document.getElementById('closeSidebar');
-    const overlay = document.querySelector('.sidebar-overlay');
+            }
+        </style>
 
-    function toggleSidebar(show) {
-        sidebar.classList.toggle('translate-x-full', !show);
-        overlay.classList.toggle('active', show);
-        document.body.style.overflow = show ? 'hidden' : '';
-    }
+        <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.getElementById('sidebar-menu-mobile');
+                const overlay = document.getElementById('sidebar-overlay');
+                const menuIcon = document.getElementById('menu-icon-mobile');
+                const closeIcon = document.getElementById('close-icon-mobile');
+                const isHidden = mobileMenu.classList.contains('translate-x-full');
 
-    toggleButton.addEventListener('click', () => toggleSidebar(true));
-    closeButton.addEventListener('click', () => toggleSidebar(false));
-    overlay.addEventListener('click', () => toggleSidebar(false));
+                //
+                // Toggle menu
+                mobileMenu.classList.toggle('translate-x-full');
+                overlay.classList.toggle('hidden');
+                overlay.classList.toggle('overlay-visible');
+                document.body.classList.toggle('sidebar-active');
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') toggleSidebar(false);
-    });
-});
-</script>
+                // Atualiza ícones
+                if (isHidden) {
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+
+                // Atualiza aria-expanded
+                const button = document.querySelector('[aria-controls="sidebar-menu-mobile"]');
+                button.setAttribute('aria-expanded', !isHidden);
+            }
+
+            function toggleSidebarDesktop() {
+                const desktopMenu = document.getElementById('sidebar-menu-desktop');
+                const overlay = document.getElementById('sidebar-overlay-desktop');
+                const menuIcon = document.getElementById('menu-icon-desktop');
+                const isHidden = desktopMenu.classList.contains('translate-x-full');
+
+                // Toggle menu
+                desktopMenu.classList.toggle('translate-x-full');
+                overlay.classList.toggle('hidden');
+                overlay.classList.toggle('overlay-visible');
+                document.body.classList.toggle('sidebar-active');
+
+                // Atualiza aria-expanded
+                const button = document.querySelector('[aria-controls="sidebar-menu-desktop"]');
+                button.setAttribute('aria-expanded', !isHidden);
+            }
+
+            // Fecha sidebar ao clicar no overlay
+            document.getElementById('sidebar-overlay').addEventListener('click', toggleMobileMenu);
+            document.getElementById('sidebar-overlay-desktop').addEventListener('click', toggleSidebarDesktop);
+
+            // Fecha sidebar com a tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const mobileMenu = document.getElementById('sidebar-menu-mobile');
+                    const desktopMenu = document.getElementById('sidebar-menu-desktop');
+                    if (!mobileMenu.classList.contains('translate-x-full')) {
+                        toggleMobileMenu();
+                    }
+                    if (!desktopMenu.classList.contains('translate-x-full')) {
+                        toggleSidebarDesktop();
+                    }
+                }
+            });
+        </script>
+    </header>
+
     <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <!-- Card Enfermagem -->
