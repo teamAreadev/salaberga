@@ -40,12 +40,9 @@ class model_usuario extends connect
         $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
         $result_check_id->bindValue(':nome', $nome);
         $result_check_id->execute();
-        $dados = $result_check_id->fetchAll();
-        foreach ($dados as $value => $x) {
-
-            $id_candidato = $x['id_candidato'];
-        }
-
+        $dados = $result_check_id->fetch();
+        $id_candidato = $dados['id_candidato'];
+        
         $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:lp, :ar, :ef, :li, :ma, :ci, :ge, :hi, :re, :candidato_id_candidato, :media )");
         $result_cadastrar_nota->BindValue(':lp', $lp);
         $result_cadastrar_nota->BindValue(':ar', $ar);
