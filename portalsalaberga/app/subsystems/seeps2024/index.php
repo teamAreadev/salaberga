@@ -997,7 +997,7 @@ require_once("models/session_manager.php");
                                 </div>
                                 <div class="info-text" style="display: flex; align-items: center;">
                                     <i class="fas fa-home info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span> >
+                                    <span style="margin-left: 12px;">Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
                                 </div>
                                 <div class="info-text" style="display: flex; align-items: center;">
                                     <i class="fas fa-home info-icon text-ceara-green"></i>
