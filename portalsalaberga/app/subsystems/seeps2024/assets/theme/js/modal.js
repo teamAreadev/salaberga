@@ -484,7 +484,7 @@ function createEnfermagemForm(schoolType) {
         <div class="flex flex-col">  
         <label class="block text-sm font-medium text-gray-700 mb-2">PCD</label>  
         <div class="flex items-center justify-center">  
-<input type="checkbox" id="pcd" name="pcd" value="sim" class="w-5 h-5 text-blue-600 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400 mr-2" style = "margin-left: 10px ; margin-top:5px" />  
+<input type="checkbox" id="pcd" name="pcd" value="1" class="w-5 h-5 text-blue-600 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400 mr-2" style = "margin-left: 10px ; margin-top:5px" />  
 
 </div>  
 

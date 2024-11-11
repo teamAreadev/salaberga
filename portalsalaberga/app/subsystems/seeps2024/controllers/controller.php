@@ -1,10 +1,11 @@
 <?php
 
+if (!isset($_POST["pcd"])) {
+    $pcd = 0;
+} else {
+    $pcd = $_POST["pcd"];
+}
 
-
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
 
 //cadastro
 function virg($num)
@@ -50,7 +51,7 @@ switch ($_POST['Escola']) {
         break;
 };
 
-$pcd = $_POST['pcd'];
+
 $c2 = 1;
 $bairro = $_POST['bairro'];
 
@@ -134,3 +135,4 @@ switch ($test) {
         header('location:../views/inicio.php');
         break;
 }
+*/
