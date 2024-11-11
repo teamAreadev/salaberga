@@ -233,6 +233,7 @@
             z-index: 1000;
         }
 
+           
         .modal-content {
             background-color: var(--ceara-white);
             padding: 2rem;
@@ -306,6 +307,15 @@
                 transform: translateX(-50%);
             }
         }
+        .swal2-confirm:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #e0e0e0 !important;
+    border-color: #cccccc !important;
+    color: #666666 !important;
+    pointer-events: none;
+    box-shadow: none;
+}
     </style>
 </head>
 
