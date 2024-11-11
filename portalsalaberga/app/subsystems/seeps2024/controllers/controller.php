@@ -1,9 +1,5 @@
 <?php
 
-echo "<pre>";
-echo print_r($_POST);
-echo "</pre>";
-
 //cadastro
 function virg($num)
 {
@@ -48,7 +44,7 @@ switch ($_POST['publica']) {
 
         $publica = 1;
         break;
-    case 'Escola Particular':
+    case 'Escola Privada':
 
         $publica = 0;
         break;
