@@ -1,17 +1,12 @@
-
-
-
 <?php
 
-require_once('candidato.class.php');
-    function virg($num){
-        if(count(explode(',', $num)) > 0){
-          $num = str_replace(',', '.', $num);
-        }
-      return $num;
-    }
-  
-
+function virg($num)
+{
+  if (count(explode(',', $num)) > 0) {
+    $num = str_replace(',', '.', $num);
+  }
+  return $num;
+}
 
 $id = $_POST['id'];
 
@@ -25,13 +20,7 @@ $ge = virg($_POST['ge']);
 $hi = virg($_POST['hi']);
 $re = virg($_POST['re']);
 
-$md = ($lp+$ar+$ef+$li+$ma+$ci+$ge+$hi+$re)/9;
+$md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
 $cand = new candidato();
 $cand->atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id);
-
-
-
-?>
-
-
