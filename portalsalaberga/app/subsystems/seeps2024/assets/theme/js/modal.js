@@ -570,7 +570,7 @@ function createEnfermagemForm(schoolType) {
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
@@ -886,7 +886,7 @@ function createInformaticaForm(schoolType) {
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
@@ -1202,7 +1202,7 @@ function createAdministracaoForm(schoolType) {
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
@@ -1519,7 +1519,7 @@ function createEdificacoesForm(schoolType) {
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->

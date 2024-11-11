@@ -1,9 +1,9 @@
 <?php
 
-/*echo "<pre>";
-echo print_r($_POST);
 echo "<pre>";
-*/
+echo print_r($_POST);
+echo "</pre>";
+
 //cadastro
 function virg($num)
 {
@@ -28,15 +28,15 @@ switch ($_POST['curso']) {
 
         $c1 = 1;
         break;
-    case 'Informatica':
+    case 'Informática':
 
         $c1 = 2;
         break;
-    case 'Administraçao':
+    case 'Administração':
 
         $c1 = 3;
         break;
-    case 'Edificaçoes':
+    case 'Edificações':
 
         $c1 = 4;
         break;
