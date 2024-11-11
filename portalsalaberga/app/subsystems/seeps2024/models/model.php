@@ -88,4 +88,22 @@ class model_usuario extends connect
             return "erro";
         }
     }
+
+    public function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
+    {
+        $consulta = $this->connect->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;");
+
+        $consulta->BindValue(':l_portuguesa', $lp);
+        $consulta->BindValue(':arte', $ar);
+        $consulta->BindValue(':educacao_fisica', $ef);
+        $consulta->BindValue(':l_inglesa', $li);
+        $consulta->BindValue(':matematica', $ma);
+        $consulta->BindValue(':ciencias', $ci);
+        $consulta->BindValue(':geografia', $ge);
+        $consulta->BindValue(':historia', $hi);
+        $consulta->BindValue(':religiao', $re);
+        $consulta->BindValue('media', $md);
+        $consulta->BindValue(':candidato_id_candidato', $id);
+        $consulta->execute();
+    }
 }
