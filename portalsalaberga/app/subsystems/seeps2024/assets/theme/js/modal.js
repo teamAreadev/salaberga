@@ -1,3 +1,298 @@
+
+function showReportsModal() {
+    Swal.fire({
+        title: 'Relatórios',
+        html: `
+    <div class="p-4">
+        <div class="mb-4">
+          
+            <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                <option value="">Selecione um curso</option>
+                <option value="Enfermagem">Enfermagem</option>
+                <option value="Informática">Informática</option>
+                <option value="Administração">Administração</option>
+                <option value="Edificações">Edificações</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            
+            <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                <option value="">Selecione um tipo</option>
+                <option value="Pública Geral">Pública Geral</option>
+                <option value="Privada Geral">Privada Geral</option>
+                <option value="Pública AC">Pública AC</option>
+                <option value="Privada AC">Privada AC</option>
+                <option value="Pública Cota">Pública Cota</option>
+                <option value="Privada Cota">Privada Cota</option>
+            </select>
+        </div>
+    </div>
+`,
+        confirmButtonText: 'Gerar Relatório',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-400 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo.');
+            } else {
+                return {
+                    course,
+                    type
+                };
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(`Gerando relatório de ${result.value.course} - ${result.value.type}...`);
+        }
+    });
+}
+
+function showUpdateModal() {
+    Swal.fire({
+        customClass: {
+            popup: 'rounded-lg',
+            title: 'text-gray-dark text-xl font-bold',
+            confirmButton: 'bg-ceara-orange text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 mx-2',
+            cancelButton: 'bg-gray-600 text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 mx-2',
+            actions: 'space-x-4' // Adiciona espaçamento entre os botões
+        },
+        title: 'Atualizar Notas',
+        html: `
+    <div class="p-4">
+        <div class="mb-4">
+            <label class="block text-gray-dark text-sm font-bold mb-2" for="studentId">ID do Aluno</label>
+            <input type="number" id="studentId" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4">
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="portugues">Português</label>
+                <input type="number" step="0.1" min="0" max="10" id="portugues" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="arte">Arte</label>
+                <input type="number" step="0.1" min="0" max="10" id="arte" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="edFisica">Ed. Física</label>
+                <input type="number" step="0.1" min="0" max="10" id="edFisica" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="ingles">Inglês</label>
+                <input type="number" step="0.1" min="0" max="10" id="ingles" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="ciencias">Ciências</label>
+                <input type="number" step="0.1" min="0" max="10" id="ciencias" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="geografia">Geografia</label>
+                <input type="number" step="0.1" min="0" max="10" id="geografia" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="historia">História</label>
+                <input type="number" step="0.1" min="0" max="10" id="historia" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="religiao">Religião</label>
+                <input type="number" step="0.1" min="0" max="10" id="religiao" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-dark text-sm font-bold mb-2" for="matematica">Matemática</label>
+                <input type="number" step="0.1" min="0" max="10" id="matematica" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+            </div>
+        </div>
+    </div>
+`,
+        confirmButtonText: 'Atualizar',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const studentId = document.getElementById('studentId').value;
+            const notas = {
+                portugues: document.getElementById('portugues').value,
+                arte: document.getElementById('arte').value,
+                edFisica: document.getElementById('edFisica').value,
+                ingles: document.getElementById('ingles').value,
+                ciencias: document.getElementById('ciencias').value,
+                geografia: document.getElementById('geografia').value,
+                historia: document.getElementById('historia').value,
+                religiao: document.getElementById('religiao').value,
+                matematica: document.getElementById('matematica').value
+            };
+
+            if (!studentId) {
+                Swal.showValidationMessage('Por favor, insira o ID do aluno.');
+                return;
+            }
+
+            // Validação das notas
+            for (let [materia, nota] of Object.entries(notas)) {
+                if (nota === '') {
+                    Swal.showValidationMessage(`Por favor, insira a nota de ${materia}.`);
+                    return;
+                }
+                if (nota < 0 || nota > 10) {
+                    Swal.showValidationMessage(`A nota de ${materia} deve estar entre 0 e 10.`);
+                    return;
+                }
+            }
+
+            return {
+                studentId,
+                notas
+            };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Notas atualizadas com sucesso!',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+                }
+            });
+        }
+    });
+}
+
+
+const styles = `
+.swal2-popup {
+background-color: var(--ceara-white) !important;
+}
+
+.swal2-actions {
+gap: 1rem !important; /* Adiciona 1rem de espaço entre os botões */
+}
+
+.swal2-input, .swal2-textarea {
+border-color: var(--gray-600) !important;
+transition: all var(--transition-duration) var(--transition-timing) !important;
+}
+
+.swal2-input:focus, .swal2-textarea:focus {
+border-color: var(--ceara-orange) !important;
+box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2) !important;
+}
+
+.form-input:hover, .swal2-input:hover {
+transform: scale(var(--hover-scale));
+}
+
+.swal2-confirm {
+background-color: var(--ceara-orange) !important;
+margin: 0 0.5rem !important; /* Adiciona margem lateral */
+}
+
+.swal2-cancel {
+background-color: var(--gray-600) !important;
+margin: 0 0.5rem !important; /* Adiciona margem lateral */
+}
+
+.swal2-confirm:hover, .swal2-cancel:hover {
+transform: scale(var(--hover-scale));
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 640px) {
+.swal2-actions {
+    flex-direction: column;
+    gap: 0.5rem !important;
+}
+
+.swal2-confirm, .swal2-cancel {
+    margin: 0.25rem 0 !important;
+    width: 100%;
+}
+}
+`;
+
+
+
+function showResultsModal() {
+    Swal.fire({
+        title: 'Resultados',
+        html: `
+    <div class="p-4">
+        <div class="mb-4">
+        
+            <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                <option value="">Selecione um curso</option>
+                <option value="Enfermagem">Enfermagem</option>
+                <option value="Informática">Informática</option>
+                <option value="Administração">Administração</option>
+                <option value="Edificações">Edificações</option>
+            </select>
+        </div>
+        <div class="mb-4">
+          
+            <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                <option value="">Selecione um tipo</option>
+                <option value="Pública">Pública</option>
+                <option value="Privada">Privada</option>
+            </select>
+        </div>
+    </div>
+`,
+        confirmButtonText: 'Ver Resultados',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
+
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
+            }
+
+            return {
+                course,
+                type
+            };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(`Exibindo resultados de ${result.value.course} - ${result.value.type}...`);
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
 const modalConfig = {
     allowOutsideClick: false,
     allowEscapeKey: false,
@@ -1156,3 +1451,6 @@ window.administracaoPub = administracaoPub;
 window.administracaoPriv = administracaoPriv;
 window.edificacoesPub = edificacoesPub;
 window.edificacoesPriv = edificacoesPriv;
+
+
+
