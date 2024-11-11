@@ -986,32 +986,32 @@ require_once("models/session_manager.php");
                             <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome']; ?></h3>
                         </div>
                         <div class="absolute inset-0 bg-white transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                            <div class="text-center p-4">
-                                <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
-                                <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
+                        <div class="p-4">
+                            <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
+                            <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
 
-                                <div class="flex flex-col items-center space-y-4">
-                                    <div class="info-text">
-                                        <i class="fas fa-users info-icon text-ceara-green"></i>
-                                        <span>Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span>
-                                    </div>
-                                    <div class="info-text">
-                                        <i class="fas fa-home info-icon text-ceara-green"></i>
-                                        <span>Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
-                                    </div>
-                                    <div class="info-text">
-                                        <i class="fas fa-home info-icon text-ceara-green"></i>
-                                        <span>Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
-                                    </div>
-                                    <div class="info-text">
-                                        <i class="fas fa-book info-icon text-ceara-green"></i>
-                                        <span>Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span>
-                                    </div>
-                                    <div class="info-text">
-                                        <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
-                                        <span>PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
-                                    </div>
+                            <div class="flex flex-col items-start space-y-0" style="margin-left: 28px;"> 
+                                <div class="info-text" style="display: flex; align-items: center;">
+                                    <i class="fas fa-users info-icon text-ceara-green"></i>
+                                    <span style="margin-left: 12px;">Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span> 
                                 </div>
+                                <div class="info-text" style="display: flex; align-items: center;">
+                                    <i class="fas fa-home info-icon text-ceara-green"></i>
+                                    <span style="margin-left: 12px;">Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
+                                </div>
+                                <div class="info-text" style="display: flex; align-items: center;">
+                                    <i class="fas fa-home info-icon text-ceara-green"></i>
+                                    <span style="margin-left: 12px;">Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span> 
+                                </div>
+                                <div class="info-text" style="display: flex; align-items: center;">
+                                    <i class="fas fa-book info-icon text-ceara-green"></i>
+                                    <span style="margin-left: 12px;">Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span> 
+                                </div>
+                                <div class="info-text" style="display: flex; align-items: center;">
+                                    <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
+                                    <span style="margin-left: 12px;">PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>

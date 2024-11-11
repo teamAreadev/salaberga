@@ -309,7 +309,7 @@ const modalConfig = {
     hideClass: {
         popup: 'animate__animated animate__fadeOutDown animate__faster'
     },
-    didOpen: () => {},
+    didOpen: () => { },
     preConfirm: (courseId) => {
         return validateAndCollectData(courseId);
     }
@@ -360,41 +360,41 @@ function showModal(courseName, schoolType) {
 
 function createModalContent(courseName, schoolType) {
     const subjects = [{
-            id: 'lp',
-            name: 'Português'
-        },
-        {
-            id: 'ar',
-            name: 'Arte'
-        },
-        {
-            id: 'ef',
-            name: 'Ed. Física'
-        },
-        {
-            id: 'li',
-            name: 'Inglês'
-        },
-        {
-            id: 'ci',
-            name: 'Ciências'
-        },
-        {
-            id: 'ge',
-            name: 'Geografia'
-        },
-        {
-            id: 'hi',
-            name: 'História'
-        },
-        {
-            id: 're',
-            name: 'Religião'
-        },
-        {
-            id: 'ma',
-            name: 'Matemática'
-        }
+        id: 'lp',
+        name: 'Português'
+    },
+    {
+        id: 'ar',
+        name: 'Arte'
+    },
+    {
+        id: 'ef',
+        name: 'Ed. Física'
+    },
+    {
+        id: 'li',
+        name: 'Inglês'
+    },
+    {
+        id: 'ci',
+        name: 'Ciências'
+    },
+    {
+        id: 'ge',
+        name: 'Geografia'
+    },
+    {
+        id: 'hi',
+        name: 'História'
+    },
+    {
+        id: 're',
+        name: 'Religião'
+    },
+    {
+        id: 'ma',
+        name: 'Matemática'
+    }
     ];
 
     switch (courseName) {
@@ -494,177 +494,196 @@ function createEnfermagemForm(schoolType) {
     <div class="mt-8">
         <div class="space-y-6">
             <!-- 6º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                </div>
+               
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 7º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 8º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 9º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                                                <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
         </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+<!-- 7º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+<!-- 8º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+            <!-- 9º Ano -->
+         <div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia para centralização -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia para centralização -->
+        <div class="col-span-1"></div>
+    </div>
     </div>
 <!-- Botões -->
     <div class="flex justify-center space-x-3 mt-6 pt-4 border-t">
@@ -730,177 +749,196 @@ function createInformaticaForm(schoolType) {
     <div class="mt-8">
         <div class="space-y-6">
             <!-- 6º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                </div>
+             
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 7º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 8º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 9º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                                                <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
         </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+<!-- 7º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+<!-- 8º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+            <!-- 9º Ano -->
+         <div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia para centralização -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia para centralização -->
+        <div class="col-span-1"></div>
+    </div>
     </div>
 <!-- Botões -->
     <div class="flex justify-center space-x-3 mt-6 pt-4 border-t">
@@ -967,177 +1005,196 @@ function createAdministracaoForm(schoolType) {
     <div class="mt-8">
         <div class="space-y-6">
             <!-- 6º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                </div>
+             
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 7º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 8º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
-
-            <!-- 9º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                                                <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
         </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+<!-- 7º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+<!-- 8º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
+
+            <!-- 9º Ano -->
+         <div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia para centralização -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia para centralização -->
+        <div class="col-span-1"></div>
+    </div>
     </div>
 <!-- Botões -->
     <div class="flex justify-center space-x-3 mt-6 pt-4 border-t">
@@ -1204,176 +1261,197 @@ function createEdificacoesForm(schoolType) {
     <div class="mt-8">
         <div class="space-y-6">
             <!-- 6º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
-                    </div>
-                </div>
+         
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">6º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
             </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef6" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" required oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
 
-            <!-- 7º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+<!-- 7º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">7º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
             </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef7" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
 
-            <!-- 8º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+<!-- 8º Ano -->
+<div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">8º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
             </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef8" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
 
             <!-- 9º Ano -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
-                <div class="grid grid-cols-8 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-600">Português</label>
-                        <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Artes</label>
-                        <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Matemática</label>
-                        <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                                                <div>
-                        <label class="text-sm text-gray-600">História</label>
-                        <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Geografia</label>
-                        <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ciências</label>
-                        <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Inglês</label>
-                        <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Ed. Física</label>
-                        <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-600">Religião</label>
-                        <input type="text" name="r9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
-                    </div>
-                </div>
+         <div class="bg-gray-50 p-4 rounded-lg">
+    <h3 class="text-md font-medium text-gray-700 mb-4 pb-2 border-b">9º Ano</h3>
+    <div class="grid grid-cols-10 gap-4">
+        <!-- Coluna inicial vazia para centralização -->
+        <div class="col-span-1"></div>
+        
+        <!-- Conteúdo centralizado (8 colunas) -->
+        <div class="col-span-8 grid grid-cols-8 gap-4">
+            <div>
+                <label class="text-sm text-gray-600">Português</label>
+                <input type="text" name="lp9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
             </div>
+            <div>
+                <label class="text-sm text-gray-600">Artes</label>
+                <input type="text" name="a9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Matemática</label>
+                <input type="text" name="m9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">História</label>
+                <input type="text" name="h9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Geografia</label>
+                <input type="text" name="g9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ciências</label>
+                <input type="text" name="c9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Inglês</label>
+                <input type="text" name="i9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+            <div>
+                <label class="text-sm text-gray-600">Ed. Física</label>
+                <input type="text" name="ef9" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-md text-center" oninput="maskNota(this)">
+            </div>
+        </div>
+        
+        <!-- Coluna final vazia para centralização -->
+        <div class="col-span-1"></div>
+    </div>
+</div>
         </div>
     </div>
     <div class="flex justify-center space-x-3 mt-6 pt-4 border-t">
