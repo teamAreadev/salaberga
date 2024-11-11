@@ -1,12 +1,9 @@
 <?php
 
-if (!isset($_POST["pcd"])) {
-    $pcd = 0;
-} else {
-    $pcd = $_POST["pcd"];
-}
-
-
+/*echo "<pre>";
+echo print_r($_POST);
+echo "<pre>";
+*/
 //cadastro
 function virg($num)
 {
@@ -14,6 +11,12 @@ function virg($num)
         $num = str_replace(',', '.', $num);
     }
     return $num;
+}
+
+if (!isset($_POST["pcd"])) {
+    $pcd = 0;
+} else {
+    $pcd = $_POST["pcd"];
 }
 
 $nome = $_POST['nome'];
@@ -25,21 +28,21 @@ switch ($_POST['curso']) {
 
         $c1 = 1;
         break;
-    case 'Informática':
+    case 'Informatica':
 
         $c1 = 2;
         break;
-    case 'Administração':
+    case 'Administraçao':
 
         $c1 = 3;
         break;
-    case 'Edificações':
+    case 'Edificaçoes':
 
         $c1 = 4;
         break;
 };
 
-switch ($_POST['Escola']) {
+switch ($_POST['publica']) {
 
     case 'Escola Pública':
 
@@ -135,4 +138,3 @@ switch ($test) {
         header('location:../views/inicio.php');
         break;
 }
-*/

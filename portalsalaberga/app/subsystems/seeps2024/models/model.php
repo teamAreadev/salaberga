@@ -40,19 +40,22 @@ class model_usuario extends connect
         $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
         $result_check_id->bindValue(':nome', $nome);
         $result_check_id->execute();
-        $dados = $result_check_id->fetch();
-        $id_candidato = $dados['id_candidato'];
-        
-        $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:lp, :ar, :ef, :li, :ma, :ci, :ge, :hi, :re, :candidato_id_candidato, :media )");
-        $result_cadastrar_nota->BindValue(':lp', $lp);
-        $result_cadastrar_nota->BindValue(':ar', $ar);
-        $result_cadastrar_nota->BindValue(':ef', $ef);
-        $result_cadastrar_nota->BindValue(':li', $li);
-        $result_cadastrar_nota->BindValue(':ma', $ma);
-        $result_cadastrar_nota->BindValue(':ci', $ci);
-        $result_cadastrar_nota->BindValue(':ge', $ge);
-        $result_cadastrar_nota->BindValue(':hi', $hi);
-        $result_cadastrar_nota->BindValue(':re', $re);
+        $dados = $result_check_id->fetchAll();
+        foreach ($dados as $value => $x) {
+
+            $id_candidato = $x['id_candidato'];
+        }
+
+        $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, :educacao_fisica, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
+        $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
+        $result_cadastrar_nota->BindValue(':arte', $ar);
+        $result_cadastrar_nota->BindValue(':educacao_fisica', $ef);
+        $result_cadastrar_nota->BindValue(':l_inglesa', $li);
+        $result_cadastrar_nota->BindValue(':matematica', $ma);
+        $result_cadastrar_nota->BindValue(':ciencias', $ci);
+        $result_cadastrar_nota->BindValue(':geografia', $ge);
+        $result_cadastrar_nota->BindValue(':historia', $hi);
+        $result_cadastrar_nota->BindValue(':religiao', $re);
         $result_cadastrar_nota->BindValue(':candidato_id_candidato', $id_candidato);
         $result_cadastrar_nota->BindValue(':media', $media);
         $result_cadastrar_nota->execute();
