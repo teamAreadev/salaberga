@@ -20,7 +20,7 @@
 
     <script type="text/javascript">
       function success(){
-      setTimeout("window.location='../inicio.php'", 3000);
+      setTimeout("window.location='inicio.php'", 3000);
       }
     </script> 
 
