@@ -1,66 +1,11 @@
 <?php
 
-class Candidato
+require_once('config/connect');
+class Candidato extends connect
 {
 
-
-
-	public function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $m)
-	{
-
-		try {
-			require_once("../Database.php");
-			$sql = "insert into candidato values(null, :nome, :c1, :c2, :dn, :bairro, 0, null)";
-			$consulta = $pdo->prepare($sql);
-			$consulta->BindValue(':nome', $nome);
-			$consulta->BindValue(':c1', $c1);
-			$consulta->BindValue(':c2', $c2);
-			$consulta->BindValue(':dn', $dn);
-			$consulta->BindValue(':bairro', $bairro);
-			$consulta->execute();
-
-			$sql2="select * from candidato where nome=:nome2;";
-			$consulta2 = $pdo->prepare($sql2);
-			$consulta2->BindValue(':nome2',$nome);
-			$consulta2->execute();
-   			$dados = $consulta2->fetchAll();
-		   			foreach($dados as $valor =>$d){
-		   				$x = $d['id_candidato'];
-		   			}
-
-
-			$sql3="insert into nota values(:lp, :ar, :ef, :li, :ma, :ci, :ge, :hi, :re, :id, :publica, :media);";
-			$consulta3 = $pdo->prepare($sql3);
-			$consulta3->BindValue(':lp',$lp);
-			$consulta3->BindValue(':ar',$ar);
-			$consulta3->BindValue(':ef',$ef);
-			$consulta3->BindValue(':li',$li);
-			$consulta3->BindValue(':ma',$ma);
-			$consulta3->BindValue(':ci',$ci);
-			$consulta3->BindValue(':ge',$ge);
-			$consulta3->BindValue(':hi',$hi);
-			$consulta3->BindValue(':re',$re);
-			$consulta3->BindValue(':id',$x);
-			$consulta3->BindValue(':publica',$publica);
-			$consulta3->BindValue(':media',$m);
-			$consulta3->execute();
-
-		} catch (PDOException $erro) {
-
-			echo $erro;
-		} finally {
-
-			echo '<script language="JavaScript"> 
-        window.location="success.php"; 
-        </script>';
-		}
-	}
 	public function pesquisarCotas()
 	{
-		try {
-
-			require_once('../Database.php');
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			// Iniciar a sessão
 
 			session_start();
@@ -77,35 +22,35 @@ class Candidato
 				$dadosCurso = [];
 
 				// 1. PCD
-				$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE pcd = 1 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['pcd'] = $resultado['total'];
 
 				// 2. Bairro e Escola Pública
-				$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE bairro = 1 AND publica = 1 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['bairropublica'] = $resultado['total'];
 
 				// 3. Bairro e Escola Privada
-				$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE bairro = 1 AND publica = 0 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['bairroprivada'] = $resultado['total'];
 
 				// 4. Total do curso
-				$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['total'] = $resultado['total'];
 
 				// 5. Escola Pública
-				$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE publica = 1 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -114,9 +59,6 @@ class Candidato
 				// Armazenar dados do curso na sessão
 				$_SESSION["curso_{$curso}"] = $dadosCurso;
 			}
-		} catch (PDOException $e) {
-			echo "Erro na conexão: " . $e->getMessage();
-		}
 	}
 
 

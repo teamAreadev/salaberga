@@ -912,23 +912,6 @@ require_once("models/session_manager.php");
                 e.stopPropagation();
             });
 
-            // Manipular envio do formulário
-            /*loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                const remember = document.getElementById('remember').checked;
-
-                // Aqui você pode adicionar sua lógica de autenticação
-                console.log('Email:', email);
-                console.log('Password:', password);
-                console.log('Remember:', remember);
-
-                // Fechar o modal após o envio
-                closeModal();
-            });*/
-
             // Fechar modal com tecla ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
