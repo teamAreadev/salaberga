@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email'
     switch ($test) {
         case 'certo':
 
-            header('location:../views/inicio.php');
+            header('location:../views/inicio2.php');
             break;
 
         case 'erro':

@@ -1,10 +1,12 @@
 <?php
 
-require_once('../models/model.php');
+if (!isset($_POST["pcd"])) {
+    $pcd = 0;
+} else {
+    $pcd = $_POST["pcd"];
+}
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+
 //cadastro
 function virg($num)
 {
@@ -16,6 +18,7 @@ function virg($num)
 
 $nome = $_POST['nome'];
 $dn = $_POST['nasc'];
+
 switch ($_POST['curso']) {
 
     case 'Enfermagem':
@@ -36,10 +39,23 @@ switch ($_POST['curso']) {
         break;
 };
 
+switch ($_POST['Escola']) {
+
+    case 'Escola Pública':
+
+        $publica = 1;
+        break;
+    case 'Escola Particular':
+
+        $publica = 0;
+        break;
+};
+
+
 $c2 = 1;
 $bairro = $_POST['bairro'];
-$publica = $_POST['publica'];
-$pcd = $_POST['pcd'];
+
+
 
 $lp6 = virg($_POST['lp6']);
 $ar6 = virg($_POST['a6']);
@@ -95,6 +111,7 @@ $re = ($re6 + $re7 + $re8 + $re9) / 4;
 $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
 
+require_once('../models/model.php');
 $model = new model_usuario();
 $test = $model->cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 
@@ -118,3 +135,4 @@ switch ($test) {
         header('location:../views/inicio.php');
         break;
 }
+*/
