@@ -445,7 +445,22 @@ function createModalContent(courseName, schoolType) {
 }
 
 
+function maskNota(input) {
+    let value = input.value.replace(/[^0-9]/g, '');
 
+    if (value.length === 1) {
+        value = value[0] + '.';
+    } else if (value.length > 1) {
+        value = value.slice(0, 1) + '.' + value.slice(1, 3);
+    }
+
+    const numericValue = parseFloat(value);
+    if (numericValue > 10.0) {
+        value = '10.0';
+    }
+
+    input.value = value;
+}
 
 function createEnfermagemForm(schoolType) {
     return `

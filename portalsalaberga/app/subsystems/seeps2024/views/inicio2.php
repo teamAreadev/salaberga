@@ -672,28 +672,7 @@
             transform: translateY(-50%);
         }
     </style>
-    <script>function maskNota(input) {
-    // Remove todos os caracteres que não sejam números
-    let value = input.value.replace(/[^0-9]/g, '');
-
-    // Se houver dois dígitos, insere automaticamente o ponto decimal
-    if (value.length === 2) {
-        value = value[0] + '.' + value[1];
-    } else if (value.length > 2) {
-        // Limita a entrada a dois dígitos inteiros e um decimal
-        value = value.slice(0, 2) + '.' + value[2];
-    }
-
-    // Converte o valor em número para verificar se é maior que 10.1
-    const numericValue = parseFloat(value);
-    if (numericValue > 10.1) {
-        value = '10.0';
-    }
-
-    // Define o valor no input com a máscara aplicada
-    input.value = value;
-}
-</script>
+   
     <script>
    
     </script>
