@@ -496,19 +496,22 @@
 
             <!-- Card Edificações -->
             <div
-                class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-                <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
-                    <div class="space-y-4">
-                        <button onclick="edificacoesPub()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola
-                            Pública</button>
-                        <button onclick="edificacoesPriv()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-orange-500 to-orange-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300">Escola
-                            Privada</button>
-                    </div>
-                </div>
-            </div>
+    class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+    <div class="flex flex-col h-full justify-between">
+        <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
+        <div class="space-y-4">
+            <button onclick="edificacoesPub()"
+                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#791b78] to-[#9a3a99] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#9a3a99] hover:to-[#b84bb9] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#791b78]">
+                Escola Pública
+            </button>
+            <button onclick="edificacoesPriv()"
+                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#791b78] to-[#9a3a99] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#9a3a99] hover:to-[#b84bb9] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#791b78]">
+                Escola Privada
+            </button>
+        </div>
+    </div>
+</div>
+
         </div>
     </main>
 
