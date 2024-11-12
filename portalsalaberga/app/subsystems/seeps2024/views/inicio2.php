@@ -362,7 +362,7 @@
                         </div>
                         <!-- Itens do Menu -->
                         <ul class="flex flex-col space-y-3">
-                           
+
                             <li>
                                 <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -426,7 +426,7 @@
         }
     </style>
 
-    
+
     <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 50px">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <!-- Card Enfermagem -->
@@ -447,19 +447,19 @@
 
             <!-- Card Informática -->
             <div
-    class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-    <div class="flex flex-col h-full justify-between">
-        <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
-        <div class="space-y-4">
-            <button onclick="informaticaPub()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
-                Pública</button>
-            <button onclick="informaticaPriv()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
-                Privada</button>
-        </div>
-    </div>
-</div>
+                class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
+                    <div class="space-y-4">
+                        <button onclick="informaticaPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
+                            Pública</button>
+                        <button onclick="informaticaPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
+                            Privada</button>
+                    </div>
+                </div>
+            </div>
 
 
             <!-- Card Administração -->
@@ -480,21 +480,23 @@
 
             <!-- Card Edificações -->
             <div
-    class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-    <div class="flex flex-col h-full justify-between">
-        <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
-        <div class="space-y-4">
-            <button onclick="edificacoesPub()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#791b78] to-[#9a3a99] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#9a3a99] hover:to-[#b84bb9] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#791b78]">
-                Escola Pública
-            </button>
-            <button onclick="edificacoesPriv()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#791b78] to-[#9a3a99] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#9a3a99] hover:to-[#b84bb9] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#791b78]">
-                Escola Privada
-            </button>
+                class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
+                    <div class="space-y-4">
+                        <button onclick="edificacoesPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]">
+                            Escola Pública
+                        </button>
+                        <button onclick="edificacoesPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]">
+                            Escola Privada
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</div>
 
         </div>
     </main>
@@ -502,7 +504,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- 
+
 
 
 
@@ -676,9 +678,9 @@
             transform: translateY(-50%);
         }
     </style>
-   
+
     <script>
-   
+
     </script>
     <style>
 

@@ -233,7 +233,7 @@
             z-index: 1000;
         }
 
-           
+
         .modal-content {
             background-color: var(--ceara-white);
             padding: 2rem;
@@ -307,15 +307,16 @@
                 transform: translateX(-50%);
             }
         }
+
         .swal2-confirm:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    background-color: #e0e0e0 !important;
-    border-color: #cccccc !important;
-    color: #666666 !important;
-    pointer-events: none;
-    box-shadow: none;
-}
+            opacity: 0.6;
+            cursor: not-allowed;
+            background-color: #e0e0e0 !important;
+            border-color: #cccccc !important;
+            color: #666666 !important;
+            pointer-events: none;
+            box-shadow: none;
+        }
     </style>
 </head>
 
@@ -464,19 +465,19 @@
 
             <!-- Card Informática -->
             <div
-    class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-    <div class="flex flex-col h-full justify-between">
-        <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
-        <div class="space-y-4">
-            <button onclick="informaticaPub()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
-                Pública</button>
-            <button onclick="informaticaPriv()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
-                Privada</button>
-        </div>
-    </div>
-</div>
+                class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
+                    <div class="space-y-4">
+                        <button onclick="informaticaPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
+                            Pública</button>
+                        <button onclick="informaticaPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
+                            Privada</button>
+                    </div>
+                </div>
+            </div>
 
 
             <!-- Card Administração -->
@@ -497,21 +498,21 @@
 
             <!-- Card Edificações -->
             <div
-    class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-    <div class="flex flex-col h-full justify-between">
-        <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
-        <div class="space-y-4">
-            <button onclick="edificacoesPub()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#791b78] to-[#9a3a99] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#9a3a99] hover:to-[#b84bb9] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#791b78]">
-                Escola Pública
-            </button>
-            <button onclick="edificacoesPriv()"
-                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#791b78] to-[#9a3a99] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#9a3a99] hover:to-[#b84bb9] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#791b78]">
-                Escola Privada
-            </button>
-        </div>
-    </div>
-</div>
+                class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Edificações</h3>
+                    <div class="space-y-4">
+                        <button onclick="edificacoesPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]">
+                            Escola Pública
+                        </button>
+                        <button onclick="edificacoesPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]">
+                            Escola Privada
+                        </button>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </main>
@@ -519,7 +520,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+
 
 
 
@@ -693,8 +694,8 @@
             transform: translateY(-50%);
         }
     </style>
-  
- 
+
+
 
 </body>
 
