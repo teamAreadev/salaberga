@@ -736,7 +736,7 @@ function createEnfermagemForm(schoolType) {
 </div>
 
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-    <button type="button" onclick="closeModal()" 
+    <button type="button" onclick="closeModalAndRedirect('EnfermagemForm', 'inicio.php');"" 
     class="px-6 py-2.5 border-2 border-red-600 rounded-md text-red-600 hover:bg-red-600/10 text-base flex items-center font-medium">
     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -919,7 +919,7 @@ function createInformaticaForm(schoolType) {
 
 
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-    <button type="button" onclick="closeModal()" 
+    <button type="button"  onclick="closeModalAndRedirect('InformaticaForm', 'inicio.php');"" 
         class="px-6 py-2.5 border-2 border-[#4a90e2] rounded-md text-[#4a90e2] hover:bg-[#4a90e2]/10 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -1101,7 +1101,7 @@ function createAdministracaoForm(schoolType) {
 
 
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-    <button type="button" onclick="closeModal()" 
+    <button type="button" onclick="closeModalAndRedirect('AdministracaoForm', 'inicio.php');"" 
         class="px-6 py-2.5 border-2 border-[#008000] rounded-md text-[#008000] hover:bg-[#008000]/10 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -1283,7 +1283,7 @@ function createEdificacoesForm(schoolType) {
 
         
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-    <button type="button" onclick="closeModal()" 
+    <button type="button"  onclick="closeModalAndRedirect('EdificacoesForm', 'inicio.php');" " 
         class="px-6 py-2.5 border-2 border-[#791b78] rounded-md text-[#791b78] hover:bg-[#791b78]/10 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -1302,7 +1302,18 @@ function createEdificacoesForm(schoolType) {
 }
 
 
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none'; // Esconde o modal
+    }
+}
 
+// Função para fechar o modal e redirecionar
+function closeModalAndRedirect(modalId, redirectUrl) {
+    closeModal(modalId);
+    window.location.href = redirectUrl; // Redireciona para a página inicial
+}
 function validateAndCollectData(courseName) {
     const form = document.getElementById(`gradeForm_${courseName}`);
 

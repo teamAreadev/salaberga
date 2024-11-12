@@ -447,19 +447,20 @@
 
             <!-- Card Informática -->
             <div
-                class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-                <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
-                    <div class="space-y-4">
-                        <button onclick="informaticaPub()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola
-                            Pública</button>
-                        <button onclick="informaticaPriv()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300">Escola
-                            Privada</button>
-                    </div>
-                </div>
-            </div>
+    class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+    <div class="flex flex-col h-full justify-between">
+        <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 lg:mb-8 text-center">Informática</h3>
+        <div class="space-y-4">
+            <button onclick="informaticaPub()"
+                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
+                Pública</button>
+            <button onclick="informaticaPriv()"
+                class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200">Escola
+                Privada</button>
+        </div>
+    </div>
+</div>
+
 
             <!-- Card Administração -->
             <div
