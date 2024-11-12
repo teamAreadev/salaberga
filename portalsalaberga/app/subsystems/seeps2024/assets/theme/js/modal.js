@@ -302,7 +302,7 @@ const modalConfig = {
         input: 'bg-white border-gray-300 text-gray-800 rounded-lg',
     },
     buttonsStyling: false,
-    background: '#FFFFFF',
+    background: 'transparent',
     showClass: {
         popup: 'animate__animated animate__fadeInUp animate__faster'
     },
@@ -451,18 +451,18 @@ function createEnfermagemForm(schoolType) {
     return `
 <form id="EnfermagemForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
     <!-- Cabeçalho -->
-    <div class="bg-[#008C45] p-3 rounded-t-xl">
+    <div class="bg-[#FF0000] p-3 rounded-t-xl">
         <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Enfermagem</h2>
     </div>
 
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full text-center"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#FF0000] w-full text-center"  placeholder="Nome Completo" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#FF0000] w-full" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -476,7 +476,7 @@ function createEnfermagemForm(schoolType) {
         </div>
 
         <div class="flex flex-col md:col-span-2">
-            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#FF0000] w-full" required>
                 <option value="">Selecione um bairro</option>
                 <option value="Outra Banda">Outra Banda</option>
                 <option value="Outros Bairros">Outros Bairros</option>
@@ -485,7 +485,7 @@ function createEnfermagemForm(schoolType) {
 
         <div class="flex items-center md:col-span-1">
             <label for="pcd" class="text-sm text-[--gray-600] mr-2">PCD</label>
-            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#008C45] border border-[--gray-600] rounded">
+            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#FF0000] border border-[--gray-600] rounded">
         </div>
     </div>
 
@@ -493,7 +493,7 @@ function createEnfermagemForm(schoolType) {
     <div class="space-y-3 px-4">
         <!-- 6º Ano -->
      <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">6º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FF0000] mb-2 pb-1 border-b">6º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -501,62 +501,62 @@ function createEnfermagemForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
         <!-- 7º Ano -->
       <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">7º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FF0000] mb-2 pb-1 border-b">7º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -564,55 +564,55 @@ function createEnfermagemForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -620,7 +620,7 @@ function createEnfermagemForm(schoolType) {
 
         <!-- 8º Ano -->
          <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">8º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FF0000] mb-2 pb-1 border-b">8º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -628,55 +628,55 @@ function createEnfermagemForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -684,7 +684,7 @@ function createEnfermagemForm(schoolType) {
 
                 <!-- 9º Ano -->
             <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">9º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FF0000] mb-2 pb-1 border-b">9º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -692,69 +692,69 @@ function createEnfermagemForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FF0000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
     <button type="button" onclick="closeModal()" 
-        class="px-6 py-2.5 border-2 border-[#008C45] rounded-md text-[#008C45] hover:bg-[#008C45]/10 text-base flex items-center font-medium">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-        Cancelar
-    </button>
+    class="px-6 py-2.5 border-2 border-red-600 rounded-md text-red-600 hover:bg-red-600/10 text-base flex items-center font-medium">
+    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+    Cancelar
+</button>
     <button type="submit" 
-        class="px-6 py-2.5 bg-[#008C45] text-white rounded-md hover:bg-[#008C45]/90 text-base flex items-center font-medium">
+        class="px-6 py-2.5 bg-[#FF0000] text-white rounded-md hover:bg-[#FF0000]/90 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
         </svg>
@@ -766,24 +766,25 @@ function createEnfermagemForm(schoolType) {
 
 function createInformaticaForm(schoolType) {
     return `
-<form id="InformaticaForm" action="../controllers/controller.php" method="POST" style="width:auto;">
-   <div class="bg-[#008C45] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Informática</h2>
+<form id="InformaticaForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+    <!-- Cabeçalho -->
+    <div class="bg-[#0000ff] p-3 rounded-t-xl">
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Informatica</h2>
     </div>
 
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full text-center"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#0000ff] w-full text-center"  placeholder="Nome Completo" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#0000ff] w-full" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Informática" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Informática">
+            <input type="text" name="curso" value="Informatica" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Informatica">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -792,7 +793,7 @@ function createInformaticaForm(schoolType) {
         </div>
 
         <div class="flex flex-col md:col-span-2">
-            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#0000ff] w-full" required>
                 <option value="">Selecione um bairro</option>
                 <option value="Outra Banda">Outra Banda</option>
                 <option value="Outros Bairros">Outros Bairros</option>
@@ -801,7 +802,7 @@ function createInformaticaForm(schoolType) {
 
         <div class="flex items-center md:col-span-1">
             <label for="pcd" class="text-sm text-[--gray-600] mr-2">PCD</label>
-            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#008C45] border border-[--gray-600] rounded">
+            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#0000ff] border border-[--gray-600] rounded">
         </div>
     </div>
 
@@ -809,7 +810,7 @@ function createInformaticaForm(schoolType) {
     <div class="space-y-3 px-4">
         <!-- 6º Ano -->
      <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">6º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#0000ff] mb-2 pb-1 border-b">6º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -817,62 +818,62 @@ function createInformaticaForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
         <!-- 7º Ano -->
       <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">7º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#0000ff] mb-2 pb-1 border-b">7º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -880,55 +881,55 @@ function createInformaticaForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -936,7 +937,7 @@ function createInformaticaForm(schoolType) {
 
         <!-- 8º Ano -->
          <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">8º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#0000ff] mb-2 pb-1 border-b">8º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -944,55 +945,55 @@ function createInformaticaForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -1000,7 +1001,7 @@ function createInformaticaForm(schoolType) {
 
                 <!-- 9º Ano -->
             <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">9º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#0000ff] mb-2 pb-1 border-b">9º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1008,69 +1009,69 @@ function createInformaticaForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#0000ff]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
     <button type="button" onclick="closeModal()" 
-        class="px-6 py-2.5 border-2 border-[#008C45] rounded-md text-[#008C45] hover:bg-[#008C45]/10 text-base flex items-center font-medium">
+        class="px-6 py-2.5 border-2 border-[#0000ff] rounded-md text-[#0000ff] hover:bg-[#0000ff]/10 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
         Cancelar
     </button>
     <button type="submit" 
-        class="px-6 py-2.5 bg-[#008C45] text-white rounded-md hover:bg-[#008C45]/90 text-base flex items-center font-medium">
+        class="px-6 py-2.5 bg-[#0000ff] text-white rounded-md hover:bg-[#0000ff]/90 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
         </svg>
@@ -1082,24 +1083,25 @@ function createInformaticaForm(schoolType) {
 // Função específica para o formulário de Administração
 function createAdministracaoForm(schoolType) {
     return `
-<form id="AdministracaoForm" action="../controllers/controller.php" method="POST" style="width:auto;">
-     <div class="bg-[#008C45] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Administração </h2>
+<form id="AdministracaoForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+    <!-- Cabeçalho -->
+    <div class="bg-[#008000] p-3 rounded-t-xl">
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Administrãao</h2>
     </div>
 
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full text-center"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008000] w-full text-center"  placeholder="Nome Completo" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008000] w-full" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Administração" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Administração">
+            <input type="text" name="curso" value="Administracao" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Administracao">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1108,7 +1110,7 @@ function createAdministracaoForm(schoolType) {
         </div>
 
         <div class="flex flex-col md:col-span-2">
-            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008000] w-full" required>
                 <option value="">Selecione um bairro</option>
                 <option value="Outra Banda">Outra Banda</option>
                 <option value="Outros Bairros">Outros Bairros</option>
@@ -1117,7 +1119,7 @@ function createAdministracaoForm(schoolType) {
 
         <div class="flex items-center md:col-span-1">
             <label for="pcd" class="text-sm text-[--gray-600] mr-2">PCD</label>
-            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#008C45] border border-[--gray-600] rounded">
+            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#008000] border border-[--gray-600] rounded">
         </div>
     </div>
 
@@ -1125,7 +1127,7 @@ function createAdministracaoForm(schoolType) {
     <div class="space-y-3 px-4">
         <!-- 6º Ano -->
      <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">6º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#008000] mb-2 pb-1 border-b">6º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1133,62 +1135,62 @@ function createAdministracaoForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
         <!-- 7º Ano -->
       <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">7º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#008000] mb-2 pb-1 border-b">7º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1196,55 +1198,55 @@ function createAdministracaoForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -1252,7 +1254,7 @@ function createAdministracaoForm(schoolType) {
 
         <!-- 8º Ano -->
          <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">8º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#008000] mb-2 pb-1 border-b">8º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1260,55 +1262,55 @@ function createAdministracaoForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -1316,7 +1318,7 @@ function createAdministracaoForm(schoolType) {
 
                 <!-- 9º Ano -->
             <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">9º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#008000] mb-2 pb-1 border-b">9º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1324,69 +1326,69 @@ function createAdministracaoForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
     <button type="button" onclick="closeModal()" 
-        class="px-6 py-2.5 border-2 border-[#008C45] rounded-md text-[#008C45] hover:bg-[#008C45]/10 text-base flex items-center font-medium">
+        class="px-6 py-2.5 border-2 border-[#008000] rounded-md text-[#008000] hover:bg-[#008000]/10 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
         Cancelar
     </button>
     <button type="submit" 
-        class="px-6 py-2.5 bg-[#008C45] text-white rounded-md hover:bg-[#008C45]/90 text-base flex items-center font-medium">
+        class="px-6 py-2.5 bg-[#008000] text-white rounded-md hover:bg-[#008000]/90 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
         </svg>
@@ -1399,24 +1401,25 @@ function createAdministracaoForm(schoolType) {
 // Função específica para o formulário de Edificações
 function createEdificacoesForm(schoolType) {
     return `
-<form id="EdificaçoesForm" action="../controllers/controller.php" method="POST" style="width:auto;">
-       <div class="bg-[#008C45] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Edificações </h2>
+<form id="EdificacoesForm"  action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+    <!-- Cabeçalho -->
+    <div class="bg-[#FFA500] p-3 rounded-t-xl">
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Edificações</h2>
     </div>
 
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full text-center"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#FFA500] w-full text-center"  placeholder="Nome Completo" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <input type="date" name="nasc" class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#FFA500] w-full" required>
         </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Edificações" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Edificações">
+            <input type="text" name="curso" value="Edificacoes" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Edificacoes">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1425,7 +1428,7 @@ function createEdificacoesForm(schoolType) {
         </div>
 
         <div class="flex flex-col md:col-span-2">
-            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008C45] w-full" required>
+            <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#FFA500] w-full" required>
                 <option value="">Selecione um bairro</option>
                 <option value="Outra Banda">Outra Banda</option>
                 <option value="Outros Bairros">Outros Bairros</option>
@@ -1434,7 +1437,7 @@ function createEdificacoesForm(schoolType) {
 
         <div class="flex items-center md:col-span-1">
             <label for="pcd" class="text-sm text-[--gray-600] mr-2">PCD</label>
-            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#008C45] border border-[--gray-600] rounded">
+            <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#FFA500] border border-[--gray-600] rounded">
         </div>
     </div>
 
@@ -1442,7 +1445,7 @@ function createEdificacoesForm(schoolType) {
     <div class="space-y-3 px-4">
         <!-- 6º Ano -->
      <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">6º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FFA500] mb-2 pb-1 border-b">6º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1450,62 +1453,62 @@ function createEdificacoesForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r6" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
         <!-- 7º Ano -->
       <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">7º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FFA500] mb-2 pb-1 border-b">7º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1513,55 +1516,55 @@ function createEdificacoesForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r7" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -1569,7 +1572,7 @@ function createEdificacoesForm(schoolType) {
 
         <!-- 8º Ano -->
          <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">8º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FFA500] mb-2 pb-1 border-b">8º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1577,55 +1580,55 @@ function createEdificacoesForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r8" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
@@ -1633,7 +1636,7 @@ function createEdificacoesForm(schoolType) {
 
                 <!-- 9º Ano -->
             <div class="bg-white p-4 rounded-lg shadow-sm">
-    <h3 class="text-xl md:text-2xl font-semibold text-[#008C45] mb-2 pb-1 border-b">9º Ano</h3>
+    <h3 class="text-xl md:text-2xl font-semibold text-[#FFA500] mb-2 pb-1 border-b">9º Ano</h3>
     
     <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-2 md:gap-3">
@@ -1641,69 +1644,69 @@ function createEdificacoesForm(schoolType) {
         <!-- Português -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">PORTUGUÊS</label>
-            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="lp9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Artes -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ARTES</label>
-            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="a9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Matemática -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">MATEMÁTICA</label>
-            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="m9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- História -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">HISTÓRIA</label>
-            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="h9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Geografia -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">GEOGRAFIA</label>
-            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="g9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ciências -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">CIÊNCIAS</label>
-            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="c9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Inglês -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">INGLÊS</label>
-            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="i9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Ed. Física -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">ED. FÍSICA</label>
-            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="ef9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
 
         <!-- Religião -->
         <div>
             <label class="text-xs text-[--gray-800] font-bold block truncate">RELIGIÃO</label>
-            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008C45]" required oninput="maskNota(this)">
+            <input type="text" name="r9" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#FFA500]" required oninput="maskNota(this)">
         </div>
     </div>
 </div>
         </div>
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
     <button type="button" onclick="closeModal()" 
-        class="px-6 py-2.5 border-2 border-[#008C45] rounded-md text-[#008C45] hover:bg-[#008C45]/10 text-base flex items-center font-medium">
+        class="px-6 py-2.5 border-2 border-[#FFA500] rounded-md text-[#FFA500] hover:bg-[#FFA500]/10 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
         Cancelar
     </button>
     <button type="submit" 
-        class="px-6 py-2.5 bg-[#008C45] text-white rounded-md hover:bg-[#008C45]/90 text-base flex items-center font-medium">
+        class="px-6 py-2.5 bg-[#FFA500] text-white rounded-md hover:bg-[#FFA500]/90 text-base flex items-center font-medium">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
         </svg>
@@ -1713,7 +1716,8 @@ function createEdificacoesForm(schoolType) {
 </form>`
 }
 
-// Funções de validação e coleta de dados
+
+
 function validateAndCollectData(courseName) {
     const form = document.getElementById(`gradeForm_${courseName}`);
 

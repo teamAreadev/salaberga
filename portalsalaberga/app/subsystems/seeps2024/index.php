@@ -1,5 +1,7 @@
 <?php
 require_once("models/session_manager.php");
+$manager = new Manager();
+$manager->lista();
 ?>
 
 <!DOCTYPE html>
