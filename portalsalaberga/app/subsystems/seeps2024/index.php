@@ -12,7 +12,7 @@ $manager->lista();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-       <title>SS - Salaberga Seleciona </title>
+    <title>SS - Salaberga Seleciona </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,7 +26,7 @@ $manager->lista();
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-   <link rel="shortcut icon" href="../seeps2024/assets/images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../seeps2024/assets/images/logo.png" type="image/x-icon">
 </head>
 
 <script>
@@ -765,116 +765,116 @@ $manager->lista();
                 </div>
 
                 <div class="nav-actions">
-    <button id="mobile-menu" class="mobile-menu-btn">
-        <span class="sr-only">Abrir menu</span>
-        <i class="fas fa-bars"></i>
-    </button>
-    <div class="nav-links">
-    <button
-        id="openLoginModal"
-        class="px-6 py-2 text-white bg-[#008C45] rounded-lg hover:bg-[#004d00] 
+                    <button id="mobile-menu" class="mobile-menu-btn">
+                        <span class="sr-only">Abrir menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="nav-links">
+                        <button
+                            id="openLoginModal"
+                            class="px-6 py-2 text-white bg-[#008C45] rounded-lg hover:bg-[#004d00] 
                focus:outline-none focus:ring-2 focus:ring-[#008C45] transition duration-200">
-        ENTRAR
-    </button>
-</div>
+                            ENTRAR
+                        </button>
+                    </div>
 
-<!-- Modal (inicialmente escondido) -->
-<div id="loginModal" 
-     class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm 
+                    <!-- Modal (inicialmente escondido) -->
+                    <div id="loginModal"
+                        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm 
             overflow-y-auto h-full w-full z-50">
-    <!-- Adicionado mt-[-8%] para subir o modal -->
-    <div class="flex items-center justify-center min-h-screen p-4 mt-[-4%]">
-        <div class="relative w-96 shadow-[0_6px_12px_rgba(0,0,0,0.2)] 
+                        <!-- Adicionado mt-[-8%] para subir o modal -->
+                        <div class="flex items-center justify-center min-h-screen p-4 mt-[-4%]">
+                            <div class="relative w-96 shadow-[0_6px_12px_rgba(0,0,0,0.2)] 
                     rounded-2xl bg-white p-6">
-            <!-- Modal Header -->
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold text-[#333333]">Login</h3>
-                <button id="closeLoginModal" 
-                        class="text-[#666666] hover:text-[#333333] 
+                                <!-- Modal Header -->
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-2xl font-bold text-[#333333]">Login</h3>
+                                    <button id="closeLoginModal"
+                                        class="text-[#666666] hover:text-[#333333] 
                                transition-colors duration-400 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                              d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+                                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
 
-            <!-- Modal Body -->
-            <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
-                <!-- Nome Input -->
-                <div>
-                    <label for="email" class="block text-sm font-medium text-[#333333]">Nome</label>
-                    <input
-                        type="text"
-                        id="email"
-                        name="email"
-                        class="mt-1 block w-full px-4 py-3 border border-[#666666] 
+                                <!-- Modal Body -->
+                                <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
+                                    <!-- Nome Input -->
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-[#333333]">Nome</label>
+                                        <input
+                                            type="text"
+                                            id="email"
+                                            name="email"
+                                            class="mt-1 block w-full px-4 py-3 border border-[#666666] 
                                rounded-lg shadow-sm focus:outline-none focus:ring-2 
                                focus:ring-[#008C45] focus:border-[#008C45]
                                transition-all duration-400"
-                        placeholder="Digite seu nome"
-                        required>
-                </div>
+                                            placeholder="Digite seu nome"
+                                            required>
+                                    </div>
 
-                <!-- Senha Input -->
-                <div>
-                    <label for="password" class="block text-sm font-medium text-[#333333]">Senha</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        class="mt-1 block w-full px-4 py-3 border border-[#666666] 
+                                    <!-- Senha Input -->
+                                    <div>
+                                        <label for="password" class="block text-sm font-medium text-[#333333]">Senha</label>
+                                        <input
+                                            type="password"
+                                            id="password"
+                                            name="password"
+                                            class="mt-1 block w-full px-4 py-3 border border-[#666666] 
                                rounded-lg shadow-sm focus:outline-none focus:ring-2 
                                focus:ring-[#008C45] focus:border-[#008C45]
                                transition-all duration-400"
-                        placeholder="Digite sua senha"
-                        required>
-                </div>
+                                            placeholder="Digite sua senha"
+                                            required>
+                                    </div>
 
-                <!-- Lembrar-me Checkbox -->
-                <div class="flex items-center">
-                    <input
-                        type="checkbox"
-                        id="remember"
-                        name="remember"
-                        class="w-5 h-5 text-[#008C45] border-[#666666] rounded 
+                                    <!-- Lembrar-me Checkbox -->
+                                    <div class="flex items-center">
+                                        <input
+                                            type="checkbox"
+                                            id="remember"
+                                            name="remember"
+                                            class="w-5 h-5 text-[#008C45] border-[#666666] rounded 
                                focus:ring-[#008C45] transition-all duration-400">
-                    <label for="remember" class="ml-2 text-sm text-[#666666]">
-                        Lembrar-me
-                    </label>
-                </div>
+                                        <label for="remember" class="ml-2 text-sm text-[#666666]">
+                                            Lembrar-me
+                                        </label>
+                                    </div>
 
-                <!-- Modal Footer -->
-                <div class="flex space-x-3 pt-4">
-                    <button
-                        type="button"
-                        id="cancelButton"
-                        class="flex-1 px-4 py-3 text-[#666666] bg-white 
+                                    <!-- Modal Footer -->
+                                    <div class="flex space-x-3 pt-4">
+                                        <button
+                                            type="button"
+                                            id="cancelButton"
+                                            class="flex-1 px-4 py-3 text-[#666666] bg-white 
                                border border-[#666666] rounded-lg hover:bg-gray-100 
                                transition-all duration-400">
-                        Cancelar
-                    </button>
-                    <button 
-                        type="submit" 
-                        class="flex-1 px-4 py-3 text-white bg-[#008C45] 
+                                            Cancelar
+                                        </button>
+                                        <button
+                                            type="submit"
+                                            class="flex-1 px-4 py-3 text-white bg-[#008C45] 
                                rounded-lg hover:bg-[#004d00] 
                                transition-all duration-400
                                shadow-[0_4px_8px_rgba(0,0,0,0.1)]">
-                        Entrar
-                    </button>
-                </div>
+                                            Entrar
+                                        </button>
+                                    </div>
 
-                <?php if (isset($_GET['erro'])) { ?>
-                    <div class="text-[#FFA500] text-center mt-4 bg-[rgba(255,165,0,0.1)] 
+                                    <?php if (isset($_GET['erro'])) { ?>
+                                        <div class="text-[#FFA500] text-center mt-4 bg-[rgba(255,165,0,0.1)] 
                               p-3 rounded-lg border border-[#FFA500]">
-                        <p class="text-sm">Email ou senha incorretos</p>
+                                            <p class="text-sm">Email ou senha incorretos</p>
+                                        </div>
+                                    <?php } ?>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                <?php } ?>
-            </form>
-        </div>
-    </div>
-</div>
-            </div>
+                </div>
         </nav>
     </header>
     <script>
@@ -971,36 +971,37 @@ $manager->lista();
                             <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome']; ?></h3>
                         </div>
                         <div class="absolute inset-0 bg-white transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                        <div class="p-4">
-                            <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
-                            <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
+                            <div class="p-4">
+                                <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
+                                <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
+                                <div class="flex flex-col items-start space-y-0" style="margin-left: 28px;">
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-users info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span style="margin-left: 12px;">Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span style="margin-left: 12px;">Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span style="margin-left: 12px;">Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-book info-icon text-ceara-green" style="font-size: 14px; margin-left: 2px;"></i>
+                                        <span style="margin-left: 14px;">Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-building info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span style="margin-left: 19px;">Escola Privada: <?php echo $dados['privada'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-wheelchair info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span style="margin-left: 14px;">PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
+                                    </div>
+                                </div>
 
-                            <div class="flex flex-col items-start space-y-0" style="margin-left: 28px;"> 
-                                <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-users info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span> 
-                                </div>
-                                <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-home info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
-                                </div>
-                                <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-home info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span> 
-                                </div>
-                                <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-book info-icon text-ceara-green" style="margin-left: 2px;"></i>
-                                    <span style="margin-left: 14px;">Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span> 
-                                </div>
-                                <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">Escola Privada: <?php echo $dados['privada'] ?? 0; ?></span>
-                                </div>
-                                <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
-                                </div>
-                            </div>
+
                             </div>
                         </div>
                     </div>
@@ -1093,48 +1094,48 @@ $manager->lista();
                     <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
                     <div class="flex gap-4">
                         <!-- Primeira coluna (3 desenvolvedores) -->
-  <ul class="space-y-2">
-            <li>
+                        <ul class="space-y-2">
+                            <li>
                                 <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
                                     class="flex items-center text-sm hover:text-orange-400 transition-colors">
                                     <i class="fab fa-instagram text-orange-400 mr-2"></i>
                                     Otavio Menezes
                                 </a>
                             </li>
-            <li>
-                <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                    Matheus Felix
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                    Lavosier Nascimento
-                </a>
-            </li>
-        </ul>
+                            <li>
+                                <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Matheus Felix
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Lavosier Nascimento
+                                </a>
+                            </li>
+                        </ul>
 
-        <!-- Segunda coluna (2 desenvolvedores) -->
-        <ul class="space-y-2">
-            <li>
-                <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                    Roger Cavalcante
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                    Pedro Uchôa
-                </a>
-            </li>
-        </ul>
+                        <!-- Segunda coluna (2 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Roger Cavalcante
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Pedro Uchôa
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
