@@ -652,8 +652,9 @@ function createEnfermagemForm(schoolType) {
             Avançar
         </button>
     </div>
-</form>
+
 <!-- Modal para Nono Ano -->
+
     <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
         <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#DC2626] p-3 rounded-t-xl">
@@ -832,7 +833,7 @@ function createEnfermagemForm(schoolType) {
     
 </div>
 
-
+</form>
 `;
 }
 
@@ -1029,8 +1030,9 @@ function createInformaticaForm(schoolType) {
                     </button>
                 </div>
 
-</form>
+
 <!-- Modal para Nono Ano -->
+
        <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
         <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#4a90e2] p-3 rounded-t-xl">
@@ -1208,7 +1210,7 @@ function createInformaticaForm(schoolType) {
     </div>
     
 </div>
-
+</form>
 
 `;
 }
@@ -1369,8 +1371,9 @@ function createAdministracaoForm(schoolType) {
                     </button>
                 </div>
                 
-</form>
+
 <!-- Modal para Nono Ano -->
+
       <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
         <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#008000] p-3 rounded-t-xl">
@@ -1553,7 +1556,7 @@ function createAdministracaoForm(schoolType) {
     </div>
     
 </div>
-
+<form>
 
 `;
 }
@@ -1715,7 +1718,6 @@ function createEdificacoesForm(schoolType) {
                     </button>
                 </div>
                 
-</form>
 <!-- Modal para Nono Ano -->
   <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
         <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
@@ -1895,7 +1897,7 @@ function createEdificacoesForm(schoolType) {
     
 </div>
 
-
+<form>
 `;
 }
 

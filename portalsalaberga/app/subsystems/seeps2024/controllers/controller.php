@@ -1,6 +1,10 @@
 <?php
 
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 //cadastro
+
 function virg($num)
 {
     if (count(explode(',', $num)) > 0) {
@@ -68,8 +72,6 @@ switch ($_POST['bairro']) {
         break;
 };
 
-//Variável para dividir as notas de Ed Física
-
 
 //6° ano
 
@@ -127,22 +129,84 @@ $hi8 = virg($_POST['h8']);
 $re8 = virg($_POST['r8']);
 
 //9° ano
-if(!isset($_POST['ef9'])){
-    $ef9 = 1;
+
+//1 bimestre
+if(!isset($_POST['ef9_1'])){
+    $ef9_1 = 1;
 
 } else {
-    $ef9 = $_POST['ef9'];
+    $ef9_1 = $_POST['ef9_1'];
 }
+$lp9_1 = virg($_POST['lp9_1']);
+$m9_1 = virg($_POST['m9_1']);
+$h9_1 = virg($_POST['h9_1']);
+$g9_1 = virg($_POST['g9_1']);
+$c9_1 = virg($_POST['c9_1']);
+$i9_1 = virg($_POST['i9_1']);
+$a9_1 = virg($_POST['a9_1']);
+$r9_1 = virg($_POST['r9_1']);
 
+//2 bimestre
+if(!isset($_POST['ef9_2'])){
+    $ef9_2 = 1;
 
-$lp9 = virg($_POST['lp9']);
-$ar9 = virg($_POST['a9']);
-$li9 = virg($_POST['i9']);
-$ma9 = virg($_POST['m9']);
-$ci9 = virg($_POST['c9']);
-$ge9 = virg($_POST['g9']);
-$hi9 = virg($_POST['h9']);
-$re9 = virg($_POST['r9']);
+} else {
+    $ef9_2 = $_POST['ef9_2'];
+}
+$lp9_2 = virg($_POST['lp9_2']);
+$m9_2 = virg($_POST['m9_2']);
+$h9_2 = virg($_POST['h9_2']);
+$g9_2 = virg($_POST['g9_2']);
+$c9_2 = virg($_POST['c9_2']);
+$i9_2 = virg($_POST['i9_2']);
+$a9_2 = virg($_POST['a9_2']);
+$ef9_2 = virg($_POST['ef9_2']);
+$r9_2 = virg($_POST['r9_2']);
+
+//3 bimestre
+if(!isset($_POST['ef9_3'])){
+    $ef9_3 = 1;
+
+} else {
+    $ef9_3 = $_POST['ef9_3'];
+}
+$lp9_3 = virg($_POST['lp9_3']);
+$m9_3 = virg($_POST['m9_3']);
+$h9_3 = virg($_POST['h9_3']);
+$g9_3 = virg($_POST['g9_3']);
+$c9_3 = virg($_POST['c9_3']);
+$i9_3 = virg($_POST['i9_3']);
+$a9_3 = virg($_POST['a9_3']);
+$ef9_3 = virg($_POST['ef9_3']);
+$r9_3 = virg($_POST['r9_3']);
+
+//4 bimestre
+if(!isset($_POST['ef9_4'])){
+    $ef9_4 = 1;
+
+} else {
+    $ef9_4 = $_POST['ef9_4'];
+}
+$lp9_4 = virg($_POST['lp9_4']);
+$m9_4 = virg($_POST['m9_4']);
+$h9_4 = virg($_POST['h9_4']);
+$g9_4 = virg($_POST['g9_4']);
+$c9_4 = virg($_POST['c9_4']);
+$i9_4 = virg($_POST['i9_4']);
+$a9_4 = virg($_POST['a9_4']);
+$ef9_4 = virg($_POST['ef9_4']);
+$r9_4 = virg($_POST['r9_4']);
+
+//media das materias do nono ano
+$ef9 = ((float)$ef9_1 + (float)$ef9_2 + (float)$ef9_3 + (float)$ef9_4) / 4;
+$lp9 = ($lp9_1 + $lp9_2 + $lp9_3 + $lp9_4) / 4;
+$ma9 = ($m9_1 + $m9_2 + $m9_3 + $m9_4) / 4;
+$hi9 = ($h9_1 + $h9_2 + $h9_3 + $h9_4) / 4;
+$ge9 = ($g9_1 + $g9_2 + $g9_3 + $g9_4) / 4;
+$ci9 = ($c9_1 + $c9_2 + $c9_3 + $c9_4) / 4;
+$li9 = ($i9_1 + $i9_2 + $i9_3 + $i9_4) / 4;
+$ar9 = ($a9_1 + $a9_2 + $a9_3 + $a9_4) / 4;
+$re9 = ($r9_1 + $r9_2 + $r9_3 + $r9_4) / 4;
 
 //Média de todos os anos
 $ef = ((float)$ef6 + (float)$ef7 + (float)$ef8 + (float)$ef9) / 4;
@@ -154,10 +218,6 @@ $ci = ($ci6 + $ci7 + $ci8 + $ci9) / 4;
 $ge = ($ge6 + $ge7 + $ge8 + $ge9) / 4;
 $hi = ($hi6 + $hi7 + $hi8 + $hi9) / 4;
 $re = ($re6 + $re7 + $re8 + $re9) / 4;
-
-
-echo '</br>Média em ed Física foi</br>' . $ef;
-
 
 $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
