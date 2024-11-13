@@ -655,7 +655,7 @@ function createEnfermagemForm(schoolType) {
 </form>
 <!-- Modal para Nono Ano -->
     <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white rounded-lg p-6 w-[70%]">
+        <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#DC2626] p-3 rounded-t-xl">
         <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Notas 9º ano</h2>
     </div>
@@ -1031,8 +1031,8 @@ function createInformaticaForm(schoolType) {
 
 </form>
 <!-- Modal para Nono Ano -->
-    <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white rounded-lg p-6 w-[70%]">
+       <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#4a90e2] p-3 rounded-t-xl">
         <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Notas 9º ano</h2>
     </div>
@@ -1218,7 +1218,7 @@ function createAdministracaoForm(schoolType) {
 <form id="AdministracaoForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
     <!-- Cabeçalho -->
     <div class="bg-[#008000] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Administrãao</h2>
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Administração</h2>
     </div>
 
     <!-- Informações Pessoais -->
@@ -1371,8 +1371,8 @@ function createAdministracaoForm(schoolType) {
                 
 </form>
 <!-- Modal para Nono Ano -->
-    <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white rounded-lg rounded-xl w-[70%]">
+      <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#008000] p-3 rounded-t-xl">
         <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Notas 9º ano</h2>
     </div>
@@ -1717,8 +1717,8 @@ function createEdificacoesForm(schoolType) {
                 
 </form>
 <!-- Modal para Nono Ano -->
-    <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white rounded-lg p-6 w-[70%]">
+  <div id="bimestreModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white rounded-lg rounded-xl w-[70%]" style = "margin-top: -50px">
          <div class="bg-[#4a4a4a] p-3 rounded-t-xl">
         <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Notas 9º ano</h2>
     </div>
