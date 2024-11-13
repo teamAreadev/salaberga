@@ -75,9 +75,8 @@ switch ($_POST['bairro']) {
 
 //6° ano
 
-if(!isset($_POST['ef6'])){
+if (!isset($_POST['ef6'])) {
     $ef6 = 1;
-
 } else {
     $ef6 = $_POST['ef6'];
 }
@@ -92,9 +91,8 @@ $hi6 = virg($_POST['h6']);
 $re6 = virg($_POST['r6']);
 
 //7° ano
-if(!isset($_POST['ef7'])){
+if (!isset($_POST['ef7'])) {
     $ef7 = 1;
-
 } else {
     $ef7 = $_POST['ef7'];
 }
@@ -111,9 +109,8 @@ $re7 = virg($_POST['r7']);
 
 //8° ano
 
-if(!isset($_POST['ef8'])){
+if (!isset($_POST['ef8'])) {
     $ef8 = 1;
-
 } else {
     $ef8 = $_POST['ef8'];
 }
@@ -131,9 +128,8 @@ $re8 = virg($_POST['r8']);
 //9° ano
 
 //1 bimestre
-if(!isset($_POST['ef9_1'])){
+if (!isset($_POST['ef9_1'])) {
     $ef9_1 = 1;
-
 } else {
     $ef9_1 = $_POST['ef9_1'];
 }
@@ -147,9 +143,8 @@ $a9_1 = virg($_POST['a9_1']);
 $r9_1 = virg($_POST['r9_1']);
 
 //2 bimestre
-if(!isset($_POST['ef9_2'])){
+if (!isset($_POST['ef9_2'])) {
     $ef9_2 = 1;
-
 } else {
     $ef9_2 = $_POST['ef9_2'];
 }
@@ -164,9 +159,8 @@ $ef9_2 = virg($_POST['ef9_2']);
 $r9_2 = virg($_POST['r9_2']);
 
 //3 bimestre
-if(!isset($_POST['ef9_3'])){
+if (!isset($_POST['ef9_3'])) {
     $ef9_3 = 1;
-
 } else {
     $ef9_3 = $_POST['ef9_3'];
 }
@@ -181,9 +175,8 @@ $ef9_3 = virg($_POST['ef9_3']);
 $r9_3 = virg($_POST['r9_3']);
 
 //4 bimestre
-if(!isset($_POST['ef9_4'])){
+if (!isset($_POST['ef9_4'])) {
     $ef9_4 = 1;
-
 } else {
     $ef9_4 = $_POST['ef9_4'];
 }
@@ -219,8 +212,13 @@ $ge = ($ge6 + $ge7 + $ge8 + $ge9) / 4;
 $hi = ($hi6 + $hi7 + $hi8 + $hi9) / 4;
 $re = ($re6 + $re7 + $re8 + $re9) / 4;
 
-$media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
+if ($ef == 0) {
 
+    $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8;
+} else {
+
+    $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
+}
 
 require_once('../models/model.php');
 $model = new model_usuario();
