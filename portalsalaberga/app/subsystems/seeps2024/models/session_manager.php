@@ -32,6 +32,12 @@ class manager extends connect
             $stmt->execute([$curso]);
             $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
             $dadosCurso['bairro_privada'] = $resultado['total'];
+            
+            // Escola Privada
+            $stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato WHERE publica = '0' AND id_curso1_fk = ?");
+            $stmt->execute([$curso]);
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            $dadosCurso['privada'] = $resultado['total'];
 
             // Escola Pública
             $stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato WHERE publica = '1' AND id_curso1_fk = ?");

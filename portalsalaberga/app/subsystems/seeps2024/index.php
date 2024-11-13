@@ -994,6 +994,10 @@ $manager->lista();
                                 </div>
                                 <div class="info-text" style="display: flex; align-items: center;">
                                     <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
+                                    <span style="margin-left: 12px;">Escola Privada: <?php echo $dados['privada'] ?? 0; ?></span>
+                                </div>
+                                <div class="info-text" style="display: flex; align-items: center;">
+                                    <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
                                     <span style="margin-left: 12px;">PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
                                 </div>
                             </div>
