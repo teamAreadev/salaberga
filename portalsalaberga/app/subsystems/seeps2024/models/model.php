@@ -1,7 +1,9 @@
 <?php
 
+//requerindo o arquivo connect.php
 require_once('../config/connect.php');
 
+//criando a class model_usuario sendo herdada da class connect
 class model_usuario extends connect
 {
 
@@ -26,6 +28,7 @@ class model_usuario extends connect
     function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
     {
 
+        //inserido na tabela candidato os dados do candidato
         $result_cadastrar_candidato = $this->connect->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
         $result_cadastrar_candidato->bindValue(':nome', $nome);
         $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
@@ -34,9 +37,9 @@ class model_usuario extends connect
         $result_cadastrar_candidato->bindValue(':bairro', $bairro);
         $result_cadastrar_candidato->bindValue(':publica', $publica);
         $result_cadastrar_candidato->bindValue(':pcd', $pcd);
-
         $result_cadastrar_candidato->execute();
 
+        //procurando na tabela candidato o nome do candidato
         $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
         $result_check_id->bindValue(':nome', $nome);
         $result_check_id->execute();
@@ -46,6 +49,7 @@ class model_usuario extends connect
             $id_candidato = $x['id_candidato'];
         }
 
+        //inserindo na tabela nota, as notas do candidato cadastrado
         $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, :educacao_fisica, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
         $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
         $result_cadastrar_nota->BindValue(':arte', $ar);
@@ -75,22 +79,26 @@ class model_usuario extends connect
     function logar($email, $password)
     {
 
+        //verificando se os dados estão no sistema 
         $result_logar = $this->connect->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
         $result_logar->bindValue(':email', $email);
         $result_logar->bindValue(':senha', $password);
         $result_logar->execute();
 
+        //se for o result_logar for maior que 0
         if ($result_logar->rowCount() > 0) {
 
             return "certo";
         } else {
 
+            //se nao
             return "erro";
         }
     }
 
     public function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
     {
+        //atualizando as notas do candidato
         $consulta = $this->connect->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;");
 
         $consulta->BindValue(':l_portuguesa', $lp);

@@ -1,5 +1,7 @@
 <?php
-
+//requerindo o arquivo model.php
+require_once('../models/model.php');
+//função para transforma todos os numeros que tem virgula em número
 function virg($num)
 {
   if (count(explode(',', $num)) > 0) {
@@ -8,6 +10,7 @@ function virg($num)
   return $num;
 }
 
+//criando as variaveis com as função virg
 $id = $_POST['id'];
 
 $lp = virg($_POST['lp']);
@@ -20,7 +23,10 @@ $ge = virg($_POST['ge']);
 $hi = virg($_POST['hi']);
 $re = virg($_POST['re']);
 
+//fazendo a media de todas as notas
 $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
-$cand = new candidato();
+//criando o objeto cand
+$cand = new model_usuario();
+//chamando a função atualizar
 $cand->atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id);

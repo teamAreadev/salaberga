@@ -1,9 +1,13 @@
 <?php
+
+//requerindo o arquivo connect.php
 require_once('config/connect.php');
 session_start();
 
+//criando a class manager sendo herdada da class connect
 class manager extends connect
 {
+    //metodos 
     function lista()
     {
         for ($curso = 1; $curso <= 4; $curso++) {
