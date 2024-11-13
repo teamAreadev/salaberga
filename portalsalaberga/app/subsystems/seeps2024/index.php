@@ -12,7 +12,7 @@ $manager->lista();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>seesp</title>
+       <title>SS - Salaberga Seleciona </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,7 +26,7 @@ $manager->lista();
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/05hkk8xc/LOGO-new.png">
+   <link rel="shortcut icon" href="../seeps2024/assets/images/logo.png" type="image/x-icon">
 </head>
 
 <script>
@@ -989,8 +989,8 @@ $manager->lista();
                                     <span style="margin-left: 12px;">Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span> 
                                 </div>
                                 <div class="info-text" style="display: flex; align-items: center;">
-                                    <i class="fas fa-book info-icon text-ceara-green"></i>
-                                    <span style="margin-left: 12px;">Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span> 
+                                    <i class="fas fa-book info-icon text-ceara-green" style="margin-left: 2px;"></i>
+                                    <span style="margin-left: 14px;">Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span> 
                                 </div>
                                 <div class="info-text" style="display: flex; align-items: center;">
                                     <i class="fas fa-wheelchair info-icon text-ceara-green"></i>
