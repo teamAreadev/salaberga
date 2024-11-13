@@ -24,15 +24,15 @@ switch ($_POST['curso']) {
 
         $c1 = 1;
         break;
-    case 'Informática':
+    case 'Informatica':
 
         $c1 = 2;
         break;
-    case 'Administração':
+    case 'Administracao':
 
         $c1 = 3;
         break;
-    case 'Edificações':
+    case 'Edificacoes':
 
         $c1 = 4;
         break;
@@ -52,9 +52,17 @@ switch ($_POST['publica']) {
 
 
 $c2 = 1;
-$bairro = $_POST['bairro'];
+switch ($_POST['bairro']) {
 
+    case 'Outros Bairros':
 
+        echo $bairro = '0';
+        break;
+    case 'Outra Banda':
+
+        echo $bairro = '1';
+        break;
+};
 
 $lp6 = virg($_POST['lp6']);
 $ar6 = virg($_POST['a6']);
