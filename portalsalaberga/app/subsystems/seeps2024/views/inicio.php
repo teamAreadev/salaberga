@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEEPS - Sistema de Ensino</title>
+      <title>SS - Salaberga Selecione </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../assets/theme/js/modal.js"></script>
     <script src="../assets/theme/js/sidebar.js"></script>
+      <link rel="shortcut icon" href="../../seeps2024/assets/images/logo.png" type="image/x-icon">
 
     <script>
         tailwind.config = {
@@ -561,55 +562,55 @@
                     </div>
                 </div>
 
-                <!-- Desenvolvedores -->
-                <div class="p-2">
+            <div class="p-2">
                     <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
                     <div class="flex gap-4">
                         <!-- Primeira coluna (3 desenvolvedores) -->
-                        <ul class="space-y-2">
-                            <li>
+  <ul class="space-y-2">
+            <li>
                                 <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
                                     class="flex items-center text-sm hover:text-orange-400 transition-colors">
                                     <i class="fab fa-instagram text-orange-400 mr-2"></i>
                                     Otavio Menezes
                                 </a>
                             </li>
-                            <li>
-                                <a href="https://www.instagram.com/mth_fl/" target="_blank" rel="noopener noreferrer"
-                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
-                                    Matheus Felix
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/lvnas._/" target="_blank" rel="noopener noreferrer"
-                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
-                                    Lavosier Nascimento
-                                </a>
-                            </li>
-                        </ul>
+            <li>
+                <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                    Matheus Felix
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                    Lavosier Nascimento
+                </a>
+            </li>
+        </ul>
 
-                        <!-- Segunda coluna (2 desenvolvedores) -->
-                        <ul class="space-y-2">
-                            <li>
-                                <a href="https://www.instagram.com/rogercavalcantetz/" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
-                                    Roger Cavalcante
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/p_.uchoa/" target="_blank" rel="noopener noreferrer"
-                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
-                                    Pedro Uchôa
-                                </a>
-                            </li>
-                        </ul>
+        <!-- Segunda coluna (2 desenvolvedores) -->
+        <ul class="space-y-2">
+            <li>
+                <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                    Roger Cavalcante
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                    Pedro Uchôa
+                </a>
+            </li>
+        </ul>
                     </div>
                 </div>
+            </div>
             </div>
 
             <!-- Copyright -->
