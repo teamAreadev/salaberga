@@ -761,7 +761,7 @@ function createEnfermagemForm(schoolType) {
                         <input type="text" name="a9_3" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rotext-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
                     </div>
                     <div>
                         <input type="text" name="r9_3" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
@@ -776,31 +776,31 @@ function createEnfermagemForm(schoolType) {
                         <h3 class="text-base font-semibold text-[#DC2626] mb-2 pb-1 border-b">4º Bimestre</h3>
                     </div>
                     <div>
-                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
                         <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                 </div>
             </div>
@@ -1146,37 +1146,37 @@ function createInformaticaForm(schoolType) {
             </div>
 
             <!-- 4º Bimestre -->
-            <div class="mb-4">
+           <div class="mb-4">
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2">
                     <div>
-                        <h3 class="text-base font-semibold text-[#4a90e2] mb-2 pb-1 border-b">4º Bimestre</h3>
+                        <h3 class="text-base font-semibold text-[#DC2626] mb-2 pb-1 border-b">4º Bimestre</h3>
                     </div>
                     <div>
-                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a90e2] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                 </div>
             </div>
@@ -1486,34 +1486,34 @@ function createAdministracaoForm(schoolType) {
             <div class="mb-4">
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2">
                     <div>
-                        <h3 class="text-base font-semibold text-[#008000] mb-2 pb-1 border-b">4º Bimestre</h3>
+                        <h3 class="text-base font-semibold text-[#DC2626] mb-2 pb-1 border-b">4º Bimestre</h3>
                     </div>
                     <div>
-                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                 </div>
             </div>
@@ -1821,37 +1821,37 @@ function createEdificacoesForm(schoolType) {
             </div>
 
             <!-- 4º Bimestre -->
-            <div class="mb-4">
+<div class="mb-4">
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2">
                     <div>
-                        <h3 class="text-base font-semibold text-[#4a4a4a] mb-2 pb-1 border-b">4º Bimestre</h3>
+                        <h3 class="text-base font-semibold text-[#DC2626] mb-2 pb-1 border-b">4º Bimestre</h3>
                     </div>
                     <div>
-                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="lp9_4" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="m9_4" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="h9_4" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="g9_4" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="c9_4" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="i9_4" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="a9_4" placeholder="ARTES" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                     <input type="text" name="ef9_4" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-xs" required oninput="maskNota(this)">
+                        <input type="text" name="r9_4" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-xs" oninput="maskNota(this)">
                     </div>
                 </div>
             </div>
