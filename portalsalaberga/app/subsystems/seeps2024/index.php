@@ -979,21 +979,22 @@ $manager->lista();
                                         <i class="fas fa-users info-icon text-ceara-green" style="font-size: 14px;"></i>
                                         <span style="margin-left: 12px;">Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span>
                                     </div>
+                                    
                                     <div class="info-text" style="display: flex; align-items: center;">
                                         <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                        <span style="margin-left: 12px;">Cota Bairro Pública: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
-                                    </div>
-                                    <div class="info-text" style="display: flex; align-items: center;">
-                                        <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                        <span style="margin-left: 12px;">Cota Bairro Privada: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
+                                        <span style="margin-left: 12px;">Pública - AC: <?php echo $dados['Pública'] ?? 0; ?></span>
                                     </div>
                                     <div class="info-text" style="display: flex; align-items: center;">
                                         <i class="fas fa-book info-icon text-ceara-green" style="font-size: 14px; margin-left: 2px;"></i>
-                                        <span style="margin-left: 14px;">Cota Escola Pública: <?php echo $dados['publica'] ?? 0; ?></span>
+                                        <span style="margin-left: 14px;"> Pública - COTA: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
                                     </div>
                                     <div class="info-text" style="display: flex; align-items: center;">
                                         <i class="fas fa-building info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                        <span style="margin-left: 19px;">Escola Privada: <?php echo $dados['privada'] ?? 0; ?></span>
+                                        <span style="margin-left: 19px;">Privada - AC: <?php echo $dados['privada'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="info-text" style="display: flex; align-items: center;">
+                                        <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span style="margin-left: 12px;">Privada - COTA: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
                                     </div>
                                     <div class="info-text" style="display: flex; align-items: center;">
                                         <i class="fas fa-wheelchair info-icon text-ceara-green" style="font-size: 14px;"></i>
