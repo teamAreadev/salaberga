@@ -227,10 +227,18 @@ if (isset($_POST['a9_4']) && !empty($_POST['a9_4'])) {
     // Ação caso 'a9_4' não esteja definido ou esteja vazio
     $a9_4 = 1;
 }
+
+if (isset($_POST['ef9_4']) && !empty($_POST['ef9_4'])) {
+    $ef9_4 = virg($_POST['ef9_4']);
+} else {
+    // Ação caso 'ef9_4' não esteja definido ou esteja vazio
+    $ef9_4 = 1;
+}
+
 if (isset($_POST['r9_4']) && !empty($_POST['r9_4'])) {
     $r9_4 = virg($_POST['r9_4']);
-    $r9_4 = 1;
 } else {
+    $r9_4 = 1;
 }
 
 
