@@ -155,7 +155,6 @@ $g9_2 = virg($_POST['g9_2']);
 $c9_2 = virg($_POST['c9_2']);
 $i9_2 = virg($_POST['i9_2']);
 $a9_2 = virg($_POST['a9_2']);
-$ef9_2 = virg($_POST['ef9_2']);
 $r9_2 = virg($_POST['r9_2']);
 
 //3 bimestre
@@ -171,7 +170,6 @@ $g9_3 = virg($_POST['g9_3']);
 $c9_3 = virg($_POST['c9_3']);
 $i9_3 = virg($_POST['i9_3']);
 $a9_3 = virg($_POST['a9_3']);
-$ef9_3 = virg($_POST['ef9_3']);
 $r9_3 = virg($_POST['r9_3']);
 
 //4 bimestre
@@ -180,15 +178,61 @@ if (!isset($_POST['ef9_4'])) {
 } else {
     $ef9_4 = $_POST['ef9_4'];
 }
-$lp9_4 = virg($_POST['lp9_4']);
-$m9_4 = virg($_POST['m9_4']);
-$h9_4 = virg($_POST['h9_4']);
-$g9_4 = virg($_POST['g9_4']);
-$c9_4 = virg($_POST['c9_4']);
-$i9_4 = virg($_POST['i9_4']);
-$a9_4 = virg($_POST['a9_4']);
-$ef9_4 = virg($_POST['ef9_4']);
-$r9_4 = virg($_POST['r9_4']);
+
+if (isset($_POST['lp9_4']) && !empty($_POST['lp9_4'])) {
+    $lp9_4 = virg($_POST['lp9_4']);
+} else {
+    // Ação caso 'lp9_4' não esteja definido ou esteja vazio
+    $lp9_4 = 1;
+}
+
+if (isset($_POST['m9_4']) && !empty($_POST['m9_4'])) {
+    $m9_4 = virg($_POST['m9_4']);
+} else {
+    // Ação caso 'm9_4' não esteja definido ou esteja vazio
+    $m9_4 = 1;
+}
+
+if (isset($_POST['h9_4']) && !empty($_POST['h9_4'])) {
+    $h9_4 = virg($_POST['h9_4']);
+} else {
+    // Ação caso 'h9_4' não esteja definido ou esteja vazio
+    $h9_4 = 1;
+}
+
+if (isset($_POST['g9_4']) && !empty($_POST['g9_4'])) {
+    $g9_4 = virg($_POST['g9_4']);
+} else {
+    // Ação caso 'g9_4' não esteja definido ou esteja vazio
+    $g9_4 = 1;
+}
+
+if (isset($_POST['c9_4']) && !empty($_POST['c9_4'])) {
+    $c9_4 = virg($_POST['c9_4']);
+} else {
+    // Ação caso 'c9_4' não esteja definido ou esteja vazio
+    $c9_4 = 1;
+}
+
+if (isset($_POST['i9_4']) && !empty($_POST['i9_4'])) {
+    $i9_4 = virg($_POST['i9_4']);
+} else {
+    // Ação caso 'i9_4' não esteja definido ou esteja vazio
+    $i9_4 = 1;
+}
+
+if (isset($_POST['a9_4']) && !empty($_POST['a9_4'])) {
+    $a9_4 = virg($_POST['a9_4']);
+} else {
+    // Ação caso 'a9_4' não esteja definido ou esteja vazio
+    $a9_4 = 1;
+}
+if (isset($_POST['r9_4']) && !empty($_POST['r9_4'])) {
+    $r9_4 = virg($_POST['r9_4']);
+    $r9_4 = 1;
+} else {
+}
+
 
 //media das materias do nono ano
 $ef9 = ((float)$ef9_1 + (float)$ef9_2 + (float)$ef9_3 + (float)$ef9_4) / 4;
