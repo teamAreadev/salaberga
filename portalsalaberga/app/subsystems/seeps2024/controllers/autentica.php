@@ -19,7 +19,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email'
         //caso a variavel fosse igual a certo
         case 'certo':
 
-            header('location:../views/inicio2.php');
+            header('location:../views/inicio.php');
             break;
 
         //caso a variavel fosse igual a erro
