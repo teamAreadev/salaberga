@@ -49,9 +49,9 @@
 
     function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
     {
-
+        require_once('../config/connect.php');
         //inserido na tabela candidato os dados do candidato
-        $result_cadastrar_candidato = $this->connect->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+        $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
         $result_cadastrar_candidato->bindValue(':nome', $nome);
         $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
         $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
@@ -62,7 +62,7 @@
         $result_cadastrar_candidato->execute();
 
         //procurando na tabela candidato o nome do candidato
-        $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
+        $result_check_id = $conexao->prepare("SELECT * FROM candidato WHERE nome = :nome");
         $result_check_id->bindValue(':nome', $nome);
         $result_check_id->execute();
         $dados = $result_check_id->fetchAll();
@@ -72,7 +72,7 @@
         }
 
         //inserindo na tabela nota, as notas do candidato cadastrado
-        $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
+        $result_cadastrar_nota = $conexao->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
         $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
         $result_cadastrar_nota->BindValue(':arte', $ar);
      

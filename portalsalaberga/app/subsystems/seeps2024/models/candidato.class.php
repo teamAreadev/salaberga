@@ -1,11 +1,11 @@
 <?php
 
 require_once('config/connect');
-class Candidato extends connect
-{
 
-	public function pesquisarCotas()
+
+	 function pesquisarCotas()
 	{
+			require_once('config/connect');
 			// Iniciar a sessão
 
 			session_start();
@@ -22,35 +22,35 @@ class Candidato extends connect
 				$dadosCurso = [];
 
 				// 1. PCD
-				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $conexao->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE pcd = 1 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['pcd'] = $resultado['total'];
 
 				// 2. Bairro e Escola Pública
-				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $conexao->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE bairro = 1 AND publica = 1 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['bairropublica'] = $resultado['total'];
 
 				// 3. Bairro e Escola Privada
-				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $conexao->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE bairro = 1 AND publica = 0 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['bairroprivada'] = $resultado['total'];
 
 				// 4. Total do curso
-				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $conexao->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 				$dadosCurso['total'] = $resultado['total'];
 
 				// 5. Escola Pública
-				$stmt = $this->connect->prepare("SELECT COUNT(*) as total FROM candidato 
+				$stmt = $conexao->prepare("SELECT COUNT(*) as total FROM candidato 
 									 WHERE publica = 1 AND id_curso1_fk = ?");
 				$stmt->execute([$curso]);
 				$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -62,12 +62,11 @@ class Candidato extends connect
 	}
 
 
-	public function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
+	 function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
 	{
 
 		try {
-			$pdo = new PDO("mysql:host=localhost;dbname=u750204740_seeps", "u750204740_seeps", "Gl311426!@##");
-			//$pdo = new PDO("mysql:host=localhost;dbname=selecao_2023","root","");
+			require_once('config/connect');
 
 			$sql = "UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;";
 			$consulta = $pdo->prepare($sql);
@@ -104,7 +103,7 @@ class Candidato extends connect
 
 
 
-	public function relatorio($c, $p)
+	 function relatorio($c, $p)
 	{
 		try {
 			$pdo = new PDO("mysql:host=localhost;dbname=u750204740_seeps", "u750204740_seeps", "Gl311426!@##");
@@ -205,4 +204,4 @@ class Candidato extends connect
 			echo $erro;
 		}
 	}
-}
+
