@@ -402,7 +402,7 @@
                                 </button>
                             </li>
                             <li>
-                                <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <a href="../index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                     </svg>
@@ -554,7 +554,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 <!-- Identificação Institucional -->
                 <div class="p-2">
-                    <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">Salaberga Seleciona</h4>
                     <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
                     <div class="flex gap-3">
                         <a aria-label="Facebook" target="_blank" rel="noopener noreferrer"
@@ -579,11 +579,12 @@
                             eeepsantaritama@gmail.com
                         </a>
                         <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
-                            <i class="fas fa-phone-alt mr-2"></i>
+                        <i class="fas fa-phone-alt mr-2"></i>
                             (85) 3101-2100
                         </a>
                     </div>
                 </div>
+
 
             <div class="p-2">
                     <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
@@ -638,7 +639,7 @@
 
             <!-- Copyright -->
             <div class="border-t border-white/10 pt-3 text-center text-xs">
-                <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
+                <p>&copy; 2024 SS - Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
