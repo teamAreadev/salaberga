@@ -970,8 +970,8 @@ function createInformaticaForm(schoolType) {
 </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Informatica" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Informatica">
+            <input type="text" name="curso" value="Informática" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Informática">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1310,8 +1310,8 @@ function createAdministracaoForm(schoolType) {
 </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Administracao" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Administracao">
+            <input type="text" name="curso" value="Administração" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Administração">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1657,8 +1657,8 @@ function createEdificacoesForm(schoolType) {
 </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Edificacoes" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Edificacoes">
+            <input type="text" name="curso" value="Edificações" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Edificações">
         </div>
 
         <div class="flex flex-col md:col-span-1">
