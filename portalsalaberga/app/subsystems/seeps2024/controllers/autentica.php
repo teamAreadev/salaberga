@@ -11,9 +11,9 @@ if (isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email'
     $password = $_POST['password'];
 
     //criando o objeto model
-    $model = new model_usuario;
+
     //criando a variavel test para chamar a função logar
-    $test = $model->logar($email, $password);
+    $test = logar($email, $password);
 
     switch ($test) {
         //caso a variavel fosse igual a certo

@@ -1,5 +1,5 @@
 <?php
-function classificadosEnfermagem()
+function publicaGeral()
 {
     require_once('../../config/connect.php');
     $stmtSelect = $conexao->prepare("
@@ -20,7 +20,7 @@ function classificadosEnfermagem()
     $pdf->SetFont('Arial', 'B', 25);
     $pdf->Cell(185, 10, ('PUBLICA GERAL'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
-    $pdf->Cell(320, 0, ('PCD = PESSOA COM DEFICIENCIA'), 0, 1, 'C');
+    $pdf->Cell(321, 0, ('PCD = PESSOA COM DEFICIENCIA'), 0, 1, 'C');
     $pdf->Cell(315, -10, ('AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->Cell( 332, 0, ('COTISTA = INCLUSO NA COTA DO BAIRRO'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
@@ -94,4 +94,4 @@ function classificadosEnfermagem()
     $pdf->Output('classificacao.pdf', 'I');
 }
 
-classificadosEnfermagem();
+publicaGeral();
