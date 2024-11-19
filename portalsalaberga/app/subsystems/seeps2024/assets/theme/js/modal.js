@@ -5,16 +5,6 @@ function showReportsModal() {
         html: `
     <div class="p-4">
         <div class="mb-4">
-          
-            <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-                <option value="">Selecione um curso</option>
-                <option value="Enfermagem">Enfermagem</option>
-                <option value="Informática">Informática</option>
-                <option value="Administração">Administração</option>
-                <option value="Edificações">Edificações</option>
-            </select>
-        </div>
-        <div class="mb-4">
             
             <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
                 <option value="">Selecione um tipo</option>
