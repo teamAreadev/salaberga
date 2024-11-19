@@ -554,7 +554,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 <!-- Identificação Institucional -->
                 <div class="p-2">
-                    <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">Salaberga Seleciona</h4>
                     <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
                     <div class="flex gap-3">
                         <a aria-label="Facebook" target="_blank" rel="noopener noreferrer"
@@ -579,11 +579,12 @@
                             eeepsantaritama@gmail.com
                         </a>
                         <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
-                            <i class="fas fa-phone-alt mr-2"></i>
+                        <i class="fas fa-phone-alt mr-2"></i>
                             (85) 3101-2100
                         </a>
                     </div>
                 </div>
+
 
             <div class="p-2">
                     <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
@@ -638,7 +639,7 @@
 
             <!-- Copyright -->
             <div class="border-t border-white/10 pt-3 text-center text-xs">
-                <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
+                <p>&copy; 2024 SS - Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
