@@ -104,7 +104,6 @@ class model_usuario extends connect
         $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
         $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
         $result_cadastrar_nota->BindValue(':arte', $ar);
-     
         $result_cadastrar_nota->BindValue(':l_inglesa', $li);
         $result_cadastrar_nota->BindValue(':matematica', $ma);
         $result_cadastrar_nota->BindValue(':ciencias', $ci);

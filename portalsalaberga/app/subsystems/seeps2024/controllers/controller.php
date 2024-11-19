@@ -27,15 +27,15 @@ switch ($_POST['curso']) {
 
         $c1 = 1;
         break;
-    case 'Informatica':
+    case 'Informática':
 
         $c1 = 2;
         break;
-    case 'Administracao':
+    case 'Administração':
 
         $c1 = 3;
         break;
-    case 'Edificacoes':
+    case 'Edificações':
 
         $c1 = 4;
         break;
@@ -278,7 +278,7 @@ if ($ef == 0) {
     $test = $model->cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 } else {
 
-    $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
+    $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9 ;
 
     require_once('../models/model.php');
     $model = new model_usuario();
