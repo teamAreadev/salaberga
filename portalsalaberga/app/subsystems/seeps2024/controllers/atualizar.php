@@ -26,7 +26,5 @@ $re = virg($_POST['re']);
 //fazendo a media de todas as notas
 $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
-//criando o objeto cand
-$cand = new model_usuario();
 //chamando a função atualizar
 $cand->atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id);

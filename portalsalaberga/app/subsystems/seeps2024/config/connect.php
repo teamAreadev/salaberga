@@ -1,29 +1,14 @@
-<?php 
+<?php
 
-define('HOST', 'localhost');
-define('DATABASE', 'ss');
-define('USER', 'root');
-define('PASSWORD', '');
+$dsn = 'mysql:host=localhost;dbname=ss';
+$username = "root";
+$password = "";
 
-class connect{
-
-    protected $connect;
-
-    function __construct(){
-
-        $this->connect_database();
-    }
-
-    function connect_database(){
-
-        try{
-            $this->connect = new PDO('mysql:host='.HOST.';dbname='.DATABASE, USER, PASSWORD);
-
-        }catch(PDOException $e){
-
-            echo "Erro ao se conectar com o banco de dados". $e->getMessage();
-            die();
-        }
-    }
+try {
+    $conexao = new PDO($dsn, $username, $password);
+    
+} catch (PDOException $exception) {
+    echo "Connection error: " . $exception->getMessage();
 }
+
 ?>

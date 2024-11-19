@@ -1,35 +1,16 @@
 <?php
 
 //requerindo o arquivo connect.php
-require_once('../config/connect.php');
+
 
 //criando a class model_usuario sendo herdada da class connect
-class model_usuario extends connect
-{
-
-    //atributos
-    protected $candidato;
-    protected $curso;
-    protected $nota;
-    protected $usuario;
-
-    //metodos especiais 
-    function __construct()
-    {
-
-        parent::__construct();
-        $this->candidato = "candidato";
-        $this->curso = "curso";
-        $this->nota = "nota";
-        $this->usuario = "usuario";
-    }
 
     //metodos
     function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
     {
-
+        require_once('../config/connect.php');
         //inserido na tabela candidato os dados do candidato
-        $result_cadastrar_candidato = $this->connect->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+        $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
         $result_cadastrar_candidato->bindValue(':nome', $nome);
         $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
         $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
@@ -40,7 +21,7 @@ class model_usuario extends connect
         $result_cadastrar_candidato->execute();
 
         //procurando na tabela candidato o nome do candidato
-        $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
+        $result_check_id = $conexao->prepare("SELECT * FROM candidato WHERE nome = :nome");
         $result_check_id->bindValue(':nome', $nome);
         $result_check_id->execute();
         $dados = $result_check_id->fetchAll();
@@ -50,7 +31,7 @@ class model_usuario extends connect
         }
 
         //inserindo na tabela nota, as notas do candidato cadastrado
-        $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, :educacao_fisica, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
+        $result_cadastrar_nota = $conexao->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, :educacao_fisica, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
         $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
         $result_cadastrar_nota->BindValue(':arte', $ar);
         $result_cadastrar_nota->BindValue(':educacao_fisica', $ef);
@@ -78,9 +59,9 @@ class model_usuario extends connect
 
     function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
     {
-
+        require_once('../config/connect.php');
         //inserido na tabela candidato os dados do candidato
-        $result_cadastrar_candidato = $this->connect->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+        $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
         $result_cadastrar_candidato->bindValue(':nome', $nome);
         $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
         $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
@@ -91,7 +72,7 @@ class model_usuario extends connect
         $result_cadastrar_candidato->execute();
 
         //procurando na tabela candidato o nome do candidato
-        $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
+        $result_check_id = $conexao->prepare("SELECT * FROM candidato WHERE nome = :nome");
         $result_check_id->bindValue(':nome', $nome);
         $result_check_id->execute();
         $dados = $result_check_id->fetchAll();
@@ -101,7 +82,7 @@ class model_usuario extends connect
         }
 
         //inserindo na tabela nota, as notas do candidato cadastrado
-        $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
+        $result_cadastrar_nota = $conexao->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
         $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
         $result_cadastrar_nota->BindValue(':arte', $ar);
      
@@ -129,9 +110,9 @@ class model_usuario extends connect
 
     function logar($email, $password)
     {
-
+        require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
-        $result_logar = $this->connect->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
+        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
         $result_logar->bindValue(':email', $email);
         $result_logar->bindValue(':senha', $password);
         $result_logar->execute();
@@ -147,10 +128,11 @@ class model_usuario extends connect
         }
     }
 
-    public function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
+     function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
     {
+        require_once('../config/connect.php');
         //atualizando as notas do candidato
-        $consulta = $this->connect->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;");
+        $consulta = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;");
 
         $consulta->BindValue(':l_portuguesa', $lp);
         $consulta->BindValue(':arte', $ar);
@@ -165,4 +147,4 @@ class model_usuario extends connect
         $consulta->BindValue(':candidato_id_candidato', $id);
         $consulta->execute();
     }
-}
+

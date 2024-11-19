@@ -274,15 +274,13 @@ if ($ef == 0) {
     $media = ($lp + $ar + $li + $ma + $ci + $ge + $hi + $re) / 8;
 
     require_once('../models/model.php');
-    $model = new model_usuario();
-    $test = $model->cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
+    $test = cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 } else {
 
     $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
 
     require_once('../models/model.php');
-    $model = new model_usuario();
-    $test = $model->cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
+    $test = cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 }
 
 switch ($test) {
