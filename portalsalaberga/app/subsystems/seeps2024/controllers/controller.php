@@ -273,8 +273,8 @@ if ($ef == 0) {
 }
 
 require_once('../models/model.php');
-$model = new model_usuario();
-$test = $model->cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
+
+$test = cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 
 switch ($test) {
     case 'candidato cadastrado com sucesso':
