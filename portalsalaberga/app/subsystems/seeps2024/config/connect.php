@@ -1,7 +1,7 @@
 <?php 
 
 define('HOST', 'localhost');
-define('DATABASE', 'seeps');
+define('DATABASE', 'ss');
 define('USER', 'root');
 define('PASSWORD', '');
 
