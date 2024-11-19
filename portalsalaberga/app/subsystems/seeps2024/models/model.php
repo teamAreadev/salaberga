@@ -47,6 +47,57 @@
 }
 
 
+    function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
+    {
+
+        //inserido na tabela candidato os dados do candidato
+        $result_cadastrar_candidato = $this->connect->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+        $result_cadastrar_candidato->bindValue(':nome', $nome);
+        $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
+        $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
+        $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
+        $result_cadastrar_candidato->bindValue(':bairro', $bairro);
+        $result_cadastrar_candidato->bindValue(':publica', $publica);
+        $result_cadastrar_candidato->bindValue(':pcd', $pcd);
+        $result_cadastrar_candidato->execute();
+
+        //procurando na tabela candidato o nome do candidato
+        $result_check_id = $this->connect->prepare("SELECT * FROM candidato WHERE nome = :nome");
+        $result_check_id->bindValue(':nome', $nome);
+        $result_check_id->execute();
+        $dados = $result_check_id->fetchAll();
+        foreach ($dados as $value => $x) {
+
+            $id_candidato = $x['id_candidato'];
+        }
+
+        //inserindo na tabela nota, as notas do candidato cadastrado
+        $result_cadastrar_nota = $this->connect->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
+        $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
+        $result_cadastrar_nota->BindValue(':arte', $ar);
+     
+        $result_cadastrar_nota->BindValue(':l_inglesa', $li);
+        $result_cadastrar_nota->BindValue(':matematica', $ma);
+        $result_cadastrar_nota->BindValue(':ciencias', $ci);
+        $result_cadastrar_nota->BindValue(':geografia', $ge);
+        $result_cadastrar_nota->BindValue(':historia', $hi);
+        $result_cadastrar_nota->BindValue(':religiao', $re);
+        $result_cadastrar_nota->BindValue(':candidato_id_candidato', $id_candidato);
+        $result_cadastrar_nota->BindValue(':media', $media);
+        $result_cadastrar_nota->execute();
+
+        if ($result_cadastrar_candidato && $result_cadastrar_nota) {
+
+            return "candidato cadastrado com sucesso";
+        } elseif ($result_cadastrar_candidato) {
+
+            return "ERRO ao cadastrar a nota";
+        } elseif ($result_cadastrar_nota) {
+
+            return "ERRO ao cadastrar o candidato";
+        }
+    }
+
     function logar($email, $password)
     {
         require_once('../config/connect.php');
