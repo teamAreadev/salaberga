@@ -263,10 +263,16 @@ $re = ($re6 + $re7 + $re8 + $re9) / 4;
 
 if ($ef == 0) {
 
-    $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8;
+    $media = ($lp + $ar + $li + $ma + $ci + $ge + $hi + $re) / 8;
+
+    require_once('../models/model.php');
+    $test = cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 } else {
 
     $media = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
+
+    require_once('../models/model.php');
+    $test = cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media);
 }
 
 require_once('../models/model.php');

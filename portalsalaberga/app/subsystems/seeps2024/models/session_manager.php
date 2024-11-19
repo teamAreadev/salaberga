@@ -1,10 +1,10 @@
 <?php
 
-//requerindo o arquivo connect.php
 
 session_start();
 
 
+    //metodos 
     function lista()
     {
         require_once('config/connect.php');

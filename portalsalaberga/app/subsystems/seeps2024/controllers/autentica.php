@@ -11,7 +11,6 @@ if (isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email'
     $password = $_POST['password'];
 
     //criando o objeto model
-
     //criando a variavel test para chamar a função logar
     $test = logar($email, $password);
 
