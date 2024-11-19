@@ -1564,7 +1564,7 @@ function createAdministracaoForm(schoolType) {
                         <input type="text" name="a9_3" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-sm" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] oninput="maskNota(this)">
+                        <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-1 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-sm" oninput="maskNota(this)">
                     </div>
                     <div>
                         <input type="text" name="r9_3" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#008000] text-sm" required oninput="maskNota(this)">
@@ -1904,7 +1904,7 @@ function createEdificacoesForm(schoolType) {
                         <input type="text" name="a9_3" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-sm" required oninput="maskNota(this)">
                     </div>
                     <div>
-                        <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] oninput="maskNota(this)">
+                        <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-sm" oninput="maskNota(this)">
                     </div>
                     <div>
                         <input type="text" name="r9_3" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#4a4a4a] text-sm" required oninput="maskNota(this)">
