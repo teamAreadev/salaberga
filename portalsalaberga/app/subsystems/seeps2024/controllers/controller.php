@@ -27,15 +27,15 @@ switch ($_POST['curso']) {
 
         $c1 = 1;
         break;
-    case 'Informatica':
+    case 'Informática':
 
         $c1 = 2;
         break;
-    case 'Administracao':
+    case 'Administração':
 
         $c1 = 3;
         break;
-    case 'Edificacoes':
+    case 'Edificações':
 
         $c1 = 4;
         break;
