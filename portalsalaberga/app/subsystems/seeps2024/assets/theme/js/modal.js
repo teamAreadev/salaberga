@@ -7,7 +7,7 @@ function showReportsModal() {
         'Privada AC': '../views/relatorios/privadaAC.php',
         'Pública Cotas': '../views/relatorios/publicaCotas.php',
         'Privada Cotas': '../views/relatorios/privadaCotas.php',
-   
+
 
     };
 
@@ -48,9 +48,9 @@ function showReportsModal() {
         if (result.isConfirmed) {
             const selectedType = result.value.type;
             const url = reportUrls[selectedType];
-            
+
             if (url) {
-         
+
                 Swal.fire({
                     title: 'Redirecionando...',
                     text: 'Gerando relatório ${selectedType}',
@@ -58,7 +58,7 @@ function showReportsModal() {
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
-                    
+
                         setTimeout(() => {
                             window.location.href = url;
                         }, 1500);
@@ -250,47 +250,47 @@ function showResultsModal() {
     Swal.fire({
         title: 'Resultados',
         html: `
-        <form id="searchForm" onsubmit="showResultsModal(); return false;">
+        <form action="../controllers/controller_classificaveis.php" id="searchForm" onsubmit="showResultsModal(); return false;" method="post">
             <div class="p-4">
                 <div class="mb-4">
                     <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um curso</option>
-                        <option value="Enfermagem">Enfermagem</option>
-                        <option value="Informática">Informática</option>
-                        <option value="Administração">Administração</option>
-                        <option value="Edificações">Edificações</option>
+                        <option value="1">Enfermagem</option>
+                        <option value="2">Informática</option>
+                        <option value="3">Administração</option>
+                        <option value="4">Edificações</option>
                     </select>
                 </div>
                 <div class="mb-4">
                     <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um tipo</option>
-                        <option value="Pública">Pública</option>
-                        <option value="Privada">Privada</option>
+                        <option value="classificados">classificados</option>
+                        <option value="classificaveis">classificaveis</option>
                     </select>
                 </div>
             </div>
         </form>
     `,
-    confirmButtonText: 'Ver Resultados',
-    showCancelButton: true,
-    cancelButtonText: 'Cancelar',
-    customClass: {
-        confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
-        cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
-    },
-    preConfirm: () => {
-        const course = document.getElementById('course').value;
-        const type = document.getElementById('type').value;
+        confirmButtonText: 'Ver Resultados',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+        },
+        preConfirm: () => {
+            const course = document.getElementById('course').value;
+            const type = document.getElementById('type').value;
 
-        if (!course || !type) {
-            Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
+            if (!course || !type) {
+                Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
+            }
+
+            return {
+                course,
+                type
+            };
         }
-
-        return {
-            course,
-            type
-        };
-    }
 
     });
 }
@@ -899,16 +899,16 @@ function hideBimestreModal() {
 function maskNota(input) {
     // Remove non-numeric characters
     input.value = input.value.replace(/[^0-9.,]/g, '');
-    
+
     // Replace comma with dot
     input.value = input.value.replace(',', '.');
-    
+
     // Limit to 2 decimal places
     const parts = input.value.split('.');
     if (parts.length > 1) {
         input.value = parts[0] + '.' + parts[1].slice(0, 2);
     }
-    
+
     // Ensure value is between 0 and 10
     const numValue = parseFloat(input.value);
     if (numValue > 10) {
