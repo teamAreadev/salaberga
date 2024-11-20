@@ -244,7 +244,7 @@ if (isset($_POST['r9_4']) && !empty($_POST['r9_4'])) {
 //media das materias do nono ano
 if ($d9 == 0) {
 
-    $ef9 = 1;
+    $ef9 = 0;
 } else {
 
     $ef9 = ((float)$ef9_1 + (float)$ef9_2 + (float)$ef9_3 + (float)$ef9_4) / $d9;
