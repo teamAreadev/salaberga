@@ -7,8 +7,7 @@ function showReportsModal() {
         'Privada AC': '../views/relatorios/privadaAC.php',
         'Pública Cotas': '../views/relatorios/publicaCotas.php',
         'Privada Cotas': '../views/relatorios/privadaCotas.php',
-        'Classificáveis': '../views/relatorios/classificaveis.php',
-        'Classificados': '../views/relatorios/classificados.php'
+   
 
     };
 
@@ -25,8 +24,7 @@ function showReportsModal() {
                     <option value="Privada AC">Privada AC</option>
                     <option value="Pública Cotas">Pública Cotas</option>
                     <option value="Privada Cotas">Privada Cotas</option>
-                    <option value="Classificáveis">Classificáveis</option>
-                    <option value="Classificados">Classificados</option>
+                  
                 </select>
             </div>
         </div>
