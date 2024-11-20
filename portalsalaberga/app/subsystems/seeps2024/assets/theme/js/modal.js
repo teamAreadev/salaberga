@@ -250,10 +250,10 @@ function showResultsModal() {
     Swal.fire({
         title: 'Resultados',
         html: `
-        <form action="../controllers/controller_classificaveis.php" id="searchForm" onsubmit="showResultsModal(); return false;" method="post">
+        <form action="../controllers/controller_classificaveis.php" id="searchForm" onsubmit="submitForm(); return false;" method="post">
             <div class="p-4">
                 <div class="mb-4">
-                    <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                    <select id="course" name="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um curso</option>
                         <option value="1">Enfermagem</option>
                         <option value="2">Informática</option>
@@ -262,37 +262,32 @@ function showResultsModal() {
                     </select>
                 </div>
                 <div class="mb-4">
-                    <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                    <select id="type" name="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um tipo</option>
-                        <option value="classificados">classificados</option>
-                        <option value="classificaveis">classificaveis</option>
+                        <option value="classificados">Classificados</option>
+                        <option value="classificaveis">Classificáveis</option>
                     </select>
+                </div>
+                <div class="flex justify-center gap-4">
+                    <button type="submit" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
+                        Gerar Resultados
+                    </button>
+                  <button type="button" class="bg-gray-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105" onclick="Swal.close()">
+    Cancelar
+</button>
+
                 </div>
             </div>
         </form>
-    `,
-        confirmButtonText: 'Ver Resultados',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        customClass: {
-            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
-            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
-        },
-        preConfirm: () => {
-            const course = document.getElementById('course').value;
-            const type = document.getElementById('type').value;
-
-            if (!course || !type) {
-                Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
-            }
-
-            return {
-                course,
-                type
-            };
-        }
-
+        `,
+        showConfirmButton: false, // Esconde o botão "Ver Resultados"
+        showCancelButton: false // Esconde o botão "Cancelar" padrão
     });
+}
+
+function submitForm() {
+    const form = document.getElementById('searchForm');
+    form.submit();
 }
 
 
