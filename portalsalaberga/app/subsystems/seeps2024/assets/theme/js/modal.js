@@ -69,6 +69,7 @@ function showReportsModal() {
     });
 }
 
+/*
 function showUpdateModal() {
     Swal.fire({
         customClass: {
@@ -193,14 +194,14 @@ function showUpdateModal() {
     });
 }
 
-
+*//*
 const styles = `
 .swal2-popup {
 background-color: var(--ceara-white) !important;
 }
 
 .swal2-actions {
-gap: 1rem !important; /* Adiciona 1rem de espaço entre os botões */
+gap: 1rem !important; /* Adiciona 1rem de espaço entre os botões 
 }
 
 .swal2-input, .swal2-textarea {
@@ -219,19 +220,18 @@ transform: scale(var(--hover-scale));
 
 .swal2-confirm {
 background-color: var(--ceara-orange) !important;
-margin: 0 0.5rem !important; /* Adiciona margem lateral */
+margin: 0 0.5rem !important; /* Adiciona margem lateral 
 }
 
 .swal2-cancel {
 background-color: var(--gray-600) !important;
-margin: 0 0.5rem !important; /* Adiciona margem lateral */
-}
+margin: 0 0.5rem !important; /* Adiciona margem lateral 
 
 .swal2-confirm:hover, .swal2-cancel:hover {
 transform: scale(var(--hover-scale));
 }
 
-/* Ajuste para telas menores */
+/* Ajuste para telas menores 
 @media (max-width: 640px) {
 .swal2-actions {
     flex-direction: column;
@@ -243,62 +243,57 @@ transform: scale(var(--hover-scale));
     width: 100%;
 }
 }
-`;
+` ;
 
-
-
+*/
 function showResultsModal() {
     Swal.fire({
         title: 'Resultados',
         html: `
-    <div class="p-4">
-        <div class="mb-4">
-        
-            <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                <option value="">Selecione um curso</option>
-                <option value="Enfermagem">Enfermagem</option>
-                <option value="Informática">Informática</option>
-                <option value="Administração">Administração</option>
-                <option value="Edificações">Edificações</option>
-            </select>
-        </div>
-        <div class="mb-4">
-          
-            <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                <option value="">Selecione um tipo</option>
-                <option value="Pública">Pública</option>
-                <option value="Privada">Privada</option>
-            </select>
-        </div>
-    </div>
-`,
-        confirmButtonText: 'Ver Resultados',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        customClass: {
-            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
-            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
-        },
-        preConfirm: () => {
-            const course = document.getElementById('course').value;
-            const type = document.getElementById('type').value;
+        <form id="searchForm" onsubmit="showResultsModal(); return false;">
+            <div class="p-4">
+                <div class="mb-4">
+                    <select id="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                        <option value="">Selecione um curso</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Edificações">Edificações</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                        <option value="">Selecione um tipo</option>
+                        <option value="Pública">Pública</option>
+                        <option value="Privada">Privada</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    `,
+    confirmButtonText: 'Ver Resultados',
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    customClass: {
+        confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
+        cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
+    },
+    preConfirm: () => {
+        const course = document.getElementById('course').value;
+        const type = document.getElementById('type').value;
 
-            if (!course || !type) {
-                Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
-            }
+        if (!course || !type) {
+            Swal.showValidationMessage('Por favor, selecione um curso e um tipo de resultado.');
+        }
 
-            return {
-                course,
-                type
-            };
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire(`Exibindo resultados de ${result.value.course} - ${result.value.type}...`);
-        }
+        return {
+            course,
+            type
+        };
+    }
+
     });
 }
-
 
 
 
