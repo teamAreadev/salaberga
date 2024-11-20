@@ -6,7 +6,7 @@ function publicaGeral()
         SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1
-        ORDER BY nota.media DESC LIMIT 10
+        ORDER BY nota.media DESC 
     ");
     $stmtSelect->execute();
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
