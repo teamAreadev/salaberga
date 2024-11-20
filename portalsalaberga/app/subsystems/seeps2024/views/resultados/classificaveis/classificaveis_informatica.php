@@ -11,7 +11,7 @@ function classificaveis_informatica()
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../../../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('CLASSIFICADOS INFORMATICA'), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('CLASSIFICAVEIS INFORMATICA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);

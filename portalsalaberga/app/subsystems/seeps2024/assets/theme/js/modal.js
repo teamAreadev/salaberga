@@ -253,7 +253,7 @@ function showResultsModal() {
         <form action="../controllers/controller_classificaveis.php" id="searchForm" onsubmit="submitForm(); return false;" method="post">
             <div class="p-4">
                 <div class="mb-4">
-                    <select id="course" name="course" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                    <select id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um curso</option>
                         <option value="1">Enfermagem</option>
                         <option value="2">Informática</option>
@@ -262,7 +262,7 @@ function showResultsModal() {
                     </select>
                 </div>
                 <div class="mb-4">
-                    <select id="type" name="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                    <select id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                         <option value="">Selecione um tipo</option>
                         <option value="classificados">Classificados</option>
                         <option value="classificaveis">Classificáveis</option>
