@@ -20,11 +20,9 @@ function publicaGeral()
     $pdf->SetFont('Arial', 'B', 25);
     $pdf->Cell(185, 10, ('PUBLICA GERAL'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
-    $pdf->Cell(321, 0, ('PCD = PESSOA COM DEFICIENCIA'), 0, 1, 'C');
-    $pdf->Cell(315, -10, ('AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
-    $pdf->Cell( 332, 0, ('COTISTA = RESIDENTE DO BAIRRO'), 0, 1, 'C');
+    $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
-    $pdf->Cell(185, 25, '', 0, 1, 'C');
+    $pdf->Cell(185, 10, '', 0, 1, 'C');
 
     // Fonte do cabeçalho
     $pdf->SetFont('Arial', 'B', 12);

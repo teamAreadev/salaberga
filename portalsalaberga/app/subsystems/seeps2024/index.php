@@ -772,7 +772,7 @@ lista();
                         <button
                             id="openLoginModal"
                             class="px-6 py-2 text-white bg-[#008C45] rounded-lg hover:bg-[#004d00] 
-               focus:outline-none focus:ring-2 focus:ring-[#008C45] transition duration-200">
+                            focus:outline-none focus:ring-2 focus:ring-[#008C45] transition duration-200">
                             ENTRAR
                         </button>
                     </div>
@@ -821,7 +821,7 @@ lista();
                                         <input
                                             type="password"
                                             id="password"
-                                            name="password"
+                                            name="senha"
                                             class="mt-1 block w-full px-4 py-3 border border-[#666666] 
                                rounded-lg shadow-sm focus:outline-none focus:ring-2 
                                focus:ring-[#008C45] focus:border-[#008C45]

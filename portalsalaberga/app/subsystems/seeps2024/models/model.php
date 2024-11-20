@@ -110,25 +110,26 @@
         }
     }
 
-    function logar($email, $password)
+    function logar($email, $senha)
     {
         require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
         $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
         $result_logar->bindValue(':email', $email);
-        $result_logar->bindValue(':senha', $password);
+        $result_logar->bindValue(':senha', $senha);
         $result_logar->execute();
-
+        $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
+        
+        
         //se for o result_logar for maior que 0
-        if ($result_logar->rowCount() > 0) {
-
-            return "certo";
+        if (!empty($result)) {
+           return $login = 1;
+            
         } else {
-
-            //se nao
-            return "erro";
-        }
+            return  $login = 0;
+            
     }
+}
 
      function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
     {
@@ -149,4 +150,3 @@
         $consulta->BindValue(':candidato_id_candidato', $id);
         $consulta->execute();
     }
-

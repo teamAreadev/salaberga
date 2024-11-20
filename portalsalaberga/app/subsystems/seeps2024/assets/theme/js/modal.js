@@ -1,23 +1,36 @@
-
 function showReportsModal() {
+    // Define os links para cada tipo de relatório
+    const reportUrls = {
+        'Pública Geral': '../views/relatorios/publicaGeral.php',
+        'Privada Geral': '../views/relatorios/privadaGeral.php',
+        'Pública AC': '../views/relatorios/publicaAC.php',
+        'Privada AC': '../views/relatorios/privadaAC.php',
+        'Pública Cotas': '../views/relatorios/publicaCotas.php',
+        'Privada Cotas': '../views/relatorios/privadaCotas.php',
+        'Classificáveis': '../views/relatorios/classificaveis.php',
+        'Classificados': '../views/relatorios/classificados.php'
+
+    };
+
     Swal.fire({
         title: 'Relatórios',
         html: `
-    <div class="p-4">
-        <div class="mb-4">
-            
-            <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-                <option value="">Selecione um tipo</option>
-                <option value="Pública Geral">Pública Geral</option>
-                <option value="Privada Geral">Privada Geral</option>
-                <option value="Pública AC">Pública AC</option>
-                <option value="Privada AC">Privada AC</option>
-                <option value="Pública Cota">Pública Cota</option>
-                <option value="Privada Cota">Privada Cota</option>
-            </select>
+        <div class="p-4">
+            <div class="mb-4">
+                <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+                    <option value="">Selecione um tipo</option>
+                    <option value="Pública Geral">Pública Geral</option>
+                    <option value="Privada Geral">Privada Geral</option>
+                    <option value="Pública AC">Pública AC</option>
+                    <option value="Privada AC">Privada AC</option>
+                    <option value="Pública Cotas">Pública Cotas</option>
+                    <option value="Privada Cotas">Privada Cotas</option>
+                    <option value="Classificáveis">Classificáveis</option>
+                    <option value="Classificados">Classificados</option>
+                </select>
+            </div>
         </div>
-    </div>
-`,
+        `,
         confirmButtonText: 'Gerar Relatório',
         showCancelButton: true,
         cancelButtonText: 'Cancelar',
@@ -26,20 +39,34 @@ function showReportsModal() {
             cancelButton: 'bg-gray-400 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
         },
         preConfirm: () => {
-            const course = document.getElementById('course').value;
             const type = document.getElementById('type').value;
-            if (!course || !type) {
-                Swal.showValidationMessage('Por favor, selecione um curso e um tipo.');
-            } else {
-                return {
-                    course,
-                    type
-                };
+            if (!type) {
+                Swal.showValidationMessage('Por favor, selecione um tipo de relatório.');
+                return false;
             }
+            return { type };
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(`Gerando relatório de ${result.value.course} - ${result.value.type}...`);
+            const selectedType = result.value.type;
+            const url = reportUrls[selectedType];
+            
+            if (url) {
+         
+                Swal.fire({
+                    title: 'Redirecionando...',
+                    text: 'Gerando relatório ${selectedType}',
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    
+                        setTimeout(() => {
+                            window.location.href = url;
+                        }, 1500);
+                    }
+                });
+            }
         }
     });
 }
