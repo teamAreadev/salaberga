@@ -1,58 +1,51 @@
 function showReportsModal() {
-    // Define os links para cada tipo de relatório
-    const reportUrls = {
-        'Pública Geral': '../views/relatorios/publicaGeral.php',
-        'Privada Geral': '../views/relatorios/privadaGeral.php',
-        'Pública AC': '../views/relatorios/publicaAC.php',
-        'Privada AC': '../views/relatorios/privadaAC.php',
-        'Pública Cotas': '../views/relatorios/publicaCotas.php',
-        'Privada Cotas': '../views/relatorios/privadaCotas.php',
-    };
-
     Swal.fire({
         title: 'Relatórios',
         html: `
-        <div class="p-4">
-            <div class="mb-4">
-                <select id="type" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
+        <form action="../controllers/controller_relatorio.php" id="searchForm" onsubmit="submitForm(); return false;" method="post">
+            <div class="p-4">
+                <div class="mb-4">
+                <select required id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                     <option value="">Selecione um tipo</option>
-                    <option value="Pública Geral">Pública Geral</option>
-                    <option value="Privada Geral">Privada Geral</option>
-                    <option value="Pública AC">Pública AC</option>
-                    <option value="Privada AC">Privada AC</option>
-                    <option value="Pública Cotas">Pública Cotas</option>
-                    <option value="Privada Cotas">Privada Cotas</option>
+                    <option value="1">Publica Geral</option>
+                    <option value="2">Publica Ampla Concorência</option>
+                    <option value="3">Publica Cotas</option>
+                    <option value="4">Privada Geral</option>
+                    <option value="5">Privada Ampla Concorência</option> 
+                    <option value="6">Privada Cotas</option>
                 </select>
-            </div>
-        </div>
-        `,
-        confirmButtonText: 'Gerar Relatório',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        customClass: {
-            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
-            cancelButton: 'bg-gray-400 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
-        },
-        preConfirm: () => {
-            const type = document.getElementById('type').value;
-            if (!type) {
-                Swal.showValidationMessage('Por favor, selecione um tipo de relatório.');
-                return false;
-            }
-            return { type };
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            const selectedType = result.value.type;
-            const url = reportUrls[selectedType];
+                </div>
+                <div class="mb-4">
+                <select required id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                    <option value="">Selecione um curso</option>
+                    <option value="1">Enfermagem</option>
+                    <option value="2">Informática</option>
+                    <option value="3">Administração</option>
+                    <option value="4">Edificações</option>
+                </select>
+                </div>
+                <div class="flex justify-center gap-4">
+                    <button type="submit" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
+                        Gerar Resultados
+                    </button>
+                  <button type="button" class="bg-gray-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105" onclick="Swal.close()">
+    Cancelar
+</button>
 
-            if (url) {
-                Swal.close(); // Fecha o modal imediatamente
-                window.location.href = url; // Redireciona instantaneamente
-            }
-        }
+                </div>
+            </div>
+        </form>
+        `,
+        showConfirmButton: false, // Esconde o botão "Ver Resultados"
+        showCancelButton: false // Esconde o botão "Cancelar" padrão
     });
-}   
+}
+
+function submitForm() {
+    const form = document.getElementById('searchForm');
+    form.submit();
+}
+
 /*
 function showUpdateModal() {
     Swal.fire({
@@ -236,20 +229,20 @@ transform: scale(var(--hover-scale));
         <form action="../controllers/controller_classificaveis.php" id="searchForm" method="post">
             <div class="p-4">
                 <div class="mb-4">
-                    <select id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                        <option value="">Selecione um curso</option>
-                        <option value="1">Enfermagem</option>
-                        <option value="2">Informática</option>
-                        <option value="3">Administração</option>
-                        <option value="4">Edificações</option>
-                    </select>
+                <select required id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                <option value="">Selecione um tipo</option>
+                <option value="classificados">Classificados</option>
+                <option value="classificaveis">Classificáveis</option>
+                </select>
                 </div>
                 <div class="mb-4">
-                    <select id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                        <option value="">Selecione um tipo</option>
-                        <option value="classificados">Classificados</option>
-                        <option value="classificaveis">Classificáveis</option>
-                    </select>
+                <select required id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
+                    <option value="">Selecione um curso</option>
+                    <option value="1">Enfermagem</option>
+                    <option value="2">Informática</option>
+                    <option value="3">Administração</option>
+                    <option value="4">Edificações</option>
+                </select>
                 </div>
                 <div class="flex justify-center gap-4">
                     <button type="submit" onclick="submitForm()" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">

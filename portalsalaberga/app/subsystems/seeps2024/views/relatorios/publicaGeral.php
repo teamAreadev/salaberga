@@ -1,22 +1,26 @@
 <?php
-function publicaGeral()
+
+function publicaGeral($curso)
 {
-    require_once('../../config/connect.php');
+    require_once('../config/connect.php');
     $stmtSelect = $conexao->prepare("
         SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1
+        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato
+        WHERE candidato.publica = 1
+        AND candidato.id_curso1_fk = :curso
         ORDER BY nota.media DESC 
     ");
+    $stmtSelect->BindValue(':curso', $curso);
     $stmtSelect->execute();
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
 
-    require_once('../../assets/fpdf/fpdf.php');
+    require_once('../assets/fpdf/fpdf.php');
     $pdf = new FPDF();
     $pdf->AddPage();
 
     // Cabeçalho com larguras ajustadas
-    $pdf->Image('../../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
+    $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
     $pdf->Cell(185, 10, ('PUBLICA GERAL'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
@@ -92,4 +96,4 @@ function publicaGeral()
     $pdf->Output('classificacao.pdf', 'I');
 }
 
-publicaGeral();
+publicaGeral($curso);
