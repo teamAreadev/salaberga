@@ -53,7 +53,7 @@ function showReportsModal() {
 
                 Swal.fire({
                     title: 'Redirecionando...',
-                    text: 'Gerando relatório',
+                    text: 'Gerando relatório ',
                     timer: 1500,
                     timerProgressBar: true,
                     didOpen: () => {
