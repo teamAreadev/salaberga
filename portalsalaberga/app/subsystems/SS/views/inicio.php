@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../assets/theme/js/modal.js"></script>
     <script src="../assets/theme/js/sidebar.js"></script>
-      <link rel="shortcut icon" href="../../seeps2024/assets/images/logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="../../SS/assets/images/logo.png" type="image/x-icon">
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
 
     <script>
