@@ -46,7 +46,10 @@ function classificados($curso)
     AND candidato.id_curso1_fk = :curso
     AND  candidato.bairro = 0 
     AND candidato.pcd = 0 
-    ORDER BY nota.media DESC LIMIT 24
+    nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC LIMIT 24
     ");
     $stmtSelect_ac_publica->bindValue(':curso', $curso);
     $stmtSelect_ac_publica->execute();
@@ -132,7 +135,10 @@ function classificados($curso)
     AND candidato.id_curso1_fk = :curso2
     AND  candidato.bairro = 1 
     AND candidato.pcd = 0 
-    ORDER BY nota.media DESC LIMIT 10;
+    nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC LIMIT 10;
     ");
     $stmtSelect_bairro_publica->bindValue(':curso2', $curso2);
     $stmtSelect_bairro_publica->execute();
@@ -216,7 +222,10 @@ function classificados($curso)
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.id_curso1_fk = :curso3
     AND candidato.pcd = 1 
-    ORDER BY nota.media DESC LIMIT 2;
+    nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC LIMIT 2;
     ");
     $stmtSelect_pcd_publica->bindValue(':curso3', $curso3);
     $stmtSelect_pcd_publica->execute();
@@ -303,7 +312,10 @@ function classificados($curso)
     AND candidato.id_curso1_fk = :curso4 
     AND  candidato.bairro = 0 
     AND candidato.pcd = 0 
-    ORDER BY nota.media DESC LIMIT 6;
+    nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC LIMIT 6;
     ");
     $stmtSelect_ac_privada->bindValue(':curso4', $curso4);
     $stmtSelect_ac_privada->execute();
@@ -390,7 +402,10 @@ function classificados($curso)
     AND candidato.id_curso1_fk = :curso5
     AND  candidato.bairro = 1 
     AND candidato.pcd = 0 
-    ORDER BY nota.media DESC LIMIT 3;
+    nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC LIMIT 3;
     ");
     $stmtSelect_bairro_privada->bindValue(':curso5', $curso5);
     $stmtSelect_bairro_privada->execute();
