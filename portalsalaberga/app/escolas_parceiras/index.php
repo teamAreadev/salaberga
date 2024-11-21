@@ -197,7 +197,7 @@
 
             <!-- Body -->
             <div class="p-6">
-                <form id="loginForm" action="controllers/autentica.php" method="post" class="space-y-6">
+                <form id="loginForm" action="controllers.php" method="post" class="space-y-6">
                     <!-- Email/Nome Field -->
                     <div class="space-y-2">
                         <label for="email" class="block text-sm font-medium text-gray-700">
@@ -209,7 +209,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </div>
-                            <input type="text" id="email" name="email" 
+                            <input type="text" id="email" name="nome" 
                                 class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200"
                                 placeholder="Digite seu nome de usuário" required>
                         </div>
