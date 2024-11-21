@@ -3,6 +3,9 @@
 function classificados($curso)
 {
     $curso2 = $curso;
+    $curso3 = $curso;
+    $curso4 = $curso;
+    $curso5 = $curso;
     require_once('../config/connect.php');
     require_once('../assets/fpdf/fpdf.php');
 
@@ -126,12 +129,12 @@ function classificados($curso)
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 1 
-    AND candidato.id_curso1_fk = :curso
+    AND candidato.id_curso1_fk = :curso2
     AND  candidato.bairro = 1 
     AND candidato.pcd = 0 
     ORDER BY nota.media DESC LIMIT 10;
     ");
-    $stmtSelect_bairro_publica->bindValue(':curso', $curso);
+    $stmtSelect_bairro_publica->bindValue(':curso2', $curso2);
     $stmtSelect_bairro_publica->execute();
     $result = $stmtSelect_bairro_publica->fetchAll(PDO::FETCH_ASSOC);
     // Fonte do cabeçalho
@@ -211,11 +214,11 @@ function classificados($curso)
     SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
-    AND candidato.id_curso1_fk = :curso
+    AND candidato.id_curso1_fk = :curso3
     AND candidato.pcd = 1 
     ORDER BY nota.media DESC LIMIT 2;
     ");
-    $stmtSelect_pcd_publica->bindValue(':curso', $curso);
+    $stmtSelect_pcd_publica->bindValue(':curso3', $curso3);
     $stmtSelect_pcd_publica->execute();
     $result = $stmtSelect_pcd_publica->fetchAll(PDO::FETCH_ASSOC);
 
@@ -297,12 +300,12 @@ function classificados($curso)
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 0 
-    AND candidato.id_curso1_fk = :curso 
+    AND candidato.id_curso1_fk = :curso4 
     AND  candidato.bairro = 0 
     AND candidato.pcd = 0 
     ORDER BY nota.media DESC LIMIT 6;
     ");
-    $stmtSelect_ac_privada->bindValue(':curso', $curso);
+    $stmtSelect_ac_privada->bindValue(':curso4', $curso4);
     $stmtSelect_ac_privada->execute();
     $result = $stmtSelect_ac_privada->fetchAll(PDO::FETCH_ASSOC);
 
@@ -384,12 +387,12 @@ function classificados($curso)
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 0 
-    AND candidato.id_curso1_fk = :curso
+    AND candidato.id_curso1_fk = :curso5
     AND  candidato.bairro = 1 
     AND candidato.pcd = 0 
     ORDER BY nota.media DESC LIMIT 3;
     ");
-    $stmtSelect_bairro_privada->bindValue(':curso', $curso);
+    $stmtSelect_bairro_privada->bindValue(':curso5', $curso5);
     $stmtSelect_bairro_privada->execute();
     $result = $stmtSelect_bairro_privada->fetchAll(PDO::FETCH_ASSOC);
 
