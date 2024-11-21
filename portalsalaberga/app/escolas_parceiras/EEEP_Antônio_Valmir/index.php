@@ -64,22 +64,24 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Hero Section -->
-    <div class="gradient-bg text-white py-16 mb-10">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Portal das Escolas</h1>
-            <p class="text-xl opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                Acesse o sistema da sua escola de forma rápida e simples
-            </p>
-            <div class="mt-8 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="flex items-center bg-white/20 rounded-lg px-6 py-3">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                    </svg>
-                    <span>3 Escolas Cadastradas</span>
-                </div>
+    <div class="gradient-bg text-white py-16 mb-10 relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('path/to/your/background-image.jpg'); opacity: 0.2;"></div>
+    <div class="container mx-auto px-4 relative z-10 text-center">
+        <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Portal das Escolas</h1>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="200">
+            Acesse o sistema da sua escola de forma rápida e simples
+        </p>
+        <div class="mt-8 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex items-center bg-white/20 rounded-lg px-6 py-3">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+                <span>3 Escolas Cadastradas</span>
             </div>
         </div>
+      
     </div>
+</div>
 
     <div class="container mx-auto px-4 py-8">
         <!-- Barra de Busca Melhorada -->
