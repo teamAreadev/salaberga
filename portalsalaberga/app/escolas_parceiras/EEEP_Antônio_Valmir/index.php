@@ -229,6 +229,7 @@
                         </a>
                         <a aria-label="Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eeepsalabergampe/"
                             class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-ceara-orange transition-all">
+                            <i class="fab fa-instagram text-sm"></i>
                         </i>
                     </a>
                 </div>
