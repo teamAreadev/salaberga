@@ -1,5 +1,6 @@
 <?php
-function classificados_enfermagem()
+
+function lista_de_espera($curso)
 {
     require_once('../../../config/connect.php');
     require_once('../../../assets/fpdf/fpdf.php');
@@ -10,25 +11,23 @@ function classificados_enfermagem()
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../../../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('CLASSIFICADOS ENFERMAGEM'), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('CLASSIFICAVEIS ADMINISTRACAO'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
     $pdf->Cell(185, 10, '', 0, 1, 'C');
 
-
-    //Enfermagem
+    //Administração
 
     //ac_publica
-    $stmtSelect_enfermagem_ac_publica = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = 1 AND  candidato.bairro = 0 AND candidato.pcd = 0 
-        ORDER BY nota.media DESC LIMIT 24
-    ");
-    $stmtSelect_enfermagem_ac_publica->execute();
-    $result = $stmtSelect_enfermagem_ac_publica->fetchAll(PDO::FETCH_ASSOC);
-
+    $stmtSelect_adm_ac_publica = $conexao->prepare("
+SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+FROM candidato 
+INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 0 AND candidato.pcd = 0 
+ORDER BY nota.media DESC LIMIT 300 OFFSET 24;
+");
+    $stmtSelect_adm_ac_publica->execute();
+    $result = $stmtSelect_adm_ac_publica->fetchAll(PDO::FETCH_ASSOC);
     // Fonte do cabeçalho
     $pdf->SetFont('Arial', 'B', 12);
     $pdf->SetFillColor(93, 164, 67); //fundo verde
@@ -102,15 +101,14 @@ function classificados_enfermagem()
     $pdf->Ln(20);
 
     //bairro_publica
-    $stmtSelect_enfermagem_bairro_publica = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = 1 AND  candidato.bairro = 1 AND candidato.pcd = 0 
-        ORDER BY nota.media DESC LIMIT 10;
-    ");
-    $stmtSelect_enfermagem_bairro_publica->execute();
-    $result = $stmtSelect_enfermagem_bairro_publica->fetchAll(PDO::FETCH_ASSOC);
-    // Fonte do cabeçalho
+    $stmtSelect_adm_bairro_publica = $conexao->prepare("
+SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+FROM candidato 
+INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 1 AND candidato.pcd = 0 
+ORDER BY nota.media DESC LIMIT 300 OFFSET 10;
+");
+    $stmtSelect_adm_bairro_publica->execute();
+    $result = $stmtSelect_adm_bairro_publica->fetchAll(PDO::FETCH_ASSOC);
     // Fonte do cabeçalho
     $pdf->SetFont('Arial', 'B', 12);
     $pdf->SetFillColor(93, 164, 67); //fundo verde
@@ -184,19 +182,20 @@ function classificados_enfermagem()
     $pdf->Ln(20);
 
     //ac_privada
-    $stmtSelect_enfermagem_ac_privada = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = 1 AND  candidato.bairro = 0 AND candidato.pcd = 0 
-        ORDER BY nota.media DESC LIMIT 6;
-    ");
-    $stmtSelect_enfermagem_ac_privada->execute();
-    $result = $stmtSelect_enfermagem_ac_privada->fetchAll(PDO::FETCH_ASSOC);
+    $stmtSelect_adm_ac_privada = $conexao->prepare("
+SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+FROM candidato 
+INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 0 AND candidato.pcd = 0 
+ORDER BY nota.media DESC LIMIT 300 OFFSET 6;
+");
+    $stmtSelect_adm_ac_privada->execute();
+    $result = $stmtSelect_adm_ac_privada->fetchAll(PDO::FETCH_ASSOC);
+
     // Fonte do cabeçalho
     $pdf->SetFont('Arial', 'B', 12);
     $pdf->SetFillColor(93, 164, 67); //fundo verde
     $pdf->SetTextColor(255, 255, 255);  //texto branco
-    $pdf->Cell(191, -8, "Rede privada - AC", 1, 0, 'C', true);
+    $pdf->Cell(191, -8, "Rede Privada - AC", 1, 0, 'C', true);
     $pdf->Ln(0);
 
     $pdf->SetFont('Arial', 'B', 12);
@@ -265,14 +264,14 @@ function classificados_enfermagem()
     $pdf->Ln(20);
 
     //bairro_privada
-    $stmtSelect_enfermagem_bairro_privada = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = 1 AND  candidato.bairro = 1 AND candidato.pcd = 0 
-        ORDER BY nota.media DESC LIMIT 3;
-    ");
-    $stmtSelect_enfermagem_bairro_privada->execute();
-    $result = $stmtSelect_enfermagem_bairro_privada->fetchAll(PDO::FETCH_ASSOC);
+    $stmtSelect_adm_bairro_privada = $conexao->prepare("
+SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+FROM candidato 
+INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 1 AND candidato.pcd = 0 
+ORDER BY nota.media DESC LIMIT 300 OFFSET 3;
+");
+    $stmtSelect_adm_bairro_privada->execute();
+    $result = $stmtSelect_adm_bairro_privada->fetchAll(PDO::FETCH_ASSOC);
 
     // Fonte do cabeçalho
     $pdf->SetFont('Arial', 'B', 12);
@@ -324,7 +323,7 @@ function classificados_enfermagem()
         // Definir cota
         if ($row['pcd'] == 1) {
             $cota = 'PCD';
-        } else if ($row['publica'] == 1 && $row['bairro'] == 1) {
+        } else if ($row['bairro'] == 1) {
             $cota = 'COSTISTA';
         } else {
             $cota = 'AC';
@@ -347,14 +346,14 @@ function classificados_enfermagem()
     $pdf->Ln(20);
 
     //pcd
-    $stmtSelect_enfermagem_pcd = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.id_curso1_fk = 1 AND candidato.pcd = 1 
-        ORDER BY nota.media DESC LIMIT 2;
-    ");
-    $stmtSelect_enfermagem_pcd->execute();
-    $result = $stmtSelect_enfermagem_pcd->fetchAll(PDO::FETCH_ASSOC);
+    $stmtSelect_adm_pcd = $conexao->prepare("
+SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+FROM candidato 
+INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.id_curso1_fk = 3 AND candidato.pcd = 1 
+ORDER BY nota.media DESC LIMIT 300 OFFSET 2;
+");
+    $stmtSelect_adm_pcd->execute();
+    $result = $stmtSelect_adm_pcd->fetchAll(PDO::FETCH_ASSOC);
 
     // Fonte do cabeçalho
     $pdf->SetFont('Arial', 'B', 12);
@@ -427,7 +426,6 @@ function classificados_enfermagem()
         $classificacao++;
     }
     $pdf->Ln(20);
-
-    $pdf->Output('classificacao.pdf', 'I');
+    $pdf->Output('classificaveis_adm.pdf', 'I');
 }
-classificados_enfermagem();
+classificaveis_adm();

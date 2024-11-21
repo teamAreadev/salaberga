@@ -226,7 +226,7 @@ transform: scale(var(--hover-scale));
     Swal.fire({
         title: 'Resultados',
         html: `
-        <form action="../controllers/controller_classificaveis.php" id="searchForm" method="post">
+        <form action="../controllers/controller_resultados.php" id="searchForm" method="post">
             <div class="p-4">
                 <div class="mb-4">
                 <select required id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
