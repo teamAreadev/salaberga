@@ -31,6 +31,15 @@
                     borderRadius: {
                         'xl': '1rem',
                         '4xl': '2.5rem'
+                    },
+                    animation: {
+                        'spin': 'spin 1s linear infinite',
+                    },
+                    keyframes: {
+                        spin: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        }
                     }
                 }
             }
@@ -44,44 +53,228 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .school-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-origin: center;
-            min-width: 300px; /* Defina uma largura mínima para os cartões */
-            max-width: 320px; /* Defina uma largura máxima para os cartões */
-            flex: 0 0 auto; /* Impede que os cartões encolham */
-        }
+        .scroll-smooth {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
 
-        .school-card:hover {
-            transform: scale(1.035) translateY(-10px);
-            box-shadow: theme('boxShadow.card-hover');
-        }
+.scroll-smooth::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
 
+/* Estilos para os cards */
+.shadow-card-hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.school-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.school-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Adicione estes estilos para melhorar a experiência de rolagem */
+@media (max-width: 768px) {
+    .snap-center {
+        scroll-snap-align: center;
+    }
+    
+    .snap-x {
+        scroll-snap-type: x mandatory;
+    }
+}
         .gradient-bg {
             background: linear-gradient(135deg, #008C45 0%, #006633 100%);
         }
+
+        /* Estilos do Modal */
+        .modal {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease-in-out;
+    
+    /* Adicione estas propriedades para centralização */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    /* Remova margens automáticas se houver */
+    margin: 0;
+    /* Adicione uma largura máxima para garantir responsividade */
+    width: 100%;
+    max-width: 500px;
+    /* Adicione um padding nas laterais para telas menores */
+    padding: 0 1rem;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Adicione uma animação suave de entrada */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal.active .modal-content {
+    animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+/* Adicione um efeito de glass morphism (opcional) */
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+        .modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Animação de shake para erro de validação */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+        }
     </style>
 </head>
+
+
 <body class="bg-gray-50 min-h-screen">
-    <!-- Hero Section -->
-    <div class="gradient-bg text-white py-16 mb-10 relative overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('path/to/your/background-image.jpg'); opacity: 0.2;"></div>
-    <div class="container mx-auto px-4 relative z-10 text-center">
-        <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Portal das Escolas</h1>
-        <p class="text-xl opacity-90 max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="200">
-            Acesse o sistema da sua escola de forma rápida e simples
-        </p>
-        <div class="mt-8 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex items-center bg-white/20 rounded-lg px-6 py-3">
-                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
-                <span>3 Escolas Cadastradas</span>
+    <!-- Modal de Login -->
+   <!-- Modal de Login -->
+<div id="loginModal" class="modal">
+    <div class="modal-content bg-white rounded-2xl shadow-2xl">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-800">Bem-vindo de volta!</h2>
+                <button onclick="closeModal()" class="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
+
+            <!-- Body -->
+            <div class="p-6">
+                <form id="loginForm" action="controllers/autentica.php" method="post" class="space-y-6">
+                    <!-- Email/Nome Field -->
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                            Nome de Usuário
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <input type="text" id="email" name="email" 
+                                class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200"
+                                placeholder="Digite seu nome de usuário" required>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="space-y-2">
+                        <label for="password" class="block text-sm font-medium text-gray-700">
+                            Senha
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <input type="password" id="password" name="senha" 
+                                class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200"
+                                placeholder="Digite sua senha" required>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="remember" name="remember" 
+                                class="w-4 h-4 text-ceara-green border-gray-300 rounded focus:ring-ceara-green transition-colors duration-200">
+                            <label for="remember" class="ml-2 text-sm text-gray-600">
+                                Lembrar-me
+                            </label>
+                        </div>
+                       
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex space-x-4">
+                        <button type="button" onclick="closeModal()" 
+                            class="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-all duration-200 font-medium">
+                            Cancelar
+                        </button>
+                        <button type="submit" 
+                            class="flex-1 px-4 py-3 text-white bg-ceara-green rounded-xl hover:bg-ceara-green-dark transition-all duration-200 font-medium shadow-lg hover:shadow-xl">
+                            <span class="flex items-center justify-center">
+                                <span>Entrar</span>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            
         </div>
-      
     </div>
-</div>
+
+        <!-- Hero Section -->
+        <div class="gradient-bg text-white py-16 mb-10 relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('path/to/your/background-image.jpg'); opacity: 0.2;"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Portal das Escolas</h1>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="200">
+                Acesse o sistema da sua escola de forma rápida e simples
+            </p>
+        </div>
+    </div>
 
     <div class="container mx-auto px-4 py-8">
         <!-- Barra de Busca Melhorada -->
@@ -98,126 +291,126 @@
             </div>
         </div>
 
-        <!-- Grade de Cartões das Escolas com Rolagem Horizontal -->
-        <div id="card-container" class="flex overflow-x-auto space-x-10 pb-4">
-            <div class="flex-none w-[350px]">
-                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all hover:shadow-card-hover h-[600px]" data-aos="fade-up" data-name="EEEP Gonzaga Mota">
+        <!-- Cards Container com Scroll Suave -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-7xl mx-auto">
+        
+        <!-- Card 1 - EEEP Gonzaga Mota -->
+        <div class="w-full max-w-[350px]">
+            <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Gonzaga Mota">
                 <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
-                        <div class="absolute inset-0 opacity-80"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-school text-6xl text-white"></i>
-                        </div>
-                    </div>
-                    <div class="p-8 text-center h-[calc(600px-12rem)]">
-                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Gonzaga Mota</h2>
-                        <p class="flex items-center justify-center text-gray-600 mb-6">
-                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
-                            Maracanaú, CE
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-3 mb-8">
-                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Ensino Médio Profissional
-                            </span>
-                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
-                                <i class="fas fa-clock mr-2"></i>
-                                Período Integral
-                            </span>
-                        </div>
-                        <div class="space-y-4">
-                            <a href="#" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
-                                Acessar Sistema
-                            </a>
-                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
-                                Mais Informações
-                            </a>
-                        </div>
+                    <div class="absolute inset-0 opacity-80"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-school text-6xl text-white"></i>
                     </div>
                 </div>
-            </div>
-        
-            <div class="flex-none w-[350px]">
-                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all hover:shadow-card-hover h-[600px]" data-aos="fade-up" data-name="EEEP Luiza de Teodoro">
-                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
-                        <div class="absolute inset-0 opacity-80"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-school text-6xl text-white"></i>
-                        </div>
+                <div class="p-8 text-center h-[calc(600px-12rem)]">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Gonzaga Mota</h2>
+                    <p class="flex items-center justify-center text-gray-600 mb-6">
+                        <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                        Maracanaú, CE
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-8">
+                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            Ensino Médio Profissional
+                        </span>
+                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Período Integral
+                        </span>
                     </div>
-                    <div class="p-8 text-center h-[calc(600px-12rem)]">
-                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Luiza de Teodoro</h2>
-                        <p class="flex items-center justify-center text-gray-600 mb-6">
-                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
-                            Pacatuba, CE
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-3 mb-8">
-                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Ensino Médio Profissional
-                            </span>
-                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
-                                <i class="fas fa-clock mr-2"></i>
-                                Período Integral
-                            </span>
-                        </div>
-                        <div class="space-y-4">
-                            <a href="#" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
-                                Acessar Sistema
-                            </a>
-                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
-                                Mais Informações
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="flex-none w-[350px]">
-                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all hover:shadow-card-hover h-[600px]" data-aos="fade-up" data-name="EEEP Antônio Valmir">
-                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
-                        <div class="absolute inset-0 opacity-80"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-school text-6xl text-white"></i>
-                        </div>
-                    </div>
-                    <div class="p-8 text-center h-[calc(600px-12rem)]">
-                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Antônio Valmir</h2>
-                        <p class="flex items-center justify-center text-gray-600 mb-6">
-                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
-                            Caucaia, CE
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-3 mb-8">
-                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
-                                <i class="fas fa-graduation-cap mr-2"></i>
-                                Ensino Médio Profissional
-                            </span>
-                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
-                                <i class="fas fa-clock mr-2"></i>
-                                Período Integral
-                            </span>
-                        </div>
-                        <div class="space-y-4">
-                            <a href="#" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
-                                Acessar Sistema
-                            </a>
-                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
-                                Mais Informações
-                            </a>
-                        </div>
+                    <div class="space-y-4">
+                        <button onclick="openModal()" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            Acessar Sistema
+                        </button>
+                        <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                            Mais Informações
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Card 2 - EEEP Luiza de Teodoro -->
+        <div class="w-full max-w-[350px]">
+            <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Luiza de Teodoro">
+                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
+                    <div class="absolute inset-0 opacity-80"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-school text-6xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8 text-center h-[calc(600px-12rem)]">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Luiza de Teodoro</h2>
+                    <p class="flex items-center justify-center text-gray-600 mb-6">
+                        <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                        Pacatuba, CE
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-8">
+                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            Ensino Médio Profissional
+                        </span>
+                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Período Integral
+                        </span>
+                    </div>
+                    <div class="space-y-4">
+                        <button onclick="openModal()" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            Acessar Sistema
+                        </button>
+                        <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                            Mais Informações
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 - EEEP Antônio Valmir -->
+        <div class="w-full max-w-[350px]">
+            <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Antônio Valmir">
+                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
+                    <div class="absolute inset-0 opacity-80"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-school text-6xl text-white"></i>
+                    </div>
+                </div>
+                <div class="p-8 text-center h-[calc(600px-12rem)]">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Antônio Valmir</h2>
+                    <p class="flex items-center justify-center text-gray-600 mb-6">
+                        <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                        Caucaia, CE
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-8">
+                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            Ensino Médio Profissional
+                        </span>
+                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Período Integral
+                        </span>
+                    </div>
+                    <div class="space-y-4">
+                        <button onclick="openModal()" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            Acessar Sistema
+                        </button>
+                        <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                            Mais Informações
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
     </div>
-        <style>
-        .school-card {
-            min-width: 350px;
-            max-width: 350px;
-            min-height: 600px;
-            max-height: 600px;
-        }
-        </style>
-    <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
+</div>
+
+        <!-- Footer -->
+        <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 <!-- Identificação Institucional -->
@@ -232,106 +425,155 @@
                         <a aria-label="Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eeepsalabergampe/"
                             class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-ceara-orange transition-all">
                             <i class="fab fa-instagram text-sm"></i>
-                        </i>
-                    </a>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contato -->
+                <div class="p-2">
+                    <h4 class="text-ceara-orange text-lg font-bold mb-3">CONTATO</h4>
+                    <div class="space-y-2 text-sm">
+                        <a class="flex items-center hover:text-ceara-orange transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            eeepsantaritama@gmail.com
+                        </a>
+                        <a href="tel:+558531012100" class="flex items-center hover:text-ceara-orange transition-colors">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            (85) 3101-2100
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desenvolvedores -->
+                <div class="p-2">
+                    <h4 class="text-ceara-orange text-lg font-bold mb-3">DESENVOLVEDORES</h4>
+                    <div class="flex gap-4">
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-ceara-orange transition-colors">
+                                    <i class="fab fa-instagram text-ceara-orange mr-2"></i>
+                                    Otavio Menezes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-ceara-orange transition-colors">
+                                    <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
+                                    Matheus Felix
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-ceara-orange transition-colors">
+                                    <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
+                                    Lavosier Nascimento
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-ceara-orange transition-colors">
+                                    <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
+                                    Roger Cavalcante
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-ceara-orange transition-colors">
+                                    <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
+                                    Pedro Uchôa
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Contato -->
-            <div class="p-2">
-                <h4 class="text-ceara-orange text-lg font-bold mb-3">CONTATO</h4>
-                <div class="space-y-2 text-sm">
-                    <a class="flex items-center hover:text-ceara-orange transition-colors">
-                        <i class="fas fa-envelope mr-2"></i>
-                        eeepsantaritama@gmail.com
-                    </a>
-                    <a href="tel:+558531012100" class="flex items-center hover:text-ceara-orange transition-colors">
-                        <i class="fas fa-phone-alt mr-2"></i>
-                        (85) 3101-2100
-                    </a>
-                </div>
-            </div>
-
-            <!-- Desenvolvedores -->
-            <div class="p-2">
-                <h4 class="text-ceara-orange text-lg font-bold mb-3">DESENVOLVEDORES</h4>
-                <div class="flex gap-4">
-                    <!-- Primeira coluna (3 desenvolvedores) -->
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-ceara-orange transition-colors">
-                                <i class="fab fa-instagram text-ceara-orange mr-2"></i>
-                                Otavio Menezes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-ceara-orange transition-colors">
-                                <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
-                                Matheus Felix
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-ceara-orange transition-colors">
-                                <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
-                                Lavosier Nascimento
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Segunda coluna (2 desenvolvedores) -->
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-ceara-orange transition-colors">
-                                <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
-                                Roger Cavalcante
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-ceara-orange transition-colors">
-                                <i class="fab fa-linkedin text-ceara-orange mr-2"></i>
-                                Pedro Uchôa
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="border-t border-white/10 pt-3 text-center text-xs">
+                <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Copyright -->
-        <div class="border-t border-white/10 pt-3 text-center text-xs">
-            <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
-        </div>
-    </div>
-</footer>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
 
-<script>
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100,
-    });
+        function filterCards() {
+            const input = document.getElementById("search-input");
+            const filter = input.value.toLowerCase();
+            const cards = document.querySelectorAll(".school-card");
 
-    function filterCards() {
-        const input = document.getElementById("search-input");
-        const filter = input.value.toLowerCase();
-        const cards = document.querySelectorAll(".school-card");
+            cards.forEach(card => {
+                const cardName = card.getAttribute("data-name").toLowerCase();
+                if (cardName.includes(filter)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
 
-        cards.forEach(card => {
-            const cardName = card.getAttribute("data-name").toLowerCase();
-            if (cardName.includes(filter)) {
-                card.style.display = ""; // Exibir o cartão
-            } else {
-                card.style.display = "none"; // Ocultar o cartão
+        function openModal() {
+            const modal = document.getElementById("loginModal");
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("loginModal");
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Validação do formulário
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                const form = document.getElementById('loginForm');
+                form.classList.add('shake');
+                setTimeout(() => form.classList.remove('shake'), 600);
+                return;
+            }
+            
+            // Aqui você pode adicionar sua lógica de autenticação
+            this.submit();
+        });
+
+        // Fechar modal ao pressionar ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
             }
         });
-    }
-</script>
+
+        // Fechar modal ao clicar fora
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Loading state para o botão de login
+        document.getElementById('loginForm').addEventListener('submit', function() {
+            const button = this.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.innerHTML = `
+                <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Entrando...
+            `;
+        });
+    </script>
 </body>
 </html>
-
