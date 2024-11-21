@@ -1,6 +1,6 @@
 <?php
 
-function classificaveis_adm()
+function lista_de_espera($curso)
 {
     require_once('../../../config/connect.php');
     require_once('../../../assets/fpdf/fpdf.php');

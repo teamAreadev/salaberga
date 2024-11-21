@@ -1,6 +1,6 @@
 <?php
 
-function classificados_adm()
+function lista_de_espera($curso)
 {
     require_once('../../../config/connect.php');
     require_once('../../../assets/fpdf/fpdf.php');
@@ -11,7 +11,7 @@ function classificados_adm()
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../../../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('CLASSIFICADOS ADMINISTRACAO'), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('CLASSIFICAVEIS ADMINISTRACAO'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
@@ -24,7 +24,7 @@ function classificados_adm()
 SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
 FROM candidato 
 INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 0 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 24
+ORDER BY nota.media DESC LIMIT 300 OFFSET 24;
 ");
     $stmtSelect_adm_ac_publica->execute();
     $result = $stmtSelect_adm_ac_publica->fetchAll(PDO::FETCH_ASSOC);
@@ -105,7 +105,7 @@ ORDER BY nota.media DESC LIMIT 24
 SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
 FROM candidato 
 INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 1 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 10;
+ORDER BY nota.media DESC LIMIT 300 OFFSET 10;
 ");
     $stmtSelect_adm_bairro_publica->execute();
     $result = $stmtSelect_adm_bairro_publica->fetchAll(PDO::FETCH_ASSOC);
@@ -186,7 +186,7 @@ ORDER BY nota.media DESC LIMIT 10;
 SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
 FROM candidato 
 INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 0 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 6;
+ORDER BY nota.media DESC LIMIT 300 OFFSET 6;
 ");
     $stmtSelect_adm_ac_privada->execute();
     $result = $stmtSelect_adm_ac_privada->fetchAll(PDO::FETCH_ASSOC);
@@ -268,7 +268,7 @@ ORDER BY nota.media DESC LIMIT 6;
 SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
 FROM candidato 
 INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = 3 AND  candidato.bairro = 1 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 3;
+ORDER BY nota.media DESC LIMIT 300 OFFSET 3;
 ");
     $stmtSelect_adm_bairro_privada->execute();
     $result = $stmtSelect_adm_bairro_privada->fetchAll(PDO::FETCH_ASSOC);
@@ -350,7 +350,7 @@ ORDER BY nota.media DESC LIMIT 3;
 SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
 FROM candidato 
 INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.id_curso1_fk = 3 AND candidato.pcd = 1 
-ORDER BY nota.media DESC LIMIT 2;
+ORDER BY nota.media DESC LIMIT 300 OFFSET 2;
 ");
     $stmtSelect_adm_pcd->execute();
     $result = $stmtSelect_adm_pcd->fetchAll(PDO::FETCH_ASSOC);
@@ -426,6 +426,6 @@ ORDER BY nota.media DESC LIMIT 2;
         $classificacao++;
     }
     $pdf->Ln(20);
-    $pdf->Output('classificacao.pdf', 'I');
+    $pdf->Output('classificaveis_adm.pdf', 'I');
 }
-classificados_adm();
+classificaveis_adm();
