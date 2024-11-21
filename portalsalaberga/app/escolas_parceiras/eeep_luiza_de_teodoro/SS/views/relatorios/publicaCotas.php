@@ -5,8 +5,14 @@ function publicaCotas($curso)
     $stmtSelect = $conexao->prepare("
         SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 and candidato.bairro = 1 AND candidato.pcd = 0 AND candidato.id_curso1_fk = :curso
-        ORDER BY nota.media DESC;
+        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+        AND candidato.publica = 1
+        AND candidato.id_curso1_fk = :curso 
+        AND (candidato.bairro = 1 OR candidato.pcd = 1) 
+        ORDER BY nota.media DESC,
+        candidato.data_nascimento DESC,
+        nota.l_portuguesa DESC,
+        nota.matematica DESC
     ");
     $stmtSelect->bindValue(':curso', $curso);
     $stmtSelect->execute();
@@ -86,7 +92,7 @@ function publicaCotas($curso)
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
         $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
         $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);
-        
+
         $classificacao++;
     }
 

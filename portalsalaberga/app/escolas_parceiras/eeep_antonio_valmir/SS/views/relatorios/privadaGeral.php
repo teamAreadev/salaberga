@@ -6,7 +6,10 @@ function privadaGeral($curso)
         SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = :curso
-        ORDER BY nota.media DESC LIMIT 10
+        ORDER BY nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC
     ");
     $stmtSelect->BindValue(':curso', $curso);
     $stmtSelect->execute();
