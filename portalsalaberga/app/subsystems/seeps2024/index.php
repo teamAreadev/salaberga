@@ -217,7 +217,7 @@ lista();
 ========================================== */
     .course-card {
         background-color: var(--ceara-white);
-        padding: 3.2rem 1rem;
+        padding: 3.5rem 1rem;
         /* Reduzido */
         text-align: center;
         border-radius: 12px;
@@ -326,7 +326,7 @@ lista();
     .course-card:hover {
         min-height: 220px;
         /* Reduzido */
-        padding: 1.4rem 1.2rem;
+        padding: 2.4rem 1.2rem;
         /* Reduzido */
         box-shadow: var(--shadow-md);
         transform: scale(var(--hover-scale));
