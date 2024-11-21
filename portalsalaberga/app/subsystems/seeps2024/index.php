@@ -981,7 +981,7 @@ lista();
                                     
                                     <div class="info-text" style="display: flex; align-items: center;">
                                         <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                        <span style="margin-left: 12px;">Pública - AC: <?php echo $dados['Pública'] ?? 0; ?></span>
+                                        <span style="margin-left: 12px;">Pública - AC: <?php echo $dados['publica'] ?? 0; ?></span>
                                     </div>
                                     <div class="info-text" style="display: flex; align-items: center;">
                                         <i class="fas fa-book info-icon text-ceara-green" style="font-size: 14px; margin-left: 2px;"></i>
