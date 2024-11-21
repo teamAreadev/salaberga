@@ -10,8 +10,10 @@ function privadaAC($curso)
         AND candidato.bairro = 0 
         AND candidato.pcd = 0
         AND candidato.id_curso1_fk = :curso
-        ORDER BY nota.media DESC 
-        LIMIT 10
+        ORDER BY nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC
     ");
     $stmtSelect->BindValue(':curso', $curso);
     $stmtSelect->execute();
