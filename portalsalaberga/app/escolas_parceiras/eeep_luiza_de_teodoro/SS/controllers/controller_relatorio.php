@@ -29,4 +29,6 @@ if (isset($_POST['curso']) && (isset($_POST['tipo']))) {
         require_once('../views/relatorios/privadaCotas.php');
         privadaCotas($curso);
     }
+} else {
+    header('location:../views/inicio.php');
 }
