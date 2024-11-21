@@ -7,8 +7,6 @@ function showReportsModal() {
         'Privada AC': '../views/relatorios/privadaAC.php',
         'Pública Cotas': '../views/relatorios/publicaCotas.php',
         'Privada Cotas': '../views/relatorios/privadaCotas.php',
-
-
     };
 
     Swal.fire({
@@ -24,7 +22,6 @@ function showReportsModal() {
                     <option value="Privada AC">Privada AC</option>
                     <option value="Pública Cotas">Pública Cotas</option>
                     <option value="Privada Cotas">Privada Cotas</option>
-                  
                 </select>
             </div>
         </div>
@@ -50,25 +47,12 @@ function showReportsModal() {
             const url = reportUrls[selectedType];
 
             if (url) {
-
-                Swal.fire({
-                    title: 'Redirecionando...',
-                    text: 'Gerando relatório ',
-                    timer: 1500,
-                    timerProgressBar: true,
-                    didOpen: () => {
-                        Swal.showLoading();
-
-                        setTimeout(() => {
-                            window.location.href = url;
-                        }, 1500);
-                    }
-                });
+                Swal.close(); // Fecha o modal imediatamente
+                window.location.href = url; // Redireciona instantaneamente
             }
         }
     });
-}
-
+}   
 /*
 function showUpdateModal() {
     Swal.fire({
@@ -245,12 +229,11 @@ transform: scale(var(--hover-scale));
 }
 ` ;
 
-*/
-function showResultsModal() {
+*/function showResultsModal() {
     Swal.fire({
         title: 'Resultados',
         html: `
-        <form action="../controllers/controller_classificaveis.php" id="searchForm" onsubmit="submitForm(); return false;" method="post">
+        <form action="../controllers/controller_classificaveis.php" id="searchForm" method="post">
             <div class="p-4">
                 <div class="mb-4">
                     <select id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
@@ -269,29 +252,51 @@ function showResultsModal() {
                     </select>
                 </div>
                 <div class="flex justify-center gap-4">
-                    <button type="submit" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
+                    <button type="submit" onclick="submitForm()" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
                         Gerar Resultados
                     </button>
-                  <button type="button" class="bg-gray-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105" onclick="Swal.close()">
-    Cancelar
-</button>
-
+                    <button type="button" class="bg-gray-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105" onclick="Swal.close()">
+                        Cancelar
+                    </button>
                 </div>
             </div>
         </form>
         `,
-        showConfirmButton: false, // Esconde o botão "Ver Resultados"
-        showCancelButton: false // Esconde o botão "Cancelar" padrão
+        showConfirmButton: false,
+        showCancelButton: false
     });
 }
 
 function submitForm() {
+    const courseSelect = document.getElementById('course');
+    const typeSelect = document.getElementById('type');
     const form = document.getElementById('searchForm');
-    form.submit();
+    
+    // Validação dos campos
+    if (courseSelect.value === '' || typeSelect.value === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Por favor, selecione um curso e um tipo'
+        });
+        return;
+    }
+
+    // Mostrar loading
+    Swal.fire({
+        title: 'Gerando Relatórios...',
+        text: 'Por favor, aguarde.',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Envia o formulário
+    setTimeout(() => {
+        form.submit();
+    }, 1500);
 }
-
-
-
 
 
 
