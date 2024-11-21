@@ -357,7 +357,7 @@
             </a>
 
             <!-- Link Escolas Parceiras -->
-            <a href="./views/escolasparceiras/escolas.html"
+            <a href="../escolas_parceiras/index.php"
                @click="isOpen = false"
                class="group flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-ceara-green/5 hover:to-ceara-orange/5 transition-all duration-300">
                 <!-- Ícone -->
@@ -506,7 +506,7 @@
                     </a>
 
                     <!-- Escolas Parceiras -->
-                    <a href="./views/escolasparceiras/escolas.html"
+                    <a href="../escolas_parceiras/index.php"
                        @click="mobileMenuOpen = false"
                        class="group flex items-center space-x-3 text-ceara-white hover:text-ceara-orange transition-all duration-300">
                         <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-200">
