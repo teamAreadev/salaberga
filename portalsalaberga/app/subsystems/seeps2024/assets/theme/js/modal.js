@@ -938,12 +938,6 @@ function closeNonoAnoModal() {
     document.getElementById('bimestreModal').classList.remove('hidden');
 }
 
-function maskNota(input) {
-    input.value = input.value.replace(/[^0-9.]/g, '');
-    if (input.value > 10) {
-        input.value = 10;
-    }
-}
 
 function submitForm() {
     document.getElementById('EnfermagemForm').submit();
