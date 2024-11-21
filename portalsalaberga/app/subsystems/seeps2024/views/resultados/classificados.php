@@ -2,6 +2,7 @@
 
 function classificados($curso)
 {
+    $curso2 = $curso;
     require_once('../config/connect.php');
     require_once('../assets/fpdf/fpdf.php');
 
@@ -32,8 +33,6 @@ function classificados($curso)
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
     $pdf->Cell(185, 10, '', 0, 1, 'C');
-
-    //Administração
 
     //ac_publica
     $stmtSelect_ac_publica = $conexao->prepare("
@@ -127,7 +126,7 @@ function classificados($curso)
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 1 
-    AND candidato.id_curso1_fk = :curso 
+    AND candidato.id_curso1_fk = :curso
     AND  candidato.bairro = 1 
     AND candidato.pcd = 0 
     ORDER BY nota.media DESC LIMIT 10;
@@ -211,7 +210,9 @@ function classificados($curso)
     $stmtSelect_pcd_publica = $conexao->prepare("
     SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
-    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.id_curso1_fk = :curso AND candidato.pcd = 1 
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+    AND candidato.id_curso1_fk = :curso
+    AND candidato.pcd = 1 
     ORDER BY nota.media DESC LIMIT 2;
     ");
     $stmtSelect_pcd_publica->bindValue(':curso', $curso);
@@ -383,7 +384,7 @@ function classificados($curso)
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 0 
-    AND candidato.id_curso1_fk = :curso 
+    AND candidato.id_curso1_fk = :curso
     AND  candidato.bairro = 1 
     AND candidato.pcd = 0 
     ORDER BY nota.media DESC LIMIT 3;
