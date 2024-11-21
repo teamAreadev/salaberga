@@ -502,6 +502,37 @@ function maskNascimento(input) {
     }
 }
 
+function removeAccents(input) {
+    // Armazena o valor atual do cursor
+    const cursorPosition = input.selectionStart;
+    
+    // String de caracteres com acentos e suas substituições
+    const accents = 'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ';
+    const noAccents = 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY';
+    
+    let value = input.value;
+    let result = '';
+    
+    // Percorre cada caractere do input
+    for (let i = 0; i < value.length; i++) {
+        const char = value[i];
+        const index = accents.indexOf(char);
+        
+        // Se encontrar um caractere acentuado, substitui pelo equivalente sem acento
+        if (index !== -1) {
+            result += noAccents[index];
+        } else {
+            result += char;
+        }
+    }
+    
+    // Atualiza o valor do input
+    input.value = result;
+    
+    // Restaura a posição do cursor
+    input.setSelectionRange(cursorPosition, cursorPosition);
+}
+
 function createEnfermagemForm(schoolType) {
     return `
     <form id="EnfermagemForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
@@ -513,7 +544,7 @@ function createEnfermagemForm(schoolType) {
         <!-- Informações Pessoais -->
         <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
             <div class="flex flex-col md:col-span-6">
-                <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full text-center"  placeholder="Nome Completo" required>
+                <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full text-center"  oninput="removeAccents(this)"   placeholder="Nome Completo" required>
             </div>
 
            <div class="flex flex-col md:col-span-1">
