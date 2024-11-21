@@ -5,16 +5,16 @@ if (isset($_POST['curso']) && isset($_POST['tipo'])) {
     $curso = $_POST['curso'];
     $tipo = $_POST['tipo'];
 
-    if ($curso == 1 && $tipo == 'classificados') {
+    if ($tipo == '1') {
 
         require_once('../views/resultados/classificados.php');
         classificados($curso);
-    } else if ($curso == 2 && $tipo == 'classificados') {
+    } else if ($tipo == '2') {
 
         require_once('../views/resultados/classificados.php');
         lista_de_espera($curso);
-
     } else {
+
         header('location:../views/inicio.php');
     }
 } else {

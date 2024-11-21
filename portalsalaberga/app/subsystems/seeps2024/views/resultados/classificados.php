@@ -5,21 +5,20 @@ function classificados($curso)
     require_once('../config/connect.php');
     require_once('../assets/fpdf/fpdf.php');
 
-    switch($curso){
+    switch ($curso) {
 
-        case 1: 
+        case 1:
             $nome_curso = 'ENFERMAGEM';
             break;
-            case 1: 
-                $nome_curso = 'ENFERMAGEM';
-                break;
-                case 1: 
-                    $nome_curso = 'ENFERMAGEM';
-                    break;
-                    case 1: 
-                        $nome_curso = 'ENFERMAGEM';
-                        break;
-                        
+        case 2:
+            $nome_curso = 'INFORMATICA';
+            break;
+        case 3:
+            $nome_curso = 'ADMINISTRACAO';
+            break;
+        case 4:
+            $nome_curso = 'EDIFICACAO';
+            break;
     }
 
     $pdf = new FPDF();
@@ -28,7 +27,7 @@ function classificados($curso)
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('CLASSIFICADOS' . $curso), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('CLASSIFICADOS ' . $nome_curso), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
@@ -38,11 +37,15 @@ function classificados($curso)
 
     //ac_publica
     $stmtSelect_ac_publica = $conexao->prepare("
-SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-FROM candidato 
-INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = :curso AND  candidato.bairro = 0 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 24
-");
+    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    FROM candidato 
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+    AND candidato.publica = 1 
+    AND candidato.id_curso1_fk = :curso
+    AND  candidato.bairro = 0 
+    AND candidato.pcd = 0 
+    ORDER BY nota.media DESC LIMIT 24
+    ");
     $stmtSelect_ac_publica->bindValue(':curso', $curso);
     $stmtSelect_ac_publica->execute();
     $result = $stmtSelect_ac_publica->fetchAll(PDO::FETCH_ASSOC);
@@ -120,11 +123,15 @@ ORDER BY nota.media DESC LIMIT 24
 
     //bairro_publica
     $stmtSelect_bairro_publica = $conexao->prepare("
-SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-FROM candidato 
-INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 1 AND candidato.id_curso1_fk = :curso AND  candidato.bairro = 1 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 10;
-");
+    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    FROM candidato 
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+    AND candidato.publica = 1 
+    AND candidato.id_curso1_fk = :curso 
+    AND  candidato.bairro = 1 
+    AND candidato.pcd = 0 
+    ORDER BY nota.media DESC LIMIT 10;
+    ");
     $stmtSelect_bairro_publica->bindValue(':curso', $curso);
     $stmtSelect_bairro_publica->execute();
     $result = $stmtSelect_bairro_publica->fetchAll(PDO::FETCH_ASSOC);
@@ -202,11 +209,11 @@ ORDER BY nota.media DESC LIMIT 10;
 
     //pcd
     $stmtSelect_pcd_publica = $conexao->prepare("
-SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-FROM candidato 
-INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.id_curso1_fk = :curso AND candidato.pcd = 1 
-ORDER BY nota.media DESC LIMIT 2;
-");
+    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    FROM candidato 
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.id_curso1_fk = :curso AND candidato.pcd = 1 
+    ORDER BY nota.media DESC LIMIT 2;
+    ");
     $stmtSelect_pcd_publica->bindValue(':curso', $curso);
     $stmtSelect_pcd_publica->execute();
     $result = $stmtSelect_pcd_publica->fetchAll(PDO::FETCH_ASSOC);
@@ -285,11 +292,15 @@ ORDER BY nota.media DESC LIMIT 2;
 
     //ac_privada
     $stmtSelect_ac_privada = $conexao->prepare("
-SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-FROM candidato 
-INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = :curso AND  candidato.bairro = 0 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 6;
-");
+    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    FROM candidato 
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+    AND candidato.publica = 0 
+    AND candidato.id_curso1_fk = :curso 
+    AND  candidato.bairro = 0 
+    AND candidato.pcd = 0 
+    ORDER BY nota.media DESC LIMIT 6;
+    ");
     $stmtSelect_ac_privada->bindValue(':curso', $curso);
     $stmtSelect_ac_privada->execute();
     $result = $stmtSelect_ac_privada->fetchAll(PDO::FETCH_ASSOC);
@@ -368,11 +379,15 @@ ORDER BY nota.media DESC LIMIT 6;
 
     //bairro_privada
     $stmtSelect_bairro_privada = $conexao->prepare("
-SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-FROM candidato 
-INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 AND candidato.id_curso1_fk = :curso AND  candidato.bairro = 1 AND candidato.pcd = 0 
-ORDER BY nota.media DESC LIMIT 3;
-");
+    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    FROM candidato 
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+    AND candidato.publica = 0 
+    AND candidato.id_curso1_fk = :curso 
+    AND  candidato.bairro = 1 
+    AND candidato.pcd = 0 
+    ORDER BY nota.media DESC LIMIT 3;
+    ");
     $stmtSelect_bairro_privada->bindValue(':curso', $curso);
     $stmtSelect_bairro_privada->execute();
     $result = $stmtSelect_bairro_privada->fetchAll(PDO::FETCH_ASSOC);

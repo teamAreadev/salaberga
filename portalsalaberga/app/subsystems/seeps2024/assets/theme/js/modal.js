@@ -231,7 +231,7 @@ transform: scale(var(--hover-scale));
                 <div class="mb-4">
                 <select required id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
                 <option value="">Selecione um tipo</option>
-                <option value="classificados">Classificados</option>
+                <option value="1">Classificados</option>
                 <option value="classificaveis">Classificáveis</option>
                 </select>
                 </div>
