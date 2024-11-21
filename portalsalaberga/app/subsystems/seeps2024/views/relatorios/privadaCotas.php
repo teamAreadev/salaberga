@@ -4,10 +4,26 @@ function privadaCotas($curso)
 {
     require_once('../config/connect.php');
     $stmtSelect = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato AND candidato.publica = 0 and candidato.bairro = 1 AND candidato.pcd = 0 AND candidato.id_curso1_fk = :curso
-        ORDER BY nota.media DESC;
+    SELECT 
+        candidato.nome, 
+        candidato.id_curso1_fk, 
+        candidato.publica, 
+        candidato.bairro, 
+        candidato.pcd, 
+        nota.media,
+        candidato.data_nascimento,
+        nota.l_portuguesa,
+        nota.matematica
+    FROM candidato
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato
+    WHERE candidato.publica = 0
+    AND candidato.id_curso1_fk = :curso
+    AND (candidato.pcd = 1 OR candidato.bairro = 1)
+    ORDER BY 
+        nota.media DESC,
+        candidato.data_nascimento DESC,
+        nota.l_portuguesa DESC,
+        nota.matematica DESC 
     ");
     $stmtSelect->BindValue(':curso', $curso);
     $stmtSelect->execute();

@@ -4,12 +4,25 @@ function publicaGeral($curso)
 {
     require_once('../config/connect.php');
     $stmtSelect = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
-        FROM candidato 
-        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato
-        WHERE candidato.publica = 1
-        AND candidato.id_curso1_fk = :curso
-        ORDER BY nota.media DESC 
+    SELECT 
+    candidato.nome, 
+    candidato.id_curso1_fk, 
+    candidato.publica, 
+    candidato.bairro, 
+    candidato.pcd, 
+    nota.media,
+    candidato.data_nascimento,
+    nota.l_portuguesa,
+    nota.matematica
+    FROM candidato
+    INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato
+    WHERE candidato.publica = 1
+    AND candidato.id_curso1_fk = :curso
+    ORDER BY 
+    nota.media DESC,
+    candidato.data_nascimento DESC,
+    nota.l_portuguesa DESC,
+    nota.matematica DESC
     ");
     $stmtSelect->BindValue(':curso', $curso);
     $stmtSelect->execute();
@@ -89,7 +102,7 @@ function publicaGeral($curso)
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
         $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
         $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);
-        
+
         $classificacao++;
     }
 
