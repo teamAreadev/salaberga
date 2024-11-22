@@ -110,12 +110,12 @@
         }
     }
 
-    function logar($email, $senha)
+    function logar($nome, $senha)
     {
         require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
-        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
-        $result_logar->bindValue(':email', $email);
+        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = :senha");
+        $result_logar->bindValue(':nome', $nome);
         $result_logar->bindValue(':senha', $senha);
         $result_logar->execute();
         $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);

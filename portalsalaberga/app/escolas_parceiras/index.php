@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -37,8 +38,12 @@
                     },
                     keyframes: {
                         spin: {
-                            '0%': { transform: 'rotate(0deg)' },
-                            '100%': { transform: 'rotate(360deg)' },
+                            '0%': {
+                                transform: 'rotate(0deg)'
+                            },
+                            '100%': {
+                                transform: 'rotate(360deg)'
+                            },
                         }
                     }
                 }
@@ -54,112 +59,117 @@
         }
 
         .scroll-smooth {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-}
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
 
-.scroll-smooth::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-}
+        .scroll-smooth::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari and Opera */
+        }
 
-/* Estilos para os cards */
-.shadow-card-hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
+        /* Estilos para os cards */
+        .shadow-card-hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
 
-.school-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        .school-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-.school-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
+        .school-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
 
-/* Adicione estes estilos para melhorar a experiência de rolagem */
-@media (max-width: 768px) {
-    .snap-center {
-        scroll-snap-align: center;
-    }
-    
-    .snap-x {
-        scroll-snap-type: x mandatory;
-    }
-}
+        /* Adicione estes estilos para melhorar a experiência de rolagem */
+        @media (max-width: 768px) {
+            .snap-center {
+                scroll-snap-align: center;
+            }
+
+            .snap-x {
+                scroll-snap-type: x mandatory;
+            }
+        }
+
         .gradient-bg {
             background: linear-gradient(135deg, #008C45 0%, #006633 100%);
         }
 
         /* Estilos do Modal */
         .modal {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    position: fixed;
-    z-index: 50;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all 0.3s ease-in-out;
-    
-    /* Adicione estas propriedades para centralização */
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
 
-.modal.active {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-}
+            /* Adicione estas propriedades para centralização */
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
 
-.modal-content {
-    transform: scale(0.7);
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    /* Remova margens automáticas se houver */
-    margin: 0;
-    /* Adicione uma largura máxima para garantir responsividade */
-    width: 100%;
-    max-width: 500px;
-    /* Adicione um padding nas laterais para telas menores */
-    padding: 0 1rem;
-}
+        .modal.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+        }
 
-.modal.active .modal-content {
-    transform: scale(1);
-    opacity: 1;
-}
+        .modal-content {
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            /* Remova margens automáticas se houver */
+            margin: 0;
+            /* Adicione uma largura máxima para garantir responsividade */
+            width: 100%;
+            max-width: 500px;
+            /* Adicione um padding nas laterais para telas menores */
+            padding: 0 1rem;
+        }
 
-/* Adicione uma animação suave de entrada */
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.7);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+        .modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
 
-.modal.active .modal-content {
-    animation: modalFadeIn 0.3s ease-out forwards;
-}
+        /* Adicione uma animação suave de entrada */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
 
-/* Adicione um efeito de glass morphism (opcional) */
-.modal-content {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal.active .modal-content {
+            animation: modalFadeIn 0.3s ease-out forwards;
+        }
+
+        /* Adicione um efeito de glass morphism (opcional) */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
 
         .modal.active .modal-content {
             transform: scale(1);
@@ -168,13 +178,30 @@
 
         /* Animação de shake para erro de validação */
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
         }
 
         .shake {
-            animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+            animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both;
         }
     </style>
 </head>
@@ -182,9 +209,9 @@
 
 <body class="bg-gray-50 min-h-screen">
     <!-- Modal de Login -->
-   <!-- Modal de Login -->
-<div id="loginModal" class="modal">
-    <div class="modal-content bg-white rounded-2xl shadow-2xl">
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl">
             <!-- Header -->
             <div class="flex items-center justify-between p-6 border-b border-gray-200">
                 <h2 class="text-2xl font-bold text-gray-800">Bem-vindo de volta!</h2>
@@ -197,7 +224,10 @@
 
             <!-- Body -->
             <div class="p-6">
-                <form id="loginForm" action="controllers.php" method="post" class="space-y-6">
+                <form id="loginForm" action="controller.php" method="post" class="space-y-6">
+
+                    <input type="hidden" id="schoolName" name="escola" value="">
+
                     <!-- Email/Nome Field -->
                     <div class="space-y-2">
                         <label for="email" class="block text-sm font-medium text-gray-700">
@@ -209,7 +239,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </div>
-                            <input type="text" id="email" name="nome" 
+                            <input type="text" id="email" name="nome"
                                 class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200"
                                 placeholder="Digite seu nome de usuário" required>
                         </div>
@@ -226,7 +256,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
                             </div>
-                            <input type="password" id="password" name="senha" 
+                            <input type="password" id="password" name="senha"
                                 class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200"
                                 placeholder="Digite sua senha" required>
                         </div>
@@ -235,22 +265,22 @@
                     <!-- Remember Me & Forgot Password -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <input type="checkbox" id="remember" name="remember" 
+                            <input type="checkbox" id="remember" name="remember"
                                 class="w-4 h-4 text-ceara-green border-gray-300 rounded focus:ring-ceara-green transition-colors duration-200">
                             <label for="remember" class="ml-2 text-sm text-gray-600">
                                 Lembrar-me
                             </label>
                         </div>
-                       
+
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="flex space-x-4">
-                        <button type="button" onclick="closeModal()" 
+                        <button type="button" onclick="closeModal()"
                             class="flex-1 px-4 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-all duration-200 font-medium">
                             Cancelar
                         </button>
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex-1 px-4 py-3 text-white bg-ceara-green rounded-xl hover:bg-ceara-green-dark transition-all duration-200 font-medium shadow-lg hover:shadow-xl">
                             <span class="flex items-center justify-center">
                                 <span>Entrar</span>
@@ -261,12 +291,12 @@
             </div>
 
             <!-- Footer -->
-            
+
         </div>
     </div>
 
-        <!-- Hero Section -->
-        <div class="gradient-bg text-white py-16 mb-10 relative overflow-hidden">
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white py-16 mb-10 relative overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('path/to/your/background-image.jpg'); opacity: 0.2;"></div>
         <div class="container mx-auto px-4 relative z-10 text-center">
             <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Portal das Escolas</h1>
@@ -280,11 +310,11 @@
         <!-- Barra de Busca Melhorada -->
         <div class="max-w-3xl mx-auto mb-16" data-aos="fade-up">
             <div class="relative group">
-                <input type="text" 
-                       id="search-input" 
-                       placeholder="Encontre sua escola..." 
-                       class="w-full px-10 py-6 rounded-4xl border-2 border-gray-200 focus:border-ceara-green focus:ring-0 outline-none transition-all duration-300 text-lg placeholder:text-gray-500 shadow-lg" 
-                       oninput="filterCards()">
+                <input type="text"
+                    id="search-input"
+                    placeholder="Encontre sua escola..."
+                    class="w-full px-10 py-6 rounded-4xl border-2 border-gray-200 focus:border-ceara-green focus:ring-0 outline-none transition-all duration-300 text-lg placeholder:text-gray-500 shadow-lg"
+                    oninput="filterCards()">
                 <div class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-ceara-green text-white p-4 rounded-full cursor-pointer hover:bg-ceara-orange transition-colors duration-300">
                     <i class="fas fa-search text-xl"></i>
                 </div>
@@ -293,124 +323,124 @@
 
         <!-- Cards Container com Scroll Suave -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-7xl mx-auto">
-        
-        <!-- Card 1 - EEEP Gonzaga Mota -->
-        <div class="w-full max-w-[350px]">
-            <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Gonzaga Mota">
-                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
-                    <div class="absolute inset-0 opacity-80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-school text-6xl text-white"></i>
+
+            <!-- Card 1 - EEEP Gonzaga Mota -->
+            <div class="w-full max-w-[350px]">
+                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Gonzaga Mota">
+                    <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
+                        <div class="absolute inset-0 opacity-80"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-school text-6xl text-white"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="p-8 text-center h-[calc(600px-12rem)]">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Gonzaga Mota</h2>
-                    <p class="flex items-center justify-center text-gray-600 mb-6">
-                        <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
-                        Maracanaú, CE
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-3 mb-8">
-                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
-                            <i class="fas fa-graduation-cap mr-2"></i>
-                            Ensino Médio Profissional
-                        </span>
-                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
-                            <i class="fas fa-clock mr-2"></i>
-                            Período Integral
-                        </span>
-                    </div>
-                    <div class="space-y-4">
-                        <button onclick="openModal()" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
-                            Acessar Sistema
-                        </button>
-                        <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
-                            Mais Informações
-                        </a>
+                    <div class="p-8 text-center h-[calc(600px-12rem)]">
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Gonzaga Mota</h2>
+                        <p class="flex items-center justify-center text-gray-600 mb-6">
+                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                            Maracanaú, CE
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Ensino Médio Profissional
+                            </span>
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                Período Integral
+                            </span>
+                        </div>
+                        <div class="space-y-4">
+                            <button onclick="openModal('EEEP Gonzaga Mota')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                                Acessar Sistema
+                            </button>
+                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                                Mais Informações
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card 2 - EEEP Luiza de Teodoro -->
-        <div class="w-full max-w-[350px]">
-            <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Luiza de Teodoro">
-                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
-                    <div class="absolute inset-0 opacity-80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-school text-6xl text-white"></i>
+            <!-- Card 2 - EEEP Luiza de Teodoro -->
+            <div class="w-full max-w-[350px]">
+                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Luiza de Teodoro">
+                    <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
+                        <div class="absolute inset-0 opacity-80"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-school text-6xl text-white"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="p-8 text-center h-[calc(600px-12rem)]">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Luiza de Teodoro</h2>
-                    <p class="flex items-center justify-center text-gray-600 mb-6">
-                        <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
-                        Pacatuba, CE
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-3 mb-8">
-                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
-                            <i class="fas fa-graduation-cap mr-2"></i>
-                            Ensino Médio Profissional
-                        </span>
-                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
-                            <i class="fas fa-clock mr-2"></i>
-                            Período Integral
-                        </span>
-                    </div>
-                    <div class="space-y-4">
-                        <button onclick="openModal()" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
-                            Acessar Sistema
-                        </button>
-                        <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
-                            Mais Informações
-                        </a>
+                    <div class="p-8 text-center h-[calc(600px-12rem)]">
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Luiza de Teodoro</h2>
+                        <p class="flex items-center justify-center text-gray-600 mb-6">
+                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                            Pacatuba, CE
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Ensino Médio Profissional
+                            </span>
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                Período Integral
+                            </span>
+                        </div>
+                        <div class="space-y-4">
+                            <button onclick="openModal('EEEP Luiza de Teodoro')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                                Acessar Sistema
+                            </button>
+                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                                Mais Informações
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card 3 - EEEP Antônio Valmir -->
-        <div class="w-full max-w-[350px]">
-            <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Antônio Valmir">
-                <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
-                    <div class="absolute inset-0 opacity-80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-school text-6xl text-white"></i>
+            <!-- Card 3 - EEEP Antônio Valmir -->
+            <div class="w-full max-w-[350px]">
+                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Antônio Valmir">
+                    <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
+                        <div class="absolute inset-0 opacity-80"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-school text-6xl text-white"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="p-8 text-center h-[calc(600px-12rem)]">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Antônio Valmir</h2>
-                    <p class="flex items-center justify-center text-gray-600 mb-6">
-                        <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
-                        Caucaia, CE
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-3 mb-8">
-                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
-                            <i class="fas fa-graduation-cap mr-2"></i>
-                            Ensino Médio Profissional
-                        </span>
-                        <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
-                            <i class="fas fa-clock mr-2"></i>
-                            Período Integral
-                        </span>
-                    </div>
-                    <div class="space-y-4">
-                        <button onclick="openModal()" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
-                            Acessar Sistema
-                        </button>
-                        <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
-                            Mais Informações
-                        </a>
+                    <div class="p-8 text-center h-[calc(600px-12rem)]">
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Antônio Valmir</h2>
+                        <p class="flex items-center justify-center text-gray-600 mb-6">
+                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                            Caucaia, CE
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Ensino Médio Profissional
+                            </span>
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                Período Integral
+                            </span>
+                        </div>
+                        <div class="space-y-4">
+                            <button onclick="openModal('EEEP Antônio Valmir')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                                Acessar Sistema
+                            </button>
+                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                                Mais Informações
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        
+
+        </div>
     </div>
-</div>
 
-        <!-- Footer -->
-        <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
+    <!-- Footer -->
+    <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 <!-- Identificação Institucional -->
@@ -519,11 +549,13 @@
             });
         }
 
-        function openModal() {
+        function openModal(schoolName) {
             const modal = document.getElementById("loginModal");
+            document.getElementById("schoolName").value = schoolName;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
+
 
         function closeModal() {
             const modal = document.getElementById("loginModal");
@@ -536,14 +568,14 @@
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+
             if (!email || !password) {
                 const form = document.getElementById('loginForm');
                 form.classList.add('shake');
                 setTimeout(() => form.classList.remove('shake'), 600);
                 return;
             }
-            
+
             // Aqui você pode adicionar sua lógica de autenticação
             this.submit();
         });
@@ -576,4 +608,5 @@
         });
     </script>
 </body>
+
 </html>
