@@ -112,7 +112,7 @@
 
     function logar($nome, $senha)
     {
-        require_once('../config/connect.php');
+        require_once('../escolas_parceiras/eeep_luiza_de_teodoro/SS/config/connect.php');
         //verificando se os dados estão no sistema 
         $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = :senha");
         $result_logar->bindValue(':nome', $nome);
@@ -123,10 +123,11 @@
         
         //se for o result_logar for maior que 0
         if (!empty($result)) {
-           return $login = 1;
-            
+           header('Location: ../escolas_parceiras/eeep_luiza_de_teodoro/SS/views/inicio.php');
+           exit();
         } else {
-            return  $login = 0;
+            header('Location: ../escolas_parceiras/index.php?login=erro');
+            exit();
             
     }
 }

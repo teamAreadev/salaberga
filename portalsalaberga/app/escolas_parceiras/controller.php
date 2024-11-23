@@ -10,7 +10,7 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && isset($_POST['escola']) )
         logar($nome, $senha);
      } else
      if ($escola == 'EEEP Luiza de Teodoro'){
-         require_once('../escolas_parceiras/eeep_luiza_teodoro/SS/models/model.php');
+         require_once('../escolas_parceiras/eeep_luiza_de_teodoro/SS/models/model.php');
          logar($nome, $senha);
      } else
      if ($escola == 'EEEP Antônio Valmir'){

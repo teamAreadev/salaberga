@@ -126,7 +126,7 @@
            header('Location: ../escolas_parceiras/eeep_gonzaga_mota/SS/views/inicio.php');
            exit();
         } else {
-            header('Location: ../escolas_parceiras/index.php');
+            header('Location: ../escolas_parceiras/index.php?login=erro');
             exit();
             
     }
