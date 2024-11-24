@@ -104,38 +104,38 @@ function openInsertUserModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Inserir Usuário</h2>',
         html: `
-            <form id="insertUserForm" class="bg-ceara-white rounded-lg p-6">
+            <form id="insertUserForm" action="../controllers/controller_cadastrar.php" method="post" class="bg-ceara-white rounded-lg p-6">
                 <div class="space-y-6">
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="fullName">Nome Completo</label>
-                        <input type="text" id="fullName" 
+                        <input type="text" id="fullName" name="nomeC"
                             class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
                     
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
-                        <input type="text" id="position" 
+                        <input type="text" id="position" name="cargo"
                             class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
                     
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
-                        <input type="email" id="email" 
+                        <input type="email" id="email" name="email"
                             class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
                     
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="password">Senha</label>
-                        <input type="password" id="password" 
+                        <input type="password" id="password" name="senha"
                             class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
                     
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="status">Status</label>
-                        <select id="status" 
+                        <select id="status" name="status"
                             class="form-select block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
-                            <option value="admin">Admin</option>
-                            <option value="nao-admin">Não Admin</option>
+                            <option value="1">Admin</option>
+                            <option value="0">Não Admin</option>
                         </select>
                     </div>
                     

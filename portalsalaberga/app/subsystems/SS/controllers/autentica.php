@@ -7,7 +7,7 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) &&
     require_once('../models/model.php');
 
     //criando as variaveis
-    $email = $_POST['nome'];
+    $nome = $_POST['nome'];
     $senha = $_POST['senha'];
 
     //criando o objeto model
@@ -16,13 +16,17 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) &&
 
     switch ($login) {
         //caso a variavel fosse igual a certo
+        case 0:
         case 1:
-
+            if ($login == 1){
+            header('location:../views/inicio_ADM.php');
+            exit();
+            } else if ($login == 0){
             header('location:../views/inicio.php');
             exit();
-
+            }
         //caso a variavel fosse igual a erro
-        case 0:
+        case 2:
             header('location:../index.php?erro');
             exit();
     }

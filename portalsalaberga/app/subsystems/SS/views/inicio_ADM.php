@@ -1,7 +1,7 @@
 <?php
 
-require_once('../models/cursos.php');
-$tabela_curso = cursos();
+//require_once('../models/cursos.php');
+//$tabela_curso = cursos();
 
 ?>
 <!DOCTYPE html>
