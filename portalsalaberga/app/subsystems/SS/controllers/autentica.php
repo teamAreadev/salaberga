@@ -4,16 +4,14 @@
 if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) && !empty($_POST['senha'])) {
 
     //requerindo o arquivo model.php
-    require_once('../models/model.php');
-
+    
     //criando as variaveis
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
-
-    //criando o objeto model
+    
     //criando a variavel test para chamar a função logar
+    require_once('../models/model.php');
     $login = logar($nome, $senha);
-
     switch ($login) {
         //caso a variavel fosse igual a certo
         case 0:
@@ -31,4 +29,4 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) &&
             exit();
     }
 }
-
+    

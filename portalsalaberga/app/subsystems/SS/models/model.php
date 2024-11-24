@@ -1,6 +1,6 @@
 <?php
     
-
+    session_start();
     function cadastrarUsuario($nomeC, $userName, $email, $senha, $status, $cargo)
 {
     try {
@@ -29,6 +29,9 @@
         $stmtInsert->bindValue(':status', $status);
         
         return $stmtInsert->execute();
+
+        //header('Location: ../index.php');
+        //exit();
         
     } catch (PDOException $e) {
         // Verifica se é um erro de duplicidade
@@ -147,16 +150,18 @@
     {
         require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
-        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
+        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = :senha");
         $result_logar->bindValue(':nome', $nome);
         $result_logar->bindValue(':senha', $senha);
         $result_logar->execute();
         $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
-        print_r($result);
+        
         
         //se for o result_logar for maior que 0
         foreach ($result as $key) {
             if (!empty($result)){
+                $_SESSION['login'] = true;
+                $_SESSION['status'] = $key['status'];
                 return $login = $key['status'];
             } else {
                 return $login = 2;
