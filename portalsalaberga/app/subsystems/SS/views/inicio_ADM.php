@@ -562,20 +562,18 @@ $tabela_curso = cursos();
 
             <?php if ($curso['nome_curso'] > 0) { ?>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-        <!-- Card Enfermagem -->
-        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-            <div class="flex flex-col h-full justify-between">
-                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;"><?php echo $curso['nome_curso']; ?></h3>
-                <div class="space-y-4">
-                    <button onclick="enfermagemPub()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+     <div class="grid-container">
+        <!-- Cada card ocupara 20% da largura (menos o gap) 👍👍👍 -->
+        <div class="card">
+            <div class="card-content">
+                <h3 class="card-title">
+                    <?php echo $curso['nome_curso']; ?>
+                </h3>
+                <div class="button-group">
+                    <button onclick="enfermagemPub()" class="button">
                         Escola Pública
                     </button>
-                    <button onclick="enfermagemPriv()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                    <button onclick="enfermagemPriv()" class="button">
                         Escola Privada
                     </button>
                 </div>
