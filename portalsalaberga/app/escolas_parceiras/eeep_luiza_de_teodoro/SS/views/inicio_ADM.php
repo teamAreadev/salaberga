@@ -382,140 +382,147 @@ $tabela_curso = cursos();
                         <!-- Itens do Menu -->
                         <ul class="flex flex-col space-y-3">
 
-<li class="mt-4">
-<button onclick="openInsertUserModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-500 text-blue-500 font-semibold transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
-</svg>
-Inserir Usuário
-</button>
-</li>
+                            <li class="mt-4">
+                                <button onclick="openInsertUserModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-500 text-blue-500 font-semibold transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
+                                    </svg>
+                                    Inserir Usuário
+                                </button>
+                            </li>
 
-    <li>
-        <button onclick="openUpdateNotesModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            Atualizar
-        </button>
-    </li>
+                            <li>
+                                <button onclick="openUpdateNotesModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                    Atualizar
+                                </button>
+                            </li>
 
-    <li>
-        <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Relatórios
-        </button>
-    </li>
-    <li>
-        <button onclick="showResultsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            Resultados
-        </button>
-    </li>
-    <li>
-        <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
-         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-        </svg>
-            Cadastrar Curso
-         </button>
-    </li>
-    <li>
-        <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-            </svg>
-            Sair
-        </a>
-    </li>
-</ul>
+                            <li>
+                                <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    Relatórios
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="showResultsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    Resultados
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                    Cadastrar Curso
+                                </button>
+                            </li>
+                            <li>
+                                <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-<!-- Modal do Cadastrar cursos -->
-                            <div id="courseModal" class="fixed inset-0 z-50 hidden">
-                                <div class="absolute inset-0 bg-black opacity-50"></div>
-                                <div class="relative z-50 max-w-md mx-auto mt-20 bg-white rounded-lg shadow-lg">
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Cadastrar Novo Curso</h3>
-                                        <form id="courseForm">
-                                            <div class="mb-6">
-                                                <label class="block text-sm font-medium text-gray-700 mb-2">Nome do Curso</label>
-                                                <input type="text" id="courseName"
-                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
-                                            </div>
-                            
-                                            <div class="mb-6">
-                                                <label class="block text-sm font-medium text-gray-700 mb-3">Cor do Curso</label>
-                            
-                                                <div class="flex items-center gap-4">
-                                                    <div id="colorPreview" class="w-16 h-16 rounded-lg shadow-inner border border-gray-200"></div>
-                                                    <div class="flex flex-col gap-2">
-                                                        <input type="color" id="courseColor" class="w-full h-10 cursor-pointer rounded-md"
-                                                            onchange="updateColorPreview(this.value)">
-                                                        <span class="text-xs text-gray-500">Clique para escolher uma cor</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                            
-                                            <div class="flex justify-end gap-3 mt-6">
-                                                <button type="button" onclick="closeCourseModal()"
-                                                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-all duration-200">
-                                                    Cancelar
-                                                </button>
-                                                <button type="submit"
-                                                    class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 transition-all duration-200">
-                                                    Salvar
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+    <!-- Modal do Cadastrar cursos -->
+
+    <div id="courseModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-50 max-w-md mx-auto mt-20 bg-white rounded-lg shadow-lg">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Cadastrar Novo Curso</h3>
+                <form action="../controllers/controller_curso.php" method="post">
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome do Curso</label>
+                        <input type="text" name="nome_curso" id="courseName"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Cor do Curso</label>
+
+                        <div class="flex items-center gap-4">
+                            <div id="colorPreview" class="w-16 h-16 rounded-lg shadow-inner border border-gray-200"></div>
+                            <div class="flex flex-col gap-2">
+                                <input type="color" id="courseColor" class="w-full h-10 cursor-pointer rounded-md"
+                                    onchange="updateColorPreview(this.value)">
+                                <span class="text-xs text-gray-500">Clique para escolher uma cor</span>
                             </div>
-                            
-                            <script>
-                                function showCourseModal() {
-                                    document.getElementById('courseModal').classList.remove('hidden');
-                                    setColor('#4ECDC4');
-                                }
+                        </div>
+                    </div>
 
-                                function closeCourseModal() {
-                                    document.getElementById('courseModal').classList.add('hidden');
-                                }
+                    <div class="flex justify-end gap-3 mt-6">
+                        <button type="button" onclick="closeCourseModal()"
+                            class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-all duration-200">
+                            Cancelar
+                        </button>
+                        <button type="submit" name="cadastrar_curso"
+                            class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 transition-all duration-200">
+                            Salvar
+                        </button>
+                    </div>
+                    <?php if (isset($_GET['curso_existe'])) { ?>
+                        <p>Curso já existente!</p>
+                    <?php } ?>
+                    <?php if (isset($_GET['curso_erro'])) { ?>
+                        <p>Erro ao cadastrar o curso!</p>
+                    <?php } ?>
+                </form>
+            </div>
+        </div>
+    </div>
 
-                                function setColor(color) {
-                                    document.getElementById('courseColor').value = color;
-                                    updateColorPreview(color);
-                                }
+    <script>
+        function showCourseModal() {
+            document.getElementById('courseModal').classList.remove('hidden');
+            setColor('#4ECDC4');
+        }
 
-                                function updateColorPreview(color) {
-                                    document.getElementById('colorPreview').style.backgroundColor = color;
-                                }
+        function closeCourseModal() {
+            document.getElementById('courseModal').classList.add('hidden');
+        }
 
-                                document.getElementById('courseForm').addEventListener('submit', function (e) {
-                                    e.preventDefault();
-                                    const courseName = document.getElementById('courseName').value;
-                                    const courseColor = document.getElementById('courseColor').value;
+        function setColor(color) {
+            document.getElementById('courseColor').value = color;
+            updateColorPreview(color);
+        }
 
-                                    console.log('Curso:', courseName, 'Cor:', courseColor);
+        function updateColorPreview(color) {
+            document.getElementById('colorPreview').style.backgroundColor = color;
+        }
 
-                                    closeCourseModal();
-                                });
+        document.getElementById('courseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const courseName = document.getElementById('courseName').value;
+            const courseColor = document.getElementById('courseColor').value;
 
-                                document.getElementById('courseModal').addEventListener('click', function (e) {
-                                    if (e.target === this) {
-                                        closeCourseModal();
-                                    }
-                                });
-                            </script>
-                            <!--fim do codigo modal-->
+            console.log('Curso:', courseName, 'Cor:', courseColor);
+
+            closeCourseModal();
+        });
+
+        document.getElementById('courseModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCourseModal();
+            }
+        });
+    </script>
+    <!--fim do codigo modal-->
 
     <!-- Overlay -->
     <div class="sidebar-overlay fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible transition-all duration-300 ease-in-out z-40"></div>
