@@ -111,12 +111,8 @@ function openInsertUserModal() {
                         <input type="text" id="fullName" 
                             class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
-                    
-                    <div class="relative">
-                        <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
-                        <input type="text" id="position" 
-                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                    </div>
+             
+
                     
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
@@ -129,11 +125,22 @@ function openInsertUserModal() {
                         <input type="password" id="password" 
                             class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
+                       <div class="relative">
+    <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
+    <select id="position" 
+        class="form-select block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+        <option value="">Selecione um cargo</option>
+        <option value="secretaria">Secretaria</option>
+        <option value="coordenacao">Coordenação</option>
+        <option value="diretoria">Diretoria</option>
+    </select>
+</div>
                     
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="status">Status</label>
                         <select id="status" 
                             class="form-select block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                                 <option value="">Selecione um status</option>
                             <option value="admin">Admin</option>
                             <option value="nao-admin">Não Admin</option>
                         </select>
@@ -186,7 +193,7 @@ function showResultsModal() {
                     </select>
                 </div>
 
-                <div class="flex justify-centerspace-x-4 mt-8">
+                <div class="flex justify-center space-x-4 mt-8">
                     <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
                         Cancelar
                     </button>
@@ -238,6 +245,8 @@ function submitForm() {
         form.submit();
     }, 1500);
 }
+
+
 
 
 
