@@ -64,7 +64,7 @@ function openUpdateNotesModal() {
         <div class="relative">
             <label class="block text-sm font-medium text-gray-700 mb-2" for="${subject.id}">${subject.label}</label>
             <input type="number" step="0.1" min="0" max="10" id="${subject.id}" 
-                class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                class="form-input block w-full max-w-sm px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
         </div>
     `).join('');
 
@@ -76,9 +76,9 @@ function openUpdateNotesModal() {
                     <div class="relative">
                         <label class="block text-sm font-medium text-gray-700 mb-2" for="studentId">ID do Aluno</label>
                         <input type="number" id="studentId" 
-                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                            class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                     </div>
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-3 gap-6">
                         ${inputFields}
                     </div>
                     <div class="flex justify-center space-x-4 mt-8">
@@ -100,50 +100,58 @@ function openUpdateNotesModal() {
     });
 }
 
+
 function openInsertUserModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Inserir Usuário</h2>',
         html: `
             <form id="insertUserForm" class="bg-ceara-white rounded-lg p-6">
                 <div class="space-y-6">
-                    <div class="relative">
-                        <label class="block text-sm font-medium text-gray-700 mb-2" for="fullName">Nome Completo</label>
-                        <input type="text" id="fullName" 
-                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                    </div>
-             
-
-                    
-                    <div class="relative">
-                        <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
-                        <input type="email" id="email" 
-                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                    </div>
-                    
-                    <div class="relative">
-                        <label class="block text-sm font-medium text-gray-700 mb-2" for="password">Senha</label>
-                        <input type="password" id="password" 
-                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                    </div>
-                       <div class="relative">
-    <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
-    <select id="position" 
-        class="form-select block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-        <option value="">Selecione um cargo</option>
-        <option value="secretaria">Secretaria</option>
-        <option value="coordenacao">Coordenação</option>
-        <option value="diretoria">Diretoria</option>
-    </select>
-</div>
-                    
-                    <div class="relative">
-                        <label class="block text-sm font-medium text-gray-700 mb-2" for="status">Status</label>
-                        <select id="status" 
-                            class="form-select block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
-                                 <option value="">Selecione um status</option>
-                            <option value="admin">Admin</option>
-                            <option value="nao-admin">Não Admin</option>
-                        </select>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="fullName">Nome Completo</label>
+                            <input type="text" id="fullName" 
+                                class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="username">Nome de Usuário</label>
+                            <input type="text" id="username" 
+                                class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
+                            <input type="email" id="email" 
+                                class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="password">Senha</label>
+                            <input type="password" id="password" 
+                                class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
+                            <select id="position" 
+                                class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                                <option value="">Selecione um cargo</option>
+                                <option value="secretaria">Secretaria</option>
+                                <option value="coordenacao">Coordenação</option>
+                                <option value="diretoria">Diretoria</option>
+                            </select>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="status">Status</label>
+                            <select id="status" 
+                                class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                                <option value="">Selecione um status</option>
+                                <option value="admin">Admin</option>
+                                <option value="nao-admin">Não Admin</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="flex justify-center space-x-4 mt-8">
@@ -164,6 +172,7 @@ function openInsertUserModal() {
         }
     });
 }
+
 
 function showResultsModal() {
     Swal.fire({
