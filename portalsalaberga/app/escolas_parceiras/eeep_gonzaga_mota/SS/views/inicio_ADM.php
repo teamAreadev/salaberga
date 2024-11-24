@@ -417,6 +417,14 @@ Inserir Usuário
         </button>
     </li>
     <li>
+        <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+        </svg>
+            Cadastrar Curso
+         </button>
+    </li>
+    <li>
         <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -430,6 +438,84 @@ Inserir Usuário
             </div>
         </nav>
     </header>
+
+    <!-- Modal do Cadastrar cursos -->
+                            <div id="courseModal" class="fixed inset-0 z-50 hidden">
+                                <div class="absolute inset-0 bg-black opacity-50"></div>
+                                <div class="relative z-50 max-w-md mx-auto mt-20 bg-white rounded-lg shadow-lg">
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Cadastrar Novo Curso</h3>
+                                        <form id="courseForm">
+                                            <div class="mb-6">
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Nome do Curso</label>
+                                                <input type="text" id="courseName"
+                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
+                                            </div>
+                            
+                                            <div class="mb-6">
+                                                <label class="block text-sm font-medium text-gray-700 mb-3">Cor do Curso</label>
+                            
+                                                <div class="flex items-center gap-4">
+                                                    <div id="colorPreview" class="w-16 h-16 rounded-lg shadow-inner border border-gray-200"></div>
+                                                    <div class="flex flex-col gap-2">
+                                                        <input type="color" id="courseColor" class="w-full h-10 cursor-pointer rounded-md"
+                                                            onchange="updateColorPreview(this.value)">
+                                                        <span class="text-xs text-gray-500">Clique para escolher uma cor</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="flex justify-end gap-3 mt-6">
+                                                <button type="button" onclick="closeCourseModal()"
+                                                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-all duration-200">
+                                                    Cancelar
+                                                </button>
+                                                <button type="submit"
+                                                    class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 transition-all duration-200">
+                                                    Salvar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                function showCourseModal() {
+                                    document.getElementById('courseModal').classList.remove('hidden');
+                                    setColor('#4ECDC4');
+                                }
+
+                                function closeCourseModal() {
+                                    document.getElementById('courseModal').classList.add('hidden');
+                                }
+
+                                function setColor(color) {
+                                    document.getElementById('courseColor').value = color;
+                                    updateColorPreview(color);
+                                }
+
+                                function updateColorPreview(color) {
+                                    document.getElementById('colorPreview').style.backgroundColor = color;
+                                }
+
+                                document.getElementById('courseForm').addEventListener('submit', function (e) {
+                                    e.preventDefault();
+                                    const courseName = document.getElementById('courseName').value;
+                                    const courseColor = document.getElementById('courseColor').value;
+
+                                    console.log('Curso:', courseName, 'Cor:', courseColor);
+
+                                    closeCourseModal();
+                                });
+
+                                document.getElementById('courseModal').addEventListener('click', function (e) {
+                                    if (e.target === this) {
+                                        closeCourseModal();
+                                    }
+                                });
+                            </script>
+                            <!--fim do codigo modal-->
 
     <!-- Overlay -->
     <div class="sidebar-overlay fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible transition-all duration-300 ease-in-out z-40"></div>
