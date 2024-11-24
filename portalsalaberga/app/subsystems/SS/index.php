@@ -803,7 +803,7 @@
                                         <input
                                             type="text"
                                             id="email"
-                                            name="email"
+                                            name="nome"
                                             class="mt-1 block w-full px-4 py-3 border border-[#666666] 
                                rounded-lg shadow-sm focus:outline-none focus:ring-2 
                                focus:ring-[#008C45] focus:border-[#008C45]
