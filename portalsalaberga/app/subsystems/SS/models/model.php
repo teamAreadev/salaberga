@@ -1,11 +1,32 @@
 <?php
+    //inicializando a session para atribuir na function logar
+    $session_start();
+    $_SESSION['login'] = false; 
 
-//requerindo o arquivo connect.php
+    function cadastrarUsuario($nomeC, $cargo, $email, $senha, $status)
+    {
+        require_once('../config/connect.php');
+        //inserido na tabela candidato os dados do candidato
+        $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+        $result_cadastrar_candidato->bindValue(':nome', $nome);
+        $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
+        $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
+        $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
+        $result_cadastrar_candidato->bindValue(':bairro', $bairro);
+        $result_cadastrar_candidato->bindValue(':publica', $publica);
+        $result_cadastrar_candidato->bindValue(':pcd', $pcd);
+        $result_cadastrar_candidato->execute();
 
+        //procurando na tabela candidato o nome do candidato
+        $result_check_id = $conexao->prepare("SELECT * FROM candidato WHERE nome = :nome");
+        $result_check_id->bindValue(':nome', $nome);
+        $result_check_id->execute();
+        $dados = $result_check_id->fetchAll();
+        foreach ($dados as $value => $x) {
 
-//criando a class model_usuario sendo herdada da class connect
-
-    //metodos
+            $id_candidato = $x['id_candidato'];
+        }
+    }
     function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
     {
         require_once('../config/connect.php');
@@ -110,12 +131,12 @@
         }
     }
 
-    function logar($email, $senha)
+    function logar($nome, $senha)
     {
         require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
-        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
-        $result_logar->bindValue(':email', $email);
+        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = :senha");
+        $result_logar->bindValue(':nome', $nome);
         $result_logar->bindValue(':senha', $senha);
         $result_logar->execute();
         $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
@@ -123,8 +144,8 @@
         
         //se for o result_logar for maior que 0
         if (!empty($result)) {
-           return $login = 1;
-            
+            $_SESSION['login'] = true;
+            return $login = 1;
         } else {
             return  $login = 0;
             

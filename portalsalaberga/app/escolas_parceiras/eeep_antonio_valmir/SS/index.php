@@ -799,7 +799,7 @@ lista();
                                 </div>
 
                                 <!-- Modal Body -->
-                                <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
+                                <form id="loginForm" class="space-y-4" action="controller/autentica.php" method="post">
                                     <!-- Nome Input -->
                                     <div>
                                         <label for="email" class="block text-sm font-medium text-[#333333]">Nome</label>
