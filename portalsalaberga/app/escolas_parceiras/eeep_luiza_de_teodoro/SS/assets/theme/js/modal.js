@@ -1,262 +1,207 @@
 function showReportsModal() {
     Swal.fire({
-        title: 'Relatórios',
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Relatórios</h2>',
         html: `
-        <form action="../controllers/controller_relatorio.php" id="searchForm" onsubmit="submitForm(); return false;" method="post">
-            <div class="p-4">
-                <div class="mb-4">
-                <select required id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                    <option value="">Selecione um tipo</option>
-                    <option value="1">Publica Geral</option>
-                    <option value="2">Publica Ampla Concorência</option>
-                    <option value="3">Publica Cotas</option>
-                    <option value="4">Privada Geral</option>
-                    <option value="5">Privada Ampla Concorência</option> 
-                    <option value="6">Privada Cotas</option>
-                </select>
+        <form action="../controllers/controller_relatorio.php" id="searchForm" onsubmit="submitForm(); return false;" method="post" class="bg-ceara-white rounded-lg p-6">
+            <div class="space-y-6">
+                <div class="relative">
+                    <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Tipo de Relatório</label>
+                    <select required id="type" name="tipo" class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                        <option value="">Selecione um tipo</option>
+                        <option value="1">Publica Geral</option>
+                        <option value="2">Publica Ampla Concorência</option>
+                        <option value="3">Publica Cotas</option>
+                        <option value="4">Privada Geral</option>
+                        <option value="5">Privada Ampla Concorência</option>
+                        <option value="6">Privada Cotas</option>
+                    </select>
                 </div>
-                <div class="mb-4">
-                <select required id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                    <option value="">Selecione um curso</option>
-                    <option value="1">Enfermagem</option>
-                    <option value="2">Informática</option>
-                    <option value="3">Administração</option>
-                    <option value="4">Edificações</option>
-                </select>
+                
+                <div class="relative">
+                    <label for="course" class="block text-sm font-medium text-gray-700 mb-2">Curso</label>
+                    <select required id="course" name="curso" class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                        <option value="">Selecione um curso</option>
+                        <option value="1">Enfermagem</option>
+                        <option value="2">Informática</option>
+                        <option value="3">Administração</option>
+                        <option value="4">Edificações</option>
+                    </select>
                 </div>
-                <div class="flex justify-center gap-4">
-                    <button type="submit" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
-                        Gerar Resultados
-                    </button>
-                  <button type="button" class="bg-gray-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105" onclick="Swal.close()">
-    Cancelar
-</button>
 
-                </div>
-            </div>
-        </form>
-        `,
-        showConfirmButton: false, // Esconde o botão "Ver Resultados"
-        showCancelButton: false // Esconde o botão "Cancelar" padrão
-    });
-}
-
-function submitForm() {
-    const form = document.getElementById('searchForm');
-    form.submit();
-}
-
-/*
-function showUpdateModal() {
-    Swal.fire({
-        customClass: {
-            popup: 'rounded-lg',
-            title: 'text-gray-dark text-xl font-bold',
-            confirmButton: 'bg-ceara-orange text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 mx-2',
-            cancelButton: 'bg-gray-600 text-white font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 mx-2',
-            actions: 'space-x-4' // Adiciona espaçamento entre os botões
-        },
-        title: 'Atualizar Notas',
-        html: `
-    <div class="p-4">
-        <div class="mb-4">
-            <label class="block text-gray-dark text-sm font-bold mb-2" for="studentId">ID do Aluno</label>
-            <input type="number" id="studentId" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-        </div>
-        
-        <div class="grid grid-cols-2 gap-4">
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="portugues">Português</label>
-                <input type="number" step="0.1" min="0" max="10" id="portugues" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="arte">Arte</label>
-                <input type="number" step="0.1" min="0" max="10" id="arte" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="edFisica">Ed. Física</label>
-                <input type="number" step="0.1" min="0" max="10" id="edFisica" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="ingles">Inglês</label>
-                <input type="number" step="0.1" min="0" max="10" id="ingles" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="ciencias">Ciências</label>
-                <input type="number" step="0.1" min="0" max="10" id="ciencias" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="geografia">Geografia</label>
-                <input type="number" step="0.1" min="0" max="10" id="geografia" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="historia">História</label>
-                <input type="number" step="0.1" min="0" max="10" id="historia" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="religiao">Religião</label>
-                <input type="number" step="0.1" min="0" max="10" id="religiao" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-gray-dark text-sm font-bold mb-2" for="matematica">Matemática</label>
-                <input type="number" step="0.1" min="0" max="10" id="matematica" class="form-input block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none">
-            </div>
-        </div>
-    </div>
-`,
-        confirmButtonText: 'Atualizar',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        customClass: {
-            confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105',
-            cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-dark font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
-        },
-        preConfirm: () => {
-            const studentId = document.getElementById('studentId').value;
-            const notas = {
-                portugues: document.getElementById('portugues').value,
-                arte: document.getElementById('arte').value,
-                edFisica: document.getElementById('edFisica').value,
-                ingles: document.getElementById('ingles').value,
-                ciencias: document.getElementById('ciencias').value,
-                geografia: document.getElementById('geografia').value,
-                historia: document.getElementById('historia').value,
-                religiao: document.getElementById('religiao').value,
-                matematica: document.getElementById('matematica').value
-            };
-
-            if (!studentId) {
-                Swal.showValidationMessage('Por favor, insira o ID do aluno.');
-                return;
-            }
-
-            // Validação das notas
-            for (let [materia, nota] of Object.entries(notas)) {
-                if (nota === '') {
-                    Swal.showValidationMessage(`Por favor, insira a nota de ${materia}.`);
-                    return;
-                }
-                if (nota < 0 || nota > 10) {
-                    Swal.showValidationMessage(`A nota de ${materia} deve estar entre 0 e 10.`);
-                    return;
-                }
-            }
-
-            return {
-                studentId,
-                notas
-            };
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Aqui você pode adicionar a lógica para enviar os dados para o servidor
-            Swal.fire({
-                title: 'Sucesso!',
-                text: 'Notas atualizadas com sucesso!',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                customClass: {
-                    confirmButton: 'bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105'
-                }
-            });
-        }
-    });
-}
-
-*//*
-const styles = `
-.swal2-popup {
-background-color: var(--ceara-white) !important;
-}
-
-.swal2-actions {
-gap: 1rem !important; /* Adiciona 1rem de espaço entre os botões 
-}
-
-.swal2-input, .swal2-textarea {
-border-color: var(--gray-600) !important;
-transition: all var(--transition-duration) var(--transition-timing) !important;
-}
-
-.swal2-input:focus, .swal2-textarea:focus {
-border-color: var(--ceara-orange) !important;
-box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2) !important;
-}
-
-.form-input:hover, .swal2-input:hover {
-transform: scale(var(--hover-scale));
-}
-
-.swal2-confirm {
-background-color: var(--ceara-orange) !important;
-margin: 0 0.5rem !important; /* Adiciona margem lateral 
-}
-
-.swal2-cancel {
-background-color: var(--gray-600) !important;
-margin: 0 0.5rem !important; /* Adiciona margem lateral 
-
-.swal2-confirm:hover, .swal2-cancel:hover {
-transform: scale(var(--hover-scale));
-}
-
-/* Ajuste para telas menores 
-@media (max-width: 640px) {
-.swal2-actions {
-    flex-direction: column;
-    gap: 0.5rem !important;
-}
-
-.swal2-confirm, .swal2-cancel {
-    margin: 0.25rem 0 !important;
-    width: 100%;
-}
-}
-` ;
-
-*/function showResultsModal() {
-    Swal.fire({
-        title: 'Resultados',
-        html: `
-        <form action="../controllers/controller_resultados.php" id="searchForm" method="post">
-            <div class="p-4">
-                <div class="mb-4">
-                <select required id="type" name="tipo" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                <option value="">Selecione um tipo</option>
-                <option value="1">Classificados</option>
-                <option value="2">Lista de espera</option>
-                </select>
-                </div>
-                <div class="mb-4">
-                <select required id="course" name="curso" class="form-select block w-full bg-ceara-white border border-gray-600 rounded-md shadow-sm focus:outline-none ">
-                    <option value="">Selecione um curso</option>
-                    <option value="1">Enfermagem</option>
-                    <option value="2">Informática</option>
-                    <option value="3">Administração</option>
-                    <option value="4">Edificações</option>
-                </select>
-                </div>
-                <div class="flex justify-center gap-4">
-                    <button type="submit" onclick="submitForm()" class="bg-ceara-green hover:bg-ceara-green-dark text-ceara-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
-                        Gerar Resultados
-                    </button>
-                    <button type="button" class="bg-gray-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105" onclick="Swal.close()">
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
                         Cancelar
+                    </button>
+                    <button type="submit" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                        Gerar Resultados
                     </button>
                 </div>
             </div>
         </form>
         `,
         showConfirmButton: false,
-        showCancelButton: false
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function openUpdateNotesModal() {
+    const subjects = [
+        { id: 'portugues', label: 'Português' },
+        { id: 'arte', label: 'Arte' },
+        { id: 'edFisica', label: 'Ed. Física' },
+        { id: 'ingles', label: 'Inglês' },
+        { id: 'ciencias', label: 'Ciências' },
+        { id: 'geografia', label: 'Geografia' },
+        { id: 'historia', label: 'História' },
+        { id: 'religiao', label: 'Religião' },
+        { id: 'matematica', label: 'Matemática' }
+    ];
+
+    const inputFields = subjects.map(subject => `
+        <div class="relative">
+            <label class="block text-sm font-medium text-gray-700 mb-2" for="${subject.id}">${subject.label}</label>
+            <input type="number" step="0.1" min="0" max="10" id="${subject.id}" 
+                class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+        </div>
+    `).join('');
+
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Atualizar Notas</h2>',
+        html: `
+            <form id="updateNotesForm" class="bg-ceara-white rounded-lg p-6">
+                <div class="space-y-6">
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-2" for="studentId">ID do Aluno</label>
+                        <input type="number" id="studentId" 
+                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        ${inputFields}
+                    </div>
+                    <div class="flex justify-center space-x-4 mt-8">
+                        <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                            Atualizar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function openInsertUserModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Inserir Usuário</h2>',
+        html: `
+            <form id="insertUserForm" class="bg-ceara-white rounded-lg p-6">
+                <div class="space-y-6">
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-2" for="fullName">Nome Completo</label>
+                        <input type="text" id="fullName" 
+                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                    </div>
+                    
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
+                        <input type="text" id="position" 
+                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                    </div>
+                    
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
+                        <input type="email" id="email" 
+                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                    </div>
+                    
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-2" for="password">Senha</label>
+                        <input type="password" id="password" 
+                            class="form-input block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
+                    </div>
+                    
+                    <div class="relative">
+                        <label class="block text-sm font-medium text-gray-700 mb-2" for="status">Status</label>
+                        <select id="status" 
+                            class="form-select block w-full px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                            <option value="admin">Admin</option>
+                            <option value="nao-admin">Não Admin</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-4 mt-8">
+                        <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                            Inserir
+                        </button>
+                    </div>
+                </div>
+            </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function showResultsModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Resultados</h2>',
+        html: `
+        <form action="../controllers/controller_resultados.php" id="searchForm" method="post" class="bg-ceara-white rounded-lg p-6">
+            <div class="space-y-6">
+                <div class="relative">
+                    <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Tipo de Resultado</label>
+                    <select required id="type" name="tipo" 
+                        class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                        <option value="">Selecione um tipo</option>
+                        <option value="1">Classificados</option>
+                        <option value="2">Lista de espera</option>
+                    </select>
+                </div>
+                
+                <div class="relative">
+                    <label for="course" class="block text-sm font-medium text-gray-700 mb-2">Curso</label>
+                    <select required id="course" name="curso" 
+                        class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                        <option value="">Selecione um curso</option>
+                        <option value="1">Enfermagem</option>
+                        <option value="2">Informática</option>
+                        <option value="3">Administração</option>
+                        <option value="4">Edificações</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-centerspace-x-4 mt-8">
+                    <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                        Cancelar
+                    </button>
+                    <button type="submit" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                        Gerar Resultados
+                    </button>
+                </div>
+            </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
     });
 }
 
@@ -265,34 +210,34 @@ function submitForm() {
     const typeSelect = document.getElementById('type');
     const form = document.getElementById('searchForm');
     
-    // Validação dos campos
     if (courseSelect.value === '' || typeSelect.value === '') {
         Swal.fire({
             icon: 'error',
             title: 'Erro',
-            text: 'Por favor, selecione um curso e um tipo'
+            text: 'Por favor, selecione um curso e um tipo',
+            customClass: {
+                popup: 'rounded-xl shadow-xl'
+            }
         });
         return;
     }
 
-    // Mostrar loading
     Swal.fire({
         title: 'Gerando Relatórios...',
         text: 'Por favor, aguarde.',
         allowOutsideClick: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        },
         didOpen: () => {
             Swal.showLoading();
         }
     });
 
-    // Envia o formulário
     setTimeout(() => {
         form.submit();
     }, 1500);
 }
-
-
-
 
 
 
