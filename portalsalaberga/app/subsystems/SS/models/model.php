@@ -1,7 +1,11 @@
 <?php
-    //inicializando a session para atribuir na function logar
-    $session_start();
-    $_SESSION['login'] = false; 
+
+//requerindo o arquivo connect.php
+
+
+//criando a class model_usuario sendo herdada da class connect
+
+    //metodos
     function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
     {
         require_once('../config/connect.php');
@@ -110,7 +114,7 @@
     {
         require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
-        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = :senha");
+        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
         $result_logar->bindValue(':email', $email);
         $result_logar->bindValue(':senha', $senha);
         $result_logar->execute();
@@ -119,8 +123,8 @@
         
         //se for o result_logar for maior que 0
         if (!empty($result)) {
-            $_SESSION['login'] = true;
-            return $login = 1;
+           return $login = 1;
+            
         } else {
             return  $login = 0;
             

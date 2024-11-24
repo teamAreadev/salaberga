@@ -112,7 +112,7 @@
 
     function logar($nome, $senha)
     {
-        require_once('../escolas_parceiras/eeep_antonio_valmir/SS/config/connect.php');
+        require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
         $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = :senha");
         $result_logar->bindValue(':nome', $nome);
@@ -123,11 +123,10 @@
         
         //se for o result_logar for maior que 0
         if (!empty($result)) {
-           header('Location: ../escolas_parceiras/eeep_antonio_valmir/SS/views/inicio.php');
-           exit();
+           return $login = 1;
+            
         } else {
-            header('Location: ../escolas_parceiras/index.php?login=erro');
-            exit();
+            return  $login = 0;
             
     }
 }
