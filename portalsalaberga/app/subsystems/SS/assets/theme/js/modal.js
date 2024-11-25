@@ -315,23 +315,23 @@ function showCourseModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Cadastrar Curso</h2>',
         html: `
-        <form id="courseForm" class="bg-ceara-white rounded-lg p-6">
+        <form action="../controllers/controller_curso.php" id="courseForm" class="bg-ceara-white rounded-lg p-6" method="post">
             <div class="mb-4">
              
-                <input type="text" id="courseName" name="courseName" required 
+                <input type="text" id="courseName" name="nome_curso" required 
                     class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" 
                     placeholder="Digite o nome do curso">
             </div>
             <div class="mb-4">
               
-                <input type="color" id="courseColor" name="courseColor" required 
+                <input type="color" id="courseColor" name="cor_curso" required 
                     class="w-full h-10 border border-gray-600 rounded-lg cursor-pointer">
             </div>
          <div class="flex justify-center space-x-4 mt-8">
                     <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
                         Cancelar
                     </button>
-                    <button type="submit" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                    <button type="submit" name="cadastrar_curso" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
                       Cadastrar
                     </button>
                 </div>
