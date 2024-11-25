@@ -459,7 +459,7 @@ $tabela_curso = cursos();
                         <div class="flex items-center gap-4">
                             <div id="colorPreview" class="w-16 h-16 rounded-lg shadow-inner border border-gray-200"></div>
                             <div class="flex flex-col gap-2">
-                                <input type="color" id="courseColor" class="w-full h-10 cursor-pointer rounded-md"
+                                <input type="color" name="cor_curso" id="courseColor" class="w-full h-10 cursor-pointer rounded-md"
                                     onchange="updateColorPreview(this.value)">
                                 <span class="text-xs text-gray-500">Clique para escolher uma cor</span>
                             </div>
@@ -556,129 +556,7 @@ $tabela_curso = cursos();
         }
     </style>
 
-<!--estilo css do card-->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@600&display=swap');
-
-.grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    width: 100%;
-    padding: 1rem;
-    justify-content: flex-start;
-}
-
-.card {
-    flex: 0 0 calc(20% - 1.2rem);
-    max-width: calc(20% - 1.2rem);
-    background-color: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    padding: 1.5rem;
-    border: 1px solid #f3f4f6;
-    transform: translateZ(0);
-    transition: all 300ms;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.card-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-}
-
-.card-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    color: #1f2937;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.button {
-    width: 100%;
-    padding: 0.625rem 1rem;
-    background-image: linear-gradient(to right, #ef4444, #b91c1c);
-    color: white;
-    border-radius: 9999px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    transition: all 300ms;
-    border: none;
-    cursor: pointer;
-}
-
-.button:hover {
-    background-image: linear-gradient(to right, #dc2626, #991b1b);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.button:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
-}
-
-@media (max-width: 1400px) {
-    .card {
-        flex: 0 0 calc(25% - 1.2rem);
-        max-width: calc(25% - 1.2rem);
-    }
-}
-
-@media (max-width: 1200px) {
-    .card {
-        flex: 0 0 calc(33.333% - 1.2rem);
-        max-width: calc(33.333% - 1.2rem);
-    }
-}
-
-@media (max-width: 768px) {
-    .card {
-        flex: 0 0 calc(50% - 1.2rem);
-        max-width: calc(50% - 1.2rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .card {
-        padding: 2rem;
-    }
-
-    .card-title {
-        font-size: 1.875rem;
-        margin-bottom: 2rem;
-    }
-
-    .button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1.125rem;
-    }
-}
-</style>
-<!--estilo css do card-->
+    <!--estilo css do card-->
 
     <p class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
 
@@ -686,7 +564,129 @@ $tabela_curso = cursos();
 
             <?php if ($curso['nome_curso'] > 0) { ?>
 
-     <div class="grid-container">
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@600&display=swap');
+
+                    .grid-container {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 1.5rem;
+                        width: 100%;
+                        padding: 1rem;
+                        justify-content: flex-start;
+                    }
+
+                    .card {
+                        flex: 0 0 calc(20% - 1.2rem);
+                        max-width: calc(20% - 1.2rem);
+                        background-color: white;
+                        border-radius: 1.5rem;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                        padding: 1.5rem;
+                        border: 1px solid #f3f4f6;
+                        transform: translateZ(0);
+                        transition: all 300ms;
+                    }
+
+                    .card:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                    }
+
+                    .card-content {
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                        justify-content: space-between;
+                    }
+
+                    .card-title {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 1.5rem;
+                        color: #1f2937;
+                        margin-bottom: 1.5rem;
+                        text-align: center;
+                        font-weight: 700;
+                        letter-spacing: -0.5px;
+                    }
+
+                    .button-group {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+
+                    .button {
+                        width: 100%;
+                        padding: 0.625rem 1rem;
+                        background-color: <?php echo $curso['cor_curso'] ?>;
+                        color: white;
+                        border-radius: 9999px;
+                        font-family: 'Source Sans Pro', sans-serif;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        letter-spacing: 0.2px;
+                        transition: all 300ms;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+                    .button:hover {
+                        background-color: <?php echo $curso['cor_curso'] ?>;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .button:focus {
+                        outline: none;
+                        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+                    }
+
+                    @media (max-width: 1400px) {
+                        .card {
+                            flex: 0 0 calc(25% - 1.2rem);
+                            max-width: calc(25% - 1.2rem);
+                        }
+                    }
+
+                    @media (max-width: 1200px) {
+                        .card {
+                            flex: 0 0 calc(33.333% - 1.2rem);
+                            max-width: calc(33.333% - 1.2rem);
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .card {
+                            flex: 0 0 calc(50% - 1.2rem);
+                            max-width: calc(50% - 1.2rem);
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .card {
+                            flex: 0 0 100%;
+                            max-width: 100%;
+                        }
+                    }
+
+                    @media (min-width: 1024px) {
+                        .card {
+                            padding: 2rem;
+                        }
+
+                        .card-title {
+                            font-size: 1.875rem;
+                            margin-bottom: 2rem;
+                        }
+
+                        .button {
+                            padding: 0.75rem 1.5rem;
+                            font-size: 1.125rem;
+                        }
+                    }
+                </style>
+
+    <div class="grid-container">
         <!-- Cada card ocupara 20% da largura (menos o gap) 👍👍👍 -->
         <div class="card">
             <div class="card-content">
@@ -728,10 +728,6 @@ $tabela_curso = cursos();
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
-
 
 <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
     <div class="max-w-7xl mx-auto px-4">
