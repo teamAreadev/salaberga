@@ -1,4 +1,8 @@
-
+<?php
+require_once('../controllers/controller_sessao/autenticar_sessao.php');
+require_once('../controllers/controller_sessao/verificar_sessao.php');
+verificarSessao(10);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">

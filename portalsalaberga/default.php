@@ -1,2 +1,3 @@
-header("Location:app/main");  
-exit; 
+<?php 
+header('Location:app/main/');  
+exit(); 
