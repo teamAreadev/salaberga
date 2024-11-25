@@ -7,7 +7,7 @@ $tabela_curso = cursos();
 
 ?>
 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
