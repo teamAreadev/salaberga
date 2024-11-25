@@ -46,6 +46,8 @@ function showReportsModal() {
         }
     });
 }
+
+
 function openUpdateNotesModal() {
     const subjects = [
         { id: 'portugues', label: 'Português' },
@@ -173,6 +175,7 @@ function openInsertUserModal() {
 }
 
 
+
 function showResultsModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Resultados</h2>',
@@ -220,6 +223,59 @@ function showResultsModal() {
     });
 }
 
+function showDeleteConfirmationModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Confirmação de Exclusão</h2>',
+        html: `
+        <form id="deleteForm" class="bg-ceara-white rounded-lg p-6">
+            <p class="text-gray-700">Você tem certeza que quer apagar o banco?</p>
+            <div class="relative mt-4">
+             
+                <input type="password" id="password" name="password" required 
+                    class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm  transition-all duration-200" 
+                    placeholder="Digite sua senha">
+            </div>
+            <div class="flex justify-center space-x-4 mt-8">
+                <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200" onclick="Swal.close()">
+                    Cancelar
+                </button>
+                <button type="submit" onclick="confirmDelete(event)" class="px-6 py-2.5 bg-red-600 text-ceara-white rounded-lg font-medium hover:bg-red-700 transition-all duration-200 focus:ring-2 focus:ring-red-500">
+                    Apagar Banco
+                </button>
+            </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function confirmDelete(event) {
+    event.preventDefault(); // Impede o envio do formulário padrão
+    const password = document.getElementById('password').value;
+
+    // Aqui você pode adicionar a lógica para verificar a senha e apagar o banco
+    if (password === "suaSenhaSecreta") { // Exemplo de verificação de senha
+        Swal.fire({
+            title: 'Banco apagado!',
+            text: 'O banco foi apagado com sucesso.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    } else {
+        Swal.fire({
+            title: 'Erro!',
+            text: 'Senha incorreta. Tente novamente.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+}
+
+
 function submitForm() {
     const courseSelect = document.getElementById('course');
     const typeSelect = document.getElementById('type');
@@ -252,6 +308,57 @@ function submitForm() {
     setTimeout(() => {
         form.submit();
     }, 1500);
+}
+
+
+function showCourseModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Cadastrar Curso</h2>',
+        html: `
+        <form id="courseForm" class="bg-ceara-white rounded-lg p-6">
+            <div class="mb-4">
+             
+                <input type="text" id="courseName" name="courseName" required 
+                    class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" 
+                    placeholder="Digite o nome do curso">
+            </div>
+            <div class="mb-4">
+              
+                <input type="color" id="courseColor" name="courseColor" required 
+                    class="w-full h-10 border border-gray-600 rounded-lg cursor-pointer">
+            </div>
+         <div class="flex justify-center space-x-4 mt-8">
+                    <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                        Cancelar
+                    </button>
+                    <button type="submit" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                      Cadastrar
+                    </button>
+                </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function submitCourse(event) {
+    event.preventDefault(); // Impede o envio do formulário padrão
+    const courseName = document.getElementById('courseName').value;
+    const courseColor = document.getElementById('courseColor').value;
+
+    // Aqui você pode adicionar a lógica para cadastrar o curso
+    console.log("Curso cadastrado:", courseName, "Cor:", courseColor);
+
+    Swal.fire({
+        title: 'Curso Cadastrado!',
+        text: 'O curso foi cadastrado com sucesso.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
 }
 
 

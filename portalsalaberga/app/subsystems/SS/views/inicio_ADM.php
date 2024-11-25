@@ -2,7 +2,7 @@
 <?php
 require_once('../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../controllers/controller_sessao/verificar_sessao.php');
-verificarSessao(10);
+
 //require_once('../models/cursos.php');
 //$tabela_curso = cursos();
 
@@ -422,14 +422,28 @@ Inserir Usuário
         </button>
     </li>
     <li>
-        <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
-             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-             </svg>
+    <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-orange-500 text-orange-500 font-semibold transition-all duration-300 ease-in-out hover:bg-orange-500 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-orange-400">
+         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+         </svg>
          Cadastrar Curso
-        </button>
-     </li>
+    </button>
+</li>
+   
+
+
     <li>
+    <button onclick="showDeleteConfirmationModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-purple-600 text-purple-600 font-semibold transition-all duration-300 ease-in-out hover:bg-purple-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
+        </svg>
+        Limpar banco
+    </button>
+</li>
+
+
+
+
         <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -484,42 +498,7 @@ Inserir Usuário
                                     </div>
                                 </div>
                             </div>
-                            
-                            <script>
-                                function showCourseModal() {
-                                    document.getElementById('courseModal').classList.remove('hidden');
-                                    setColor('#4ECDC4');
-                                }
-
-                                function closeCourseModal() {
-                                    document.getElementById('courseModal').classList.add('hidden');
-                                }
-
-                                function setColor(color) {
-                                    document.getElementById('courseColor').value = color;
-                                    updateColorPreview(color);
-                                }
-
-                                function updateColorPreview(color) {
-                                    document.getElementById('colorPreview').style.backgroundColor = color;
-                                }
-
-                                document.getElementById('courseForm').addEventListener('submit', function (e) {
-                                    e.preventDefault();
-                                    const courseName = document.getElementById('courseName').value;
-                                    const courseColor = document.getElementById('courseColor').value;
-
-                                    console.log('Curso:', courseName, 'Cor:', courseColor);
-
-                                    closeCourseModal();
-                                });
-
-                                document.getElementById('courseModal').addEventListener('click', function (e) {
-                                    if (e.target === this) {
-                                        closeCourseModal();
-                                    }
-                                });
-                            </script>
+                        
                             <!--fim do codigo modal-->
 
     <!-- Overlay -->

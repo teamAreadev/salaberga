@@ -150,7 +150,7 @@
     {
         require_once('../config/connect.php');
         //verificando se os dados estão no sistema 
-        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = :senha");
+        $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
         $result_logar->bindValue(':nome', $nome);
         $result_logar->bindValue(':senha', $senha);
         $result_logar->execute();
