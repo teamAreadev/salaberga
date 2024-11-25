@@ -1,3 +1,4 @@
+
 function showReportsModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Relatórios</h2>',
@@ -49,16 +50,42 @@ function showReportsModal() {
 
 
 function openUpdateNotesModal() {
-    const subjects = [
-        { id: 'portugues', label: 'Português' },
-        { id: 'arte', label: 'Arte' },
-        { id: 'edFisica', label: 'Ed. Física' },
-        { id: 'ingles', label: 'Inglês' },
-        { id: 'ciencias', label: 'Ciências' },
-        { id: 'geografia', label: 'Geografia' },
-        { id: 'historia', label: 'História' },
-        { id: 'religiao', label: 'Religião' },
-        { id: 'matematica', label: 'Matemática' }
+    const subjects = [{
+        id: 'portugues',
+        label: 'Português'
+    },
+    {
+        id: 'arte',
+        label: 'Arte'
+    },
+    {
+        id: 'edFisica',
+        label: 'Ed. Física'
+    },
+    {
+        id: 'ingles',
+        label: 'Inglês'
+    },
+    {
+        id: 'ciencias',
+        label: 'Ciências'
+    },
+    {
+        id: 'geografia',
+        label: 'Geografia'
+    },
+    {
+        id: 'historia',
+        label: 'História'
+    },
+    {
+        id: 'religiao',
+        label: 'Religião'
+    },
+    {
+        id: 'matematica',
+        label: 'Matemática'
+    }
     ];
 
     const inputFields = subjects.map(subject => `
@@ -280,7 +307,7 @@ function submitForm() {
     const courseSelect = document.getElementById('course');
     const typeSelect = document.getElementById('type');
     const form = document.getElementById('searchForm');
-    
+
     if (courseSelect.value === '' || typeSelect.value === '') {
         Swal.fire({
             icon: 'error',
@@ -515,6 +542,7 @@ function createModalContent(courseName, schoolType) {
             return '';
     }
 }
+
 function maskNascimento(input) {
     // Remove non-numeric characters
     let value = input.value.replace(/\D/g, '');
@@ -567,19 +595,19 @@ function maskNascimento(input) {
 function removeAccents(input) {
     // Armazena o valor atual do cursor
     const cursorPosition = input.selectionStart;
-    
+
     // String de caracteres com acentos e suas substituições
     const accents = 'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ';
     const noAccents = 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY';
-    
+
     let value = input.value;
     let result = '';
-    
+
     // Percorre cada caractere do input
     for (let i = 0; i < value.length; i++) {
         const char = value[i];
         const index = accents.indexOf(char);
-        
+
         // Se encontrar um caractere acentuado, substitui pelo equivalente sem acento
         if (index !== -1) {
             result += noAccents[index];
@@ -587,10 +615,10 @@ function removeAccents(input) {
             result += char;
         }
     }
-    
+
     // Atualiza o valor do input
     input.value = result;
-    
+
     // Restaura a posição do cursor
     input.setSelectionRange(cursorPosition, cursorPosition);
 }
@@ -866,7 +894,7 @@ function createEnfermagemForm(schoolType) {
                             <input type="text" name="h9_3" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
                         </div>
                         <div>
-                            <input type="text" name="g9_3" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                            <input type="text" name="g9_3" placeholder="GEOGRAFIA" class="w-fu<??>ll mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
                         </div>
                         <div>
                             <input type="text" name="c9_3" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
@@ -1010,6 +1038,7 @@ function maskNota(input) {
         input.value = '0';
     }
 }
+
 function showBimestreModal() {
     document.getElementById('bimestreModal').classList.remove('hidden');
 }
@@ -1047,6 +1076,7 @@ function closeModalAndRedirect(formId, redirectUrl) {
     document.getElementById('nonoAnoModal').classList.add('hidden');
     window.location.href = redirectUrl;
 }
+
 function createInformaticaForm(schoolType) {
     return `
 <form id="InformaticaForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
@@ -2141,6 +2171,3 @@ window.administracaoPub = administracaoPub;
 window.administracaoPriv = administracaoPriv;
 window.edificacoesPub = edificacoesPub;
 window.edificacoesPriv = edificacoesPriv;
-
-
-
