@@ -21,7 +21,7 @@ function cadastrar_curso($nome_curso)
     if ($rowCount == 0) {
 
         $nome_curso2 = $nome_curso;
-        $smt_cadastrar_curso = $conexao->prepare("INSERT INTO curso VALUES(NULL, :nome_curso2)");
+        $smt_cadastrar_curso = $conexao->prepare("INSERT INTO curso VALUES(NULL, :nome_curso2, cor_curso)");
         $smt_cadastrar_curso->bindValue(':nome_curso2', $nome_curso2);
         $smt_cadastrar_curso->execute();
 

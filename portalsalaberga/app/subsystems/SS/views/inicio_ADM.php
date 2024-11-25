@@ -558,346 +558,343 @@ $tabela_curso = cursos();
 
     <!--estilo css do card-->
 
-    <p class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
+    <p class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px"></p>
+    <style>
+        #grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            width: 100%;
+            padding: 1rem;
+            justify-content: flex-start;
+        }
+    </style>
 
+    <div id="grid-container">
         <?php foreach ($tabela_curso as $curso) { ?>
 
-            <?php if ($curso['nome_curso'] > 0) { ?>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@600&display=swap');
 
-                <style>
-                    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@600&display=swap');
+                .card {
+                    flex: 0 0 calc(300% - 1.3rem);
+                    max-width: calc(300% - 1.3rem);
+                    background-color: white;
+                    border-radius: 1.5rem;
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                    padding: 1.5rem;
+                    border: 1px solid #f3f4f6;
+                    transform: translateZ(0);
+                    transition: all 300ms;
+                }
 
-                    .grid-container {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 1.5rem;
-                        width: 100%;
-                        padding: 1rem;
-                        justify-content: flex-start;
-                    }
+                .card:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                }
 
+                .card-content {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    justify-content: space-between;
+                }
+
+                .card-title {
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 1.5rem;
+                    color: #1f2937;
+                    margin-bottom: 1.5rem;
+                    text-align: center;
+                    font-weight: 700;
+                    letter-spacing: -0.5px;
+                }
+
+                .button-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                .button {
+                    width: 100%;
+                    padding: 0.625rem 1rem;
+                    background-color: #008C45;
+                    color: white;
+                    border-radius: 9999px;
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    letter-spacing: 0.2px;
+                    transition: all 300ms;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .button:hover {
+                    background-color: #008C45;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                }
+
+                .button:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+                }
+
+                @media (max-width: 1400px) {
                     .card {
-                        flex: 0 0 calc(20% - 1.2rem);
-                        max-width: calc(20% - 1.2rem);
-                        background-color: white;
-                        border-radius: 1.5rem;
-                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                        padding: 1.5rem;
-                        border: 1px solid #f3f4f6;
-                        transform: translateZ(0);
-                        transition: all 300ms;
+                        flex: 0 0 calc(25% - 1.2rem);
+                        max-width: calc(25% - 1.2rem);
                     }
+                }
 
-                    .card:hover {
-                        transform: scale(1.05);
-                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                @media (max-width: 1200px) {
+                    .card {
+                        flex: 0 0 calc(33.333% - 1.2rem);
+                        max-width: calc(33.333% - 1.2rem);
                     }
+                }
 
-                    .card-content {
-                        display: flex;
-                        flex-direction: column;
-                        height: 100%;
-                        justify-content: space-between;
+                @media (max-width: 768px) {
+                    .card {
+                        flex: 0 0 calc(50% - 1.2rem);
+                        max-width: calc(50% - 1.2rem);
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .card {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    .card {
+                        padding: 2rem;
                     }
 
                     .card-title {
-                        font-family: 'Montserrat', sans-serif;
-                        font-size: 1.5rem;
-                        color: #1f2937;
-                        margin-bottom: 1.5rem;
-                        text-align: center;
-                        font-weight: 700;
-                        letter-spacing: -0.5px;
-                    }
-
-                    .button-group {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 1rem;
+                        font-size: 1.875rem;
+                        margin-bottom: 2rem;
                     }
 
                     .button {
-                        width: 100%;
-                        padding: 0.625rem 1rem;
-                        background-color: <?php echo $curso['cor_curso'] ?>;
-                        color: white;
-                        border-radius: 9999px;
-                        font-family: 'Source Sans Pro', sans-serif;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        letter-spacing: 0.2px;
-                        transition: all 300ms;
-                        border: none;
-                        cursor: pointer;
+                        padding: 0.75rem 1.5rem;
+                        font-size: 1.125rem;
                     }
+                }
+            </style>
 
-                    .button:hover {
-                        background-color: <?php echo $curso['cor_curso'] ?>;
-                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                    }
+            <div class="grid-container">
+                <!-- Cada card ocupara 20% da largura (menos o gap) 👍👍👍 -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <?php echo $curso['nome_curso']; ?>
+                        </h3>
+                        <div class="button-group">
+                            <button onclick="enfermagemPub()" class="button">
+                                Escola Pública
+                            </button>
+                            <button onclick="enfermagemPriv()" class="button">
+                                Escola Privada
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    .button:focus {
-                        outline: none;
-                        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
-                    }
+        <?php } ?>
+    </div>
+    </main>
 
-                    @media (max-width: 1400px) {
-                        .card {
-                            flex: 0 0 calc(25% - 1.2rem);
-                            max-width: calc(25% - 1.2rem);
-                        }
-                    }
+    <style>
+        /* Estilos globais */
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-                    @media (max-width: 1200px) {
-                        .card {
-                            flex: 0 0 calc(33.333% - 1.2rem);
-                            max-width: calc(33.333% - 1.2rem);
-                        }
-                    }
+        button {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+    </style>
 
-                    @media (max-width: 768px) {
-                        .card {
-                            flex: 0 0 calc(50% - 1.2rem);
-                            max-width: calc(50% - 1.2rem);
-                        }
-                    }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                    @media (max-width: 480px) {
-                        .card {
-                            flex: 0 0 100%;
-                            max-width: 100%;
-                        }
-                    }
+    <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Identificação Institucional -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
+                    <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
+                    <div class="flex gap-3">
+                        <a aria-label="Facebook" target="_blank" rel="noopener noreferrer"
+                            href="https://www.facebook.com/groups/salaberga/"
+                            class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+                            href="https://www.instagram.com/eeepsalabergampe/"
+                            class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
 
-                    @media (min-width: 1024px) {
-                        .card {
-                            padding: 2rem;
-                        }
+                <!-- Contato -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">CONTATO</h4>
+                    <div class="space-y-2 text-sm">
+                        <a class="flex items-center hover:text-orange-400 transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            eeepsantaritama@gmail.com
+                        </a>
+                        <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            (85) 3101-2100
+                        </a>
+                    </div>
+                </div>
 
-                        .card-title {
-                            font-size: 1.875rem;
-                            margin-bottom: 2rem;
-                        }
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
+                    <div class="flex gap-4">
+                        <!-- Primeira coluna (3 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Otavio Menezes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Matheus Felix
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Lavosier Nascimento
+                                </a>
+                            </li>
+                        </ul>
 
-                        .button {
-                            padding: 0.75rem 1.5rem;
-                            font-size: 1.125rem;
-                        }
-                    }
-                </style>
-
-    <div class="grid-container">
-        <!-- Cada card ocupara 20% da largura (menos o gap) 👍👍👍 -->
-        <div class="card">
-            <div class="card-content">
-                <h3 class="card-title">
-                    <?php echo $curso['nome_curso']; ?>
-                </h3>
-                <div class="button-group">
-                    <button onclick="enfermagemPub()" class="button">
-                        Escola Pública
-                    </button>
-                    <button onclick="enfermagemPriv()" class="button">
-                        Escola Privada
-                    </button>
+                        <!-- Segunda coluna (2 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Roger Cavalcante
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Pedro Uchôa
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<?php } else { ?>
 
-    <p>Nenhum curso cadastrado</p>
-
-<?php } ?>
-<?php } ?>
-</main>
-
-<style>
-    /* Estilos globais */
-    h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-    }
-
-    button {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 600;
-        letter-spacing: 0.2px;
-    }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            <!-- Identificação Institucional -->
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
-                <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
-                <div class="flex gap-3">
-                    <a aria-label="Facebook" target="_blank" rel="noopener noreferrer"
-                        href="https://www.facebook.com/groups/salaberga/"
-                        class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
-                        <i class="fab fa-facebook text-sm"></i>
-                    </a>
-                    <a aria-label="Instagram" target="_blank" rel="noopener noreferrer"
-                        href="https://www.instagram.com/eeepsalabergampe/"
-                        class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
-                        <i class="fab fa-instagram text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contato -->
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">CONTATO</h4>
-                <div class="space-y-2 text-sm">
-                    <a class="flex items-center hover:text-orange-400 transition-colors">
-                        <i class="fas fa-envelope mr-2"></i>
-                        eeepsantaritama@gmail.com
-                    </a>
-                    <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
-                        <i class="fas fa-phone-alt mr-2"></i>
-                        (85) 3101-2100
-                    </a>
-                </div>
-            </div>
-
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
-                <div class="flex gap-4">
-                    <!-- Primeira coluna (3 desenvolvedores) -->
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-instagram text-orange-400 mr-2"></i>
-                                Otavio Menezes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Matheus Felix
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Lavosier Nascimento
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Segunda coluna (2 desenvolvedores) -->
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Roger Cavalcante
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Pedro Uchôa
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Copyright -->
+        <div class="border-t border-white/10 pt-3 text-center text-xs">
+            <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
         </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="border-t border-white/10 pt-3 text-center text-xs">
-        <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
-    </div>
-    </div>
-</footer>
+        </div>
+    </footer>
 
 
-<style>
-    /* Estilização do scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #666;
-    }
-
-    /* Animação do modal */
-    @keyframes modalFadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
+    <style>
+        /* Estilização do scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
         }
-    }
 
-    #modal>div {
-        animation: modalFadeIn 0.3s ease-out;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
 
-    /* Estilização dos inputs quando focados */
-    input:focus,
-    select:focus {
-        outline: none;
-        border-color: #93C5FD;
-        box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
 
-    /* Hover effect nos cards dos anos */
-    .bg-gray-50:hover {
-        background-color: #F8FAFC;
-        transition: background-color 0.2s ease;
-    }
+        /* Animação do modal */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-    /* Estilização para inputs numéricos */
-    input[type="text"] {
-        transition: all 0.2s ease;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    input[type="text"]:focus {
-        transform: scale(1.02);
-    }
+        #modal>div {
+            animation: modalFadeIn 0.3s ease-out;
+        }
 
-    /* Tooltip para campos obrigatórios */
-    [required] {
-        position: relative;
-    }
+        /* Estilização dos inputs quando focados */
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #93C5FD;
+            box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
+        }
 
-    [required]:after {
-        content: '*';
-        color: #EF4444;
-        position: absolute;
-        right: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-</style>
+        /* Hover effect nos cards dos anos */
+        .bg-gray-50:hover {
+            background-color: #F8FAFC;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Estilização para inputs numéricos */
+        input[type="text"] {
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            transform: scale(1.02);
+        }
+
+        /* Tooltip para campos obrigatórios */
+        [required] {
+            position: relative;
+        }
+
+        [required]:after {
+            content: '*';
+            color: #EF4444;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
 
 
 
