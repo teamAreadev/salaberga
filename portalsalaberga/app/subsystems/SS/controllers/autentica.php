@@ -1,30 +1,32 @@
 <?php
 
 //se existe um POST email e password e não estiver vazio o POST email e password
-if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
+if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) && !empty($_POST['senha'])) {
 
     //requerindo o arquivo model.php
-    require_once('../models/model.php');
-
+    
     //criando as variaveis
-    $email = $_POST['email'];
+    $nome = $_POST['nome'];
     $senha = $_POST['senha'];
-
-    //criando o objeto model
+    
     //criando a variavel test para chamar a função logar
-    $login = logar($email, $senha);
-
+    require_once('../models/model.php');
+    $login = logar($nome, $senha);
     switch ($login) {
         //caso a variavel fosse igual a certo
+        case 0:
         case 1:
-
+            if ($login == 1){
+            header('location:../views/inicio_ADM.php');
+            exit();
+            } else if ($login == 0){
             header('location:../views/inicio.php');
             exit();
-
+            }
         //caso a variavel fosse igual a erro
-        case 0:
+        case 2:
             header('location:../index.php?erro');
             exit();
     }
 }
-
+    
