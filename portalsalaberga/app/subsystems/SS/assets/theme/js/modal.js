@@ -227,11 +227,11 @@ function showDeleteConfirmationModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Confirmação de Exclusão</h2>',
         html: `
-        <form id="deleteForm" class="bg-ceara-white rounded-lg p-6">
+        <form id="deleteForm" action="../controllers/controller_delete.php" method="post" class="bg-ceara-white rounded-lg p-6">
             <p class="text-gray-700">Você tem certeza que quer apagar o banco?</p>
             <div class="relative mt-4">
              
-                <input type="password" id="password" name="password" required 
+                <input type="password" id="password" name="senha" required 
                     class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm  transition-all duration-200" 
                     placeholder="Digite sua senha">
             </div>
@@ -253,27 +253,7 @@ function showDeleteConfirmationModal() {
     });
 }
 
-function confirmDelete(event) {
-    event.preventDefault(); // Impede o envio do formulário padrão
-    const password = document.getElementById('password').value;
 
-    // Aqui você pode adicionar a lógica para verificar a senha e apagar o banco
-    if (password === "suaSenhaSecreta") { // Exemplo de verificação de senha
-        Swal.fire({
-            title: 'Banco apagado!',
-            text: 'O banco foi apagado com sucesso.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-    } else {
-        Swal.fire({
-            title: 'Erro!',
-            text: 'Senha incorreta. Tente novamente.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-    }
-}
 
 
 function submitForm() {
