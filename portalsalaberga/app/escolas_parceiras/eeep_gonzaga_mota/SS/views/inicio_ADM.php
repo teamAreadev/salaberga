@@ -1,9 +1,10 @@
 <?php
-
-require_once('../models/cursos.php');
-$tabela_curso = cursos();
-
+require_once('../controllers/controller_sessao/autenticar_sessao.php');
+require_once('../controllers/controller_sessao/verificar_sessao.php');
+verificarSessao(600);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -33,6 +34,11 @@ $tabela_curso = cursos();
             }
         }
     </script>
+    <?php if (isset($_GET['delete']) && $_GET['delete'] == 'erro') { ?>
+    <script>
+        window.alert('senha incorreta');
+    </script>
+    <?php } ?>
     <style>
         :root {
             --ceara-green: #008C45;
@@ -392,88 +398,74 @@ Inserir Usuário
 </li>
 
     <li>
-        <button onclick="openUpdateNotesModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+        <a href="./atualizar_nota.php"   class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
             Atualizar
-        </button>
-    </li>
-
-    <li>
-        <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Relatórios
-        </button>
-    </li>
-    <li>
-        <button onclick="showResultsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            Resultados
-        </button>
-    </li>
-    <li>
-        <a href="../seeps2024/index.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-            </svg>
-            Sair
         </a>
     </li>
-</ul>
+
+                            <li>
+                                <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    Relatórios
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="showResultsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    Resultados
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-orange-500 text-orange-500 font-semibold transition-all duration-300 ease-in-out hover:bg-orange-500 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                    Cadastrar Curso
+                                </button>
+                            </li>
+
+
+
+                            <li>
+                                <button onclick="showDeleteConfirmationModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-purple-600 text-purple-600 font-semibold transition-all duration-300 ease-in-out hover:bg-purple-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
+                                    </svg>
+                                    Limpar banco
+                                </button>
+                            </li>
+
+
+
+
+                            <a href="../controllers/autentica.php?sair" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                                Sair
+                            </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Overlay -->
-    <div class="sidebar-overlay fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible transition-all duration-300 ease-in-out z-40"></div>
-
-    <style>
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-            backdrop-filter: blur(5px);
-            /* Adiciona desfoque ao fundo */
-        }
-
-        #mobile-menu:hover svg {
-            transform: scale(1.1);
-            transition: transform 0.2s ease;
-        }
-
-        /* Estilos adicionais para o sidebar */
-        #sidebar {
-            background: linear-gradient(to bottom right, #f9f9f9, #ffffff);
-            border-right: 1px solid #e0e0e0;
-        }
-
-        #sidebar h3 {
-            border-bottom: 2px solid #008C45;
-            padding-bottom: 10px;
-        }
-
-        #sidebar ul {
-            padding-top: 10px;
-        }
-    </style>
-
-    <p class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
-
-        <?php foreach ($tabela_curso as $curso) { ?>
-
-            <?php if ($curso['nome_curso'] > 0) { ?>
-
+    <!-- Modal do Cadastrar cursos -->
+    <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         <!-- Card Enfermagem -->
         <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
             <div class="flex flex-col h-full justify-between">
-                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;"><?php echo $curso['nome_curso']; ?></h3>
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Enfermagem</h3>
                 <div class="space-y-4">
                     <button onclick="enfermagemPub()"
                         class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
@@ -488,13 +480,64 @@ Inserir Usuário
                 </div>
             </div>
         </div>
+
+        <!-- Card Informática -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Informática</h3>
+                <div class="space-y-4">
+                    <button onclick="informaticaPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="informaticaPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Administração -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
+                <div class="space-y-4">
+                    <button onclick="administracaoPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="administracaoPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Edificações -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Edificações</h3>
+                <div class="space-y-4">
+                    <button onclick="edificacoesPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="edificacoesPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-<?php } else { ?>
-
-    <p>Nenhum curso cadastrado</p>
-
-<?php } ?>
-<?php } ?>
 </main>
 
 <style>

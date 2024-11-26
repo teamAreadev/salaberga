@@ -1,11 +1,47 @@
 <?php
 
-//requerindo o arquivo connect.php
+session_start();
+function cadastrarUsuario($nomeC, $userName, $email, $senha, $status, $cargo)
+{
+    try {
+        require_once('../config/connect.php');
 
+        // Primeiro, verifica se o email já existe
+        $stmtCheck = $conexao->prepare("SELECT COUNT(*) FROM usuario WHERE email = :email");
+        $stmtCheck->bindValue(':email', $email);
+        $stmtCheck->execute();
 
-//criando a class model_usuario sendo herdada da class connect
+        if ($stmtCheck->fetchColumn() > 0) {
+            throw new Exception("Este email já está cadastrado no sistema");
+        }
 
-//metodos
+        // Se o email não existe, procede com a inserção
+        $stmtInsert = $conexao->prepare('
+            INSERT INTO usuario (username, nome, email, senha, cargo, status) 
+            VALUES (:UserName, :nomeC, :email, MD5(:senha), :cargo, :status)
+        ');
+
+        $stmtInsert->bindValue(':nomeC', $nomeC);
+        $stmtInsert->bindValue(':UserName', $userName);
+        $stmtInsert->bindValue(':email', $email);
+        $stmtInsert->bindValue(':senha', $senha);
+        $stmtInsert->bindValue(':cargo', $cargo);
+        $stmtInsert->bindValue(':status', $status);
+
+        return $stmtInsert->execute();
+
+        //header('Location: ../index.php');
+        //exit();
+
+    } catch (PDOException $e) {
+        // Verifica se é um erro de duplicidade
+        if ($e->getCode() == '23000') {
+            throw new Exception("Este email já está cadastrado no sistema");
+        }
+        error_log("Erro ao cadastrar usuário: " . $e->getMessage());
+        throw new Exception("Erro ao cadastrar usuário no sistema");
+    }
+}
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
     require_once('../config/connect.php');
@@ -112,9 +148,9 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
 
 function logar($nome, $senha)
 {
-    require_once('../escolas_parceiras/eeep_gonzaga_mota/SS/config/connect.php');
+    require_once('../config/connect.php');
     //verificando se os dados estão no sistema 
-    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = :senha");
+    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
     $result_logar->bindValue(':nome', $nome);
     $result_logar->bindValue(':senha', $senha);
     $result_logar->execute();
@@ -122,33 +158,50 @@ function logar($nome, $senha)
 
 
     //se for o result_logar for maior que 0
-    if (!empty($result)) {
-        header('Location: ../escolas_parceiras/eeep_gonzaga_mota/SS/views/inicio.php');
-        exit();
-    } else {
-        header('Location: ../escolas_parceiras/index.php?login=erro');
-        exit();
+    foreach ($result as $key) {
+        if (!empty($result)) {
+            $_SESSION['login'] = true;
+            $_SESSION['status'] = $key['status'];
+            return $login = $key['status'];
+        } else {
+            return $login = 2;
+        }
     }
 }
 
 function delete($senha)
 {
-    require_once('../escolas_parceiras/eeep_gonzaga_mota/SS/config/connect.php');
-    //verificando se os dados estão no sistema 
-    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = :senha");
-    $result_logar->bindValue(':nome', $nome);
+    require_once('../config/connect.php');
+    
+    // Verificando se os dados estão no sistema 
+    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE senha = MD5(:senha)");
     $result_logar->bindValue(':senha', $senha);
     $result_logar->execute();
     $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
 
-
-    //se for o result_logar for maior que 0
     if (!empty($result)) {
-        header('Location: ../escolas_parceiras/eeep_gonzaga_mota/SS/views/inicio.php');
-        exit();
+        try {
+            // Desativa a verificação de chaves estrangeiras
+            $conexao->exec('SET FOREIGN_KEY_CHECKS = 0');
+
+            // Trunca as tabelas
+            $conexao->exec('TRUNCATE TABLE nota');
+            $conexao->exec('TRUNCATE TABLE candidato');
+
+            // Reativa a verificação de chaves estrangeiras
+            $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
+
+            return true;
+
+            
+        } catch (PDOException $e) {
+            // Garante que as chaves estrangeiras sejam reativadas
+            $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
+            throw new PDOException("Erro ao limpar as tabelas: " . $e->getMessage());
+        }
     } else {
-        header('Location: ../escolas_parceiras/index.php?login=erro');
-        exit();
+       return false;
+        // senha incorreta
     }
 }
 
