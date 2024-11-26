@@ -189,3 +189,15 @@
         $consulta->BindValue(':candidato_id_candidato', $id);
         $consulta->execute();
     }
+
+    function notas($nome){
+
+        require_once('../config/connect.php');
+        $result = $conexao->prepare("SELECT * FROM nota WHERE :nome = $nome");
+        $result->BindValue(':nome', $nome);
+        $result->execute();
+
+        $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $fetch;
+    }
