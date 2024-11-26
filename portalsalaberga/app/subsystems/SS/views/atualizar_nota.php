@@ -41,7 +41,7 @@
                         <input type="text" 
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg text-center 
                             focus:ring-2 focus:ring-ceara-green focus:border-ceara-green"
-                            placeholder="0.0"
+                            placeholder="0.00"
                             disabled
                             oninput="maskNota(this)">
                     </div>
@@ -53,14 +53,45 @@
         }
 
         function maskNota(input) {
-            let value = input.value.replace(/[^0-9.]/g, '');
-            if (value.length > 0) {
-                value = parseFloat(value);
-                if (value > 10) value = 10;
-                if (value < 0) value = 0;
-                input.value = value.toFixed(1);
-            }
+    // Remove tudo exceto números e ponto
+    let value = input.value.replace(/[^0-9.]/g, '');
+    
+    // Remove pontos extras (mantém apenas o primeiro)
+    const parts = value.split('.');
+    if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+    }
+
+    // Caso especial para 100
+    if (value === '100' || value === '1.00') {
+        value = '10.0';
+        input.value = value;
+        return;
+    }
+
+    // Se não tiver ponto e tiver 2 ou mais dígitos, insere o ponto após o primeiro dígito
+    if (!value.includes('.') && value.length >= 2) {
+        value = value.slice(0, 1) + '.' + value.slice(1);
+    }
+
+    // Garante que temos no máximo 2 casas decimais
+    if (value.includes('.')) {
+        const decimals = value.split('.')[1];
+        if (decimals.length > 2) {
+            value = value.slice(0, value.indexOf('.') + 3);
         }
+    }
+
+    // Converte para número e verifica se é maior que 10
+    const numericValue = parseFloat(value);
+    if (numericValue > 10) {
+        // Pega apenas o primeiro dígito e adiciona .0
+        value = value[0] + '.0';
+    }
+
+    // Atualiza o valor no input
+    input.value = value;
+}
 
         function toggleEdit() {
             isEditing = !isEditing;
