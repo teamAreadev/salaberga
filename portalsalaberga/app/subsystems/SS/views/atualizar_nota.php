@@ -36,7 +36,7 @@
 
             subjects.forEach(subject => {
                 subjectsContainer.innerHTML += `
-                    <div class="relative">
+                    <div class="relative mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">${subject}</label>
                         <input type="text" 
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg text-center 
@@ -68,6 +68,10 @@
             inputs.forEach(input => {
                 input.disabled = !isEditing;
             });
+
+            // Mostrar ou ocultar o botão de salvar
+            const saveButton = document.getElementById('saveButton');
+            saveButton.style.display = isEditing ? 'block' : 'none';
         }
 
         function selectBimestre(bimestre) {
@@ -106,6 +110,41 @@
 
         <!-- Main Content -->
         <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4 mb-8">
+                <div class="flex flex-col md:col-span-6">
+                    <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full text-center" oninput="removeAccents(this)" placeholder="Nome Completo" required>
+                </div>
+
+                <div class="flex flex-col md:col-span-1">
+                    <input type="text" name="nasc" maxlength="10" placeholder="DD/MM/AAAA" 
+                        class="px-6 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full" 
+                        oninput="maskNascimento(this)" required>
+                </div>
+
+                <div class="flex flex-col md:col-span-1">
+                    <input type="text" name="curso" value="Enfermagem" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+                    <input type="hidden" name="curso" value="Enfermagem">
+                </div>
+
+                <div class="flex flex-col md:col-span-1">
+                    <input type="text" name="publica" value="Pública" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+                    <input type="hidden" name="publica" value="Pública">
+                </div>
+
+                <div class="flex flex-col md:col-span-2">
+                    <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full" required>
+                        <option value="">Selecione um bairro</option>
+                        <option value="Outra Banda">Outra Banda</option>
+                        <option value="Outros Bairros">Outros Bairros</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center md:col-span-1">
+                    <label for="pcd" class="text-sm text-[--gray-600] mr-2">PCD</label>
+                    <input type="checkbox" id="pcd" name="pcd" value="1" class="w-4 h-4 text-[#DC2626] border border-[--gray-600] rounded">
+                </div>
+            </div>
+
             <!-- Student Info -->
             <div class="mb-8">
                 <div class="flex flex-col md:flex-row md:items-center md:space-x-4">
@@ -122,6 +161,7 @@
                         </label>
                         <select id="grade" onchange="showSubjects()" 
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ceara-green focus:border-ceara-green">
+                            <option value="">Selecione uma série</option>
                             <option value="6">6º Ano</option>
                             <option value="7">7º Ano</option>
                             <option value="8">8º Ano</option>
@@ -144,8 +184,8 @@
                 </div>
 
                 <!-- Grades Grid -->
-                <div id="subjectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- As matérias serão exibidas aqui -->
+                <div id="subjectsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- As notas das disciplinas serão geradas aqui -->
                 </div>
             </div>
 
@@ -154,8 +194,8 @@
                 <button class="px-6 py-2 bg-ceara-green text-white rounded-lg hover:bg-ceara-green-dark transition-colors" onclick="toggleEdit()">
                     Editar Notas
                 </button>
-                <button class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors" onclick="saveNotes()">
-                    Salvar
+                <button id="saveButton" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors" onclick="saveNotes()" style="display: none;">
+                    Salvar Notas
                 </button>
             </div>
         </div>
