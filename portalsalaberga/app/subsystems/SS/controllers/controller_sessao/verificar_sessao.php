@@ -1,5 +1,5 @@
 <?php
-function verificarSessao($tempo_limite = 10) {
+function verificarSessao($tempo_limite = 600) {
     // Verifica se existe timestamp da última atividade
     if (isset($_SESSION['ultimo_acesso'])) {
         // Verifica se já passou do tempo limite
