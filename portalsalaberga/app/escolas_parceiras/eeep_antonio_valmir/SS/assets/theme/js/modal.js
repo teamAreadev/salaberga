@@ -46,6 +46,8 @@ function showReportsModal() {
         }
     });
 }
+
+
 function openUpdateNotesModal() {
     const subjects = [
         { id: 'portugues', label: 'Português' },
@@ -104,36 +106,36 @@ function openInsertUserModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Inserir Usuário</h2>',
         html: `
-            <form id="insertUserForm" class="bg-ceara-white rounded-lg p-6">
+            <form id="insertUserForm" action="../controllers/controller_cadastrar.php" method="post" class="bg-ceara-white rounded-lg p-6">
                 <div class="space-y-6">
                     <div class="grid grid-cols-2 gap-6">
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="fullName">Nome Completo</label>
-                            <input type="text" id="fullName" 
+                            <input type="text" id="fullName" name="nomeC"
                                 class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                         </div>
                         
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="username">Nome de Usuário</label>
-                            <input type="text" id="username" 
+                            <input type="text" id="username" name="UserName"
                                 class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                         </div>
                         
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
-                            <input type="email" id="email" 
+                            <input type="email" id="email" name="email"
                                 class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                         </div>
                         
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="password">Senha</label>
-                            <input type="password" id="password" 
+                            <input type="password" id="password" name="senha"
                                 class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                         </div>
                         
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
-                            <select id="position" 
+                            <select id="position" name="cargo"
                                 class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
                                 <option value="">Selecione um cargo</option>
                                 <option value="secretaria">Secretaria</option>
@@ -144,11 +146,11 @@ function openInsertUserModal() {
                         
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="status">Status</label>
-                            <select id="status" 
+                            <select id="status" name="status"
                                 class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
                                 <option value="">Selecione um status</option>
-                                <option value="admin">Admin</option>
-                                <option value="nao-admin">Não Admin</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Não Admin</option>
                             </select>
                         </div>
                     </div>
@@ -171,6 +173,7 @@ function openInsertUserModal() {
         }
     });
 }
+
 
 
 function showResultsModal() {
@@ -220,6 +223,39 @@ function showResultsModal() {
     });
 }
 
+function showDeleteConfirmationModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Confirmação de Exclusão</h2>',
+        html: `
+        <form id="deleteForm" action="../controllers/controller_delete.php" method="post" class="bg-ceara-white rounded-lg p-6">
+            <p class="text-gray-700">Você tem certeza que quer apagar o banco?</p>
+            <div class="relative mt-4">
+             
+                <input type="password" id="password" name="senha" required 
+                    class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm  transition-all duration-200" 
+                    placeholder="Digite sua senha">
+            </div>
+            <div class="flex justify-center space-x-4 mt-8">
+                <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200" onclick="Swal.close()">
+                    Cancelar
+                </button>
+                <button type="submit" onclick="confirmDelete(event)" class="px-6 py-2.5 bg-red-600 text-ceara-white rounded-lg font-medium hover:bg-red-700 transition-all duration-200 focus:ring-2 focus:ring-red-500">
+                    Apagar Banco
+                </button>
+            </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+
+
+
 function submitForm() {
     const courseSelect = document.getElementById('course');
     const typeSelect = document.getElementById('type');
@@ -253,6 +289,58 @@ function submitForm() {
         form.submit();
     }, 1500);
 }
+
+
+function showCourseModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Cadastrar Curso</h2>',
+        html: `
+        <form action="../controllers/controller_curso.php" id="courseForm" class="bg-ceara-white rounded-lg p-6" method="post">
+            <div class="mb-4">
+             
+                <input type="text" id="courseName" name="nome_curso" required 
+                    class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" 
+                    placeholder="Digite o nome do curso">
+            </div>
+            <div class="mb-4">
+              
+                <input type="color" id="courseColor" name="cor_curso" required 
+                    class="w-full h-10 border border-gray-600 rounded-lg cursor-pointer">
+            </div>
+         <div class="flex justify-center space-x-4 mt-8">
+                    <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                        Cancelar
+                    </button>
+                    <button type="submit" name="cadastrar_curso" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                      Cadastrar
+                    </button>
+                </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function submitCourse(event) {
+    event.preventDefault(); // Impede o envio do formulário padrão
+    const courseName = document.getElementById('courseName').value;
+    const courseColor = document.getElementById('courseColor').value;
+
+    // Aqui você pode adicionar a lógica para cadastrar o curso
+    console.log("Curso cadastrado:", courseName, "Cor:", courseColor);
+
+    Swal.fire({
+        title: 'Curso Cadastrado!',
+        text: 'O curso foi cadastrado com sucesso.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+}
+
 
 
 

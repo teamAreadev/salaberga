@@ -29,4 +29,12 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) &&
             exit();
     }
 }
+
+if (isset($_GET['sair'])) {
+    
+    // Destroi todas as sessões
+    session_unset();
+    header('Location: ../index.php');
+    exit();
+}
     

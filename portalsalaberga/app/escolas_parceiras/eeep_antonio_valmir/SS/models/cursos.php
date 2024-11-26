@@ -2,14 +2,19 @@
 function cursos()
 {
 
-    require_once('../config/connect.php');
-    $result_curso = $conexao->prepare("SELECT nome_curso FROM curso");
+    if (file_exists('../config/connect.php')) {
+        require_once('../config/connect.php');
+    } else {
+    
+        require_once('config/connect.php');
+    }
+    $result_curso = $conexao->prepare("SELECT * FROM curso");
     $result_curso->execute();
 
     return $tabela_curso = $result_curso->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function cadastrar_curso($nome_curso)
+function cadastrar_curso($nome_curso, $cor_curso)
 {
     require_once('../config/connect.php');
 
@@ -21,8 +26,9 @@ function cadastrar_curso($nome_curso)
     if ($rowCount == 0) {
 
         $nome_curso2 = $nome_curso;
-        $smt_cadastrar_curso = $conexao->prepare("INSERT INTO curso VALUES(NULL, :nome_curso2, cor_curso)");
+        $smt_cadastrar_curso = $conexao->prepare("INSERT INTO curso VALUES(NULL, :nome_curso2, :cor_curso)");
         $smt_cadastrar_curso->bindValue(':nome_curso2', $nome_curso2);
+        $smt_cadastrar_curso->bindValue(':cor_curso', $cor_curso);
         $smt_cadastrar_curso->execute();
 
         if ($smt_cadastrar_curso) {
@@ -32,7 +38,7 @@ function cadastrar_curso($nome_curso)
 
             return 2;
         }
-    }else{
+    } else {
 
         return 3;
     }

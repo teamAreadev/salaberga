@@ -1,11 +1,11 @@
 <?php
-if (isset($_POST['cadastrar_curso']) && isset($_POST['nome_curso']) && !empty($_POST['nome_curso'])) {
+if (isset($_POST['cadastrar_curso']) && isset($_POST['nome_curso']) && !empty($_POST['nome_curso']) && isset($_POST['cor_curso']) && !empty($_POST['cor_curso'])) {
 
     $nome_curso = $_POST['nome_curso'];
-
+    $cor_curso = $_POST['cor_curso'];
 
     require_once('../models/cursos.php');
-    $test = cadastrar_curso($nome_curso);
+    $test = cadastrar_curso($nome_curso, $cor_curso);
 
     switch ($test) {
 

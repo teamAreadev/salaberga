@@ -2,7 +2,12 @@
 function cursos()
 {
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/escola projetos/Salaberga/portalsalaberga/app/subsystems/SS/config/connect.php');
+    if (file_exists('../config/connect.php')) {
+        require_once('../config/connect.php');
+    } else {
+    
+        require_once('config/connect.php');
+    }
     $result_curso = $conexao->prepare("SELECT * FROM curso");
     $result_curso->execute();
 

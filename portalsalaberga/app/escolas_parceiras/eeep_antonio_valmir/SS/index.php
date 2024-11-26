@@ -1,7 +1,4 @@
-<?php
-require_once("models/session_manager.php");
-lista();
-?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -799,14 +796,14 @@ lista();
                                 </div>
 
                                 <!-- Modal Body -->
-                                <form id="loginForm" class="space-y-4" action="controller/autentica.php" method="post">
+                                <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
                                     <!-- Nome Input -->
                                     <div>
                                         <label for="email" class="block text-sm font-medium text-[#333333]">Nome</label>
                                         <input
                                             type="text"
                                             id="email"
-                                            name="email"
+                                            name="nome"
                                             class="mt-1 block w-full px-4 py-3 border border-[#666666] 
                                rounded-lg shadow-sm focus:outline-none focus:ring-2 
                                focus:ring-[#008C45] focus:border-[#008C45]
