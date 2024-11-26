@@ -2,8 +2,8 @@
 require_once('../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../controllers/controller_sessao/verificar_sessao.php');
 verificarSessao(600);
-require_once('../models/cursos.php');
-$tabela_curso = cursos();
+//require_once('../models/cursos.php');
+//$tabela_curso = cursos();
 
 ?>
 
