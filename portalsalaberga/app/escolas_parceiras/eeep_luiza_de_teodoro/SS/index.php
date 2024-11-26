@@ -1,4 +1,9 @@
+<?php
 
+require_once('models/cursos.php');
+$tabela_curso = cursos();
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -948,60 +953,56 @@
         }
     </style>
     <main class="flex-grow py-16 px-4 mt-20 font-poppins">
-    <section class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <?php
-        $cursos = [
-            1 => ['nome' => 'ENFERMAGEM', 'icone' => 'fa-user-nurse'],
-            2 => ['nome' => 'INFORMÁTICA', 'icone' => 'fa-laptop-code'],
-            3 => ['nome' => 'ADMINISTRAÇÃO', 'icone' => 'fa-briefcase'],
-            4 => ['nome' => 'EDIFICAÇÕES', 'icone' => 'fa-building']
-        ];
+        <section class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        foreach ($cursos as $id => $curso) {
-            $dados = $_SESSION["curso_$id"] ?? [];
-        ?>
-            <div class="course-card relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onmouseenter="toggleCard(this)">
-                <div class="p-6 text-center front">
-                    <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome']; ?></h3>
-                </div>
-                <div class="absolute inset-0 bg-white transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
-                    <div class="p-4">
-                        <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
-                        <div class="flex flex-col items-start space-y-2" style="margin-left: 28px;">
-                            <div class="flex items-center">
-                                <i class="fas fa-users info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                <span class="ml-2">Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                <span class="ml-2">Pública - AC: <?php echo $dados['publica'] ?? 0; ?></span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-book info-icon text-ceara-green" style="font-size: 14px; margin-left: 2px"></i>
-                                <span class="ml-2">Pública - COTA: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-building info-icon text-ceara-green" style="font-size: 14px;  margin-left: 2px"></i>
-                                <span class="ml-2">Privada - AC: <?php echo $dados['privada'] ?? 0; ?></span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;  margin-left: -1px"></i>
-                                <span class="ml-2">Privada - COTA: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-wheelchair info-icon text-ceara-green" style="font-size: 14px;"></i>
-                                <span class="ml-2">PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
+                <?php
+
+                foreach ($tabela_curso as $curso) {
+                    $dados = $_SESSION["curso_" . $curso['nome_curso']] ?? [];
+                ?>
+                    <div class="course-card relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onmouseenter="toggleCard(this)">
+                        <div class="p-6 text-center front">
+                        <i class="fas fa-code text-4xl text-ceara-green mb-4"></i>
+                        <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome_curso']; ?></h3>
+                        </div>
+                        <div class="absolute inset-0 bg-white transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
+                            <div class="p-4">
+                                <i class="fas fa-code text-4xl text-ceara-green mb-4"></i>
+                                <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome_curso']; ?></h3>
+
+                                <div class="flex flex-col items-start space-y-2" style="margin-left: 28px;">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span class="ml-2">Total Inscritos: <?php echo $dados['total'] ?? 0; ?></span>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span class="ml-2">Pública - AC: <?php echo $dados['publica'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-book info-icon text-ceara-green" style="font-size: 14px; margin-left: 2px"></i>
+                                        <span class="ml-2">Pública - COTA: <?php echo $dados['bairro_publica'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-building info-icon text-ceara-green" style="font-size: 14px;  margin-left: 2px"></i>
+                                        <span class="ml-2">Privada - AC: <?php echo $dados['privada'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-home info-icon text-ceara-green" style="font-size: 14px;  margin-left: -1px"></i>
+                                        <span class="ml-2">Privada - COTA: <?php echo $dados['bairro_privada'] ?? 0; ?></span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-wheelchair info-icon text-ceara-green" style="font-size: 14px;"></i>
+                                        <span class="ml-2">PCD: <?php echo $dados['pcd'] ?? 0; ?></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
-        <?php } ?>
-    </div>
 
             <script>
                 function toggleCard(element) {
