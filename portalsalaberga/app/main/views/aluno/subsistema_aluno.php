@@ -38,12 +38,7 @@
         Qual é o seu superpoder? Talvez seja curiosidade já que você está olhando nosso código fonte.
         What’s your superpower? Perhaps it’s curiosity since you are looking at our source code. -->
 
-<?php
-require_once('../../controllers/controller_sessao/autenticar_sessao.php');
-require_once('../../controllers/controller_sessao/verificar_sessao.php');
-verificarSessao(60);
 
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -51,23 +46,24 @@ verificarSessao(60);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4A90E2">
-    <meta name="description" content="Portal do Aluno FUN - Acesse suas atividades e recursos escolares">
+    <meta name="description" content="Portal do Aluno - Acesse suas atividades e recursos escolares">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../../assets/js/service-worker.js"></script>
+    <script src="../../assets/js/acessibilidades.js"></script>
     <link rel="shortcut icon" href="https://i.postimg.cc/Dy40VtFL/Design-sem-nome-13-removebg-preview.png"
         type="image/x-icon">
 
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="../../assets/js/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="apple-touch-icon" href="https://i.postimg.cc/Dy40VtFL/Design-sem-nome-13-removebg-preview.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="FUN Aluno">
+    <meta name="apple-mobile-web-app-title" content="Portal Aluno">
 
-    <title>FUN | Aluno</title>
+    <title>Portal Aluno stgm</title>
 </head>
-
 <script>
     tailwind.config = {
         theme: {
@@ -82,501 +78,771 @@ verificarSessao(60);
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+:root {
+    /* Variáveis do modo claro (padrão) */
+    --background-color: #f0f7ff;
+    --text-color: #333333;
+    --header-color: #007A33;
+    --icon-bg: #ffffff;
+    --icon-shadow: rgba(0, 0, 0, 0.1);
+    --accent-color: #FFA500;
+    --grid-color: #e0e0e0;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --mobile-nav-bg: rgba(255, 255, 255, 0.95);
+    --search-bar-bg: white;
+    --card-border-hover: var(--header-color);
+}
+
+/* Modo escuro */
+@media (prefers-color-scheme: dark) {
     :root {
-        --background-color: #f0f7ff;
-        --text-color: #333333;
-        --header-color: #007A33;
-        --icon-bg: #ffffff;
-        --icon-shadow: rgba(0, 0, 0, 0.1);
-        --accent-color: #FFA500;
-        --grid-color: #e0e0e0;
+        --background-color: #1a1a1a;
+        --text-color: #ffffff;
+        --header-color: #00b348;
+        --icon-bg: #2d2d2d;
+        --icon-shadow: rgba(0, 0, 0, 0.3);
+        --accent-color: #ffb733;
+        --grid-color: #333333;
+        --card-bg: rgba(45, 45, 45, 0.9);
+        --header-bg: rgba(28, 28, 28, 0.95);
+        --mobile-nav-bg: rgba(28, 28, 28, 0.95);
+        --search-bar-bg: #2d2d2d;
+        --card-border-hover: var(--accent-color);
     }
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
+body {
+    background-color: var(--background-color);
+    min-height: 100vh;
+    padding-top: 80px;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.05) 0%, rgba(52, 152, 219, 0) 20%),
+        radial-gradient(circle at 90% 80%, rgba(46, 204, 113, 0.05) 0%, rgba(46, 204, 113, 0) 20%);
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
     body {
-        background-color: var(--background-color);
-        min-height: 100vh;
-        padding-top: 80px;
-        background-image:
-            radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.05) 0%, rgba(52, 152, 219, 0) 20%),
-            radial-gradient(circle at 90% 80%, rgba(46, 204, 113, 0.05) 0%, rgba(46, 204, 113, 0) 20%);
+        padding-bottom: 100px;
     }
+}
 
-    @media (max-width: 768px) {
-        body {
-            padding-bottom: 100px;
-        }
-    }
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
+@media (max-width: 768px) {
     .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 2rem;
-        padding: 2rem;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .app-card {
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 20px;
-        padding: 1.5rem;
-        text-align: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 2px solid transparent;
-        backdrop-filter: blur(12px);
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-    }
-
-    .app-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transform: translateX(-100%);
-        transition: 0.5s;
-    }
-
-    .app-card:hover::before {
-        transform: translateX(100%);
-    }
-
-    .app-card:hover {
-        transform: translateY(-5px) scale(1.02);
-        border-color: var(--header-color);
-        box-shadow: 0 20px 30px rgba(0, 122, 51, 0.1);
-    }
-
-    .icon-wrapper {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 1rem;
-        background: white;
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .app-card:hover .icon-wrapper {
-        transform: scale(1.1) rotate(5deg);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    .app-icon {
-        width: 50px;
-        height: 50px;
-        transition: transform 0.3s ease;
-    }
-
-    .app-name {
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-color);
-        margin-top: 1rem;
-        transition: color 0.3s ease;
-    }
-
-    .app-card:hover .app-name {
-        color: var(--header-color);
-    }
-
-    .main-header {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        border-bottom: 2px solid rgba(0, 122, 51, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    .main-header.scrolled {
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-link {
-        position: relative;
-        padding: 0.5rem 1rem;
-        color: var(--text-color);
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--header-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-        width: 100%;
-    }
-
-    .category-tag {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        background: rgba(0, 122, 51, 0.1);
-        color: var(--header-color);
-        margin-top: 0.5rem;
-        display: inline-block;
-    }
-
-    .search-container {
-        max-width: 600px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-    }
-
-    .search-bar {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        border-radius: 50px;
-        border: 2px solid rgba(0, 122, 51, 0.2);
-        background: white;
-        transition: all 0.3s ease;
-    }
-
-    .search-bar:focus {
-        outline: none;
-        border-color: var(--header-color);
-        box-shadow: 0 4px 12px rgba(0, 122, 51, 0.1);
-    }
-
-    .mobile-nav {
-        position: fixed;
-        bottom: 4px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 400px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 50px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
         padding: 1rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: all 0.3s ease;
-        display: none;
     }
+}
 
-    @media (max-width: 768px) {
-        .mobile-nav {
-            display: block;
-        }
+.app-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.app-card:hover::before {
+    transform: translateX(100%);
+}
+
+.app-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--card-border-hover);
+    box-shadow: 0 20px 30px rgba(0, 122, 51, 0.1);
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: var(--icon-bg);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px var(--icon-shadow);
+}
+
+.app-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 24px var(--icon-shadow);
+}
+
+.app-icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.app-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.app-card:hover .app-name {
+    color: var(--header-color);
+}
+
+.main-header {
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(0, 122, 51, 0.1);
+    transition: all 0.3s ease;
+}
+
+.main-header.scrolled {
+    background: var(--header-bg);
+    box-shadow: 0 4px 20px var(--icon-shadow);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--header-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.category-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    background: rgba(0, 122, 51, 0.1);
+    color: var(--header-color);
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid rgba(0, 122, 51, 0.2);
+    background: var(--search-bar-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: var(--header-color);
+    box-shadow: 0 4px 12px rgba(0, 122, 51, 0.1);
+}
+
+.mobile-nav {
+    position: fixed;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: var(--mobile-nav-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px var(--icon-shadow);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: block;
     }
-
-    .mobile-nav-enter {
-        animation: slideUpNav 0.3s ease-out forwards;
+    
+    .icon-wrapper {
+        width: 60px;
+        height: 60px;
     }
-
-    @keyframes slideUpNav {
-        from {
-            transform: translate(-50%, 100%);
-            opacity: 0;
-        }
-
-        to {
-            transform: translate(-50%, 0);
-            opacity: 1;
-        }
+    
+    .app-icon {
+        width: 40px;
+        height: 40px;
     }
-
-    .mobile-nav a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--text-color);
-        transition: all 0.3s ease;
+    
+    .app-card {
+        padding: 1rem;
     }
+}
 
-    .mobile-nav a:active {
-        transform: scale(0.95);
+@media (max-width: 380px) {
+    .grid-container {
+        gap: 0.8rem;
+        padding: 0.8rem;
     }
-
-    .mobile-nav a:hover {
-        color: var(--header-color);
+    
+    .app-card {
+        padding: 0.8rem;
     }
+    
+    .app-name {
+        font-size: 0.9rem;
+    }
+}
 
-    /* Estilos específicos para o botão de instalação */
+.mobile-nav-enter {
+    animation: slideUpNav 0.3s ease-out forwards;
+}
+
+@keyframes slideUpNav {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+.mobile-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav a:active {
+    transform: scale(0.95);
+}
+
+.mobile-nav a:hover {
+    color: var(--header-color);
+}
+
+.install-button {
+    /* Posicionamento base */
+    position: fixed;
+    bottom: clamp(16px, 4vh, 32px); /* Posicionamento responsivo */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    
+    /* Dimensões e padding */
+    padding: clamp(12px, 3vw, 24px) clamp(24px, 5vw, 48px);
+    min-width: min(200px, 80vw); /* Responsivo em telas pequenas */
+    max-width: 90vw;
+    
+    /* Estilo visual */
+    background: linear-gradient(45deg, 
+        var(--header-color), 
+        var(--accent-color)
+    );
+    color: white;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-size: clamp(14px, 4vw, 16px);
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    
+    /* Borda e sombra */
+    border: none;
+    border-radius: 9999px; /* Fully rounded */
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    /* Animações */
+    transition: 
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease;
+    
+    /* Interatividade */
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    
+    /* Acessibilidade */
+    outline: none;
+}
+
+.install-button:hover {
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 
+        0 8px 12px rgba(0, 0, 0, 0.15),
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.install-button:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.install-button:active {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Suporte para preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
     .install-button {
-        /* Layout e posicionamento */
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1000;
-
-        /* Dimensões */
-        padding: 12px 24px;
-        min-width: 200px;
-
-        /* Cores e fundo */
-        background: linear-gradient(45deg, #4CAF50, #45a049);
-        color: white;
-
-        /* Tipografia */
-        font-family: 'Arial', sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-
-        /* Borda e sombra */
-        border: none;
-        border-radius: 25px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-        /* Transições */
-        transition: all 0.3s ease;
-
-        /* Cursor */
-        cursor: pointer;
+        transition: none;
     }
+}
 
-    /* Efeito hover */
-    .install-button:hover {
-        background: linear-gradient(45deg, #45a049, #4CAF50);
-        transform: translateX(-50%) translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+/* Suporte para modo escuro */
+@media (prefers-color-scheme: dark) {
+    .install-button {
+        box-shadow: 
+            0 4px 6px rgba(0, 0, 0, 0.3),
+            0 2px 4px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
+}
 
-    /* Efeito active */
-    .install-button:active {
-        transform: translateX(-50%) translateY(0);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    .install-button {
+        padding: 14px 28px;
+        font-size: 15px;
     }
-
-    /* Media query para dispositivos móveis */
-    @media (max-width: 768px) {
-        .install-button {
-            width: 90%;
-            max-width: 300px;
-            font-size: 14px;
-            padding: 10px 20px;
-        }
-    }
+}
 </style>
 </head>
 
 <body>
-    <!-- Header Principal -->
-    <header class="main-header">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <img src="https://i.postimg.cc/8czCMpqx/Design-sem-nome-70-removebg-preview.png" alt="Logo"
-                        class="h-12 w-auto object-contain">
-                    <div>
-                        <h1 class="text-xl font-bold text-primary">
-                            Portal do
-                            <span class="text-secondary">Aluno</span>
-                        </h1>
-                        <div class="h-0.5 bg-primary/20 rounded-full mt-1"></div>
+<!-- Header Principal -->
+<header class="main-header">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+            <!-- Logo e Título -->
+            <div class="flex items-center gap-3">
+                <img src="Design_sem_nome__78_-removebg-preview.png" alt="Logo" class="h-12 w-auto object-contain">
+                <div>
+                    <h1 class="text-xl font-bold text-primary">
+                        Portal do <span class="text-secondary">Aluno</span>
+                    </h1>
+                    <div class="h-0.5 bg-primary/20 rounded-full mt-1"></div>
+                </div>
+            </div>
+
+            <!-- Navegação Desktop -->
+            <nav class="hidden md:flex items-center gap-5">
+                <a href="../../" class="nav-link">Início</a>
+                <a href="suporte.html" class="nav-link">Suporte</a>
+
+                <!-- Hub de Acessibilidade Desktop -->
+                <div class="relative">
+                   <button id="accessibilityBtnDesktop" class="flex items-center gap-2 p-2 rounded-lg transition-colors duration-300" aria-expanded="false" aria-haspopup="true">
+                    <i class="fa-solid fa-universal-access text-xl"></i>
+                </button>
+
+                    <!-- Menu principal de acessibilidade -->
+                    <div id="accessibilityMenuDesktop" class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 hidden z-50" role="menu">
+                        <!-- Controles de texto -->
+                        <div class="px-4 py-2 border-b" style="color: #1a1a1a;">
+                            <span class="block text-sm font-semibold mb-2">Tamanho do Texto</span>
+                            <div class="flex gap-2">
+                                <button class="p-2 hover:bg-gray-100 rounded" aria-label="Diminuir tamanho do texto">
+                                    <i class="fa-solid fa-a"></i><b>-</b>
+                                </button>
+                                <button class="p-2 hover:bg-gray-100 rounded" aria-label="Tamanho padrão do texto">
+                                    <i class="fa-solid fa-a"></i>
+                                </button>
+                                <button class="p-2 hover:bg-gray-100 rounded" aria-label="Aumentar tamanho do texto">
+                                    <i class="fa-solid fa-a"></i><b>+</b>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Leitor de tela -->
+                        <button class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2" style="color: #1a1a1a;">
+                            <i class="fa-solid fa-ear-listen"></i>
+                            <span>Leitor de Tela</span>
+                        </button>
+
+                        <!-- Temas -->
+                        <button id="themeBtnDesktop" class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between" style="color: #1a1a1a;">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-half-stroke"></i>
+                                <span>Temas de Contraste</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Submenu de temas -->
+                    <div id="themeMenuDesktop" class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 hidden z-50">
+                        <!-- Cabeçalho do submenu -->
+                        <div class="flex items-center px-4 py-2 border-b">
+                            <button id="backToMainMenuDesktop" class="mr-2" style="color: #1a1a1a;">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <span class="font-semibold">Temas de Contraste</span>
+                        </div>
+
+                        <!-- Opções de tema -->
+                        <div class="py-2" style="color: #1a1a1a;">
+                            <button class="w-full px-4 py-2 text-left hover:bg-gray-100" data-theme="monochrome">
+                                Monocromático
+                            </button>
+                            <button class="w-full px-4 py-2 text-left hover:bg-gray-100" data-theme="inverted-grayscale">
+                                Escala de cinza invertida
+                            </button>
+                            <button class="w-full px-4 py-2 text-left hover:bg-gray-100" data-theme="inverted-color">
+                                Cor invertida
+                            </button>
+                            <button class="w-full px-4 py-2 text-left hover:bg-gray-100" data-theme="original">
+                                Cores originais
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <nav class="hidden md:flex items-center gap-5">
-                    <a href="../../" class="nav-link">Início</a>
-                    <a href="#" class="nav-link">Suporte</a>
-
-                    <!-- Hub de Acessibilidade -->
+                <!-- Perfil do usuário -->
+                <div class="flex items-center gap-3 cursor-pointer">
                     <div class="relative">
-                        <button id="accessibilityBtn"
-                            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors duration-300"
-                            aria-expanded="false" aria-haspopup="true">
-                            <i class="fa-solid fa-universal-access"></i>
-                            <span>Acessibilidade</span>
-                        </button>
-
-                        <!-- Menu dropdown de acessibilidade -->
-                        <div id="accessibilityMenu"
-                            class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 hidden" role="menu">
-                            <!-- Controles de texto -->
-                            <div class="px-4 py-2 border-b">
-                                <span class="block text-sm font-semibold mb-2">Tamanho do Texto</span>
-                                <div class="flex gap-2">
-                                    <button class="p-2 hover:bg-gray-100 rounded"
-                                        aria-label="Diminuir tamanho do texto">
-                                        <i class="fa-solid fa-a"></i><b>-</b>
-                                    </button>
-                                    <button class="p-2 hover:bg-gray-100 rounded" aria-label="Tamanho padrão do texto">
-                                        <i class="fa-solid fa-a"></i>
-                                    </button>
-                                    <button class="p-2 hover:bg-gray-100 rounded"
-                                        aria-label="Aumentar tamanho do texto">
-                                        <i class="fa-solid fa-a"></i><b>+</b>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Leitor de tela -->
-                            <button class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2">
-                                <i class="fa-solid fa-ear-listen"></i>
-                                <span>Leitor de Tela</span>
-                            </button>
-
-                            <!-- Temas -->
-                            <div class="relative">
-                                <button id="themeBtn"
-                                    class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between"
-                                    aria-expanded="false" aria-haspopup="true">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-circle-half-stroke"></i>
-                                        <span>Temas de Contraste</span>
-                                    </div>
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </button>
-                                <div id="themeMenu"
-                                    class="absolute left-full top-0 ml-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden">
-                                    <button class="w-full px-4 py-2 text-left hover:bg-gray-100"
-                                        data-theme="monochrome">Monocromático</button>
-                                    <button class="w-full px-4 py-2 text-left hover:bg-gray-100"
-                                        data-theme="inverted-grayscale">Escala de cinza invertida</button>
-                                    <button class="w-full px-4 py-2 text-left hover:bg-gray-100"
-                                        data-theme="inverted-color">Cor invertida</button>
-                                    <button class="w-full px-4 py-2 text-left hover:bg-gray-100"
-                                        data-theme="original">Cores originais</button>
-                                </div>
-                            </div>
+                        <img src="https://i.postimg.cc/m2d5f5L3/images-removebg-preview.png" alt="Perfil" class="w-10 h-10 rounded-full border-2 border-transparent hover:border-secondary transition-colors duration-300">
+                        <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white">
                         </div>
                     </div>
+                    <span class="text-sm font-medium text-gray-700 hover:text-primary transition-colors duration-300">
+                        <a href="../autenticação/perfil.php">Meu Perfil</a>
+                    </span>
+                </div>
+            </nav>
 
-                    <!-- Perfil do usuário -->
-                    <div class="flex items-center gap-3 cursor-pointer">
-                        <div class="relative">
-                            <img src="https://i.postimg.cc/m2d5f5L3/images-removebg-preview.png" alt="Perfil"
-                                class="w-10 h-10 rounded-full border-2 border-transparent hover:border-secondary transition-colors duration-300">
-                            <div
-                                class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white">
-                            </div>
-                        </div>
-                        <span
-                            class="text-sm font-medium text-gray-700 hover:text-primary transition-colors duration-300">
-                            <a href="../autenticação/perfil.php">Meu Perfil</a>
-                        </span>
+            <!-- Menu Mobile (apenas perfil) -->
+            <div class="md:hidden">
+                <div class="relative">
+                    <img src="https://i.postimg.cc/m2d5f5L3/images-removebg-preview.png" alt="Perfil" class="w-10 h-10 rounded-full border-2 border-transparent hover:border-secondary transition-colors duration-300">
+                    <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white">
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Botão principal de acessibilidade
-            const accessibilityBtn = document.getElementById('accessibilityBtn');
-            const accessibilityMenu = document.getElementById('accessibilityMenu');
+<!-- Navegação Mobile -->
+<nav class="mobile-nav md:hidden">
+    <div class="flex justify-around items-center">
+        <a href="../../" class="nav-link">
+            <i class="fa-solid fa-home text-xl"></i>
+            <span class="text-xs">Início</span>
+        </a>
 
-            // Botão de temas
-            const themeBtn = document.getElementById('themeBtn');
-            const themeMenu = document.getElementById('themeMenu');
+        <!-- Hub de Acessibilidade Mobile -->
+        <div class="relative">
+            <button id="accessibilityBtnMobile" class="nav-link flex flex-col items-center">
+                <i class="fa-solid fa-universal-access text-xl"></i>
+                <span class="text-xs">Acessibilidade</span>
+            </button>
 
-            // Função para fechar todos os menus
-            function closeAllMenus() {
-                accessibilityMenu.classList.add('hidden');
-                themeMenu.classList.add('hidden');
-                accessibilityBtn.setAttribute('aria-expanded', 'false');
-                themeBtn.setAttribute('aria-expanded', 'false');
-            }
+            <!-- Menu dropdown de acessibilidade -->
+            <div id="accessibilityMenuMobile" class="menu-base bottom-24 hidden">
+                <!-- Controles de texto -->
+                <div class="px-4 py-2 border-b" style="color: #1a1a1a;">
+                    <span class="block text-sm font-semibold mb-2">Tamanho do Texto</span>
+                    <div class="flex gap-2">
+                        <button class="p-2 hover:bg-gray-100 rounded" aria-label="Diminuir tamanho do texto">
+                            <i class="fa-solid fa-a"></i><b>-</b>
+                        </button>
+                        <button class="p-2 hover:bg-gray-100 rounded" aria-label="Tamanho padrão do texto">
+                            <i class="fa-solid fa-a"></i>
+                        </button>
+                        <button class="p-2 hover:bg-gray-100 rounded" aria-label="Aumentar tamanho do texto">
+                            <i class="fa-solid fa-a"></i><b>+</b>
+                        </button>
+                    </div>
+                </div>
 
-            // Toggle do menu de acessibilidade
-            accessibilityBtn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const isExpanded = accessibilityBtn.getAttribute('aria-expanded') === 'true';
+                <!-- Leitor de tela -->
+                <button class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2" style="color: #1a1a1a;">
+                    <i class="fa-solid fa-ear-listen"></i>
+                    <span>Leitor de Tela</span>
+                </button>
 
-                if (isExpanded) {
-                    accessibilityMenu.classList.add('hidden');
-                    accessibilityBtn.setAttribute('aria-expanded', 'false');
-                } else {
-                    closeAllMenus();
-                    accessibilityMenu.classList.remove('hidden');
-                    accessibilityBtn.setAttribute('aria-expanded', 'true');
-                }
-            });
+                <!-- Temas -->
+                <div class="relative">
+                    <button id="themeBtnMobile" class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between" style="color: #1a1a1a;">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                            <span>Temas de Contraste</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right transition-transform duration-200"></i>
+                    </button>
+                </div>
+            </div>
 
-            // Toggle do menu de temas
-            themeBtn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const isExpanded = themeBtn.getAttribute('aria-expanded') === 'true';
+            <!-- Submenu de temas -->
+            <div id="themeMenuMobile" class="menu-base bottom-24 hidden">
+                <!-- Cabeçalho do submenu -->
+                <div class="flex items-center px-4 py-2 border-b">
+                    <button id="backToMainMenu" class="mr-2" style="color: #1a1a1a;">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <span class="font-semibold">Temas de Contraste</span>
+                </div>
 
-                if (isExpanded) {
-                    themeMenu.classList.add('hidden');
-                    themeBtn.setAttribute('aria-expanded', 'false');
-                } else {
-                    themeMenu.classList.remove('hidden');
-                    themeBtn.setAttribute('aria-expanded', 'true');
-                }
-            });
-
-            // Fechar menus ao clicar fora
-            document.addEventListener('click', function (e) {
-                if (!accessibilityMenu.contains(e.target) && !accessibilityBtn.contains(e.target)) {
-                    closeAllMenus();
-                }
-            });
-
-            // Fechar menus com tecla Esc
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    closeAllMenus();
-                }
-            });
-        });
-    </script>
-
-    <!-- Navegação Mobile -->
-    <nav class="mobile-nav">
-        <div class="flex justify-around items-center">
-            <a href="#" class="nav-link">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                <span class="text-xs">Início</span>
-            </a>
-            <a href="#" class="nav-link">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span class="text-xs">Serviços</span>
-            </a>
-            <a href="#" class="nav-link">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-                <span class="text-xs">Suporte</span>
-            </a>
+                <!-- Opções de tema -->
+                <div class="py-2" style="color: #1a1a1a;">
+                    <button class="w-full px-4 py-3 text-left hover:bg-gray-100" data-theme="monochrome">
+                        Monocromático
+                    </button>
+                    <button class="w-full px-4 py-3 text-left hover:bg-gray-100" data-theme="inverted-grayscale">
+                        Escala de cinza invertida
+                    </button>
+                    <button class="w-full px-4 py-3 text-left hover:bg-gray-100" data-theme="inverted-color">
+                        Cor invertida
+                    </button>
+                    <button class="w-full px-4 py-3 text-left hover:bg-gray-100" data-theme="original">
+                        Cores originais
+                    </button>
+                </div>
+            </div>
         </div>
-    </nav>
 
+        <a href="suporte.html" class="nav-link">
+            <i class="fa-solid fa-headset text-xl"></i>
+            <span class="text-xs">Suporte</span>
+        </a>
+    </div>
+
+    <!-- Overlay para quando os menus estiverem abertos -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+</nav>
+
+<style>
+    .mobile-nav {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #accessibilityMenuMobile,
+    #themeMenuMobile {
+        transition: all 0.3s ease-in-out;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .menu-base {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+    }
+
+    .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        pointer-events: none;
+        z-index: 40;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos Mobile
+    const accessibilityBtnMobile = document.getElementById('accessibilityBtnMobile');
+    const accessibilityMenuMobile = document.getElementById('accessibilityMenuMobile');
+    const themeBtnMobile = document.getElementById('themeBtnMobile');
+    const themeMenuMobile = document.getElementById('themeMenuMobile');
+    const backToMainMenu = document.getElementById('backToMainMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    // Elementos Desktop
+    const accessibilityBtnDesktop = document.getElementById('accessibilityBtnDesktop');
+    const accessibilityMenuDesktop = document.getElementById('accessibilityMenuDesktop');
+    const themeBtnDesktop = document.getElementById('themeBtnDesktop');
+    const themeMenuDesktop = document.getElementById('themeMenuDesktop');
+    const backToMainMenuDesktop = document.getElementById('backToMainMenuDesktop');
+
+    // Funções auxiliares
+    function showOverlay() {
+        menuOverlay.classList.add('active');
+    }
+
+    function hideOverlay() {
+        menuOverlay.classList.remove('active');
+    }
+
+    function closeAllMenus() {
+        // Mobile
+        accessibilityMenuMobile?.classList.add('hidden');
+        themeMenuMobile?.classList.add('hidden');
+        hideOverlay();
+        
+        // Desktop
+        accessibilityMenuDesktop?.classList.add('hidden');
+        themeMenuDesktop?.classList.add('hidden');
+    }
+
+    // Mobile Event Listeners
+    accessibilityBtnMobile?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isHidden = accessibilityMenuMobile.classList.contains('hidden');
+        if (isHidden) {
+            closeAllMenus();
+            accessibilityMenuMobile.classList.remove('hidden');
+            showOverlay();
+        } else {
+            closeAllMenus();
+        }
+    });
+
+    themeBtnMobile?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        accessibilityMenuMobile.classList.add('hidden');
+        themeMenuMobile.classList.remove('hidden');
+    });
+
+    backToMainMenu?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        themeMenuMobile.classList.add('hidden');
+        accessibilityMenuMobile.classList.remove('hidden');
+    });
+
+        // Desktop Event Listeners (continuação)
+    accessibilityBtnDesktop?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isHidden = accessibilityMenuDesktop.classList.contains('hidden');
+        if (isHidden) {
+            closeAllMenus();
+            accessibilityMenuDesktop.classList.remove('hidden');
+        } else {
+            closeAllMenus();
+        }
+    });
+
+    themeBtnDesktop?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        accessibilityMenuDesktop.classList.add('hidden');
+        themeMenuDesktop.classList.remove('hidden');
+    });
+
+    backToMainMenuDesktop?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        themeMenuDesktop.classList.add('hidden');
+        accessibilityMenuDesktop.classList.remove('hidden');
+    });
+
+    // Overlay click handler
+    menuOverlay?.addEventListener('click', closeAllMenus);
+
+    // Document click handler para fechar menus ao clicar fora
+    document.addEventListener('click', function(e) {
+        const isClickInsideAccessibilityMobile = 
+            accessibilityMenuMobile?.contains(e.target) || 
+            themeMenuMobile?.contains(e.target) || 
+            accessibilityBtnMobile?.contains(e.target);
+
+        const isClickInsideAccessibilityDesktop = 
+            accessibilityMenuDesktop?.contains(e.target) || 
+            themeMenuDesktop?.contains(e.target) || 
+            accessibilityBtnDesktop?.contains(e.target);
+
+        if (!isClickInsideAccessibilityMobile && !isClickInsideAccessibilityDesktop) {
+            closeAllMenus();
+        }
+    });
+
+    // Prevenir que cliques dentro dos menus os fechem
+    [accessibilityMenuMobile, themeMenuMobile, accessibilityMenuDesktop, themeMenuDesktop].forEach(menu => {
+        menu?.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    // Implementação dos temas (exemplo)
+    const themeButtons = document.querySelectorAll('[data-theme]');
+    themeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.dataset.theme;
+            // Implementar a lógica de mudança de tema aqui
+            console.log('Tema selecionado:', theme);
+            closeAllMenus();
+        });
+    });
+});
+</script>
     <!-- Barra de Pesquisa -->
     <div class="search-container">
         <input type="text" class="search-bar" placeholder="Buscar aplicativos..." id="search-input">
@@ -632,13 +898,13 @@ verificarSessao(60);
             </a>
 
             <!-- Boletim -->
-            <a href="https://boletim.seduc.ce.gov.br">
+            <a href="suporte.html">
                 <div class="app-card">
                     <div class="icon-wrapper">
                         <img src="https://i.postimg.cc/Y0Lng6h7/boletim.png" alt="Boletim" class="app-icon">
                     </div>
-                    <h3 class="app-name">Boletim</h3>
-                    <span class="category-tag">Notas</span>
+                    <h3 class="app-name">Suporte teste</h3>
+                    <span class="category-tag">Teste</span>
                 </div>
             </a>
 
