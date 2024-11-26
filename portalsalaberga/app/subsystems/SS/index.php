@@ -1,8 +1,5 @@
-<?php
-require_once('models/cursos.php');
-$tabela_curso = cursos();
 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -954,20 +951,25 @@ $tabela_curso = cursos();
     <section class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <?php
+        $cursos = [
+            1 => ['nome' => 'ENFERMAGEM', 'icone' => 'fa-user-nurse'],
+            2 => ['nome' => 'INFORMÁTICA', 'icone' => 'fa-laptop-code'],
+            3 => ['nome' => 'ADMINISTRAÇÃO', 'icone' => 'fa-briefcase'],
+            4 => ['nome' => 'EDIFICAÇÕES', 'icone' => 'fa-building']
+        ];
 
-
-        foreach ($tabela_curso as $curso) {
-            $dados = $_SESSION["curso_".$curso['nome_curso']] ?? [];
+        foreach ($cursos as $id => $curso) {
+            $dados = $_SESSION["curso_$id"] ?? [];
         ?>
             <div class="course-card relative overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer group md:hover:cursor-pointer" onmouseenter="toggleCard(this)">
                 <div class="p-6 text-center front">
-                <i class="fas fa-code text-4xl text-ceara-green mb-4"></i>
-                    <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome_curso']; ?></h3>
+                    <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
+                    <h3 class="text-4xl font-bold" style="font-size: 25px"><?php echo $curso['nome']; ?></h3>
                 </div>
                 <div class="absolute inset-0 bg-white transform translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out back">
                     <div class="p-4">
-                    <i class="fas fa-code text-4xl text-ceara-green mb-4"></i>
-                        <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome_curso']; ?></h3>
+                        <i class="fas <?php echo $curso['icone']; ?> text-4xl text-ceara-green mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-6"><?php echo $curso['nome']; ?></h3>
                         <div class="flex flex-col items-start space-y-2" style="margin-left: 28px;">
                             <div class="flex items-center">
                                 <i class="fas fa-users info-icon text-ceara-green" style="font-size: 14px;"></i>

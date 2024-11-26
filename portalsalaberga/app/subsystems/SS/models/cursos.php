@@ -2,7 +2,7 @@
 function cursos()
 {
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/escola projetos/Salaberga/portalsalaberga/app/subsystems/SS/config/connect.php');
+    require_once('../config/connect.php');
     $result_curso = $conexao->prepare("SELECT * FROM curso");
     $result_curso->execute();
 
@@ -33,7 +33,7 @@ function cadastrar_curso($nome_curso, $cor_curso)
 
             return 2;
         }
-    } else {
+    }else{
 
         return 3;
     }
