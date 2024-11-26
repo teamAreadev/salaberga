@@ -1,12 +1,8 @@
 <?php
 require_once('../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../controllers/controller_sessao/verificar_sessao.php');
-require_once('../models/cursos.php');
-verificarSessao(600);
-$tabela_curso = cursos();
-
+verificarSessao(10);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -365,154 +361,114 @@ $tabela_curso = cursos();
 </header>
 
     <!-- Overlay -->
-    <p class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px"></p>
+    <div class="sidebar-overlay fixed inset-0 bg-black bg-opacity-50 opacity-0 invisible transition-all duration-300 ease-in-out z-40"></div>
+
     <style>
-        #grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            width: 100%;
-            padding: 1rem;
-            justify-content: flex-start;
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            backdrop-filter: blur(5px);
+            /* Adiciona desfoque ao fundo */
+        }
+
+        #mobile-menu:hover svg {
+            transform: scale(1.1);
+            transition: transform 0.2s ease;
+        }
+
+        /* Estilos adicionais para o sidebar */
+        #sidebar {
+            background: linear-gradient(to bottom right, #f9f9f9, #ffffff);
+            border-right: 1px solid #e0e0e0;
+        }
+
+        #sidebar h3 {
+            border-bottom: 2px solid #008C45;
+            padding-bottom: 10px;
+        }
+
+        #sidebar ul {
+            padding-top: 10px;
         }
     </style>
 
-    <div id="grid-container">
-        <?php foreach ($tabela_curso as $curso) { ?>
-
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@600&display=swap');
-
-                .card {
-                    flex: 0 0 calc(300% - 1.3rem);
-                    max-width: calc(300% - 1.3rem);
-                    background-color: white;
-                    border-radius: 1.5rem;
-                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                    padding: 1.5rem;
-                    border: 1px solid #f3f4f6;
-                    transform: translateZ(0);
-                    transition: all 300ms;
-                }
-
-                .card:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                }
-
-                .card-content {
-                    display: flex;
-                    flex-direction: column;
-                    height: 100%;
-                    justify-content: space-between;
-                }
-
-                .card-title {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 1.5rem;
-                    color: #1f2937;
-                    margin-bottom: 1.5rem;
-                    text-align: center;
-                    font-weight: 700;
-                    letter-spacing: -0.5px;
-                }
-
-                .button-group {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1rem;
-                }
-
-                .button {
-                    width: 100%;
-                    padding: 0.625rem 1rem;
-                    background-color: #008C45;
-                    color: white;
-                    border-radius: 9999px;
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    letter-spacing: 0.2px;
-                    transition: all 300ms;
-                    border: none;
-                    cursor: pointer;
-                }
-
-                .button:hover {
-                    background-color: #008C45;
-                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                }
-
-                .button:focus {
-                    outline: none;
-                    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
-                }
-
-                @media (max-width: 1400px) {
-                    .card {
-                        flex: 0 0 calc(25% - 1.2rem);
-                        max-width: calc(25% - 1.2rem);
-                    }
-                }
-
-                @media (max-width: 1200px) {
-                    .card {
-                        flex: 0 0 calc(33.333% - 1.2rem);
-                        max-width: calc(33.333% - 1.2rem);
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .card {
-                        flex: 0 0 calc(50% - 1.2rem);
-                        max-width: calc(50% - 1.2rem);
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    .card {
-                        flex: 0 0 100%;
-                        max-width: 100%;
-                    }
-                }
-
-                @media (min-width: 1024px) {
-                    .card {
-                        padding: 2rem;
-                    }
-
-                    .card-title {
-                        font-size: 1.875rem;
-                        margin-bottom: 2rem;
-                    }
-
-                    .button {
-                        padding: 0.75rem 1.5rem;
-                        font-size: 1.125rem;
-                    }
-                }
-            </style>
-
-            <div class="grid-container">
-                <!-- Cada card ocupara 20% da largura (menos o gap) 👍👍👍 -->
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="card-title">
-                            <?php echo $curso['nome_curso']; ?>
-                        </h3>
-                        <div class="button-group">
-                            <button onclick="enfermagemPub()" class="button">
-                                Escola Pública
-                            </button>
-                            <button onclick="enfermagemPriv()" class="button">
-                                Escola Privada
-                            </button>
-                        </div>
-                    </div>
+<main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <!-- Card Enfermagem -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Enfermagem</h3>
+                <div class="space-y-4">
+                    <button onclick="enfermagemPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="enfermagemPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
                 </div>
             </div>
+        </div>
 
-        <?php } ?>
+        <!-- Card Informática -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Informática</h3>
+                <div class="space-y-4">
+                    <button onclick="informaticaPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="informaticaPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Administração -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
+                <div class="space-y-4">
+                    <button onclick="administracaoPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="administracaoPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Edificações -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+            <div class="flex flex-col h-full justify-between">
+                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Edificações</h3>
+                <div class="space-y-4">
+                    <button onclick="edificacoesPub()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Pública
+                    </button>
+                    <button onclick="edificacoesPriv()"
+                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
+                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                        Escola Privada
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 

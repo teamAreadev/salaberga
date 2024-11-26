@@ -9,32 +9,31 @@ function cursos()
     return $tabela_curso = $result_curso->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function cadastrar_curso($nome_curso)
+function cadastrar_curso($nome_curso, $cor)
 {
     require_once('../config/connect.php');
 
     $smt_check = $conexao->prepare("SELECT * FROM curso WHERE nome_curso = :nome_curso");
     $smt_check->bindValue(':nome_curso', $nome_curso);
     $smt_check->execute();
-    $rowCount = $smt_check->rowCount();
+    $fetchAll = $smt_check->rowCount();
 
-    if ($rowCount == 0) {
+    if ($fetchAll > 0) {
 
-        $nome_curso2 = $nome_curso;
-        $smt_cadastrar_curso = $conexao->prepare("INSERT INTO curso VALUES(NULL, :nome_curso2, cor_curso)");
-        $smt_cadastrar_curso->bindValue(':nome_curso2', $nome_curso2);
+        $smt_cadastrar_curso = $conexao->prepare("INSERT INTO nota VALUE(NULL, :nome_curso)");
+        $smt_cadastrar_curso->bindValue(':nome_curso', $nome_curso);
         $smt_cadastrar_curso->execute();
 
         if ($smt_cadastrar_curso) {
 
-            return 1;
+            return "curso cadastrado com sucesso!";
         } else {
 
-            return 2;
+            return "erro ao cadastrar o curso!";
         }
     }else{
 
-        return 3;
+        return "curso Já existente";
     }
 }
 
