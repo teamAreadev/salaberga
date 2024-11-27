@@ -118,7 +118,7 @@ function privadaAC($curso)
         $pdf->Cell($n, 7, strToUpper(($row['nome'])), 1, 0, 'L', true);
         $pdf->Cell(32, 7, $curso, 1, 0, 'L', true);
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
-        $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
+        $pdf->Cell(26, 7, $cota, 1, 1, 'L', true);
         if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
             $pdf->Cell(15, 7, $row['id_candidato'], 1, 0, 'C', true);
             $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);

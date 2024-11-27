@@ -6,7 +6,7 @@ function privadaAC($curso)
     session_start();
 
     if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
-        $n = 80;
+        $n = 80; // como terá mais campos, aqui deixamos o tamanho do nome menor;
     } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
         $n = 105;
     }
@@ -16,7 +16,7 @@ function privadaAC($curso)
         SELECT candidato.id_candidato, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
-        WHERE candidato.publica = 1
+        WHERE candidato.publica = 1 
         AND candidato.id_curso1_fk = :curso
         ORDER BY nota.media DESC,
         candidato.data_nascimento DESC,
@@ -30,7 +30,7 @@ function privadaAC($curso)
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         WHERE candidato.publica = 1 
         AND candidato.id_curso1_fk = :curso
-        ORDER BY nome ASC       
+        ORDER BY nome ASC
         ");
     }
     $stmtSelect->BindValue(':curso', $curso);
@@ -44,7 +44,7 @@ function privadaAC($curso)
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('PUBLICA GERAL'), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('PUBLICA AC'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     //$pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
