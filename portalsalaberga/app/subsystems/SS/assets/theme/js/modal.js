@@ -967,28 +967,45 @@ function handleAvancar() {
 function hideBimestreModal() {
     document.getElementById('bimestreModal').classList.add('hidden');
 }
-
-// Optional: Mask function for note inputs (from original code)
 function maskNota(input) {
-    // Remove non-numeric characters
-    input.value = input.value.replace(/[^0-9.,]/g, '');
-
-    // Replace comma with dot
-    input.value = input.value.replace(',', '.');
-
-    // Limit to 2 decimal places
-    const parts = input.value.split('.');
-    if (parts.length > 1) {
-        input.value = parts[0] + '.' + parts[1].slice(0, 2);
+    // Remove tudo exceto números e ponto
+    let value = input.value.replace(/[^0-9.]/g, '');
+    
+    // Remove pontos extras (mantém apenas o primeiro)
+    const parts = value.split('.');
+    if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
     }
 
-    // Ensure value is between 0 and 10
-    const numValue = parseFloat(input.value);
-    if (numValue > 10) {
-        input.value = '10';
-    } else if (numValue < 0) {
-        input.value = '0';
+    // Caso especial para 100
+    if (value === '100' || value === '1.00') {
+        value = '10.0';
+        input.value = value;
+        return;
     }
+
+    // Se não tiver ponto e tiver 2 ou mais dígitos, insere o ponto após o primeiro dígito
+    if (!value.includes('.') && value.length >= 2) {
+        value = value.slice(0, 1) + '.' + value.slice(1);
+    }
+
+    // Garante que temos no máximo 2 casas decimais
+    if (value.includes('.')) {
+        const decimals = value.split('.')[1];
+        if (decimals.length > 2) {
+            value = value.slice(0, value.indexOf('.') + 3);
+        }
+    }
+
+    // Converte para número e verifica se é maior que 10
+    const numericValue = parseFloat(value);
+    if (numericValue > 10) {
+        // Pega apenas o primeiro dígito e adiciona .0
+        value = value[0] + '.0';
+    }
+
+    // Atualiza o valor no input
+    input.value = value;
 }
 function showBimestreModal() {
     document.getElementById('bimestreModal').classList.remove('hidden');
