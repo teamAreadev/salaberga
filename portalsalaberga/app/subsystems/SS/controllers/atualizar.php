@@ -1,13 +1,13 @@
 <?php
-if(isset($_POST['nome'])){
+if (isset($_POST['ID'])) {
 
-  $nome = $_POST['nome'];
+  $ID = $_POST['ID'];
 
   require_once('../models/model.php');
-  $nome = notas($nome);
+  $fetch = notas($ID);
 
-  header('location:../atualizar_nota.php?nome='. $nome);
-}
-//requerindo o arquivo model.php
-require_once('../models/model.php');
+  header('location:../views/atualizar_nota.php?fetch=' . $fetch);
+} 
+
+ 
 
