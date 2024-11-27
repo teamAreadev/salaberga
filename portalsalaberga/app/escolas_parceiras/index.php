@@ -445,7 +445,7 @@
                         </div>
                     </div>
                     <div class="p-8 text-center h-[calc(600px-12rem)]">
-                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Prof. Francisco </h2>
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Prof. Fco. Aristóles </h2>
                         <p class="flex items-center justify-center text-gray-600 mb-6">
                             <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
                             Itaitinga, CE
