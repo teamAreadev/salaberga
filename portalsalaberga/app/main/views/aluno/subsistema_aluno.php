@@ -51,10 +51,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../../assets/js/service-worker.js"></script>
     <script src="../../assets/js/acessibilidades.js"></script>
-    <link rel="shortcut icon" href="https://i.postimg.cc/Dy40VtFL/Design-sem-nome-13-removebg-preview.png"
-        type="image/x-icon">
-
-    <!-- PWA Meta Tags -->
+    <link rel="shortcut icon" href="https://i.postimg.cc/Dy40VtFL/Design-sem-nome-13-removebg-preview.png"type="image/x-icon">
     <link rel="manifest" href="../../assets/js/manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="apple-touch-icon" href="https://i.postimg.cc/Dy40VtFL/Design-sem-nome-13-removebg-preview.png">
@@ -79,9 +76,7 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
-    /* Variáveis do modo claro (padrão) */
     --background-color: #f0f7ff;
     --text-color: #333333;
     --header-color: #007A33;
@@ -96,7 +91,6 @@
     --card-border-hover: var(--header-color);
 }
 
-/* Modo escuro */
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #1a1a1a;
@@ -382,19 +376,16 @@ body {
 }
 
 .install-button {
-    /* Posicionamento base */
     position: fixed;
-    bottom: clamp(16px, 4vh, 32px); /* Posicionamento responsivo */
+    bottom: clamp(16px, 4vh, 32px); 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
     
-    /* Dimensões e padding */
     padding: clamp(12px, 3vw, 24px) clamp(24px, 5vw, 48px);
-    min-width: min(200px, 80vw); /* Responsivo em telas pequenas */
+    min-width: min(200px, 80vw); 
     max-width: 90vw;
     
-    /* Estilo visual */
     background: linear-gradient(45deg, 
         var(--header-color), 
         var(--accent-color)
@@ -406,26 +397,22 @@ body {
     line-height: 1.5;
     text-align: center;
     
-    /* Borda e sombra */
     border: none;
-    border-radius: 9999px; /* Fully rounded */
+    border-radius: 9999px; 
     box-shadow: 
         0 4px 6px rgba(0, 0, 0, 0.1),
         0 2px 4px rgba(0, 0, 0, 0.06),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
-    /* Animações */
     transition: 
         transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
         background 0.3s ease;
     
-    /* Interatividade */
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     
-    /* Acessibilidade */
     outline: none;
 }
 
@@ -450,14 +437,12 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Suporte para preferência de movimento reduzido */
 @media (prefers-reduced-motion: reduce) {
     .install-button {
         transition: none;
     }
 }
 
-/* Suporte para modo escuro */
 @media (prefers-color-scheme: dark) {
     .install-button {
         box-shadow: 
@@ -467,7 +452,6 @@ body {
     }
 }
 
-/* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
     .install-button {
         padding: 14px 28px;
@@ -478,13 +462,11 @@ body {
 </head>
 
 <body>
-<!-- Header Principal -->
 <header class="main-header">
     <div class="container mx-auto px-4 py-3">
         <div class="flex items-center justify-between">
-            <!-- Logo e Título -->
             <div class="flex items-center gap-3">
-                <img src="Design_sem_nome__78_-removebg-preview.png" alt="Logo" class="h-12 w-auto object-contain">
+                <img src="https://i.postimg.cc/V6SYb7P3/Design-sem-nome-15-removebg-preview.png" alt="Logo" class="h-12 w-auto object-contain">
                 <div>
                     <h1 class="text-xl font-bold text-primary">
                         Portal do <span class="text-secondary">Aluno</span>
@@ -493,20 +475,16 @@ body {
                 </div>
             </div>
 
-            <!-- Navegação Desktop -->
             <nav class="hidden md:flex items-center gap-5">
                 <a href="../../" class="nav-link">Início</a>
                 <a href="suporte.html" class="nav-link">Suporte</a>
 
-                <!-- Hub de Acessibilidade Desktop -->
                 <div class="relative">
                    <button id="accessibilityBtnDesktop" class="flex items-center gap-2 p-2 rounded-lg transition-colors duration-300" aria-expanded="false" aria-haspopup="true">
                     <i class="fa-solid fa-universal-access text-xl"></i>
                 </button>
 
-                    <!-- Menu principal de acessibilidade -->
                     <div id="accessibilityMenuDesktop" class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 hidden z-50" role="menu">
-                        <!-- Controles de texto -->
                         <div class="px-4 py-2 border-b" style="color: #1a1a1a;">
                             <span class="block text-sm font-semibold mb-2">Tamanho do Texto</span>
                             <div class="flex gap-2">
@@ -522,13 +500,11 @@ body {
                             </div>
                         </div>
 
-                        <!-- Leitor de tela -->
                         <button class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2" style="color: #1a1a1a;">
                             <i class="fa-solid fa-ear-listen"></i>
                             <span>Leitor de Tela</span>
                         </button>
 
-                        <!-- Temas -->
                         <button id="themeBtnDesktop" class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between" style="color: #1a1a1a;">
                             <div class="flex items-center gap-2">
                                 <i class="fa-solid fa-circle-half-stroke"></i>
@@ -538,9 +514,7 @@ body {
                         </button>
                     </div>
 
-                    <!-- Submenu de temas -->
                     <div id="themeMenuDesktop" class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 hidden z-50">
-                        <!-- Cabeçalho do submenu -->
                         <div class="flex items-center px-4 py-2 border-b">
                             <button id="backToMainMenuDesktop" class="mr-2" style="color: #1a1a1a;">
                                 <i class="fa-solid fa-arrow-left"></i>
@@ -548,7 +522,6 @@ body {
                             <span class="font-semibold">Temas de Contraste</span>
                         </div>
 
-                        <!-- Opções de tema -->
                         <div class="py-2" style="color: #1a1a1a;">
                             <button class="w-full px-4 py-2 text-left hover:bg-gray-100" data-theme="monochrome">
                                 Monocromático
@@ -566,7 +539,6 @@ body {
                     </div>
                 </div>
 
-                <!-- Perfil do usuário -->
                 <div class="flex items-center gap-3 cursor-pointer">
                     <div class="relative">
                         <img src="https://i.postimg.cc/m2d5f5L3/images-removebg-preview.png" alt="Perfil" class="w-10 h-10 rounded-full border-2 border-transparent hover:border-secondary transition-colors duration-300">
@@ -579,7 +551,6 @@ body {
                 </div>
             </nav>
 
-            <!-- Menu Mobile (apenas perfil) -->
             <div class="md:hidden">
                 <div class="relative">
                     <img src="https://i.postimg.cc/m2d5f5L3/images-removebg-preview.png" alt="Perfil" class="w-10 h-10 rounded-full border-2 border-transparent hover:border-secondary transition-colors duration-300">
@@ -591,7 +562,6 @@ body {
     </div>
 </header>
 
-<!-- Navegação Mobile -->
 <nav class="mobile-nav md:hidden">
     <div class="flex justify-around items-center">
         <a href="../../" class="nav-link">
@@ -599,16 +569,13 @@ body {
             <span class="text-xs">Início</span>
         </a>
 
-        <!-- Hub de Acessibilidade Mobile -->
         <div class="relative">
             <button id="accessibilityBtnMobile" class="nav-link flex flex-col items-center">
                 <i class="fa-solid fa-universal-access text-xl"></i>
                 <span class="text-xs">Acessibilidade</span>
             </button>
 
-            <!-- Menu dropdown de acessibilidade -->
             <div id="accessibilityMenuMobile" class="menu-base bottom-24 hidden">
-                <!-- Controles de texto -->
                 <div class="px-4 py-2 border-b" style="color: #1a1a1a;">
                     <span class="block text-sm font-semibold mb-2">Tamanho do Texto</span>
                     <div class="flex gap-2">
@@ -624,13 +591,11 @@ body {
                     </div>
                 </div>
 
-                <!-- Leitor de tela -->
                 <button class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2" style="color: #1a1a1a;">
                     <i class="fa-solid fa-ear-listen"></i>
                     <span>Leitor de Tela</span>
                 </button>
 
-                <!-- Temas -->
                 <div class="relative">
                     <button id="themeBtnMobile" class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between" style="color: #1a1a1a;">
                         <div class="flex items-center gap-2">
@@ -642,9 +607,7 @@ body {
                 </div>
             </div>
 
-            <!-- Submenu de temas -->
             <div id="themeMenuMobile" class="menu-base bottom-24 hidden">
-                <!-- Cabeçalho do submenu -->
                 <div class="flex items-center px-4 py-2 border-b">
                     <button id="backToMainMenu" class="mr-2" style="color: #1a1a1a;">
                         <i class="fa-solid fa-arrow-left"></i>
@@ -652,7 +615,6 @@ body {
                     <span class="font-semibold">Temas de Contraste</span>
                 </div>
 
-                <!-- Opções de tema -->
                 <div class="py-2" style="color: #1a1a1a;">
                     <button class="w-full px-4 py-3 text-left hover:bg-gray-100" data-theme="monochrome">
                         Monocromático
@@ -676,7 +638,6 @@ body {
         </a>
     </div>
 
-    <!-- Overlay para quando os menus estiverem abertos -->
     <div id="menuOverlay" class="menu-overlay"></div>
 </nav>
 
@@ -889,7 +850,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="https://biblioteca.seduc.ce.gov.br/">
                 <div class="app-card">
                     <div class="icon-wrapper">
-                        <img src="https://i.postimg.cc/qRwy4860/biblioteca.png" alt="Biblioteca Digital"
+                        <img src="https://play-lh.googleusercontent.com/t5OlleFEJuJ82Q9rIG479b5NUCGxl8DDn6h2Vqw8iBRYTOR9TbZtPrQpLVCO-MoW794" alt="Biblioteca Digital"
                             class="app-icon">
                     </div>
                     <h3 class="app-name">Biblioteca Digital</h3>
@@ -901,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="suporte.html">
                 <div class="app-card">
                     <div class="icon-wrapper">
-                        <img src="https://i.postimg.cc/Y0Lng6h7/boletim.png" alt="Boletim" class="app-icon">
+                        <img src="https://w7.pngwing.com/pngs/702/888/png-transparent-customer-service-technical-support-computer-icons-cabin-miscellaneous-service-photography-thumbnail.png" alt="Boletim" class="app-icon">
                     </div>
                     <h3 class="app-name">Suporte teste</h3>
                     <span class="category-tag">Teste</span>
@@ -912,7 +873,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="https://calendario.seduc.ce.gov.br">
                 <div class="app-card">
                     <div class="icon-wrapper">
-                        <img src="https://i.postimg.cc/3NQ3Qv8Y/calendario.png" alt="Calendário" class="app-icon">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-calendar-logo-icon-download-in-svg-png-gif-file-formats--workspace-redesign-logos-icons-2416655.png?f=webp" alt="Calendário" class="app-icon">
                     </div>
                     <h3 class="app-name">Calendário</h3>
                     <span class="category-tag">Agenda</span>
@@ -923,7 +884,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="https://material.seduc.ce.gov.br">
                 <div class="app-card">
                     <div class="icon-wrapper">
-                        <img src="https://i.postimg.cc/RZGnRxZg/material.png" alt="Material Didático" class="app-icon">
+                        <img src="https://acode.foxdebug.com/plugin-icon/sebastianjnuwu.material.icons" alt="Material Didático" class="app-icon">
                     </div>
                     <h3 class="app-name">Material Didático</h3>
                     <span class="category-tag">Estudos</span>

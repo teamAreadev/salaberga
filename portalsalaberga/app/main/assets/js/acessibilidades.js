@@ -1,4 +1,3 @@
-// Gerenciador de Acessibilidade
 class AccessibilityManager {
     constructor() {
         this.initializeMenus();
@@ -8,15 +7,12 @@ class AccessibilityManager {
         this.loadSavedPreferences();
     }
 
-    // Inicializa os menus de acessibilidade (Desktop e Mobile)
     initializeMenus() {
-        // Desktop
         const accessibilityBtn = document.getElementById('accessibilityBtn');
         const accessibilityMenu = document.getElementById('accessibilityMenu');
         const themeBtn = document.getElementById('themeBtn');
         const themeMenu = document.getElementById('themeMenu');
 
-        // Controle do menu principal desktop
         accessibilityBtn?.addEventListener('click', (e) => {
             e.stopPropagation();
             const isExpanded = accessibilityBtn.getAttribute('aria-expanded') === 'true';
@@ -30,7 +26,6 @@ class AccessibilityManager {
             }
         });
 
-        // Controle do submenu de temas desktop
         themeBtn?.addEventListener('click', (e) => {
             e.stopPropagation();
             const isExpanded = themeBtn.getAttribute('aria-expanded') === 'true';
@@ -44,17 +39,14 @@ class AccessibilityManager {
             }
         });
 
-        // Fechar menus ao clicar fora
         document.addEventListener('click', () => {
             this.closeDesktopMenus();
         });
 
-        // Prevenir fechamento ao clicar dentro dos menus
         [accessibilityMenu, themeMenu].forEach(menu => {
             menu?.addEventListener('click', (e) => e.stopPropagation());
         });
 
-        // Fechar com tecla Esc
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeDesktopMenus();
@@ -74,9 +66,7 @@ class AccessibilityManager {
         themeBtn?.setAttribute('aria-expanded', 'false');
     }
 
-    // Inicialização do tamanho do texto
     initializeTextSize() {
-        // Seleciona todos os botões de texto em ambos os menus (mobile e desktop)
         const decreaseBtns = document.querySelectorAll('[aria-label="Diminuir tamanho do texto"]');
         const resetBtns = document.querySelectorAll('[aria-label="Tamanho padrão do texto"]');
         const increaseBtns = document.querySelectorAll('[aria-label="Aumentar tamanho do texto"]');
@@ -85,7 +75,6 @@ class AccessibilityManager {
         this.currentSize = this.loadTextSize() || this.baseSize;
         this.updateTextSize(this.currentSize);
 
-        // Adiciona eventos para todos os botões
         decreaseBtns.forEach(btn => {
             btn.addEventListener('click', () => this.changeTextSize('decrease'));
         });
@@ -121,7 +110,6 @@ class AccessibilityManager {
         document.body.style.fontSize = `${size}px`;
     }
 
-    // Gerenciamento de temas
     initializeThemes() {
         const themeButtons = document.querySelectorAll('[data-theme]');
         
@@ -130,7 +118,6 @@ class AccessibilityManager {
                 const theme = button.dataset.theme;
                 this.applyTheme(theme);
                 this.saveTheme(theme);
-                // Fecha os menus após selecionar um tema
                 this.closeDesktopMenus();
             });
         });
@@ -162,9 +149,7 @@ class AccessibilityManager {
         }
     }
 
-    // Inicialização do leitor de tela
     initializeScreenReader() {
-        // Seleciona todos os botões do leitor de tela em ambos os menus
         const screenReaderBtns = document.querySelectorAll('.fa-ear-listen');
         let speaking = false;
         let currentUtterance = null;
@@ -184,7 +169,6 @@ class AccessibilityManager {
             });
         });
 
-        // Atalho de teclado (Alt + R)
         document.addEventListener('keydown', (e) => {
             if (e.altKey && e.key === 'r') {
                 const firstBtn = screenReaderBtns[0]?.parentElement;
@@ -201,7 +185,7 @@ class AccessibilityManager {
             utterance.rate = 1;
             utterance.pitch = 1;
 
-            window.speechSynthesis.cancel(); // Cancela qualquer leitura anterior
+            window.speechSynthesis.cancel(); 
             window.speechSynthesis.speak(utterance);
             this.currentUtterance = utterance;
         } else {
@@ -217,14 +201,12 @@ class AccessibilityManager {
     }
 
     getReadableContent() {
-        // Prioriza o conteúdo principal, mas tem fallback para o body
         const mainContent = document.querySelector('main') || document.body;
         return mainContent.textContent.trim()
-            .replace(/\s+/g, ' ') // Remove espaços extras
-            .replace(/\n+/g, ' '); // Remove quebras de linha extras
+            .replace(/\s+/g, ' ') 
+            .replace(/\n+/g, ' ');
     }
 
-    // Gerenciamento de preferências
     loadSavedPreferences() {
         const savedSize = this.loadTextSize();
         if (savedSize) {
@@ -250,7 +232,6 @@ class AccessibilityManager {
     }
 }
 
-// Adiciona estilos CSS para os temas
 const themeStyles = document.createElement('style');
 themeStyles.textContent = `
     /* Estilos para temas de alto contraste */
@@ -282,7 +263,6 @@ themeStyles.textContent = `
 
 document.head.appendChild(themeStyles);
 
-// Inicializa o gerenciador de acessibilidade quando o documento estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     window.accessibilityManager = new AccessibilityManager();
 });
