@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="../main/assets/img/Design sem nome.svg" type="image/x-icon">
 
     <script>
         tailwind.config = {
@@ -322,7 +323,7 @@
         </div>
 
         <!-- Cards Container com Scroll Suave -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center max-w-8xl mx-auto">
 
             <!-- Card 1 - EEEP Gonzaga Mota -->
             <div class="w-full max-w-[350px]">
@@ -334,7 +335,7 @@
                         </div>
                     </div>
                     <div class="p-8 text-center h-[calc(600px-12rem)]">
-                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Gonzaga Mota</h2>
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Maria Carmem  </h2>
                         <p class="flex items-center justify-center text-gray-600 mb-6">
                             <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
                             Maracanaú, CE
@@ -435,7 +436,41 @@
                 </div>
             </div>
 
-
+            <div class="w-full max-w-[350px]">
+                <div class="school-card bg-white rounded-4xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 h-[600px]" data-aos="fade-up" data-name="EEEP Antônio Valmir">
+                    <div class="relative h-48 bg-gradient-to-r from-ceara-green-light to-ceara-orange-light">
+                        <div class="absolute inset-0 opacity-80"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-school text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 text-center h-[calc(600px-12rem)]">
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Prof. Fco. Aristóles </h2>
+                        <p class="flex items-center justify-center text-gray-600 mb-6">
+                            <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
+                            Itaitinga, CE
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 flex items-center">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Ensino Médio Profissional
+                            </span>
+                            <span class="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                Período Integral
+                            </span>
+                        </div>
+                        <div class="space-y-4">
+                            <button onclick="openModal('EEEP Antônio Valmir')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                                Acessar Sistema
+                            </button>
+                            <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
+                                Mais Informações
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
