@@ -358,7 +358,49 @@ verificarSessao(600);
 
     <?php if (isset($_GET['erro_usuario'])) { ?>
         <script>
-            window.alert('usuario já cadastrado!');
+            window.alert('Usuario já cadastrado!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['certo_usuario'])) { ?>
+        <script>
+            window.alert('Usuario cadastrado com sucesso!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['candidato_excluido_sucesso'])) { ?>
+        <script>
+            window.alert('Candidato excluido com sucesso!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['candidato_erro'])) { ?>
+        <script>
+            window.alert('ERRO ao deletar!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['candidato_nao_existe'])) { ?>
+        <script>
+            window.alert('Candidato não cadastrado!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['usuario_excluido_sucesso'])) { ?>
+        <script>
+            window.alert('Usuário excluido com sucesso!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['usuario_erro'])) { ?>
+        <script>
+            window.alert('ERRO ao deletar!');
+        </script>
+    <?php } ?>
+
+    <?php if (isset($_GET['usuario_nao_existe'])) { ?>
+        <script>
+            window.alert('Usuário não cadastrado!');
         </script>
     <?php } ?>
 
@@ -431,7 +473,6 @@ verificarSessao(600);
                             </li>
 
                             <li>
-
                                 <button onclick="showatualizModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -457,23 +498,31 @@ verificarSessao(600);
                                 </button>
                             </li>
 
-
-
-
                             <li>
-                                <button onclick="showDeleteConfirmationModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-purple-600 text-purple-600 font-semibold transition-all duration-300 ease-in-out hover:bg-purple-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <button onclick="showExcluirCandidatoModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-purple-600 text-purple-600 font-semibold transition-all duration-300 ease-in-out hover:bg-purple-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
                                     </svg>
                                     Limpar banco
                                 </button>
                             </li>
-
-
-
-
-
+                            <li>
+                                <button onclick="showExcluirCandidatoModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    Excluir candidato
+                                </button>
                             </li>
+                            <li>
+                                <button onclick="showExcluirUsuarioModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    Excluir usuário
+                                </button>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
