@@ -224,3 +224,34 @@ function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
     $consulta->BindValue(':candidato_id_candidato', $id);
     $consulta->execute();
 }
+
+function logar_escola($nome, $senha)
+{
+    if (file_exists('../config/connect.php')) {
+
+        require_once('../config/connect.php');
+    } else {
+
+        require_once('eeep_luiza_de_teodoro/SS/config/connect.php');
+    }
+
+    //verificando se os dados estão no sistema 
+    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
+    $result_logar->bindValue(':nome', $nome);
+    $result_logar->bindValue(':senha', $senha);
+    $result_logar->execute();
+    $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
+
+    if (count($result) > 0) {
+
+        foreach ($result as $key) {
+
+            $_SESSION['login'] = true;
+            $_SESSION['status'] = $key['status'];
+            return $login = $key['status'];
+        }
+    } else {
+        return 2; // Ou qualquer outro valor que indique falha
+    }
+}
+
