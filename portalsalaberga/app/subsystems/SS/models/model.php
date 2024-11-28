@@ -30,10 +30,13 @@ function cadastrarUsuario($nomeC, $email, $senha, $status)
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
+        
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
-    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
+    VALUES( :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, :id)");
     $result_cadastrar_candidato->bindValue(':nome', $nome);
+    $result_cadastrar_candidato->bindValue(':id', $_SESSION['id_cadastrador']);
     $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
     $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
     $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
@@ -83,10 +86,13 @@ function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi,
 
 function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
+    session_start();
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
-    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
+    VALUES( :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, :id)");
     $result_cadastrar_candidato->bindValue(':nome', $nome);
+    $result_cadastrar_candidato->BindValue(':candidato_id_candidato', $id_candidato);
     $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
     $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
     $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
@@ -134,6 +140,7 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
 
 function logar($email, $senha)
 {
+    session_start();
     require_once('../config/connect.php');
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = MD5(:senha)");
@@ -148,6 +155,7 @@ function logar($email, $senha)
         if (!empty($result)) {
             $_SESSION['login'] = true;
             $_SESSION['status'] = $key['status'];
+            $_SESSION['id_cadastrador'] = $key['id'];
             return $login = $key['status'];
         } else {
             return $login = 2;
@@ -189,39 +197,99 @@ function delete($senha)
     }
 }
 
-function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
+function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $id)
 {
     require_once('../config/connect.php');
+    //calculando a média do candidato
+    if ($ef == 0) {
+        $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8;
+    } else {
+        $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
+    }
     //atualizando as notas do candidato
-    $consulta = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;");
+    $stmtUpdate = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:media WHERE candidato_id_candidato = :id");
 
-    $consulta->BindValue(':l_portuguesa', $lp);
-    $consulta->BindValue(':arte', $ar);
-    $consulta->BindValue(':educacao_fisica', $ef);
-    $consulta->BindValue(':l_inglesa', $li);
-    $consulta->BindValue(':matematica', $ma);
-    $consulta->BindValue(':ciencias', $ci);
-    $consulta->BindValue(':geografia', $ge);
-    $consulta->BindValue(':historia', $hi);
-    $consulta->BindValue(':religiao', $re);
-    $consulta->BindValue('media', $md);
-    $consulta->BindValue(':candidato_id_candidato', $id);
-    $consulta->execute();
+    $stmtUpdate->BindValue(':lp', $lp);
+    $stmtUpdate->BindValue(':ar', $ar);
+    $stmtUpdate->BindValue(':ef', $ef);
+    $stmtUpdate->BindValue(':li', $li);
+    $stmtUpdate->BindValue(':ma', $ma);
+    $stmtUpdate->BindValue(':ci', $ci);
+    $stmtUpdate->BindValue(':ge', $ge);
+    $stmtUpdate->BindValue(':hi', $hi);
+    $stmtUpdate->BindValue(':re', $re);
+    $stmtUpdate->BindValue(':media', $md);
+    $stmtUpdate->BindValue(':id', $_SESSION['id']);
+    $stmtUpdate->execute();
 }
-function notas($ID)
+function notas($id)
 {
-
+    session_start();
     require_once('../config/connect.php');
-    $result = $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
-on candidato.id_candidato = nota.candidato_id_candidato
-where candidato.nome = :nome");
-    $result->BindValue(':nome', $ID);
-    $result->execute();
+    $stmtSelect = $conexao->prepare("select candidato.nome, candidato.id_candidato , candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd ,nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
+        on candidato.id_candidato = nota.candidato_id_candidato
+        where candidato.id_candidato = :id");
+    $stmtSelect->BindValue(':id', $id);
+    $stmtSelect->execute();
+    $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+    if (empty($result)) {
+        header('Location: ../controllers/atualizar.php?erro=1');
+    }
+    switch ($result[0]['id_curso1_fk']) {
+        case 1:
+            $_SESSION['curso'] = 'Enfermagem';
+            break;
 
+        case 2:
+            $_SESSION['curso'] = 'Informática';
+            break;
+        case 3:
+            $_SESSION['curso'] = 'Administração';
+            break;
+        case 3:
+            $_SESSION['curso'] = 'Edificações';
+            break;
+    }
+    switch ($result[0]['bairro']) {
+        case 1:
+            $_SESSION['bairro'] = '| Costista ';
+            break;
+        case 0:
+            $_SESSION['bairro'] = '';
+            break;
 
+    }
+    switch ($result[0]['pcd']) {
+        case 1:
+            $_SESSION['pcd'] = '| PCD';
+            break;
+        case 0:
+            $_SESSION['pcd'] = '';
+            break;
 
-    $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+    switch ($result[0]['publica']) {
+        case 1:
+            $_SESSION['publica'] = 'Pública ';
+            break;
+        case 0:
+            $_SESSION['publica'] = 'Privada ';
+            break;
 
-
-    return $fetch;
+    }
+    $_SESSION['nome'] = $result[0]['nome'];
+    $_SESSION['nasc'] = $result[0]['data_nascimento'];
+    $_SESSION['lp'] = $result[0]['l_portuguesa'];
+    $_SESSION['ar'] = $result[0]['arte'];
+    $_SESSION['ef'] = $result[0]['educacao_fisica'];
+    $_SESSION['li'] = $result[0]['l_inglesa'];
+    $_SESSION['ma'] = $result[0]['matematica'];
+    $_SESSION['ci'] = $result[0]['ciencias'];
+    $_SESSION['ge'] = $result[0]['geografia'];
+    $_SESSION['hi'] = $result[0]['historia'];
+    $_SESSION['re'] = $result[0]['religiao'];
+    $_SESSION['id'] = $result[0]['id_candidato'];
+    print_r($_SESSION);
+    header('Location: ../views/atualizar_nota.php');
+    exit();
 }

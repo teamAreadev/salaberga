@@ -4,7 +4,6 @@ require_once('../controllers/controller_sessao/verificar_sessao.php');
 verificarSessao(600);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -37,6 +36,11 @@ verificarSessao(600);
     <?php if (isset($_GET['delete']) && $_GET['delete'] == 'erro') { ?>
         <script>
             window.alert('senha incorreta');
+        </script>
+    <?php } ?>
+    <?php if (isset($_GET['erro']) && $_GET['erro'] == '1') { ?>
+        <script>
+            window.alert('ID não existe ou está incorreto.');
         </script>
     <?php } ?>
     <style>
@@ -330,6 +334,22 @@ verificarSessao(600);
             color: #666666 !important;
             pointer-events: none;
             box-shadow: none;
+        }
+
+        .swal2-popup {
+            animation: modalFade 0.3s ease-out;
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
