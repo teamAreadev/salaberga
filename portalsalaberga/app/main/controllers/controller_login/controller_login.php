@@ -1,12 +1,13 @@
 <?php
 
-if (isset($_GET['login']) && $_GET['login'] == 'a') {
+/*if (isset($_GET['login']) && $_GET['login'] == 'a') {
     header('Location: ../../views/aluno/subsistema_aluno.php');
     exit();
 } else if (isset($_GET['login']) && $_GET['login'] == 'p') {
     header('Location: ../../views/professor/subsistema_professor.php');
     exit();
-}
+}*/
+
 if (isset($_GET['sair'])) {
     // Guarda o valor da sessão 'recsenha'
     $recsenha = $_SESSION['recsenha'] ?? null;
@@ -26,7 +27,16 @@ if (isset($_POST['login']) && isset($_POST['Email']) && isset($_POST['Password']
     $email = $_POST['Email'];
     $senha = $_POST['Password'];
     require_once('../../models/model_dados.php');
-    login($email, $senha);
+    $login = login($email, $senha);
+
+    if ($login == 1) {
+
+        header('location:../../../subsystems/SS/index.php');
+    } else if ($login == 0) {
+
+        header('Location: ../../views/autenticação/login.php?login=erro');
+        exit();
+    }
 } else {
     header('Location: ../../views/autenticação/login.php?login=erro');
     exit();

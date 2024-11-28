@@ -1,4 +1,7 @@
-
+<?php 
+require_once('models/session_manager.php');
+lista();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
