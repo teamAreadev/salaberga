@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-function cadastrarUsuario($nomeC, $userName, $email, $senha, $status, $cargo)
+function cadastrarUsuario($nomeC, $email, $senha, $status)
 {
     try {
         require_once('../config/connect.php');
@@ -17,15 +17,13 @@ function cadastrarUsuario($nomeC, $userName, $email, $senha, $status, $cargo)
 
         // Se o email não existe, procede com a inserção
         $stmtInsert = $conexao->prepare('
-            INSERT INTO usuario (username, nome, email, senha, cargo, status) 
-            VALUES (:UserName, :nomeC, :email, MD5(:senha), :cargo, :status)
+            INSERT INTO usuario (nome, email, senha, status) 
+            VALUES (:nomeC, :email, MD5(:senha), :status)
         ');
 
         $stmtInsert->bindValue(':nomeC', $nomeC);
-        $stmtInsert->bindValue(':UserName', $userName);
         $stmtInsert->bindValue(':email', $email);
         $stmtInsert->bindValue(':senha', $senha);
-        $stmtInsert->bindValue(':cargo', $cargo);
         $stmtInsert->bindValue(':status', $status);
 
         return $stmtInsert->execute();
