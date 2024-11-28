@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //se existe um POST email e password e não estiver vazio o POST email e password
 if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) && !empty($_POST['senha'])) {
 

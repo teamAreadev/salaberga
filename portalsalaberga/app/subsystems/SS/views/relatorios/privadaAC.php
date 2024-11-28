@@ -2,8 +2,20 @@
 function privadaAC($curso)
 {
     require_once('../config/connect.php');
+
+    session_start();
+
+    if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
+        $n = 80;
+        $p = 0; //para quebrar a linha na ultima colunas e os valores continuarem na linha de baixo;
+    } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
+        $n = 105;
+        $p = 1; //para quebrar a linha na ultima colunas e os valores continuarem na linha de baixo;
+    }
+
+    if (isset($_SESSION['status']) && $_SESSION['status'] == 1){
     $stmtSelect = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+        SELECT candidato.id_candidato, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         WHERE candidato.publica = 0 
@@ -11,10 +23,22 @@ function privadaAC($curso)
         AND candidato.pcd = 0
         AND candidato.id_curso1_fk = :curso
         ORDER BY nota.media DESC,
-    candidato.data_nascimento DESC,
-    nota.l_portuguesa DESC,
-    nota.matematica DESC
+        candidato.data_nascimento DESC,
+        nota.l_portuguesa DESC,
+        nota.matematica DESC
     ");
+    } else if (isset($_SESSION['status']) && $_SESSION['status'] == 0){
+        $stmtSelect = $conexao->prepare("
+        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd
+        FROM candidato 
+        INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+        WHERE candidato.publica = 0 
+        AND candidato.bairro = 0 
+        AND candidato.pcd = 0
+        AND candidato.id_curso1_fk = :curso
+        ORDER BY nome ASC
+        ");
+    }
     $stmtSelect->BindValue(':curso', $curso);
     $stmtSelect->execute();
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
@@ -26,7 +50,7 @@ function privadaAC($curso)
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('PRIVADA AC'), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('PUBLICA AC'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     //$pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
@@ -38,12 +62,16 @@ function privadaAC($curso)
     $pdf->SetFillColor(93, 164, 67); //fundo verde
     $pdf->SetTextColor(255, 255, 255);  //texto branco
     $pdf->Cell(10, 7, 'CH', 1, 0, 'C', true);
-    $pdf->Cell(90, 7, 'Nome', 1, 0, 'C', true);
+    $pdf->Cell($n, 7, 'Nome', 1, 0, 'C', true);
     $pdf->Cell(32, 7, 'Curso', 1, 0, 'C', true);
     $pdf->Cell(18, 7, 'Origem', 1, 0, 'C', true);
-    $pdf->Cell(26, 7, 'Segmento', 1, 0, 'C', true);
-    $pdf->Cell(15, 7, 'Media', 1, 1, 'C', true);
-
+    if (isset($_SESSION['status']) && $_SESSION['status'] == 1) { 
+        $pdf->Cell(26, 7, 'Segmento', 1, 0, 'C', true);
+        $pdf->Cell(15, 7, 'Id', 1, 0, 'C', true);
+        $pdf->Cell(15, 7, 'Media', 1, 1, 'C', true);
+    } else {
+        $pdf->Cell(26, 7, 'Segmento', 1, 1, 'C', true); 
+    }
     // Resetar cor do texto para preto
     $pdf->SetTextColor(0, 0, 0);
     $pdf->SetFont('Arial', '', 10);
@@ -89,12 +117,14 @@ function privadaAC($curso)
 
         // Imprimir linha no PDF
         $pdf->Cell(10, 7, sprintf("%03d", $classificacao), 1, 0, 'C', true);
-        $pdf->Cell(90, 7, strToUpper(($row['nome'])), 1, 0, 'L', true);
+        $pdf->Cell($n, 7, strToUpper(($row['nome'])), 1, 0, 'L', true);
         $pdf->Cell(32, 7, $curso, 1, 0, 'L', true);
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
-        $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
-        $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);
-
+        $pdf->Cell(26, 7, $cota, 1, $p, 'L', true);
+        if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
+            $pdf->Cell(15, 7, $row['id_candidato'], 1, 0, 'C', true);
+            $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);
+        }
         $classificacao++;
     }
 
