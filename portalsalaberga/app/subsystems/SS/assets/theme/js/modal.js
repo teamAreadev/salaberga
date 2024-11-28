@@ -116,12 +116,6 @@ function openInsertUserModal() {
                         </div>
                         
                         <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2" for="username">Nome de Usuário</label>
-                            <input type="text" id="username" name="UserName"
-                                class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                        </div>
-                        
-                        <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="email">E-mail Institucional</label>
                             <input type="email" id="email" name="email"
                                 class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
@@ -131,17 +125,6 @@ function openInsertUserModal() {
                             <label class="block text-sm font-medium text-gray-700 mb-2" for="password">Senha</label>
                             <input type="password" id="password" name="senha"
                                 class="form-input block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                        </div>
-                        
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2" for="position">Cargo</label>
-                            <select id="position" name="cargo"
-                                class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" required>
-                                <option value="">Selecione um cargo</option>
-                                <option value="secretaria">Secretaria</option>
-                                <option value="coordenacao">Coordenação</option>
-                                <option value="diretoria">Diretoria</option>
-                            </select>
                         </div>
                         
                         <div class="relative">

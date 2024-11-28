@@ -335,6 +335,13 @@ verificarSessao(600);
 </head>
 
 <body>
+
+    <?php if (isset($_GET['erro_usuario'])) { ?>
+        <script>
+            window.alert('usuario já cadastrado!');
+        </script>
+    <?php } ?>
+
     <header class="w-full bg-white shadow-sm">
         <nav class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
@@ -388,7 +395,7 @@ verificarSessao(600);
                         <!-- Itens do Menu -->
                         <ul class="flex flex-col space-y-3">
 
-                        <a href="../" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <a href="../" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                 </svg>
@@ -411,7 +418,7 @@ verificarSessao(600);
                                     Atualizar
                                 </a>
                             </li>
-                            
+
                             <li>
                                 <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

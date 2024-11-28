@@ -3,41 +3,29 @@
 session_start();
 function cadastrarUsuario($nomeC, $email, $senha, $status)
 {
-    try {
-        require_once('../config/connect.php');
+    require_once('../config/connect.php');
 
-        // Primeiro, verifica se o email já existe
-        $stmtCheck = $conexao->prepare("SELECT COUNT(*) FROM usuario WHERE email = :email");
-        $stmtCheck->bindValue(':email', $email);
-        $stmtCheck->execute();
+    // Primeiro, verifica se o email já existe
+    $stmtCheck = $conexao->prepare("SELECT COUNT(*) FROM usuario WHERE email = :email");
+    $stmtCheck->bindValue(':email', $email);
+    $stmtCheck->execute();
 
-        if ($stmtCheck->fetchColumn() > 0) {
-            throw new Exception("Este email já está cadastrado no sistema");
-        }
+    if ($stmtCheck->fetchColumn() > 0) {
+
+        return 0;
+    } else {
 
         // Se o email não existe, procede com a inserção
-        $stmtInsert = $conexao->prepare('
-            INSERT INTO usuario (nome, email, senha, status) 
-            VALUES (:nomeC, :email, MD5(:senha), :status)
-        ');
+        $stmtInsert = $conexao->prepare('INSERT INTO usuario (nome, email, senha, status) VALUES (:nomeC, :email, MD5(:senha), :status)');
 
         $stmtInsert->bindValue(':nomeC', $nomeC);
         $stmtInsert->bindValue(':email', $email);
         $stmtInsert->bindValue(':senha', $senha);
         $stmtInsert->bindValue(':status', $status);
 
-        return $stmtInsert->execute();
+        $stmtInsert->execute();
 
-        //header('Location: ../index.php');
-        //exit();
-
-    } catch (PDOException $e) {
-        // Verifica se é um erro de duplicidade
-        if ($e->getCode() == '23000') {
-            throw new Exception("Este email já está cadastrado no sistema");
-        }
-        error_log("Erro ao cadastrar usuário: " . $e->getMessage());
-        throw new Exception("Erro ao cadastrar usuário no sistema");
+        return 1;
     }
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
@@ -170,7 +158,7 @@ function logar($email, $senha)
 function delete($senha)
 {
     require_once('../config/connect.php');
-    
+
     // Verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE senha = MD5(:senha)");
     $result_logar->bindValue(':senha', $senha);
@@ -190,15 +178,13 @@ function delete($senha)
             $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
 
             return true;
-
-            
         } catch (PDOException $e) {
             // Garante que as chaves estrangeiras sejam reativadas
             $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
             throw new PDOException("Erro ao limpar as tabelas: " . $e->getMessage());
         }
     } else {
-       return false;
+        return false;
         // senha incorreta
     }
 }
@@ -222,20 +208,20 @@ function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
     $consulta->BindValue(':candidato_id_candidato', $id);
     $consulta->execute();
 }
-    function notas($ID){
+function notas($ID)
+{
 
-        require_once('../config/connect.php');
-        $result = $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
+    require_once('../config/connect.php');
+    $result = $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
 on candidato.id_candidato = nota.candidato_id_candidato
 where candidato.nome = :nome");
-        $result->BindValue(':nome', $ID);
-        $result->execute();
+    $result->BindValue(':nome', $ID);
+    $result->execute();
 
 
 
-        $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
+    $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
 
-        
-        return $fetch;
 
-    }
+    return $fetch;
+}
