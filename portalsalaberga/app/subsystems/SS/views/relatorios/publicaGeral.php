@@ -6,9 +6,11 @@ function privadaAC($curso)
     session_start();
 
     if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
-        $n = 80; // como terá mais campos, aqui deixamos o tamanho do nome menor;
+        $n = 80;
+        $p = 0; //para quebrar a linha na ultima colunas e os valores continuarem na linha de baixo;
     } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
         $n = 105;
+        $p = 1; //para quebrar a linha na ultima colunas e os valores continuarem na linha de baixo;
     }
 
     if (isset($_SESSION['status']) && $_SESSION['status'] == 1){
@@ -114,7 +116,7 @@ function privadaAC($curso)
         $pdf->Cell($n, 7, strToUpper(($row['nome'])), 1, 0, 'L', true);
         $pdf->Cell(32, 7, $curso, 1, 0, 'L', true);
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
-        $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
+        $pdf->Cell(26, 7, $cota, 1, $p, 'L', true);
         if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
             $pdf->Cell(15, 7, $row['id_candidato'], 1, 0, 'C', true);
             $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);

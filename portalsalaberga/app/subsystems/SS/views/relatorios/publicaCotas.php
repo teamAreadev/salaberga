@@ -7,8 +7,10 @@ function privadaAC($curso)
 
     if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
         $n = 80;
+        $p = 0; //para quebrar a linha na ultima colunas e os valores continuarem na linha de baixo;
     } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
         $n = 105;
+        $p = 1; //para quebrar a linha na ultima colunas e os valores continuarem na linha de baixo;
     }
 
     if (isset($_SESSION['status']) && $_SESSION['status'] == 1){
@@ -16,8 +18,8 @@ function privadaAC($curso)
         SELECT candidato.id_candidato, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
-        WHERE candidato.publica = 1
-        AND candidato.bairro = 1
+        WHERE candidato.publica = 1 
+        AND candidato.bairro = 1 
         AND candidato.pcd = 1
         AND candidato.id_curso1_fk = :curso
         ORDER BY nota.media DESC,
@@ -31,10 +33,10 @@ function privadaAC($curso)
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         WHERE candidato.publica = 1 
-        AND candidato.bairro = 1
+        AND candidato.bairro = 1 
         AND candidato.pcd = 1
         AND candidato.id_curso1_fk = :curso
-        ORDER BY nome ASC       
+        ORDER BY nome ASC
         ");
     }
     $stmtSelect->BindValue(':curso', $curso);
@@ -48,7 +50,7 @@ function privadaAC($curso)
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('PUBLICA COTAS'), 0, 1, 'C');
+    $pdf->Cell(185, 10, ('PUBLICA AC'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     //$pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
@@ -118,7 +120,7 @@ function privadaAC($curso)
         $pdf->Cell($n, 7, strToUpper(($row['nome'])), 1, 0, 'L', true);
         $pdf->Cell(32, 7, $curso, 1, 0, 'L', true);
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
-        $pdf->Cell(26, 7, $cota, 1, 1, 'L', true);
+        $pdf->Cell(26, 7, $cota, 1, $p, 'L', true);
         if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
             $pdf->Cell(15, 7, $row['id_candidato'], 1, 0, 'C', true);
             $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 1, 'C', true);
