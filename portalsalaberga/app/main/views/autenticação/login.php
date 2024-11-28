@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="../../assets/img/Design sem nome.svg" type="image/x-icon">
     <?
-       // require_once('autenticar.php');
+    // require_once('autenticar.php');
     ?>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -252,53 +252,63 @@
         }
 
         .password-links-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
 
-/* Forgot Password (direita) */
-.forgot-password {
-    text-align: right;
-    margin-top: 0;
-    margin-bottom: 0;
+        /* Forgot Password (direita) */
+        .forgot-password {
+            text-align: right;
+            margin-top: 0;
+            margin-bottom: 0;
 
-}
+        }
 
-.forgot-password a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
 
-.forgot-password a:hover {
-    color: var(--secondary-color);
-}
+        .forgot-password a:hover {
+            color: var(--secondary-color);
+        }
 
-/* Forgot Password 2 (esquerda) */
-.forgot-password2 {
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 0;
-}
+        /* Forgot Password 2 (esquerda) */
+        .forgot-password2 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
 
-.forgot-password2 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
+        .forgot-password2 a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
 
-.forgot-password2 a:hover {
-    color: var(--secondary-color);
+        .forgot-password2 a:hover {
+            color: var(--secondary-color);
 
-}
+        }
     </style>
 </head>
 
 <body>
+    <script>
+        //Adiciona um novo estado no histórico, assim o botão de voltar não vai sair da página atual
+        window.history.pushState(null, '', window.location.href);
+
+        // Escuta o evento de popstate, que é acionado quando o usuário tenta voltar
+        window.onpopstate = function() {
+            // Redireciona o usuário para a página desejada
+            window.location.href = '../../index.php'; // Substitua pelo URL da página que você deseja
+        };
+    </script>
     <div class="main-container">
         <div class="image-container">
             <div class="image-overlay">
@@ -311,7 +321,7 @@
                 <img src="https://i.postimg.cc/ryxHRNkj/lavosier-nas-2.png" alt="Logo EEEP Salaberga" class="logo">
             </div>
             <h2>Login</h2>
-            
+
             <form id="cadastroForm" action="../../controllers/controller_login/controller_login.php" method="POST"><!--Colocar o arquivo de destino de acordo com a verificação de matricula-->
 
                 <div class="input-group">
@@ -324,16 +334,16 @@
                     <label for="password">Senha</label>
                     <i class="fas fa-eye toggle-password"></i>
                 </div>
-                
-                <div class="password-links-container">
-        <div class="forgot-password2">
-            <a href="./cadastro.php">Criar conta</a>
-        </div>
 
-        <div class="forgot-password">
-            <a href="./recuperacaodesenha.php">Esqueceu sua senha?</a>
-        </div>
-        </div>
+                <div class="password-links-container">
+                    <div class="forgot-password2">
+                        <a href="./cadastro.php">Criar conta</a>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="./recuperacaodesenha.php">Esqueceu sua senha?</a>
+                    </div>
+                </div>
                 <?php
                 if (isset($_GET['login']) && $_GET['login'] == 'erro') {
                     echo '<br>';
@@ -349,34 +359,35 @@
                     </style>
 
                 <?php
-                echo '<br>';}
+                    echo '<br>';
+                }
                 ?>
-                
-                <button type="submit" class="btn-confirmar" name="login" >Entrar</button>
+
+                <button type="submit" class="btn-confirmar" name="login">Entrar</button>
             </form>
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('cadastroForm');
             const togglePassword = document.querySelector('.toggle-password');
             const passwordInput = document.getElementById('password');
             const passwordStrength = document.getElementById('passwordStrength');
 
-            togglePassword.addEventListener('click', function () {
+            togglePassword.addEventListener('click', function() {
                 const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
                 passwordInput.setAttribute('type', type);
                 this.classList.toggle('fa-eye');
                 this.classList.toggle('fa-eye-slash');
             });
 
-            passwordInput.addEventListener('input', function () {
+            passwordInput.addEventListener('input', function() {
                 const strength = calculatePasswordStrength(this.value);
                 passwordStrength.style.width = `${strength}%`;
             });
 
-         
-          
+
+
 
             function calculatePasswordStrength(password) {
                 const length = password.length;

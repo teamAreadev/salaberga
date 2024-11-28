@@ -146,12 +146,12 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
     }
 }
 
-function logar($nome, $senha)
+function logar($email, $senha)
 {
     require_once('../config/connect.php');
     //verificando se os dados estão no sistema 
-    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
-    $result_logar->bindValue(':nome', $nome);
+    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = MD5(:senha)");
+    $result_logar->bindValue(':email', $email);
     $result_logar->bindValue(':senha', $senha);
     $result_logar->execute();
     $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);

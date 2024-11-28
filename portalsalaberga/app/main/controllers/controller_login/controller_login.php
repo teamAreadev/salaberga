@@ -29,12 +29,21 @@ if (isset($_POST['login']) && isset($_POST['Email']) && isset($_POST['Password']
     require_once('../../models/model_dados.php');
     $login = login($email, $senha);
 
-    if ($login == 1) {
+    if ($login == 0) {
 
         header('location:../../../subsystems/SS/index.php');
-    } else if ($login == 0) {
+        exit();
+    } else if ($login == 1) {
+
+        header('location:../../../subsystems/SS/index.php');
+        exit();
+    } else if ($login == 2) {
 
         header('Location: ../../views/autenticação/login.php?login=erro');
+        exit();
+    } else {
+
+        header('Location: ../../views/autenticação/login.php');
         exit();
     }
 } else {

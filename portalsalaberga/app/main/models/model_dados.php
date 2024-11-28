@@ -143,20 +143,25 @@ function login($email, $senha)
         echo "Erro no banco de dados: " . $e->getMessage();
     }*/
 
-    $querySelect = "SELECT * FROM usuario WHERE nome = :nome AND senha = MD5(:senha)";
-        $stmtSelect = $conexao->prepare($querySelect);
-        $stmtSelect->bindValue(':nome', $email);
-        $stmtSelect->bindValue(':senha', $senha);
-        $stmtSelect->execute();
+    //verificando se os dados estão no sistema 
+    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = MD5(:senha)");
+    $result_logar->bindValue(':email', $email);
+    $result_logar->bindValue(':senha', $senha);
+    $result_logar->execute();
+    $result = $result_logar->fetch(PDO::FETCH_ASSOC);
 
-        $row_count = $stmtSelect->rowCount();
-        if ($row_count == 1) {
 
-            return 1;
-        } else {
+    //se for o result_logar for maior que 0
+    if (!empty($result)) {
 
-            return 0;
-        }
+        $_SESSION['login'] = true;
+        $_SESSION['status'] = $result['status'];
+
+        return $result['status'];
+    } else {
+
+        return $login = 2;
+    }
 }
 
 function recSenha($email)

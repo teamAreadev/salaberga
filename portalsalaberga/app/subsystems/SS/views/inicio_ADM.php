@@ -35,9 +35,9 @@ verificarSessao(600);
         }
     </script>
     <?php if (isset($_GET['delete']) && $_GET['delete'] == 'erro') { ?>
-    <script>
-        window.alert('senha incorreta');
-    </script>
+        <script>
+            window.alert('senha incorreta');
+        </script>
     <?php } ?>
     <style>
         :root {
@@ -388,24 +388,30 @@ verificarSessao(600);
                         <!-- Itens do Menu -->
                         <ul class="flex flex-col space-y-3">
 
-<li class="mt-4">
-<button onclick="openInsertUserModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-500 text-blue-500 font-semibold transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
-</svg>
-Inserir Usuário
-</button>
-</li>
+                        <a href="../" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                                Pagina inicial
+                            </a>
+                            <li class="mt-4">
+                                <button onclick="openInsertUserModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-500 text-blue-500 font-semibold transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
+                                    </svg>
+                                    Inserir Usuário
+                                </button>
+                            </li>
 
-    <li>
-        <a href="./atualizar_nota.php"   class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            Atualizar
-        </a>
-    </li>
-
+                            <li>
+                                <a href="./atualizar_nota.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                    Atualizar
+                                </a>
+                            </li>
+                            
                             <li>
                                 <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -422,7 +428,7 @@ Inserir Usuário
                                     Resultados
                                 </button>
                             </li>
-                        
+
 
 
 
@@ -438,12 +444,7 @@ Inserir Usuário
 
 
 
-                            <a href="../controllers/autentica.php?sair" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-red-600 text-red-600 font-semibold transition-all duration-300 ease-in-out hover:bg-red-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-red-500">
-                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                                Sair
-                            </a>
+
                             </li>
                         </ul>
                     </div>
@@ -454,275 +455,275 @@ Inserir Usuário
 
     <!-- Modal do Cadastrar cursos -->
     <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-        <!-- Card Enfermagem -->
-        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-            <div class="flex flex-col h-full justify-between">
-                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Enfermagem</h3>
-                <div class="space-y-4">
-                    <button onclick="enfermagemPub()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Pública
-                    </button>
-                    <button onclick="enfermagemPriv()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Privada
-                    </button>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Card Enfermagem -->
+            <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Enfermagem</h3>
+                    <div class="space-y-4">
+                        <button onclick="enfermagemPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Pública
+                        </button>
+                        <button onclick="enfermagemPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Privada
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Informática -->
+            <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Informática</h3>
+                    <div class="space-y-4">
+                        <button onclick="informaticaPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Pública
+                        </button>
+                        <button onclick="informaticaPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Privada
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Administração -->
+            <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
+                    <div class="space-y-4">
+                        <button onclick="administracaoPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Pública
+                        </button>
+                        <button onclick="administracaoPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Privada
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Edificações -->
+            <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Edificações</h3>
+                    <div class="space-y-4">
+                        <button onclick="edificacoesPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Pública
+                        </button>
+                        <button onclick="edificacoesPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
+                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                            Escola Privada
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <!-- Card Informática -->
-        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-            <div class="flex flex-col h-full justify-between">
-                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Informática</h3>
-                <div class="space-y-4">
-                    <button onclick="informaticaPub()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Pública
-                    </button>
-                    <button onclick="informaticaPriv()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Privada
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card Administração -->
-        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-            <div class="flex flex-col h-full justify-between">
-                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
-                <div class="space-y-4">
-                    <button onclick="administracaoPub()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Pública
-                    </button>
-                    <button onclick="administracaoPriv()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Privada
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card Edificações -->
-        <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-            <div class="flex flex-col h-full justify-between">
-                <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Edificações</h3>
-                <div class="space-y-4">
-                    <button onclick="edificacoesPub()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Pública
-                    </button>
-                    <button onclick="edificacoesPriv()"
-                        class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
-                        style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                        Escola Privada
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<style>
-    /* Estilos globais */
-    h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-    }
-
-    button {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 600;
-        letter-spacing: 0.2px;
-    }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
-
-
-<footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            <!-- Identificação Institucional -->
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
-                <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
-                <div class="flex gap-3">
-                    <a aria-label="Facebook" target="_blank" rel="noopener noreferrer"
-                        href="https://www.facebook.com/groups/salaberga/"
-                        class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
-                        <i class="fab fa-facebook text-sm"></i>
-                    </a>
-                    <a aria-label="Instagram" target="_blank" rel="noopener noreferrer"
-                        href="https://www.instagram.com/eeepsalabergampe/"
-                        class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
-                        <i class="fab fa-instagram text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contato -->
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">CONTATO</h4>
-                <div class="space-y-2 text-sm">
-                    <a class="flex items-center hover:text-orange-400 transition-colors">
-                        <i class="fas fa-envelope mr-2"></i>
-                        eeepsantaritama@gmail.com
-                    </a>
-                    <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
-                        <i class="fas fa-phone-alt mr-2"></i>
-                        (85) 3101-2100
-                    </a>
-                </div>
-            </div>
-
-            <div class="p-2">
-                <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
-                <div class="flex gap-4">
-                    <!-- Primeira coluna (3 desenvolvedores) -->
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-instagram text-orange-400 mr-2"></i>
-                                Otavio Menezes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Matheus Felix
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Lavosier Nascimento
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Segunda coluna (2 desenvolvedores) -->
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Roger Cavalcante
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center text-sm hover:text-orange-400 transition-colors">
-                                <i class="fab fa-linkedin text-orange-400 mr-2"></i>
-                                Pedro Uchôa
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="border-t border-white/10 pt-3 text-center text-xs">
-        <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
-    </div>
-    </div>
-</footer>
-
-
-<style>
-    /* Estilização do scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #666;
-    }
-
-    /* Animação do modal */
-    @keyframes modalFadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
+    <style>
+        /* Estilos globais */
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        button {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.2px;
         }
-    }
+    </style>
 
-    #modal>div {
-        animation: modalFadeIn 0.3s ease-out;
-    }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    /* Estilização dos inputs quando focados */
-    input:focus,
-    select:focus {
-        outline: none;
-        border-color: #93C5FD;
-        box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
-    }
 
-    /* Hover effect nos cards dos anos */
-    .bg-gray-50:hover {
-        background-color: #F8FAFC;
-        transition: background-color 0.2s ease;
-    }
 
-    /* Estilização para inputs numéricos */
-    input[type="text"] {
-        transition: all 0.2s ease;
-    }
 
-    input[type="text"]:focus {
-        transform: scale(1.02);
-    }
 
-    /* Tooltip para campos obrigatórios */
-    [required] {
-        position: relative;
-    }
+    <footer class="text-white font-sans w-full mt-auto py-4" style="background-color: #008C45">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Identificação Institucional -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">SEEPS</h4>
+                    <p class="text-sm mb-3">Sistema de Ensino e Educação Profissional Salaberga</p>
+                    <div class="flex gap-3">
+                        <a aria-label="Facebook" target="_blank" rel="noopener noreferrer"
+                            href="https://www.facebook.com/groups/salaberga/"
+                            class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
+                            <i class="fab fa-facebook text-sm"></i>
+                        </a>
+                        <a aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+                            href="https://www.instagram.com/eeepsalabergampe/"
+                            class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-400 transition-all">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
 
-    [required]:after {
-        content: '*';
-        color: #EF4444;
-        position: absolute;
-        right: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-</style>
+                <!-- Contato -->
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">CONTATO</h4>
+                    <div class="space-y-2 text-sm">
+                        <a class="flex items-center hover:text-orange-400 transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            eeepsantaritama@gmail.com
+                        </a>
+                        <a href="tel:+558531012100" class="flex items-center hover:text-orange-400 transition-colors">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            (85) 3101-2100
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-2">
+                    <h4 class="text-orange-400 text-lg font-bold mb-3">DESENVOLVEDORES</h4>
+                    <div class="flex gap-4">
+                        <!-- Primeira coluna (3 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.instagram.com/otavio.ce/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-instagram text-orange-400 mr-2"></i>
+                                    Otavio Menezes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Matheus Felix
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/lavosier-nascimento-4b124a2b8/?trk=opento_sprofile_topcard" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Lavosier Nascimento
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Segunda coluna (2 desenvolvedores) -->
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="https://www.linkedin.com/in/roger-cavalcante/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Roger Cavalcante
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/pedro-uch%C3%B4a-de-abreu-67723429a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center text-sm hover:text-orange-400 transition-colors">
+                                    <i class="fab fa-linkedin text-orange-400 mr-2"></i>
+                                    Pedro Uchôa
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-white/10 pt-3 text-center text-xs">
+            <p>&copy; 2024 SEEPS - Todos os direitos reservados</p>
+        </div>
+        </div>
+    </footer>
+
+
+    <style>
+        /* Estilização do scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* Animação do modal */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #modal>div {
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        /* Estilização dos inputs quando focados */
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #93C5FD;
+            box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
+        }
+
+        /* Hover effect nos cards dos anos */
+        .bg-gray-50:hover {
+            background-color: #F8FAFC;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Estilização para inputs numéricos */
+        input[type="text"] {
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            transform: scale(1.02);
+        }
+
+        /* Tooltip para campos obrigatórios */
+        [required] {
+            position: relative;
+        }
+
+        [required]:after {
+            content: '*';
+            color: #EF4444;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
 
 
 
