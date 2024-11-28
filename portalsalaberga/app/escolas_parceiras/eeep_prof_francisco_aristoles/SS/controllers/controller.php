@@ -260,16 +260,24 @@ if (isset($_POST['lp9_1'])) {
     $li9 = ($i9_1 + $i9_2 + $i9_3 + $i9_4) / $n9;
     $ar9 = ($a9_1 + $a9_2 + $a9_3 + $a9_4) / $n9;
     $re9 = ($r9_1 + $r9_2 + $r9_3 + $r9_4) / $n9;
-}else{
+} else {
 
-    $lp9 = virg($_POST['lp9']);
-    $ma9 = virg($_POST['ma9']);
-    $hi9 = virg($_POST['hi9']);
-    $ge9 = virg($_POST['ge9']);
-    $ci9 = virg($_POST['ci9']);
-    $li9 = virg($_POST['li9']);
-    $ar9 = virg($_POST['ar9']);
-    $re9 = virg($_POST['re9']);
+    if (empty($_POST['ef9_4'])) {
+
+        $d = 3;
+        $ef9 = 0;
+    } else {
+
+        $ef9 = virg($_POST['ef9_4']);
+    }
+    $lp9 = virg($_POST['lp9_4']);
+    $ma9 = virg($_POST['m9_4']);
+    $hi9 = virg($_POST['h9_4']);
+    $ge9 = virg($_POST['g9_4']);
+    $ci9 = virg($_POST['c9_4']);
+    $li9 = virg($_POST['i9_4']);
+    $ar9 = virg($_POST['a9_4']);
+    $re9 = virg($_POST['r9_4']);
 }
 
 //Média de todos os anos
