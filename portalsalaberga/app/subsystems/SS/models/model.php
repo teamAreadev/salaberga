@@ -92,6 +92,7 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
     $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
     VALUES( :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, :id)");
     $result_cadastrar_candidato->bindValue(':nome', $nome);
+    $result_cadastrar_candidato->bindValue(':id', $_SESSION['id_cadastrador']);
     $result_cadastrar_candidato->BindValue(':candidato_id_candidato', $id_candidato);
     $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
     $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
