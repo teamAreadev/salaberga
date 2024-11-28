@@ -422,14 +422,7 @@ Inserir Usuário
                                     Resultados
                                 </button>
                             </li>
-                            <li>
-                                <button onclick="showCourseModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-orange-500 text-orange-500 font-semibold transition-all duration-300 ease-in-out hover:bg-orange-500 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-orange-400">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Cadastrar Curso
-                                </button>
-                            </li>
+                        
 
 
 
