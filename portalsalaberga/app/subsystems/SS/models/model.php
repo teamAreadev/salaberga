@@ -44,10 +44,13 @@ function cadastrarUsuario($nomeC, $userName, $email, $senha, $status, $cargo)
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
+        
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
-    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
+    VALUES( :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, :id)");
     $result_cadastrar_candidato->bindValue(':nome', $nome);
+    $result_cadastrar_candidato->bindValue(':id', $_SESSION['id_cadastrador']);
     $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
     $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
     $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
@@ -97,10 +100,13 @@ function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi,
 
 function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
+    session_start();
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
-    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato VALUES(NULL, :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, 0, NULL)");
+    $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
+    VALUES( :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, :id)");
     $result_cadastrar_candidato->bindValue(':nome', $nome);
+    $result_cadastrar_candidato->BindValue(':candidato_id_candidato', $id_candidato);
     $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
     $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
     $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
@@ -151,7 +157,7 @@ function logar($nome, $senha)
     session_start();
     require_once('../config/connect.php');
     //verificando se os dados estão no sistema 
-    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
+    $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome AND senha = MD5(:senha)");
     $result_logar->bindValue(':nome', $nome);
     $result_logar->bindValue(':senha', $senha);
     $result_logar->execute();
@@ -163,6 +169,7 @@ function logar($nome, $senha)
         if (!empty($result)) {
             $_SESSION['login'] = true;
             $_SESSION['status'] = $key['status'];
+            $_SESSION['id_cadastrador'] = $key['id'];
             return $login = $key['status'];
         } else {
             return $login = 2;
