@@ -1,12 +1,14 @@
 <?php
-if (isset($_POST['ID'])) {
+if (isset($_POST['id'])) {
 
-  $ID = $_POST['ID'];
+  $id = $_POST['id'];
 
   require_once('../models/model.php');
-  $fetch = notas($ID);
+  $result = notas($id);
 
-  header('location:../views/atualizar_nota.php?fetch=' . $fetch);
+  if(isset($_POST['erro']) && $_POST['erro'] == 1){
+    header('Location: ../views/inicio_ADM.php?erro=1');
+  }
 } 
 
  

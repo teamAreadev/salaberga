@@ -39,6 +39,11 @@ verificarSessao(600);
         window.alert('senha incorreta');
     </script>
     <?php } ?>
+    <?php if (isset($_GET['erro']) && $_GET['erro'] == '1') { ?>
+    <script>
+        window.alert('ID não existe ou está incorreto.');
+    </script>
+    <?php } ?>
     <style>
         :root {
             --ceara-green: #008C45;

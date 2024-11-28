@@ -205,39 +205,51 @@ function delete($senha)
     }
 }
 
-function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
+function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $id)
 {
     require_once('../config/connect.php');
+    //calculando a média do candidato
+    if ($ef = 0){
+        $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8; 
+    } else {
+        $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
+    }
     //atualizando as notas do candidato
-    $consulta = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:md WHERE candidato_id_candidato = :id;");
+    $stmtUpdate = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:media WHERE candidato_id_candidato = :id");
 
-    $consulta->BindValue(':l_portuguesa', $lp);
-    $consulta->BindValue(':arte', $ar);
-    $consulta->BindValue(':educacao_fisica', $ef);
-    $consulta->BindValue(':l_inglesa', $li);
-    $consulta->BindValue(':matematica', $ma);
-    $consulta->BindValue(':ciencias', $ci);
-    $consulta->BindValue(':geografia', $ge);
-    $consulta->BindValue(':historia', $hi);
-    $consulta->BindValue(':religiao', $re);
-    $consulta->BindValue('media', $md);
-    $consulta->BindValue(':candidato_id_candidato', $id);
-    $consulta->execute();
+    $stmtUpdate->BindValue(':l_portuguesa', $lp);
+    $stmtUpdate->BindValue(':arte', $ar);
+    $stmtUpdate->BindValue(':educacao_fisica', $ef);
+    $stmtUpdate->BindValue(':l_inglesa', $li);
+    $stmtUpdate->BindValue(':matematica', $ma);
+    $stmtUpdate->BindValue(':ciencias', $ci);
+    $stmtUpdate->BindValue(':geografia', $ge);
+    $stmtUpdate->BindValue(':historia', $hi);
+    $stmtUpdate->BindValue(':religiao', $re);
+    $stmtUpdate->BindValue(':media', $md);
+    $stmtUpdate->BindValue(':candidato_id_candidato', $id);
+    $stmtUpdate->execute();
 }
-    function notas($ID){
+    function notas($id){
 
         require_once('../config/connect.php');
-        $result = $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
-on candidato.id_candidato = nota.candidato_id_candidato
-where candidato.nome = :nome");
-        $result->BindValue(':nome', $ID);
-        $result->execute();
-
-
-
-        $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
-
+        $stmtSelect= $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
+        on candidato.id_candidato = nota.candidato_id_candidato
+        where candidato.id_candidato = :id");
+        $stmtSelect->BindValue(':id', $id);
+        $stmtSelect->execute();
+        $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+        (empty($result)){
+            header('Location: ../controllers/atualizar.php?erro=1');
+        }
+        $lp = $result[0]['l_portuguesa'];
+        $ar = $result[0]['arte'];
+        $ef = $result[0]['educacao_fisica'];
+        $li = $result[0]['l_inglesa'];
+        $ma = $result[0]['matematica'];
+        $ci = $result[0]['ciencias'];
+        $ge = $result[0]['geografia'];
+        $hi = $result[0]['historia'];
+        $re = $result[0]['religiao'];
         
-        return $fetch;
-
     }
