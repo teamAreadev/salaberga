@@ -133,7 +133,7 @@ function openInsertUserModal() {
                                 class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
                                 <option value="">Selecione um status</option>
                                 <option value="1">Admin</option>
-                                <option value="2">Não Admin</option>
+                                <option value="0">Não Admin</option>
                             </select>
                         </div>
                     </div>
