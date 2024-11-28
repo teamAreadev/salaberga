@@ -103,7 +103,7 @@ function cadastrar($nome, $cpf, $email, $senha)
 function login($email, $senha)
 {
     require_once('../../config/Database.php');
-    try {
+    /*try {
 
         // Primeiro, fazer o SELECT para verificar
         $querySelect = "SELECT id, email, senha, tipo FROM usuario WHERE email = :email AND senha = MD5(:senha)";
@@ -112,15 +112,11 @@ function login($email, $senha)
         $stmtSelect->bindParam(':senha', $senha);
         $stmtSelect->execute();
         $result = $stmtSelect->fetch(PDO::FETCH_ASSOC);
-        
-
+    
         $querySelectC = "SELECT telefone, nome FROM cliente WHERE id_usuario = '{$result['id']}'";
         $stmtSelectC = $conexao->query($querySelectC);
         $resultC = $stmtSelectC->fetch(PDO::FETCH_ASSOC);
         
-
-        
-
         if (!empty($result) && $result['tipo'] == 'aluno') {
             $_SESSION['Tipo'] = $result['tipo'];
             $_SESSION['Telefone'] = $resultC['telefone'];
@@ -145,7 +141,22 @@ function login($email, $senha)
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();
-    }
+    }*/
+
+    $querySelect = "SELECT * FROM usuario WHERE nome = :nome AND senha = MD5(:senha)";
+        $stmtSelect = $conexao->prepare($querySelect);
+        $stmtSelect->bindValue(':nome', $email);
+        $stmtSelect->bindValue(':senha', $senha);
+        $stmtSelect->execute();
+
+        $row_count = $stmtSelect->rowCount();
+        if ($row_count == 1) {
+
+            return 1;
+        } else {
+
+            return 0;
+        }
 }
 
 function recSenha($email)
@@ -189,8 +200,8 @@ function recSenha($email)
 
                 //enviar
 
-                if(mail($destino, $assunto, $arquivo, $headers)){
-                    
+                if (mail($destino, $assunto, $arquivo, $headers)) {
+
                     header('location:../controller_recsenha/controller_recSenha.php?certo');
                 }
             } else {
@@ -211,19 +222,19 @@ function recSenha($email)
 
 function alterarTelefone($telefone)
 {
-    
+
     require_once('../../config/Database.php');
     try {
-        
+
         $querySelect = "SELECT id FROM usuario WHERE email = :email";
         $stmtSelect = $conexao->prepare($querySelect);
         $stmtSelect->bindParam(':email', $_SESSION['Email']);
         $stmtSelect->execute();
         $resultSelect = $stmtSelect->fetch(PDO::FETCH_ASSOC);
         print_r($resultSelect);
-       
+
         if (!empty($resultSelect)) {
-        
+
             $queryUpdate = "
         UPDATE cliente SET telefone = :telefone WHERE id_usuario = :id 
 ";
@@ -234,8 +245,7 @@ function alterarTelefone($telefone)
             $stmtUpdate->execute();
             $resultUpdate = $stmtUpdate->fetchAll(PDO::FETCH_ASSOC);
             header('Location: ../controller_perfil/controller_telefone.php?alt');
-
-       }
+        }
     } catch (PDOException $e) {
         error_log("Erro no banco de dados: " . $e->getMessage());
         echo "Erro no banco de dados: " . $e->getMessage();

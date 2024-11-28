@@ -336,7 +336,7 @@
         <!-- Links do Dropdown -->
         <div class="divide-y divide-gray-100">
             <!-- Link Salaberga -->
-            <a href="../main/views/autenticação/precadastro.php"
+            <a href="../main/views/autenticação/login.php"
                @click="isOpen = false"
                class="group flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-ceara-green/5 hover:to-ceara-orange/5 transition-all duration-300">
                 <!-- Ícone -->
