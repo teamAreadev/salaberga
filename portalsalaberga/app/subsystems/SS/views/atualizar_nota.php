@@ -102,63 +102,63 @@
                     <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="portugues"   
+                                   name="portugues" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="PORTUGUÊS"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="matematica"   
+                                   name="matematica" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="MATEMÁTICA"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="historia"   
+                                   name="historia" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="HISTÓRIA"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="geografia"   
+                                   name="geografia" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="GEOGRAFIA"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="ciencias"   
+                                   name="ciencias" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="CIÊNCIAS"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="ingles"   
+                                   name="ingles" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="INGLÊS"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="artes"   
+                                   name="artes" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="ARTES"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="edfisica"   
+                                   name="edfisica" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="ED. FÍSICA"  
                                    required>  
                         </div>  
                         <div class="input-group">  
                             <input type="text"   
-                                   name="religiao"   
+                                   name="religiao" oninput="maskNota(this)"  
                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"  
                                    placeholder="RELIGIÃO"  
                                    required>  
@@ -227,6 +227,43 @@
             document.getElementById('editButton').classList.remove('hidden');
             document.getElementById('updateButton').classList.add('hidden');
         });
+        function maskNota(input) {
+               // Remove tudo exceto números e ponto
+    let value = input.value.replace(/[^0-9.]/g, '');
+    
+    // Remove pontos extras (mantém apenas o primeiro)
+    const parts = value.split('.');
+    if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+    }
+
+    // Caso especial para 100
+    if (value === '100' || value === '1.00') {
+        value = '10.0';
+        input.value = value;
+        return;
+    }
+      // Se não tiver ponto e tiver 2 ou mais dígitos, insere o ponto após o primeiro dígito
+      if (!value.includes('.') && value.length >= 2) {
+        value = value.slice(0, 1) + '.' + value.slice(1);
+    }
+     // Garante que temos no máximo 2 casas decimais
+     if (value.includes('.')) {
+        const decimals = value.split('.')[1];
+        if (decimals.length > 2) {
+            value = value.slice(0, value.indexOf('.') + 3);
+        }
+    }
+      // Converte para número e verifica se é maior que 10
+      const numericValue = parseFloat(value);
+    if (numericValue > 10) {
+        // Pega apenas o primeiro dígito e adiciona .0
+        value = value[0] + '.0';
+    }
+
+    // Atualiza o valor no input
+    input.value = value;
+}
     </script>
 </body>
 </html>
