@@ -103,76 +103,85 @@ session_start();
                         <h3 class="text-xl font-semibold text-gray-800 mb-4">Notas Alunos</h3>
                         <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
                             <div class="input-group">
+                                <label for="lp" class="block text-sm font-medium text-gray-700 mb-1">PORTUGUÊS</label>
                                 <input type="text"
-                                       name="lp"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="PORTUGUÊS"
-                                       value="<?php echo $_SESSION['lp']; ?>"
-                                       required>
+                                    id="lp"  oninput="maskNota(this)"
+                                    name="lp"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['lp']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="ma" class="block text-sm font-medium text-gray-700 mb-1">MATEMÁTICA</label>
                                 <input type="text"
-                                       name="ma"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="MATEMÁTICA"
-                                       value="<?php echo $_SESSION['ma']; ?>"
-                                       required>
+                                    id="ma"  oninput="maskNota(this)"
+                                    name="ma" 
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['ma']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="hi" class="block text-sm font-medium text-gray-700 mb-1">HISTÓRIA</label>
                                 <input type="text"
-                                       name="hi"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="HISTÓRIA"
-                                       value="<?php echo $_SESSION['hi']; ?>"
-                                       required>
+                                    id="hi"  oninput="maskNota(this)"
+                                    name="hi"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['hi']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="ge" class="block text-sm font-medium text-gray-700 mb-1">GEOGRAFIA</label>
                                 <input type="text"
-                                       name="ge"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="GEOGRAFIA"
-                                       value="<?php echo $_SESSION['ge']; ?>"
-                                       required>
+                                    id="ge"  oninput="maskNota(this)"
+                                    name="ge"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['ge']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="ci" class="block text-sm font-medium text-gray-700 mb-1">CIÊNCIAS</label>
                                 <input type="text"
-                                       name="ci"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="CIÊNCIAS"
-                                       value="<?php echo $_SESSION['ci']; ?>"
-                                       required>
+                                    id="ci"  oninput="maskNota(this)"
+                                    name="ci"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['ci']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="li" class="block text-sm font-medium text-gray-700 mb-1">INGLÊS</label>
                                 <input type="text"
-                                       name="li"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="INGLÊS"
-                                       value="<?php echo $_SESSION['li']; ?>"
-                                       required>
+                                    id="li"  oninput="maskNota(this)"
+                                    name="li"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['li']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="ar" class="block text-sm font-medium text-gray-700 mb-1">ARTES</label>
                                 <input type="text"
-                                       name="ar"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="ARTES"
-                                       value="<?php echo $_SESSION['ar']; ?>"
-                                       required>
+                                    id="ar"  oninput="maskNota(this)"
+                                    name="ar"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['ar']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="ef" class="block text-sm font-medium text-gray-700 mb-1">ED. FÍSICA</label>
                                 <input type="text"
-                                       name="ef"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="ED. FÍSICA"
-                                       value="<?php echo $_SESSION['ef']; ?>"
-                                       required>
+                                    id="ef"  oninput="maskNota(this)"
+                                    name="ef"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['ef']; ?>"
+                                    required>
                             </div>
                             <div class="input-group">
+                                <label for="re" class="block text-sm font-medium text-gray-700 mb-1">RELIGIÃO</label>
                                 <input type="text"
-                                       name="re"
-                                       class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
-                                       placeholder="RELIGIÃO"
-                                       value="<?php echo $_SESSION['re']; ?>"
-                                       required>
+                                    id="re"  oninput="maskNota(this)"
+                                    name="re"
+                                    class="input-transition w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-center"
+                                    value="<?php echo $_SESSION['re']; ?>"
+                                    required>
                             </div>
                         </div>
                     </div>
