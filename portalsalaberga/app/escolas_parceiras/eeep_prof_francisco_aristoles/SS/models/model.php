@@ -224,7 +224,6 @@ function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
 }
 function notas($ID)
 {
-
     require_once('../config/connect.php');
     $result = $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
 on candidato.id_candidato = nota.candidato_id_candidato
@@ -232,14 +231,9 @@ where candidato.nome = :nome");
     $result->BindValue(':nome', $ID);
     $result->execute();
 
-
-
     $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
-
-
     return $fetch;
 }
-
 function logar_escola($nome, $senha)
 {
     if (file_exists('../config/connect.php')) {

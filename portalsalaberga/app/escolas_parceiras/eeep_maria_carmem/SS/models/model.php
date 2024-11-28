@@ -149,7 +149,6 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
 function logar($nome, $senha)
 {
     require_once('../config/connect.php');
-    
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
     $result_logar->bindValue(':nome', $nome);
@@ -233,10 +232,13 @@ where candidato.nome = :nome");
     $result->BindValue(':nome', $ID);
     $result->execute();
 
+
+
     $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
+
+
     return $fetch;
 }
-
 function logar_escola($nome, $senha)
 {
     if (file_exists('../config/connect.php')) {
@@ -244,7 +246,7 @@ function logar_escola($nome, $senha)
         require_once('../config/connect.php');
     } else {
 
-        require_once('eeep_maria_carmem/SS/config/connect.php');
+        require_once('eeep_prof_francisco_aristoles/SS/config/connect.php');
     }
 
     //verificando se os dados estão no sistema 
