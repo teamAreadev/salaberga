@@ -1,9 +1,9 @@
+
 <?php
 require_once('../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../controllers/controller_sessao/verificar_sessao.php');
 verificarSessao(600);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -336,6 +336,20 @@ verificarSessao(600);
             pointer-events: none;
             box-shadow: none;
         }
+         .swal2-popup {
+            animation: modalFade 0.3s ease-out;
+            }
+
+            @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+            }
     </style>
 </head>
 
@@ -393,23 +407,23 @@ verificarSessao(600);
                         <!-- Itens do Menu -->
                         <ul class="flex flex-col space-y-3">
 
-<li class="mt-4">
-<button onclick="openInsertUserModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-500 text-blue-500 font-semibold transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
-</svg>
-Inserir Usuário
-</button>
-</li>
+                        <li class="mt-4">
+                          <button onclick="openInsertUserModal();" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-blue-500 text-blue-500 font-semibold transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
+                        </svg>
+                        Inserir Usuário
+                        </button>
+                        </li>
 
-    <li>
-        <a href="./atualizar_nota.php"   class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
-            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            Atualizar
-        </a>
-    </li>
+                        <li>
+                            <a onclick="showatualizModal()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-orange text-ceara-orange font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-orange hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-orange">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Atualizar
+                            </a>
+                        </li>
 
                             <li>
                                 <button onclick="showReportsModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-ceara-green text-ceara-green font-semibold transition-all duration-300 ease-in-out hover:bg-ceara-green hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-ceara-green">
