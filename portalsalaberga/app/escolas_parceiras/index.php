@@ -288,6 +288,10 @@
                             </span>
                         </button>
                     </div>
+                    <?php if (isset($_GET['erro'])) { ?>
+
+                        <p>Nome ou senha incorretos!</p>
+                    <?php } ?>
                 </form>
             </div>
 
@@ -335,7 +339,7 @@
                         </div>
                     </div>
                     <div class="p-8 text-center h-[calc(600px-12rem)]">
-                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Maria Carmem  </h2>
+                        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3">EEEP Maria Carmem </h2>
                         <p class="flex items-center justify-center text-gray-600 mb-6">
                             <i class="fas fa-map-marker-alt mr-2 text-ceara-orange"></i>
                             Maracanaú, CE
@@ -351,7 +355,7 @@
                             </span>
                         </div>
                         <div class="space-y-4">
-                            <button onclick="openModal('EEEP Gonzaga Mota')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <button onclick="openModal('EEEP Maria Carmem')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 Acessar Sistema
                             </button>
                             <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
@@ -461,7 +465,7 @@
                             </span>
                         </div>
                         <div class="space-y-4">
-                            <button onclick="openModal('EEEP Antônio Valmir')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <button onclick="openModal('EEEP Professor Francisco')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 Acessar Sistema
                             </button>
                             <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">

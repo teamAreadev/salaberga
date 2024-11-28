@@ -149,6 +149,7 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
 function logar($nome, $senha)
 {
     require_once('../config/connect.php');
+    
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
     $result_logar->bindValue(':nome', $nome);
@@ -172,7 +173,7 @@ function logar($nome, $senha)
 function delete($senha)
 {
     require_once('../config/connect.php');
-    
+
     // Verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE senha = MD5(:senha)");
     $result_logar->bindValue(':senha', $senha);
@@ -192,15 +193,13 @@ function delete($senha)
             $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
 
             return true;
-
-            
         } catch (PDOException $e) {
             // Garante que as chaves estrangeiras sejam reativadas
             $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
             throw new PDOException("Erro ao limpar as tabelas: " . $e->getMessage());
         }
     } else {
-       return false;
+        return false;
         // senha incorreta
     }
 }
@@ -224,6 +223,19 @@ function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $md, $id)
     $consulta->BindValue(':candidato_id_candidato', $id);
     $consulta->execute();
 }
+function notas($ID)
+{
+
+    require_once('../config/connect.php');
+    $result = $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
+on candidato.id_candidato = nota.candidato_id_candidato
+where candidato.nome = :nome");
+    $result->BindValue(':nome', $ID);
+    $result->execute();
+
+    $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
+    return $fetch;
+}
 
 function logar_escola($nome, $senha)
 {
@@ -232,7 +244,7 @@ function logar_escola($nome, $senha)
         require_once('../config/connect.php');
     } else {
 
-        require_once('eeep_luiza_de_teodoro/SS/config/connect.php');
+        require_once('eeep_maria_carmem/SS/config/connect.php');
     }
 
     //verificando se os dados estão no sistema 
@@ -254,4 +266,3 @@ function logar_escola($nome, $senha)
         return 2; // Ou qualquer outro valor que indique falha
     }
 }
-
