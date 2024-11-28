@@ -1618,6 +1618,11 @@
         });
 
     </script> -->
+
+
+    <style>*:focus {
+    outline: none;
+}</style>
     </body>
 
 </html>
