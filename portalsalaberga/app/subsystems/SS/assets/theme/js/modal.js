@@ -59,11 +59,10 @@ function showatualizModal() {
                 </div>
 
                 <div class="p-6">
-                    <form action="../controllers/controller_relatorio.php" 
-                          id="searchForm" 
-                          method="post" 
-                          class="space-y-6">
-                        
+                    <form action="../controllers/atualizar.php" 
+                        method="post" 
+                        id="searchForm" 
+                        class="space-y-6">
                         <div class="space-y-4">
                             <div class="flex flex-col">
                                 <label for="searchId" 
@@ -86,8 +85,7 @@ function showatualizModal() {
                                 Cancelar
                             </button>
                             <button type="submit"   
-                                class="px-6 py-2 bg-ceara-green text-white rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-ceara-orange focus:ring-offset-2"  
-                                href="#">  
+                                class="px-6 py-2 bg-ceara-green text-white rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-ceara-orange focus:ring-offset-2">  
                                 Buscar  
                             </button>
                         </div>
@@ -340,7 +338,7 @@ function submitForm() {
     const courseSelect = document.getElementById('course');
     const typeSelect = document.getElementById('type');
     const form = document.getElementById('searchForm');
-    
+
     if (courseSelect.value === '' || typeSelect.value === '') {
         Swal.fire({
             icon: 'error',
@@ -627,19 +625,19 @@ function maskNascimento(input) {
 function removeAccents(input) {
     // Armazena o valor atual do cursor
     const cursorPosition = input.selectionStart;
-    
+
     // String de caracteres com acentos e suas substituições
     const accents = 'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ';
     const noAccents = 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY';
-    
+
     let value = input.value;
     let result = '';
-    
+
     // Percorre cada caractere do input
     for (let i = 0; i < value.length; i++) {
         const char = value[i];
         const index = accents.indexOf(char);
-        
+
         // Se encontrar um caractere acentuado, substitui pelo equivalente sem acento
         if (index !== -1) {
             result += noAccents[index];
@@ -647,10 +645,10 @@ function removeAccents(input) {
             result += char;
         }
     }
-    
+
     // Atualiza o valor do input
     input.value = result;
-    
+
     // Restaura a posição do cursor
     input.setSelectionRange(cursorPosition, cursorPosition);
 }

@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 function cadastrarUsuario($nomeC, $userName, $email, $senha, $status, $cargo)
 {
     try {
@@ -148,6 +148,7 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
 
 function logar($nome, $senha)
 {
+    session_start();
     require_once('../config/connect.php');
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
@@ -172,7 +173,7 @@ function logar($nome, $senha)
 function delete($senha)
 {
     require_once('../config/connect.php');
-    
+
     // Verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE senha = MD5(:senha)");
     $result_logar->bindValue(':senha', $senha);
@@ -192,15 +193,13 @@ function delete($senha)
             $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
 
             return true;
-
-            
         } catch (PDOException $e) {
             // Garante que as chaves estrangeiras sejam reativadas
             $conexao->exec('SET FOREIGN_KEY_CHECKS = 1');
             throw new PDOException("Erro ao limpar as tabelas: " . $e->getMessage());
         }
     } else {
-       return false;
+        return false;
         // senha incorreta
     }
 }
@@ -209,47 +208,95 @@ function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $id)
 {
     require_once('../config/connect.php');
     //calculando a média do candidato
-    if ($ef = 0){
-        $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8; 
+    if ($ef == 0) {
+        $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8;
     } else {
         $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
     }
     //atualizando as notas do candidato
     $stmtUpdate = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:media WHERE candidato_id_candidato = :id");
 
-    $stmtUpdate->BindValue(':l_portuguesa', $lp);
-    $stmtUpdate->BindValue(':arte', $ar);
-    $stmtUpdate->BindValue(':educacao_fisica', $ef);
-    $stmtUpdate->BindValue(':l_inglesa', $li);
-    $stmtUpdate->BindValue(':matematica', $ma);
-    $stmtUpdate->BindValue(':ciencias', $ci);
-    $stmtUpdate->BindValue(':geografia', $ge);
-    $stmtUpdate->BindValue(':historia', $hi);
-    $stmtUpdate->BindValue(':religiao', $re);
+    $stmtUpdate->BindValue(':lp', $lp);
+    $stmtUpdate->BindValue(':ar', $ar);
+    $stmtUpdate->BindValue(':ef', $ef);
+    $stmtUpdate->BindValue(':li', $li);
+    $stmtUpdate->BindValue(':ma', $ma);
+    $stmtUpdate->BindValue(':ci', $ci);
+    $stmtUpdate->BindValue(':ge', $ge);
+    $stmtUpdate->BindValue(':hi', $hi);
+    $stmtUpdate->BindValue(':re', $re);
     $stmtUpdate->BindValue(':media', $md);
-    $stmtUpdate->BindValue(':candidato_id_candidato', $id);
+    $stmtUpdate->BindValue(':id', $_SESSION['id']);
     $stmtUpdate->execute();
 }
-    function notas($id){
-
-        require_once('../config/connect.php');
-        $stmtSelect= $conexao->prepare("select candidato.nome, candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
+function notas($id)
+{
+    session_start();
+    require_once('../config/connect.php');
+    $stmtSelect = $conexao->prepare("select candidato.nome, candidato.id_candidato , candidato.data_nascimento, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd ,nota.l_portuguesa, nota.matematica, nota.historia, nota.geografia, nota.ciencias, nota.l_inglesa, nota.arte, nota.educacao_fisica, nota.religiao from candidato INNER JOIN nota 
         on candidato.id_candidato = nota.candidato_id_candidato
         where candidato.id_candidato = :id");
-        $stmtSelect->BindValue(':id', $id);
-        $stmtSelect->execute();
-        $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
-        (empty($result)){
-            header('Location: ../controllers/atualizar.php?erro=1');
-        }
-        $lp = $result[0]['l_portuguesa'];
-        $ar = $result[0]['arte'];
-        $ef = $result[0]['educacao_fisica'];
-        $li = $result[0]['l_inglesa'];
-        $ma = $result[0]['matematica'];
-        $ci = $result[0]['ciencias'];
-        $ge = $result[0]['geografia'];
-        $hi = $result[0]['historia'];
-        $re = $result[0]['religiao'];
-        
+    $stmtSelect->BindValue(':id', $id);
+    $stmtSelect->execute();
+    $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+    if (empty($result)) {
+        header('Location: ../controllers/atualizar.php?erro=1');
     }
+    switch ($result[0]['id_curso1_fk']) {
+        case 1:
+            $_SESSION['curso'] = 'Enfermagem';
+            break;
+
+        case 2:
+            $_SESSION['curso'] = 'Informática';
+            break;
+        case 3:
+            $_SESSION['curso'] = 'Administração';
+            break;
+        case 3:
+            $_SESSION['curso'] = 'Edificações';
+            break;
+    }
+    switch ($result[0]['bairro']) {
+        case 1:
+            $_SESSION['bairro'] = '| Costista ';
+            break;
+        case 0:
+            $_SESSION['bairro'] = '';
+            break;
+
+    }
+    switch ($result[0]['pcd']) {
+        case 1:
+            $_SESSION['pcd'] = '| PCD';
+            break;
+        case 0:
+            $_SESSION['pcd'] = '';
+            break;
+
+    }
+    switch ($result[0]['publica']) {
+        case 1:
+            $_SESSION['publica'] = 'Pública ';
+            break;
+        case 0:
+            $_SESSION['publica'] = 'Privada ';
+            break;
+
+    }
+    $_SESSION['nome'] = $result[0]['nome'];
+    $_SESSION['nasc'] = $result[0]['data_nascimento'];
+    $_SESSION['lp'] = $result[0]['l_portuguesa'];
+    $_SESSION['ar'] = $result[0]['arte'];
+    $_SESSION['ef'] = $result[0]['educacao_fisica'];
+    $_SESSION['li'] = $result[0]['l_inglesa'];
+    $_SESSION['ma'] = $result[0]['matematica'];
+    $_SESSION['ci'] = $result[0]['ciencias'];
+    $_SESSION['ge'] = $result[0]['geografia'];
+    $_SESSION['hi'] = $result[0]['historia'];
+    $_SESSION['re'] = $result[0]['religiao'];
+    $_SESSION['id'] = $result[0]['id_candidato'];
+    print_r($_SESSION);
+    header('Location: ../views/atualizar_nota.php');
+    exit();
+}
