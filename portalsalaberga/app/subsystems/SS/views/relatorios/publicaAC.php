@@ -6,7 +6,7 @@ function privadaAC($curso)
     session_start();
 
     if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
-        $n = 55;
+        $n = 122;
     } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
         $n = 105;
     }
@@ -42,16 +42,15 @@ function privadaAC($curso)
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
 
     require_once('../assets/fpdf/fpdf.php');
-    $pdf = new FPDF();
+    $pdf = new FPDF('L', 'mm', 'A4');
     $pdf->AddPage();
 
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(185, 10, ('PRIVADA AC'), 0, 1, 'C');
+    $pdf->Cell(90, 5, ('PUBLICA AC'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
-    //$pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
-    $pdf->Cell(0, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
+    $pdf->Cell(188, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
     $pdf->Cell(185, 10, '', 0, 1, 'C');
 
@@ -65,9 +64,9 @@ function privadaAC($curso)
     $pdf->Cell(18, 7, 'Origem', 1, 0, 'C', true);
     if (isset($_SESSION['status']) && $_SESSION['status'] == 1) { 
         $pdf->Cell(26, 7, 'Segmento', 1, 0, 'C', true);
-        $pdf->Cell(15, 7, 'Id', 1, 0, 'C', true);
+        $pdf->Cell(20, 7, 'Id Aluno', 1, 0, 'C', true);
         $pdf->Cell(15, 7, 'Media', 1, 0, 'C', true);
-        $pdf->Cell(20, 7, 'Resp Cad', 1, 1, 'C', true);
+        $pdf->Cell(35, 7, 'Resp. Cadastro', 1, 1, 'C', true);
     } else {
         $pdf->Cell(26, 7, 'Segmento', 1, 1, 'C', true); 
     }
@@ -121,9 +120,9 @@ function privadaAC($curso)
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
         $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
         if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
-            $pdf->Cell(15, 7, $row['id_candidato'], 1, 0, 'C', true);
+            $pdf->Cell(20, 7, $row['id_candidato'], 1, 0, 'C', true);
             $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 0, 'C', true);
-            $pdf->Cell(20, 7, $row['id_cadastrador'], 1, 1, 'C', true);
+            $pdf->Cell(35, 7, $row['id_cadastrador'], 1, 1, 'C', true);
         }
         $classificacao++;
     }
