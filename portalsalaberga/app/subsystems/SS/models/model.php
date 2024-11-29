@@ -30,7 +30,7 @@ function cadastrarUsuario($nomeC, $email, $senha, $status)
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
-
+        
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
     $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
@@ -257,6 +257,7 @@ function notas($id)
         case 0:
             $_SESSION['bairro'] = '';
             break;
+
     }
     switch ($result[0]['pcd']) {
         case 1:
@@ -265,6 +266,7 @@ function notas($id)
         case 0:
             $_SESSION['pcd'] = '';
             break;
+
     }
     switch ($result[0]['publica']) {
         case 1:
@@ -273,6 +275,7 @@ function notas($id)
         case 0:
             $_SESSION['publica'] = 'Privada ';
             break;
+
     }
     $_SESSION['nome'] = $result[0]['nome'];
     $_SESSION['nasc'] = $result[0]['data_nascimento'];
@@ -289,62 +292,4 @@ function notas($id)
     print_r($_SESSION);
     header('Location: ../views/atualizar_nota.php');
     exit();
-}
-
-function excluir_candidato($id_candidato)
-{
-    require_once('../../config/connect.php');
-    $stmtCheck = $conexao->prepare("SELECT * FROM candidato WHERE id_candidato = :id_candidato");
-    $stmtCheck->bindValue(':id_candidato', $id_candidato);
-    $stmtCheck->execute();
-    $row_count = $stmtCheck->rowCount();
-
-    if ($row_count > 0) {
-
-        $stmt_excluir_candidato = $conexao->prepare("DELETE FROM nota WHERE candidato_id_candidato = :id_candidato1");
-        $stmt_excluir_candidato->bindValue(':id_candidato1', $id_candidato);
-        $stmt_excluir_candidato->execute();
-
-        $stmt_excluir_candidato = $conexao->prepare("DELETE FROM candidato WHERE id_candidato = :id_candidato2");
-        $stmt_excluir_candidato->bindValue(':id_candidato2', $id_candidato);
-        $stmt_excluir_candidato->execute();
-
-        if ($stmt_excluir_candidato) {
-
-            return 1;
-        } else {
-
-            return 2;
-        }
-    } else {
-
-        return 3;
-    }
-}
-
-function excluir_usuairo($id_usuairo)
-{
-    require_once('../../config/connect.php');
-    $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE id = :id_usuario");
-    $stmtCheck->bindValue(':id_usuario', $id_usuario);
-    $stmtCheck->execute();
-    $row_count = $stmtCheck->rowCount();
-
-    if ($row_count > 0) {
-
-        $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE id = :id_usuario1");
-        $stmt_excluir_usuario->bindValue(':id_usuario1', $id_usuario);
-        $stmt_excluir_usuario->execute();
-
-        if ($stmt_excluir_usuario) {
-
-            return 1;
-        } else {
-
-            return 2;
-        }
-    } else {
-
-        return 3;
-    }
 }
