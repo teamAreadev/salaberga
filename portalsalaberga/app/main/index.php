@@ -367,112 +367,17 @@
     </style>
     </head>
 
-    <body class="select-none"  x-data="{ 
-    mobileMenuOpen: false, 
-    showEditalMessage: true,
-    async remindLater() {
-        this.showEditalMessage = false;
-        
-        if ('serviceWorker' in navigator && 'PushManager' in window) {
-            try {
-                const registration = await navigator.serviceWorker.register('/service-worker.js');
-                const permission = await Notification.requestPermission();
-                
-                if (permission === 'granted') {
-                    const subscribeOptions = {
-                        userVisibleOnly: true,
-                        applicationServerKey: urlBase64ToUint8Array('YOUR_PUBLIC_VAPID_KEY')
-                    };
-                    
-                    const subscription = await registration.pushManager.subscribe(subscribeOptions);
-                    
-                    // Envie a subscription para o seu servidor
-                    await fetch('/api/save-subscription', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(subscription),
-                    });
-                    
-                    // Agende a notificação no servidor
-                    await fetch('/api/schedule-notification', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            subscription: subscription,
-                            delay: 600000 // 10 minutos em milissegundos
-                        }),
-                    });
-                }
-            } catch (error) {
-                console.error('Erro ao configurar notificações:', error);
-            }
-        }
-    }
-}" x-init="setTimeout(() => showEditalMessage = false, 5000)">
-<div x-show="showEditalMessage" 
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0 transform translate-y-4 sm:translate-y-0 sm:scale-95"
-         x-transition:enter-end="opacity-100 transform translate-y-0 sm:scale-100"
-         x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100 transform translate-y-0 sm:scale-100"
-         x-transition:leave-end="opacity-0 transform translate-y-4 sm:translate-y-0 sm:scale-95"
-         class="fixed inset-0 flex items-center justify-center z-50 px-4 sm:px-0">
-        <!-- Fundo borrado -->
-        <div class="absolute inset-0 bg-gray-900 bg-opacity-75 backdrop-filter backdrop-blur-sm"></div>
-        
-        <!-- Conteúdo da mensagem -->
-        <div class="bg-white rounded-lg shadow-2xl p-6 sm:p-8 m-4 max-w-lg w-full relative z-10 border-t-4 border-ceara-green">
-            <!-- Botão de fechar -->
-            <button @click="showEditalMessage = false" class="absolute top-4 right-4 text-gray-400 hover:text-ceara-orange transition duration-150">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-
-            <div class="flex items-center mb-6">
-                <svg class="h-10 w-10 text-ceara-green mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <h2 class="text-2xl font-bold text-gray-800">Atenção, futuros alunos!</h2>
-            </div>
-
-            <p class="text-lg text-gray-600 mb-6">
-                O edital para novos alunos 2025 está disponível. Não perca essa oportunidade de fazer parte da nossa instituição!
-            </p>
-
-            <div class="flex flex-col sm:flex-row justify-end items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                <button @click="remindLater()" class="w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none">
-                    Lembrar depois
-                </button>
-                <a href="https://www.crede01.seduc.ce.gov.br/wp-content/uploads/sites/124/2024/11/EEEP-Salaberga-Torquato-Maranguape-Edital-Selecao-Alunos-2025.pdf" target="_blank" class="w-full sm:w-auto bg-ceara-green hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out text-center inline-flex items-center justify-center">
-                    Acessar Edital
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
+    <body class="select-none">
     <script>
-function urlBase64ToUint8Array(base64String) {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding)
-        .replace(/\-/g, '+')
-        .replace(/_/g, '/');
+        //Adiciona um novo estado no histórico, assim o botão de voltar não vai sair da página atual
+        window.history.pushState(null, '', window.location.href);
 
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-
-    for (let i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-}
-</script>
+        // Escuta o evento de popstate, que é acionado quando o usuário tenta voltar
+        window.onpopstate = function() {
+            // Redireciona o usuário para a página desejada
+            window.location.href = ''; // Substitua pelo URL da página que você deseja
+        };
+    </script>
         <script type="text/javascript">
             (function(d, t) {
                 var g = d.createElement(t),

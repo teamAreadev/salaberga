@@ -1,41 +1,43 @@
 <?php
-session_start();
-//se existe um POST email e password e não estiver vazio o POST email e password
-if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
 
-    //requerindo o arquivo model.php
-    
-    //criando as variaveis
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    
-    //criando a variavel test para chamar a função logar
+// Verifica se existe um POST email e password e se não está vazio
+if (isset($_GET['email']) && isset($_GET['senha']) && !empty($_GET['email']) && !empty($_GET['senha'])) {
     require_once('../models/model.php');
+    
+    // Cria as variáveis
+    $email = $_GET['email'];
+    $senha = $_GET['senha'];
+    
+    // Inicia a sessão
+    session_start();
+    
+    // Chama a função logar
     $login = logar($email, $senha);
-    switch ($login) {
-        //caso a variavel fosse igual a certo
+    
+    switch ($_SESSION['status']) {
         case 0:
+            header('Location: ../views/inicio.php');
+            exit();
         case 1:
-            if ($login == 1){
-            header('location:../views/inicio_ADM.php');
+            header('Location: ../views/inicio_ADM.php');
             exit();
-            } else if ($login == 0){
-            header('location:../views/inicio.php');
-            exit();
-            }
-        //caso a variavel fosse igual a erro
-        case 2:
-            header('Location: ../../../main/views/autenticação/login.php');
+        default:
+            header('Location: ../../../index.php');
             exit();
     }
 }
 
+// Verifica se o usuário deseja sair
+ 
 if (isset($_GET['sair'])) {
-    
-    // Destroi todas as sessões
+    session_start();
     session_unset();
     session_destroy();
-    header('Location:../../../index.php');
+    header('Location: ../../../index.php'); // Redireciona para a página de escolas parceiras
+    echo '<script src="../assets/js/clearCache.js"></script>';
+    echo '<script>window.location.href = "../../../escolas_parceiras.php";</script>';
     exit();
+
 }
-    
+
+

@@ -35,7 +35,7 @@ if (isset($_GET['sair'])) {
     // Destroi todas as sessões
     session_unset();
     session_destroy();
-    header('Location: ../../../main/views/autenticação/login.php');
+    header('Location: ../../../main/views/autenticacao/login.php');
     exit();
 }
     

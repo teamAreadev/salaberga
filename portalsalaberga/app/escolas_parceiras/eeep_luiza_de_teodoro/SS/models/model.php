@@ -135,16 +135,11 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
     }
 }
 
+
+
 function logar($email, $senha)
 {
-    session_start();
-    if(file_exists('../config/connect.php')){
-
-        require_once('../config/connect.php');
-    }else{
-
-        require_once('eeep_luiza_de_teodoro/SS/config/connect.php');
-    }
+    require_once('../config/connect.php');
     
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = MD5(:senha)");
@@ -153,20 +148,21 @@ function logar($email, $senha)
     $result_logar->execute();
     $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
 
-    //se for o result_logar for maior que 0
-    foreach ($result as $key) {
-        if (!empty($result)) {
-            $_SESSION['login'] = true;
-            $_SESSION['status'] = $key['status'];
-            $_SESSION['id_cadastrador'] = $key['id'];
-            return $login = $key['status'];
-
-        } else {
-
-            return  $login = 2;
-        }
+    // Se encontrou algum resultado
+    if (!empty($result)) {
+        $key = $result[0]; // Assumindo que sempre haverá apenas um usuário correspondente
+        $_SESSION['login'] = true;
+        $_SESSION['status'] = $key['status'];
+        $_SESSION['id_cadastrador'] = $key['id'];
+        header('Location: ../views/inicio.php'); // Redirecionar para uma página específica após o login
+        exit();
+    } else {
+        // Se não encontrou resultados, redirecionar para a página inicial
+        header('Location: ../../../index.php');
+        exit();
     }
 }
+
 
 function delete($senha)
 {
