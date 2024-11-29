@@ -30,7 +30,11 @@ function cadastrarUsuario($nomeC, $email, $senha, $status)
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
+<<<<<<< HEAD
     session_start();
+=======
+
+>>>>>>> parent of 4baaf3a (Revert "excluir candidato e excluir usuario")
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
     $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
@@ -255,7 +259,6 @@ function notas($id)
         case 0:
             $_SESSION['bairro'] = '';
             break;
-
     }
     switch ($result[0]['pcd']) {
         case 1:
@@ -264,7 +267,6 @@ function notas($id)
         case 0:
             $_SESSION['pcd'] = '';
             break;
-
     }
     switch ($result[0]['publica']) {
         case 1:
@@ -273,7 +275,6 @@ function notas($id)
         case 0:
             $_SESSION['publica'] = 'Privada ';
             break;
-
     }
     $_SESSION['nome'] = $result[0]['nome'];
     $_SESSION['nasc'] = $result[0]['data_nascimento'];
@@ -323,18 +324,31 @@ function excluir_candidato($id_candidato)
     }
 }
 
+<<<<<<< HEAD
 function excluir_usuairo($nome_usuario)
 {
     require_once('../../config/connect.php');
     $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome_usuario");
     $stmtCheck->bindValue(':nome_usuario', $nome_usuario);
+=======
+function excluir_usuairo($id_usuairo)
+{
+    require_once('../../config/connect.php');
+    $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE id = :id_usuario");
+    $stmtCheck->bindValue(':id_usuario', $id_usuario);
+>>>>>>> parent of 4baaf3a (Revert "excluir candidato e excluir usuario")
     $stmtCheck->execute();
     $row_count = $stmtCheck->rowCount();
 
     if ($row_count > 0) {
 
+<<<<<<< HEAD
         $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE nome = :nome_usuario1");
         $stmt_excluir_usuario->bindValue(':nome_usuario1', $nome_usuario);
+=======
+        $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE id = :id_usuario1");
+        $stmt_excluir_usuario->bindValue(':id_usuario1', $id_usuario);
+>>>>>>> parent of 4baaf3a (Revert "excluir candidato e excluir usuario")
         $stmt_excluir_usuario->execute();
 
         if ($stmt_excluir_usuario) {
@@ -349,6 +363,7 @@ function excluir_usuairo($nome_usuario)
         return 3;
     }
 }
+<<<<<<< HEAD
 
 function lista_usuario(){
 
@@ -358,3 +373,5 @@ function lista_usuario(){
 
     return $return;
 }
+=======
+>>>>>>> parent of 4baaf3a (Revert "excluir candidato e excluir usuario")
