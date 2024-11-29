@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola'])) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -8,7 +7,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
     switch ($escola) {
 
         case 'EEEP Professor Francisco':
-            require_once('../escolas_parceiras/eeep_prof_francisco_aristoles/SS/models/model.php');
+            require_once('../escolas_parceiras/eeep_prof_francisco_aristoteles/SS/models/model.php');
             $key = logar($email, $senha);
 
             switch ($key) {
@@ -21,12 +20,11 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                         header('location:eeep_prof_francisco_aristoteles/SS/views/inicio.php');
                         exit();
                     }
-                    //caso a variavel fosse igual a erro
+
                 case 2:
                     header('location:index.php?erro');
                     exit();
             }
-            
             break;
 
         case 'EEEP Luiza de Teodoro':
@@ -49,10 +47,11 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                     exit();
             }
             break;
-
+            
         case 'EEEP Antônio Valmir':
             require_once('../escolas_parceiras/eeep_antonio_valmir/SS/models/model.php');
             $key = logar($email, $senha);
+
             switch ($key) {
                 case 0:
                 case 1:
@@ -64,11 +63,11 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                         exit();
                     }
                     //caso a variavel fosse igual a erro
+                    break;
                 case 2:
                     header('location:index.php?erro');
                     exit();
             }
-            
             break;
 
         case 'EEEP Maria Carmem':
@@ -90,7 +89,6 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                     header('location:index.php?erro');
                     exit();
             }
-            
             break;
 
         default:
