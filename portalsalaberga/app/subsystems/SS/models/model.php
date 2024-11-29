@@ -320,18 +320,18 @@ function excluir_candidato($id_candidato)
     }
 }
 
-function excluir_usuairo($id_usuairo)
+function excluir_usuairo($nome_usuario)
 {
     require_once('../../config/connect.php');
-    $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE id = :id_usuario");
-    $stmtCheck->bindValue(':id_usuario', $id_usuario);
+    $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome_usuario");
+    $stmtCheck->bindValue(':nome_usuario', $nome_usuario);
     $stmtCheck->execute();
     $row_count = $stmtCheck->rowCount();
 
     if ($row_count > 0) {
 
-        $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE id = :id_usuario1");
-        $stmt_excluir_usuario->bindValue(':id_usuario1', $id_usuario);
+        $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE nome = :nome_usuario1");
+        $stmt_excluir_usuario->bindValue(':nome_usuario1', $nome_usuario);
         $stmt_excluir_usuario->execute();
 
         if ($stmt_excluir_usuario) {
@@ -345,4 +345,13 @@ function excluir_usuairo($id_usuairo)
 
         return 3;
     }
+}
+
+function lista_usuario(){
+
+    require_once('../config/connect.php');
+    $stmtSelect = $conexao->query('SELECT * FROM usuario');
+    $return = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+
+    return $return;
 }
