@@ -145,7 +145,7 @@ function logar($email, $senha)
 
         require_once('eeep_luiza_de_teodoro/SS/config/connect.php');
     }
-
+    
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE email = :email AND senha = MD5(:senha)");
     $result_logar->bindValue(':email', $email);
@@ -160,7 +160,9 @@ function logar($email, $senha)
             $_SESSION['status'] = $key['status'];
             $_SESSION['id_cadastrador'] = $key['id'];
             return $login = $key['status'];
+
         } else {
+
             return  $login = 2;
         }
     }
