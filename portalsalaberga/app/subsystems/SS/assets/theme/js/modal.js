@@ -14,6 +14,7 @@ function showReportsModal() {
                         <option value="4">Privada Geral</option>
                         <option value="5">Privada Ampla Concorência</option>
                         <option value="6">Privada Cotas</option>
+                        <option value="7">Usuario</option>
                     </select>
                 </div>
                 
