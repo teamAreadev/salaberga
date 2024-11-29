@@ -44,7 +44,7 @@ function privadaGeral($curso)
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(90, 5, ('PRIVADA GERAL'), 0, 1, 'C');
+    $pdf->Cell(108, 5, ('PRIVADA GERAL'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     $pdf->Cell(188, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);

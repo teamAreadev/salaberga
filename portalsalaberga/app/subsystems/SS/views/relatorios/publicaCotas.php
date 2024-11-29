@@ -17,8 +17,8 @@ function publicaCotas($curso)
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         WHERE candidato.publica = 1 
-        AND candidato.bairro = 1 
-        AND candidato.pcd = 1
+        OR candidato.bairro = 1 
+        OR candidato.pcd = 1
         AND candidato.id_curso1_fk = :curso
         ORDER BY nota.media DESC,
         candidato.data_nascimento DESC,
@@ -31,8 +31,8 @@ function publicaCotas($curso)
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         WHERE candidato.publica = 1 
-        AND candidato.bairro = 1 
-        AND candidato.pcd = 1
+        OR candidato.bairro = 1 
+        OR candidato.pcd = 1
         AND candidato.id_curso1_fk = :curso
         ORDER BY nome ASC
         ");
@@ -48,7 +48,7 @@ function publicaCotas($curso)
     // Cabeçalho com larguras ajustadas
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
-    $pdf->Cell(90, 5, ('PUBLICA COTAS'), 0, 1, 'C');
+    $pdf->Cell(108, 5, ('PUBLICA COTAS'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 8);
     $pdf->Cell(188, 10, ('PCD = PESSOA COM DEFICIENCIA | COTISTA = INCLUSO NA COTA DO BAIRRO | AC = AMPLA CONCORRENCIA'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'b', 12);
@@ -103,7 +103,7 @@ function publicaCotas($curso)
         // Definir cota
         if ($row['pcd'] == 1) {
             $cota = 'PCD';
-        } else if ($row['publica'] == 0 && $row['bairro'] == 1) {
+        } else if ($row['publica'] == 1 && $row['bairro'] == 1) {
             $cota = 'COSTISTA';
         } else {
             $cota = 'AC';

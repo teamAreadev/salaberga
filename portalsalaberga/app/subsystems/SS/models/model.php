@@ -29,6 +29,7 @@ function cadastrarUsuario($nomeC, $email, $senha, $status)
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
+    session_start();
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
     $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 

@@ -1,9 +1,10 @@
 <?php
+session_start();
+if(isset($_SESSION['status']) && $_SESSION['status'] == 1){
 function usuarios()
 {
     require_once('../config/connect.php');
     
-    session_start();
     
     $stmtSelect = $conexao->query("
         SELECT id, nome, email, status FROM usuario;
@@ -52,7 +53,19 @@ function usuarios()
         $pdf->Cell(20, 7, $status, 1, 1, 'L', true);
     }
     
-    $pdf->Output('usuario.pdf', 'I');
+        $pdf->Output('usuario.pdf', 'I');
+    }
+    usuarios();
+} else {
+
+// Gera o alerta JavaScript
+echo '<script type="text/javascript">';
+echo 'window.alert("Você não é administrador do sistema!");';
+echo 'window.location.href = "../views/inicio.php";'; // Redireciona usando JavaScript após o alerta
+echo '</script>';
+
+// Remove o redirecionamento e saída do PHP, pois o redirecionamento será feito pelo JavaScript
+
+
 }
 
-usuarios();

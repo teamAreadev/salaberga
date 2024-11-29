@@ -266,7 +266,17 @@
             }
         }
     }
-}" >
+    }" >
+    <script>
+        //Adiciona um novo estado no histórico, assim o botão de voltar não vai sair da página atual
+        window.history.pushState(null, '', window.location.href);
+
+        // Escuta o evento de popstate, que é acionado quando o usuário tenta voltar
+        window.onpopstate = function() {
+            // Redireciona o usuário para a página desejada
+            window.location.href = ''; // Substitua pelo URL da página que você deseja
+        };
+    </script>
     <div x-show="showEditalMessage"
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 transform translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -442,7 +452,7 @@
                                 <!-- Links do Dropdown -->
                                 <div class="divide-y divide-gray-100">
                                     <!-- Link Salaberga -->
-                                    <a href="../main/views/autenticação/login.php"
+                                    <a href="../main/views/autenticacao/login.php"
                                         @click="isOpen = false"
                                         class="group flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-ceara-green/5 hover:to-ceara-orange/5 transition-all duration-300">
                                         <!-- Ícone -->

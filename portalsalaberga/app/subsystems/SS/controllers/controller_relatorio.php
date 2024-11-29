@@ -31,7 +31,7 @@ if (isset($_POST['curso']) && (isset($_POST['tipo']))) {
     }
     if ($tipo == '7') {
         require_once('../views/relatorios/usuarios.php');
-        usuarios($curso);
+        usuarios();
     }
 } else {
     header('location:../views/inicio.php');
