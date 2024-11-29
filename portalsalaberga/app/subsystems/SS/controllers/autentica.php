@@ -17,10 +17,10 @@ if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) 
         case 0:
         case 1:
             if ($login == 1){
-            header('location:../views/inicio_ADM.php');
+            header('location:../index.php');
             exit();
             } else if ($login == 0){
-            header('location:../views/inicio.php');
+            header('location:../index.php');
             exit();
             }
         //caso a variavel fosse igual a erro

@@ -14,10 +14,10 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                 case 0:
                 case 1:
                     if ($key == 1) {
-                        header('location:eeep_prof_francisco_aristoteles/SS/views/inicio_ADM.php');
+                        header('location:eeep_prof_francisco_aristoteles/SS/index.php');
                         exit();
                     } else if ($key == 0) {
-                        header('location:eeep_prof_francisco_aristoteles/SS/views/inicio.php');
+                        header('location:eeep_prof_francisco_aristoteles/SS/index.php');
                         exit();
                     }
 
@@ -35,10 +35,10 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                 case 0:
                 case 1:
                     if ($key == 1) {
-                        header('location:eeep_luiza_de_teodoro/SS/views/inicio_ADM.php');
+                        header('location:eeep_luiza_de_teodoro/SS/index.php');
                         exit();
                     } else if ($key == 0) {
-                        header('location:eeep_luiza_de_teodoro/SS/views/inicio.php');
+                        header('location:eeep_luiza_de_teodoro/SS/index.php');
                         exit();
                     }
                     //caso a variavel fosse igual a erro
@@ -56,10 +56,10 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                 case 0:
                 case 1:
                     if ($key == 1) {
-                        header('location:eeep_antonio_valmir/SS/views/inicio_ADM.php');
+                        header('location:eeep_antonio_valmir/SS/index.php');
                         exit();
                     } else if ($key == 0) {
-                        header('location:eeep_antonio_valmir/SS/views/inicio.php');
+                        header('location:eeep_antonio_valmir/SS/index.php');
                         exit();
                     }
                     //caso a variavel fosse igual a erro
@@ -78,10 +78,10 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                 case 0:
                 case 1:
                     if ($key == 1) {
-                        header('location:eeep_maria_carmem/SS/views/inicio_ADM.php');
+                        header('location:eeep_maria_carmem/SS/index.php');
                         exit();
                     } else if ($key == 0) {
-                        header('location:eeep_maria_carmem/SS/views/inicio.php');
+                        header('location:eeep_maria_carmem/SS/index.php');
                         exit();
                     }
                     //caso a variavel fosse igual a erro
