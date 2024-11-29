@@ -30,7 +30,6 @@ function cadastrarUsuario($nomeC, $email, $senha, $status)
 }
 function cadastrar($nome, $c1, $c2, $dn, $lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $bairro, $publica, $pcd, $media)
 {
-
     require_once('../config/connect.php');
     //inserido na tabela candidato os dados do candidato
     $result_cadastrar_candidato = $conexao->prepare("INSERT INTO candidato (nome, id_curso1_fk, id_curso2_fk, data_nascimento, bairro, publica, pcd, id_cadastrador) 
@@ -93,7 +92,6 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
     VALUES( :nome, :id_curso1_fk, :id_curso2_fk, :data_nascimento, :bairro, :publica, :pcd, :id)");
     $result_cadastrar_candidato->bindValue(':nome', $nome);
     $result_cadastrar_candidato->bindValue(':id', $_SESSION['id_cadastrador']);
-    $result_cadastrar_candidato->BindValue(':candidato_id_candidato', $id_candidato);
     $result_cadastrar_candidato->bindValue(':id_curso1_fk', $c1);
     $result_cadastrar_candidato->bindValue(':id_curso2_fk', $c2);
     $result_cadastrar_candidato->bindValue(':data_nascimento', $dn);
@@ -116,7 +114,6 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
     $result_cadastrar_nota = $conexao->prepare("INSERT INTO nota VALUES(:l_portuguesa, :arte, NULL, :l_inglesa, :matematica, :ciencias, :geografia, :historia, :religiao, :candidato_id_candidato, :media )");
     $result_cadastrar_nota->BindValue(':l_portuguesa', $lp);
     $result_cadastrar_nota->BindValue(':arte', $ar);
-
     $result_cadastrar_nota->BindValue(':l_inglesa', $li);
     $result_cadastrar_nota->BindValue(':matematica', $ma);
     $result_cadastrar_nota->BindValue(':ciencias', $ci);
@@ -149,7 +146,6 @@ function logar($email, $senha)
     $result_logar->bindValue(':senha', $senha);
     $result_logar->execute();
     $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
-
 
     //se for o result_logar for maior que 0
     foreach ($result as $key) {

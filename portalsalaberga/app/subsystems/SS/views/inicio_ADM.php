@@ -499,7 +499,7 @@ verificarSessao(600);
                             </li>
 
                             <li>
-                                <button onclick="showExcluirCandidatoModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-purple-600 text-purple-600 font-semibold transition-all duration-300 ease-in-out hover:bg-purple-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <button onclick="showDeleteConfirmationModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-purple-600 text-purple-600 font-semibold transition-all duration-300 ease-in-out hover:bg-purple-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v4m0 0l4 4m-4-4l-4 4m-4-4v-4m0 0l-4-4m4 4l4-4" />
                                     </svg>
