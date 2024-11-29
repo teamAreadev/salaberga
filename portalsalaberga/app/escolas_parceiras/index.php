@@ -209,6 +209,16 @@
 
 
 <body class="bg-gray-50 min-h-screen">
+    <script>
+        //Adiciona um novo estado no histórico, assim o botão de voltar não vai sair da página atual
+        window.history.pushState(null, '', window.location.href);
+
+        // Escuta o evento de popstate, que é acionado quando o usuário tenta voltar
+        window.onpopstate = function() {
+            // Redireciona o usuário para a página desejada
+            window.location.href = '../main/index.php'; // Substitua pelo URL da página que você deseja
+        };
+    </script>
     <!-- Modal de Login -->
     <!-- Modal de Login -->
     <div id="loginModal" class="modal">
@@ -232,7 +242,7 @@
                     <!-- Email/Nome Field -->
                     <div class="space-y-2">
                         <label for="email" class="block text-sm font-medium text-gray-700">
-                            Nome de Usuário
+                            Email
                         </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -240,9 +250,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </div>
-                            <input type="text" id="email" name="nome"
+                            <input type="text" id="email" name="email"
                                 class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-900 focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200"
-                                placeholder="Digite seu nome de usuário" required>
+                                placeholder="Digite seu email" required>
                         </div>
                     </div>
 

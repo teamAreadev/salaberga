@@ -1,8 +1,3 @@
-<?php
-require_once('../controllers/controller_sessao/autenticar_sessao.php');
-require_once('../controllers/controller_sessao/verificar_sessao.php');
-verificarSessao(600);
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -436,9 +431,9 @@ verificarSessao(600);
                 <!-- Sidebar -->
                 <div
                     id="sidebar"
-                    class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg rounded-l-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-6">
+                    class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg rounded-l-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+                    <div class="p-6 max-h-screen">
+                        <div class="flex justify-between items-center mb-6 sticky top-0 bg-white z-10">
                             <h3 class="text-2xl font-bold text-gray-800">Menu</h3>
                             <button
                                 id="closeSidebar"
@@ -506,23 +501,24 @@ verificarSessao(600);
                                     Limpar banco
                                 </button>
                             </li>
+                            
                             <li>
-                                <button onclick="showExcluirCandidatoModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                <button onclick="showExcluirCandidatoModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-cyan-600 text-cyan-600 font-semibold transition-all duration-300 ease-in-out hover:bg-cyan-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-cyan-500">
                                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                     </svg>
                                     Excluir candidato
                                 </button>
                             </li>
-                            <li>
-                                <button onclick="showExcluirUsuarioModal(); toggleOverlay()" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-gray-600 text-gray-600 font-semibold transition-all duration-300 ease-in-out hover:bg-gray-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                    </svg>
-                                    Excluir usuário
-                                </button>
-                            </li>
-
+                            <li>  
+                            <a href="../views/Excluir_usuario.php" class="w-full flex items-center px-4 py-3 text-base rounded-full border-2 border-pink-600 text-pink-600 font-semibold transition-all duration-300 ease-in-out hover:bg-pink-600 hover:text-ceara-white hover:shadow-md transform hover:scale-100 focus:outline-none focus:ring-2 focus:ring-pink-500">  
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">  
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />  
+                                </svg>  
+                                Excluir usuário  
+                            </a>  
+                        </li>
+                    
                         </ul>
                     </div>
                 </div>

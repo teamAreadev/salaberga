@@ -13,18 +13,19 @@ function isCurrentPage($page)
 
 // Só redireciona se NÃO estiver na página correta
 if (isset($_SESSION['login']) && $_SESSION['login'] && $_SESSION['status'] == 0) {
-    if (!isCurrentPage('inicio.php')) {
+    if (!isCurrentPage('inicio.php') && !isCurrentPage('index.php')) {
         header('Location: ../views/inicio.php');
         exit();
     }
 } else if (isset($_SESSION['login']) && $_SESSION['login'] && $_SESSION['status'] == 1) {
-    if (!isCurrentPage('inicio_ADM.php')) {
+    if (!isCurrentPage('inicio_ADM.php') && !isCurrentPage('index.php')) {
         header('Location: ../views/inicio_ADM.php');
         exit();
         }
     } else if (!isset($_SESSION['login'])) { 
-    if (!isCurrentPage('index.php')) {
-            header('Location: ../index.php');
+    if (!isCurrentPage('login.php')) {
+    
+            header('../../../../main/views/autenticação/login.php');
             exit(); 
     }
 }

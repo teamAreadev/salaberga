@@ -1,4 +1,7 @@
 <?php 
+require_once('./controllers/controller_sessao/autenticar_sessao.php');
+require_once('./controllers/controller_sessao/verificar_sessao.php');
+verificarSessao(600);
 require_once('models/session_manager.php');
 lista();
 ?>
@@ -768,13 +771,21 @@ lista();
                         <span class="sr-only">Abrir menu</span>
                         <i class="fas fa-bars"></i>
                     </button>
+                    
                     <div class="nav-links">
-                        <button
-                            id="openLoginModal"
+                        <a href="views/inicio.php"
                             class="px-6 py-2 text-white bg-[#008C45] rounded-lg hover:bg-[#004d00] 
                             focus:outline-none focus:ring-2 focus:ring-[#008C45] transition duration-200">
-                            ENTRAR
-                        </button>
+                            Gerenciar
+                        </a>
+                    </div>
+
+                    <div class="nav-links">
+                        <a href="controllers/autentica.php?sair"
+                            class="px-6 py-2 text-white bg-[#dc2626] rounded-lg hover:bg-[] 
+                            focus:outline-none focus:ring-2 focus:ring-[#dc2626] transition duration-200">
+                            Sair
+                        </a>
                     </div>
 
                     <!-- Modal (inicialmente escondido) -->
@@ -802,16 +813,16 @@ lista();
                                 <form id="loginForm" class="space-y-4" action="controllers/autentica.php" method="post">
                                     <!-- Nome Input -->
                                     <div>
-                                        <label for="email" class="block text-sm font-medium text-[#333333]">Nome</label>
+                                        <label for="email" class="block text-sm font-medium text-[#333333]">Email</label>
                                         <input
                                             type="text"
                                             id="email"
-                                            name="nome"
+                                            name="email"
                                             class="mt-1 block w-full px-4 py-3 border border-[#666666] 
                                rounded-lg shadow-sm focus:outline-none focus:ring-2 
                                focus:ring-[#008C45] focus:border-[#008C45]
                                transition-all duration-400"
-                                            placeholder="Digite seu nome"
+                                            placeholder="Digite seu email"
                                             required>
                                     </div>
 
