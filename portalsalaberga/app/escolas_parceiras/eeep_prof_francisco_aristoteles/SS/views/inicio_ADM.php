@@ -514,15 +514,15 @@ verificarSessao(600);
             <!-- Card Enfermagem -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Enfermagem</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
                     <div class="space-y-4">
-                        <button onclick="enfermagemPub()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+                        <button onclick="administracaoPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Pública
                         </button>
-                        <button onclick="enfermagemPriv()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+                        <button onclick="administracaoPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Privada
                         </button>
@@ -552,15 +552,15 @@ verificarSessao(600);
             <!-- Card Administração -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Redes de computadores</h3>
                     <div class="space-y-4">
-                        <button onclick="administracaoPub()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                        <button onclick="redesComputadoresPub()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-gray-500 to-gray-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-gray-600 hover:to-gray-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Pública
                         </button>
-                        <button onclick="administracaoPriv()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+                        <button onclick="redesComputadoresPriv()"
+                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-gray-500 to-gray-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-gray-600 hover:to-gray-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Privada
                         </button>
@@ -571,18 +571,19 @@ verificarSessao(600);
             <!-- Card Edificações -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Edificações</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Logística</h3>
                     <div class="space-y-4">
-                        <button onclick="edificacoesPub()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
-                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                            Escola Pública
-                        </button>
-                        <button onclick="edificacoesPriv()"
-                            class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
-                            style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
-                            Escola Privada
-                        </button>
+                    <button onclick="logisticaPub()"
+                    class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#ff0000] to-[#cc0000] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#cc0000] hover:to-[#990000] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#ff0000]"
+                    style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                    Escola Pública
+                </button>
+                <button onclick="logisticaPriv()"
+                    class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#ff0000] to-[#cc0000] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#cc0000] hover:to-[#990000] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#ff0000]"
+                    style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
+                    Escola Privada
+                </button>
+
                     </div>
                 </div>
             </div>
