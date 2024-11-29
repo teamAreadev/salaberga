@@ -47,6 +47,64 @@ function showReportsModal() {
     });
 }
 
+function showatualizModal() {
+    Swal.fire({
+        title: '',
+        html: `
+        <div class="max-w-md mx-auto">
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-ceara-green to-green-500 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white">Atualizar Notas</h2>
+                </div>
+
+                <div class="p-6">
+                    <form action="../controllers/atualizar.php" 
+                        method="post" 
+                        id="searchForm" 
+                        class="space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex flex-col">
+                                <label for="searchId" 
+                                       class="text-sm font-medium text-gray-700 mb-2">
+                                    Digite o ID do Relatório
+                                </label>
+                                <input type="text" 
+                                       id="searchId" 
+                                       name="id"
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ceara-green focus:border-transparent transition-all duration-200 ease-in-out"
+                                       placeholder="Digite o ID"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex justify-end space-x-3">
+                            <button type="button" 
+                                    onclick="Swal.close()" 
+                                    class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transform hover:scale-105 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                                Cancelar
+                            </button>
+                            <button type="submit"   
+                                class="px-6 py-2 bg-ceara-green text-white rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-ceara-orange focus:ring-offset-2">  
+                                Buscar  
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-2xl border-0',
+            container: 'backdrop-filter backdrop-blur-sm'
+        },
+        background: '#fff',
+        width: 'auto',
+        padding: 0
+    });
+}
 
 function openUpdateNotesModal() {
     const subjects = [
@@ -133,7 +191,7 @@ function openInsertUserModal() {
                                 class="form-select block w-full max-w-lg px-4 py-2.5 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
                                 <option value="">Selecione um status</option>
                                 <option value="1">Admin</option>
-                                <option value="2">Não Admin</option>
+                                <option value="0">Não Admin</option>
                             </select>
                         </div>
                     </div>
@@ -210,11 +268,11 @@ function showDeleteConfirmationModal() {
     Swal.fire({
         title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Confirmação de Exclusão</h2>',
         html: `
-        <form id="deleteForm" action="../controllers/controller_delete.php" method="post" class="bg-ceara-white rounded-lg p-6">
+        <form id="deleteForm" class="bg-ceara-white rounded-lg p-6">
             <p class="text-gray-700">Você tem certeza que quer apagar o banco?</p>
             <div class="relative mt-4">
              
-                <input type="password" id="password" name="senha" required 
+                <input type="password" id="password" name="password" required 
                     class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm  transition-all duration-200" 
                     placeholder="Digite sua senha">
             </div>
@@ -236,14 +294,34 @@ function showDeleteConfirmationModal() {
     });
 }
 
+function confirmDelete(event) {
+    event.preventDefault(); // Impede o envio do formulário padrão
+    const password = document.getElementById('password').value;
 
+    // Aqui você pode adicionar a lógica para verificar a senha e apagar o banco
+    if (password === "suaSenhaSecreta") { // Exemplo de verificação de senha
+        Swal.fire({
+            title: 'Banco apagado!',
+            text: 'O banco foi apagado com sucesso.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    } else {
+        Swal.fire({
+            title: 'Erro!',
+            text: 'Senha incorreta. Tente novamente.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+}
 
 
 function submitForm() {
     const courseSelect = document.getElementById('course');
     const typeSelect = document.getElementById('type');
     const form = document.getElementById('searchForm');
-    
+
     if (courseSelect.value === '' || typeSelect.value === '') {
         Swal.fire({
             icon: 'error',
@@ -273,29 +351,53 @@ function submitForm() {
     }, 1500);
 }
 
-
-function showCourseModal() {
+function showExcluirCandidatoModal() {
     Swal.fire({
-        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Cadastrar Curso</h2>',
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Excluir candidato</h2>',
         html: `
-        <form action="../controllers/controller_curso.php" id="courseForm" class="bg-ceara-white rounded-lg p-6" method="post">
+        <form action="../controllers/controller_excluir/excluir_candidato.php" method="post" id="courseForm" class="bg-ceara-white rounded-lg p-6">
             <div class="mb-4">
              
-                <input type="text" id="courseName" name="nome_curso" required 
+                <input type="id" id="courseName" name="id_candidato" required 
                     class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" 
-                    placeholder="Digite o nome do curso">
-            </div>
-            <div class="mb-4">
-              
-                <input type="color" id="courseColor" name="cor_curso" required 
-                    class="w-full h-10 border border-gray-600 rounded-lg cursor-pointer">
+                    placeholder="ID do candidato">
             </div>
          <div class="flex justify-center space-x-4 mt-8">
                     <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
                         Cancelar
                     </button>
-                    <button type="submit" name="cadastrar_curso" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
-                      Cadastrar
+                    <button type="submit" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                      Excluir
+                    </button>
+                </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
+
+function showExcluirUsuarioModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Excluir usuario</h2>',
+        html: `
+        <form action="../controllers/controller_excluir/excluir_usuario.php" method="post" id="courseForm" class="bg-ceara-white rounded-lg p-6">
+            <div class="mb-4">
+             
+                <input type="text" id="courseName" name="id_usuario" required 
+                    class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" 
+                    placeholder="ID do usuário">
+            </div>
+
+         <div class="flex justify-center space-x-4 mt-8">
+                    <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                        Cancelar
+                    </button>
+                    <button type="submit" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                      Excluir
                     </button>
                 </div>
         </form>
@@ -530,19 +632,19 @@ function maskNascimento(input) {
 function removeAccents(input) {
     // Armazena o valor atual do cursor
     const cursorPosition = input.selectionStart;
-    
+
     // String de caracteres com acentos e suas substituições
     const accents = 'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ';
     const noAccents = 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY';
-    
+
     let value = input.value;
     let result = '';
-    
+
     // Percorre cada caractere do input
     for (let i = 0; i < value.length; i++) {
         const char = value[i];
         const index = accents.indexOf(char);
-        
+
         // Se encontrar um caractere acentuado, substitui pelo equivalente sem acento
         if (index !== -1) {
             result += noAccents[index];
@@ -550,10 +652,10 @@ function removeAccents(input) {
             result += char;
         }
     }
-    
+
     // Atualiza o valor do input
     input.value = result;
-    
+
     // Restaura a posição do cursor
     input.setSelectionRange(cursorPosition, cursorPosition);
 }
@@ -741,111 +843,115 @@ function createEnfermagemForm(schoolType) {
                 <!-- 1º Bimestre -->
                 <div class="mb-6">
                 
-     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">
-    <div>
-        <h3 class="text-lg md:text-xl font-semibold text-[#DC2626] mb-4 pb-1 border-b">1º Bimestre</h3>
-    </div>
-    <div>
-        <input type="text" id="lp9_1" name="lp9_1" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="m9_1" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="h9_1" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="g9_1" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="c9_1" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="i9_1" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="a9_1" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="ef9_1" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-    <div>
-        <input type="text" name="r9_1" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-    </div>
-</div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">
+                    <div>
+                    <h3 class="text-lg md:text-xl font-semibold text-[#DC2626] mb-4 pb-1 border-b">1º Bimestre</h3>
+                        </div>
+                        <div>
+                            <input type="text" name="lp9_1" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="m9_1" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="h9_1" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="g9_1" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="c9_1" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="i9_1" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="a9_1" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="ef9_1" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="r9_1" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                    </div>
+                </div>
 
-<!-- 2º Bimestre -->
-<div class="mb-6">
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">
-        <div>
-            <h3 class="text-lg md:text-xl font-semibold text-[#DC2626] mb-4 pb-1 border-b">2º Bimestre</h3>
-        </div>
-        <div>
-            <input type="text" name="lp9_2" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="m9_2" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="h9_2" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="g9_2" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="c9_2" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="i9_2" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="a9_2" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="ef9_2" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="r9_2" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-    </div>
+                <!-- 2º Bimestre -->
+                <div class="mb-6">
+                
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">
+                    <div>
+                        <h3 class="text-lg md:text-xl font-semibold text-[#DC2626] mb-4 pb-1 border-b">2º Bimestre</h3>
+                        </div>
+                        <div>
+                            <input type="text" name="lp9_2" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="m9_2" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="h9_2" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="g9_2" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="c9_2" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="i9_2" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="a9_2" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="ef9_2" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="r9_2" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                    </div>
+                </div>
 
-
-<!-- 3º Bimestre -->
-<div class="mb-6">
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">
-        <div>
-            <h3 class="text-lg md:text-xl font-semibold text-[#DC2626] mb-4 pb-1 border-b">3º Bimestre</h3>
-        </div>
-        <div>
-            <input type="text" name="lp9_3" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="m9_3" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="h9_3" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="g9_3" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="c9_3" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="i9_3" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="a9_3" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-        <div>
-            <input type="text" name="r9_3" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)" onkeypress="Event()">
-        </div>
-    </div>
-</div>
-
+                <!-- 3º Bimestre -->
+                <div class="mb-6">
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">
+                        <div>
+                        <h3 class="text-lg md:text-xl font-semibold text-[#DC2626] mb-4 pb-1 border-b">3º Bimestre</h3>
+                        </div>
+                        <div>
+                            <input type="text" name="lp9_3" placeholder="PORTUGUÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="m9_3" placeholder="MATEMÁTICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="h9_3" placeholder="HISTÓRIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="g9_3" placeholder="GEOGRAFIA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="c9_3" placeholder="CIÊNCIAS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="i9_3" placeholder="INGLÊS" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="a9_3" placeholder="ARTES" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="ef9_3" placeholder="ED. FÍSICA" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" oninput="maskNota(this)">
+                        </div>
+                        <div>
+                            <input type="text" name="r9_3" placeholder="RELIGIÃO" class="w-full mt-1 px-2 py-1.5 border border-[--gray-600] rounded-md text-center focus:ring-1 focus:ring-[#DC2626] text-sm" required oninput="maskNota(this)">
+                        </div>
+                    </div>
+                </div>
+                <!-- 4º Bimestre -->
+    <!-- 4º Bimestre -->
 <!-- 4º Bimestre -->
 <div class="mb-6">
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-2 md:gap-3">

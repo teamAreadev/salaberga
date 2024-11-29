@@ -123,9 +123,10 @@ $re8 = virg($_POST['r8']);
 
 if (isset($_POST['lp9_1'])) {
 
-    $d9 = 4;
+    $d9 = 3;
     //1 bimestre
     if (empty($_POST['ef9_1'])) {
+
         $ef9_1 = 0;
         $d9 -= 1;
     } else {
@@ -142,6 +143,7 @@ if (isset($_POST['lp9_1'])) {
 
     //2 bimestre
     if (empty($_POST['ef9_2'])) {
+
         $ef9_2 = 0;
         $d9 -= 1;
     } else {
@@ -158,6 +160,7 @@ if (isset($_POST['lp9_1'])) {
 
     //3 bimestre
     if (empty($_POST['ef9_3'])) {
+        
         $ef9_3 = 0;
         $d9 -= 1;
     } else {
@@ -172,99 +175,27 @@ if (isset($_POST['lp9_1'])) {
     $a9_3 = virg($_POST['a9_3']);
     $r9_3 = virg($_POST['r9_3']);
 
-    $n9 = 4;
-    //4 bimestre
-    if (empty($_POST['ef9_4'])) {
-        $ef9_4 = 0;
-        $d9 -= 1;
-    } else {
-        $ef9_4 = $_POST['ef9_4'];
-    }
-
-    if (isset($_POST['lp9_4']) && !empty($_POST['lp9_4'])) {
-        $lp9_4 = virg($_POST['lp9_4']);
-    } else {
-        // Ação caso 'lp9_4' não esteja definido ou esteja vazio
-        $lp9_4 = 0;
-        $n9 = 3;
-    }
-
-    if (isset($_POST['m9_4']) && !empty($_POST['m9_4'])) {
-        $m9_4 = virg($_POST['m9_4']);
-    } else {
-        // Ação caso 'm9_4' não esteja definido ou esteja vazio
-        $m9_4 = 0;
-    }
-
-    if (isset($_POST['h9_4']) && !empty($_POST['h9_4'])) {
-        $h9_4 = virg($_POST['h9_4']);
-    } else {
-        // Ação caso 'h9_4' não esteja definido ou esteja vazio
-        $h9_4 = 0;
-    }
-
-    if (isset($_POST['g9_4']) && !empty($_POST['g9_4'])) {
-        $g9_4 = virg($_POST['g9_4']);
-    } else {
-        // Ação caso 'g9_4' não esteja definido ou esteja vazio
-        $g9_4 = 0;
-    }
-
-    if (isset($_POST['c9_4']) && !empty($_POST['c9_4'])) {
-        $c9_4 = virg($_POST['c9_4']);
-    } else {
-        // Ação caso 'c9_4' não esteja definido ou esteja vazio
-        $c9_4 = 0;
-    }
-
-    if (isset($_POST['i9_4']) && !empty($_POST['i9_4'])) {
-        $i9_4 = virg($_POST['i9_4']);
-    } else {
-        // Ação caso 'i9_4' não esteja definido ou esteja vazio
-        $i9_4 = 0;
-    }
-
-    if (isset($_POST['a9_4']) && !empty($_POST['a9_4'])) {
-        $a9_4 = virg($_POST['a9_4']);
-    } else {
-        // Ação caso 'a9_4' não esteja definido ou esteja vazio
-        $a9_4 = 0;
-    }
-
-    if (isset($_POST['ef9_4']) && !empty($_POST['ef9_4'])) {
-        $ef9_4 = virg($_POST['ef9_4']);
-    } else {
-        // Ação caso 'ef9_4' não esteja definido ou esteja vazio
-        $ef9_4 = 0;
-    }
-
-    if (isset($_POST['r9_4']) && !empty($_POST['r9_4'])) {
-        $r9_4 = virg($_POST['r9_4']);
-    } else {
-        $r9_4 = 0;
-    }
-
     //media das materias do nono ano
     if ($d9 == 0) {
 
         $ef9 = 0;
     } else {
 
-        $ef9 = ((float)$ef9_1 + (float)$ef9_2 + (float)$ef9_3 + (float)$ef9_4) / $d9;
+        $ef9 = ((float)$ef9_1 + (float)$ef9_2 + (float)$ef9_3) / $d9;
     }
-    $lp9 = ($lp9_1 + $lp9_2 + $lp9_3 + $lp9_4) / $n9;
-    $ma9 = ($m9_1 + $m9_2 + $m9_3 + $m9_4) / $n9;
-    $hi9 = ($h9_1 + $h9_2 + $h9_3 + $h9_4) / $n9;
-    $ge9 = ($g9_1 + $g9_2 + $g9_3 + $g9_4) / $n9;
-    $ci9 = ($c9_1 + $c9_2 + $c9_3 + $c9_4) / $n9;
-    $li9 = ($i9_1 + $i9_2 + $i9_3 + $i9_4) / $n9;
-    $ar9 = ($a9_1 + $a9_2 + $a9_3 + $a9_4) / $n9;
-    $re9 = ($r9_1 + $r9_2 + $r9_3 + $r9_4) / $n9;
+    $lp9 = ($lp9_1 + $lp9_2 + $lp9_3) / 3;
+    $ma9 = ($m9_1 + $m9_2 + $m9_3) / 3;
+    $hi9 = ($h9_1 + $h9_2 + $h9_3) / 3;
+    $ge9 = ($g9_1 + $g9_2 + $g9_3) / 3;
+    $ci9 = ($c9_1 + $c9_2 + $c9_3) / 3;
+    $li9 = ($i9_1 + $i9_2 + $i9_3) / 3;
+    $ar9 = ($a9_1 + $a9_2 + $a9_3) / 3;
+    $re9 = ($r9_1 + $r9_2 + $r9_3) / 3;
 } else {
 
     if (empty($_POST['ef9_4'])) {
 
-        $d = 3;
+        $d -= 1;
         $ef9 = 0;
     } else {
 
@@ -281,7 +212,13 @@ if (isset($_POST['lp9_1'])) {
 }
 
 //Média de todos os anos
-$ef = ((float)$ef6 + (float)$ef7 + (float)$ef8 + (float)$ef9) / $d;
+if($d == 0){
+
+    $ef = 0;
+}else{
+
+    $ef = ((float)$ef6 + (float)$ef7 + (float)$ef8 + (float)$ef9) / $d;
+}
 $lp = ($lp6 + $lp7 + $lp8 + $lp9) / 4;
 $ar = ($ar6 + $ar7 + $ar8 + $ar9) / 4;
 $li = ($li6 + $li7 + $li8 + $li9) / 4;
