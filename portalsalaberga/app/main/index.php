@@ -1201,37 +1201,24 @@ function urlBase64ToUint8Array(base64String) {
                 });
             </script>
 
-            <!--
+        
 <section id="eventos" class="py-24 fade-in">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12 text-ceara-green">Próximos Eventos</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-calendar-alt text-3xl text-ceara-orange mr-4"></i>
-                            <div>
-                                <h3 class="font-bold text-xl mb-1 text-ceara-green">Feira de Ciências</h3>
-                                <p class="text-gray-600">15 de Outubro, 2023</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 mb-4">Venha conhecer os projetos inovadores dos nossos alunos!</p>
-                        <a href="#"
-                            class="inline-block bg-ceara-white text-ceara-green border border-ceara-green hover:bg-ceara-green hover:text-ceara-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
-                            <i class="fas fa-info-circle mr-1"></i> Saiba mais
-                        </a>
-                    </div>
+                  
 
                     <div class="bg-white rounded-lg shadow-lg p-6 hover-scale">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-user-graduate text-3xl text-ceara-orange mr-4"></i>
                             <div>
-                                <h3 class="font-bold text-xl mb-1 text-ceara-green">Processo Seletivo 2024</h3>
-                                <p class="text-gray-600">1 de Novembro, 2023</p>
+                                <h3 class="font-bold text-xl mb-1 text-ceara-green">Processo Seletivo 2025</h3>
+                                <p class="text-gray-600">29 de novembro, 2024</p>
                             </div>
                         </div>
-                        <p class="text-gray-700 mb-4">Inscrições abertas para o processo seletivo do próximo ano letivo!
+                        <p class="text-gray-700 mb-4">Edital para o processo seletivo do próximo ano letivo!
                         </p>
-                        <a href="edital.html"
+                        <a href="https://www.crede01.seduc.ce.gov.br/wp-content/uploads/sites/124/2024/11/EEEP-Salaberga-Torquato-Maranguape-Edital-Selecao-Alunos-2025.pdf" target="_blank"
                             class="inline-block bg-ceara-white text-ceara-green border border-ceara-green hover:bg-ceara-green hover:text-ceara-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
                             <i class="fas fa-file-alt mr-1"></i> Ler Edital
                         </a>
@@ -1240,8 +1227,11 @@ function urlBase64ToUint8Array(base64String) {
                 </div>
             </div>
 
-        -->
+   
             </section>
+
+
+            
 
             <section id="galeria" class="py-24 fade-in">
                 <div class="container mx-auto px-4">
