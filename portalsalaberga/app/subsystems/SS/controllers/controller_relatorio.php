@@ -29,6 +29,10 @@ if (isset($_POST['curso']) && (isset($_POST['tipo']))) {
         require_once('../views/relatorios/privadaCotas.php');
         privadaCotas($curso);
     }
+    if ($tipo == '7') {
+        require_once('../views/relatorios/usuarios.php');
+        publicaGeral($curso);
+    }
 } else {
     header('location:../views/inicio.php');
 }
