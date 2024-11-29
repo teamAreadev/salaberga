@@ -102,7 +102,7 @@ function publicaGeral($curso)
         // Definir cota
         if ($row['pcd'] == 1) {
             $cota = 'PCD';
-        } else if ($row['publica'] == 0 && $row['bairro'] == 1) {
+        } else if ($row['publica'] == 1 && $row['bairro'] == 1) {
             $cota = 'COSTISTA';
         } else {
             $cota = 'AC';
