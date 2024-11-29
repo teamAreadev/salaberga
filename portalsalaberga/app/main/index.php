@@ -219,6 +219,9 @@
             width: 100%;
             will-change: transform;
         }
+
+
+        
     </style>
 
 <body class="select-none"  x-data="{ 
@@ -346,16 +349,7 @@ function urlBase64ToUint8Array(base64String) {
         }
     </style>
     </head>
-
-    <body class="select-none">
-        <script type="text/javascript">
-            (function(d, t) {
-                var g = d.createElement(t),
-                    s = d.getElementsByTagName(t)[0];
-                g.src = "https://cdn.pushalert.co/integrate_3e3979b887cb8c83ce2f425dde988024.js";
-                s.parentNode.insertBefore(g, s);
-            }(document, "script"));
-        </script>
+        
         <header x-data="{ mobileMenuOpen: false, mobileDropdownOpen: false, init() { this.$watch('mobileMenuOpen', value => { if (value) { document.body.classList.add('overflow-hidden'); } else { document.body.classList.remove('overflow-hidden'); } }); window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { this.mobileMenuOpen = false; } }); } }" class="bg-ceara-green text-ceara-white sticky top-0 z-50 shadow-md">
             <div class="container mx-auto px-4">
                 <nav class="flex items-center justify-between flex-wrap py-4">
