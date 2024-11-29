@@ -148,11 +148,7 @@ function cadastrar2($nome, $c1, $c2, $dn, $lp, $ar, $li, $ma, $ci, $ge, $hi, $re
 
 function logar($nome, $senha)
 {
-    session_start();
-
-        require_once('eeep_luiza_de_teodoro/SS/config/connect.php');
-    
-    
+    require_once('../config/connect.php');
     //verificando se os dados estão no sistema 
     $result_logar = $conexao->prepare("SELECT * FROM usuario WHERE UserName = :nome AND senha = MD5(:senha)");
     $result_logar->bindValue(':nome', $nome);
@@ -168,7 +164,7 @@ function logar($nome, $senha)
             $_SESSION['status'] = $key['status'];
             return $login = $key['status'];
         } else {
-            return  $login = 2;
+            return $login = 2;
         }
     }
 }

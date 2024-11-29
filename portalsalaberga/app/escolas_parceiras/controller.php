@@ -27,10 +27,24 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && isset($_POST['escola'])) 
             break;
 
         case 'EEEP Luiza de Teodoro':
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
-            header('Location: ./eeep_luiza_de_teodoro/controllers/autentica.php?email='.$email.'&senha='.$senha);
-            
+            require_once('../escolas_parceiras/eeep_luiza_de_teodoro/SS/models/model.php');
+            $key = logar_escola($nome, $senha);
+
+            if ($key == 1) {
+
+                header('location:eeep_luiza_de_teodoro/SS/views/inicio_ADM.php');
+            } else if ($key == 0) {
+
+                header('location:eeep_luiza_de_teodoro/SS/views/inicio.php');
+            } else if ($key == 2) {
+
+                header('location:index.php?erro');
+            } else {
+
+                header('location:index.php?teste');
+            }
+            break;
+
         case 'EEEP Antônio Valmir':
             require_once('../escolas_parceiras/eeep_antonio_valmir/SS/models/model.php');
             $key = logar_escola($nome, $senha);
