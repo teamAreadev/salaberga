@@ -11,7 +11,7 @@ if (isset($_POST['id_usuario']) && !empty($_POST['id_usuario'])) {
 
         case 1:
 
-            header('location:../../views/inicio_ADM.php?usuario_excluido_sucesso');
+            header('location:../../views/success_banco.php?usuario_excluido_sucesso');
             break;
         case 2:
 

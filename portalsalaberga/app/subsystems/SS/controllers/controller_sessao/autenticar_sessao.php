@@ -21,12 +21,11 @@ if (isset($_SESSION['login']) && $_SESSION['login'] && $_SESSION['status'] == 0)
     if (!isCurrentPage('inicio_ADM.php') && !isCurrentPage('index.php')) {
         header('Location: ../views/inicio_ADM.php');
         exit();
-        }
-    } else if (!isset($_SESSION['login'])) { 
-    if (!isCurrentPage('login.php')) {
-    
-            header('../../../../main/views/autenticação/login.php');
-            exit(); 
+    }
+} else if (!isset($_SESSION['login']) || !$_SESSION['login']) {
+    if (!isCurrentPage('index.php')) {
+        header('Location: ../../../index.php'); // Corrigido para um nível acima
+        exit();
     }
 }
 ?>
