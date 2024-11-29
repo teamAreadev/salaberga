@@ -20,7 +20,6 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['escola']))
                         header('location:eeep_prof_francisco_aristoteles/SS/views/inicio.php');
                         exit();
                     }
-
                 case 2:
                     header('location:index.php?erro');
                     exit();
