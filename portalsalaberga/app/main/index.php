@@ -221,28 +221,7 @@
         }
     </style>
 
-<body class="select-none">
-    <script type="text/javascript">
-        (function(d, t) {
-            var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-            g.src = "https://cdn.pushalert.co/integrate_3e3979b887cb8c83ce2f425dde988024.js";
-            s.parentNode.insertBefore(g, s);
-        }(document, "script"));
-    </script>
-    </head>
-    <style>
-        [x-cloak] {
-            display: none !important;
-        }
-
-        .header-active {
-            color: #FFA500 !important;
-        }
-    </style>
-    </head>
-
-    <body class="select-none"  x-data="{ 
+<body class="select-none"  x-data="{ 
     mobileMenuOpen: false, 
     showEditalMessage: true,
     async remindLater() {
@@ -348,6 +327,27 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 </script>
+    <script type="text/javascript">
+        (function(d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.src = "https://cdn.pushalert.co/integrate_3e3979b887cb8c83ce2f425dde988024.js";
+            s.parentNode.insertBefore(g, s);
+        }(document, "script"));
+    </script>
+    </head>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        .header-active {
+            color: #FFA500 !important;
+        }
+    </style>
+    </head>
+
+    <body class="select-none">
         <script type="text/javascript">
             (function(d, t) {
                 var g = d.createElement(t),
@@ -441,7 +441,7 @@ function urlBase64ToUint8Array(base64String) {
         <!-- Links do Dropdown -->
         <div class="divide-y divide-gray-100">
             <!-- Link Salaberga -->
-            <a href="../main/views/autenticação/precadastro.php"
+            <a href="../main/views/autenticação/login.php"
                @click="isOpen = false"
                class="group flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-ceara-green/5 hover:to-ceara-orange/5 transition-all duration-300">
                 <!-- Ícone -->
@@ -501,7 +501,7 @@ function urlBase64ToUint8Array(base64String) {
             <div x-show="mobileMenuOpen"
      x-cloak
      @click.away="mobileMenuOpen = false"
-     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform -translate-y-4"
      x-transition:enter-end="opacity-100 transform translate-y-0"
      x-transition:leave="transition ease-in duration-200"
@@ -1723,6 +1723,11 @@ function urlBase64ToUint8Array(base64String) {
         });
 
     </script> -->
+
+
+        <style>*:focus {
+        outline: none;
+    }</style>
     </body>
 
 </html>
