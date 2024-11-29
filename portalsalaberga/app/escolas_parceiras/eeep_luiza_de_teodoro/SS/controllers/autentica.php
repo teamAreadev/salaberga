@@ -1,17 +1,17 @@
 <?php
-
+session_start();
 //se existe um POST email e password e não estiver vazio o POST email e password
-if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) && !empty($_POST['senha'])) {
+if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
 
     //requerindo o arquivo model.php
     
     //criando as variaveis
-    $nome = $_POST['nome'];
+    $email = $_POST['email'];
     $senha = $_POST['senha'];
     
     //criando a variavel test para chamar a função logar
     require_once('../models/model.php');
-    $login = logar($nome, $senha);
+    $login = logar($email, $senha);
     switch ($login) {
         //caso a variavel fosse igual a certo
         case 0:
@@ -25,7 +25,7 @@ if (isset($_POST['nome']) && isset($_POST['senha']) && !empty($_POST['nome']) &&
             }
         //caso a variavel fosse igual a erro
         case 2:
-            header('location:../index.php?erro');
+            header('Location: ../../../main/views/autenticação/login.php');
             exit();
     }
 }
@@ -34,7 +34,8 @@ if (isset($_GET['sair'])) {
     
     // Destroi todas as sessões
     session_unset();
-    header('Location: ../index.php');
+    session_destroy();
+    header('Location:../../../index.php');
     exit();
 }
     
