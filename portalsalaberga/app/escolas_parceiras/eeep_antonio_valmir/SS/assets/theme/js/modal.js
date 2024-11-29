@@ -21,10 +21,10 @@ function showReportsModal() {
                     <label for="course" class="block text-sm font-medium text-gray-700 mb-2">Curso</label>
                     <select required id="course" name="curso" class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
                         <option value="">Selecione um curso</option>
-                        <option value="1">Enfermagem</option>
-                        <option value="2">Informática</option>
-                        <option value="3">Administração</option>
-                        <option value="4">Edificações</option>
+                        <option value="1">Administração</option>
+                        <option value="2">Edificações</option>
+                        <option value="3">Eletromecânica</option>
+                        <option value="4">Informática</option>
                     </select>
                 </div>
 
@@ -238,10 +238,10 @@ function showResultsModal() {
                     <select required id="course" name="curso" 
                         class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
                         <option value="">Selecione um curso</option>
-                        <option value="1">Enfermagem</option>
-                        <option value="2">Informática</option>
-                        <option value="3">Administração</option>
-                        <option value="4">Edificações</option>
+                        <option value="1">Administração</option>
+                        <option value="2">Edificações</option>
+                        <option value="3">Eletromecânica</option>
+                        <option value="4">Informática</option>
                     </select>
                 </div>
 
@@ -424,22 +424,6 @@ const modalConfig = {
 };
 
 // Funções para abrir os modais
-function enfermagemPub() {
-    showModal('Enfermagem', 'Escola Pública');
-}
-
-function enfermagemPriv() {
-    showModal('Enfermagem', 'Escola Privada');
-}
-
-function informaticaPub() {
-    showModal('Informática', 'Escola Pública');
-}
-
-function informaticaPriv() {
-    showModal('Informática', 'Escola Privada');
-}
-
 function administracaoPub() {
     showModal('Administração', 'Escola Pública');
 }
@@ -454,6 +438,22 @@ function edificacoesPub() {
 
 function edificacoesPriv() {
     showModal('Edificações', 'Escola Privada');
+}
+
+function eletromecanicaPub() {
+    showModal('Eletromecânica', 'Escola Pública');
+}
+
+function eletromecanicaPriv() {
+    showModal('Eletromecânica', 'Escola Privada');
+}
+
+function informaticaPubPub() {
+    showModal('Informática', 'Escola Pública');
+}
+
+function informaticaPriv() {
+    showModal('Informática', 'Escola Privada');
 }
 
 // Função genérica para mostrar modal
@@ -506,25 +506,17 @@ function createModalContent(courseName, schoolType) {
     ];
 
     switch (courseName) {
-        case 'Enfermagem':
-            return createEnfermagemForm(schoolType, subjects);
-        case 'Informática':
-            return createInformaticaForm(schoolType, subjects);
         case 'Administração':
             return createAdministracaoForm(schoolType, subjects);
         case 'Edificações':
             return createEdificacoesForm(schoolType, subjects);
+        case 'Eletromecânica':
+            return createEletromecanicaForm(schoolType, subjects);
+        case 'Informática':
+            return createInformaticaForm(schoolType, subjects);
         default:
             return '';
     }
-}
-
-function createEnfermagemForm(schoolType, subjects) {
-    return createForm('Enfermagem', schoolType, subjects);
-}
-
-function createInformaticaForm(schoolType, subjects) {
-    return createForm('Informática', schoolType, subjects);
 }
 
 function createAdministracaoForm(schoolType, subjects) {
@@ -535,21 +527,29 @@ function createEdificacoesForm(schoolType, subjects) {
     return createForm('Edificações', schoolType, subjects);
 }
 
+function createEletromecanicaForm(schoolType, subjects) {
+    return createForm('Eletromecânica', schoolType, subjects);
+}
+
+function createInformaticaForm(schoolType, subjects) {
+    return createForm('Informática', schoolType, subjects);
+}
+
 
 // Função para criar o conteúdo do modal com formulários específicos
-function createModalContent(courseName, schoolType) {
-    switch (courseName) {
-        case 'Enfermagem':
-            return createEnfermagemForm(schoolType);
-        case 'Informática':
-            return createInformaticaForm(schoolType);
-        case 'Administração':
-            return createAdministracaoForm(schoolType);
-        case 'Edificações':
-            return createEdificacoesForm(schoolType);
-        default:
-            return '';
-    }
+function createModalContent(courseName, schoolType) {  
+    switch (courseName) {  
+        case 'Administração':  
+            return createAdministracaoForm(schoolType);  
+        case 'Edificações':  
+            return createEdificacoesForm(schoolType);  
+        case 'Eletromecânica':  
+            return createEletromecanicaForm(schoolType);  
+        case 'Informática':  
+            return createInformaticaForm(schoolType);  
+        default:  
+            return '';  
+    }  
 }
 function maskNascimento(input) {
     // Remove non-numeric characters
@@ -631,12 +631,12 @@ function removeAccents(input) {
     input.setSelectionRange(cursorPosition, cursorPosition);
 }
 
-function createEnfermagemForm(schoolType) {
+function createAdministracaoForm(schoolType) {
     return `
-    <form id="EnfermagemForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+    <form id="AdministracaoForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
         <!-- Cabeçalho -->
         <div class="bg-[#DC2626] p-3 rounded-t-xl">
-            <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Enfermagem</h2>
+            <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Administração</h2>
         </div>
 
         <!-- Informações Pessoais -->
@@ -652,8 +652,8 @@ function createEnfermagemForm(schoolType) {
 </div>
 
             <div class="flex flex-col md:col-span-1">
-                <input type="text" name="curso" value="Enfermagem" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-                <input type="hidden" name="curso" value="Enfermagem">
+                <input type="text" name="curso" value="Administração" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+                <input type="hidden" name="curso" value="Administração">
             </div>
 
             <div class="flex flex-col md:col-span-1">
@@ -786,7 +786,7 @@ function createEnfermagemForm(schoolType) {
             </div>
         </div>
     <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-        <button type="button" onclick="closeModalAndRedirect('EnfermagemForm', 'inicio.php');" 
+        <button type="button" onclick="closeModalAndRedirect('AdministracaoForm', 'inicio.php');" 
             class="px-6 py-2.5 border-2 border-red-600 rounded-md text-red-600 hover:bg-red-600/10 text-base flex items-center font-medium">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -1152,12 +1152,12 @@ function closeModalAndRedirect(formId, redirectUrl) {
     document.getElementById('nonoAnoModal').classList.add('hidden');
     window.location.href = redirectUrl;
 }
-function createInformaticaForm(schoolType) {
+function createEdificacoesForm(schoolType) {
     return `
-<form id="InformaticaForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+<form id="EdificaçoesForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
     <!-- Cabeçalho -->
     <div class="bg-[#4a90e2] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Informatica</h2>
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Edificações</h2>
     </div>
 
     <!-- Informações Pessoais -->
@@ -1172,8 +1172,8 @@ function createInformaticaForm(schoolType) {
 </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Informática" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Informática">
+            <input type="text" name="curso" value="Edificações" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Edificações">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1293,7 +1293,7 @@ function createInformaticaForm(schoolType) {
         </div>
     </div>
 <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-        <button type="button" onclick="closeModalAndRedirect('InformaticaForm', 'inicio.php');" 
+        <button type="button" onclick="closeModalAndRedirect('EdificaçoesForm', 'inicio.php');" 
             class="px-6 py-2.5 border-2 border-[#4a90e2] rounded-md text-[#4a90e2] hover:bg-[#4a90e2]/10 text-base flex items-center font-medium">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -1489,12 +1489,12 @@ function createInformaticaForm(schoolType) {
 `;
 }
 // Função específica para o formulário de Administração
-function createAdministracaoForm(schoolType) {
+function createEletromecanicaForm(schoolType) {
     return `
-<form id="AdministracaoForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+<form id="EletronicaForm" action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
     <!-- Cabeçalho -->
     <div class="bg-[#008000] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Administração</h2>
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Eletromecânica</h2>
     </div>
 
     <!-- Informações Pessoais -->
@@ -1510,8 +1510,8 @@ function createAdministracaoForm(schoolType) {
 </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Administração" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Administração">
+            <input type="text" name="curso" value="Eletromecânica" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="Eletromecânica">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1631,7 +1631,7 @@ function createAdministracaoForm(schoolType) {
     </div>
 
  <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-        <button type="button" onclick="closeModalAndRedirect('AdministracaoForm', 'inicio.php');" 
+        <button type="button" onclick="closeModalAndRedirect('EletromecanicaForm', 'inicio.php');" 
             class="px-6 py-2.5 border-2 border-[#008000] rounded-md text-[#008000] hover:bg-[#008000]/10 text-base flex items-center font-medium">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -1831,12 +1831,12 @@ function createAdministracaoForm(schoolType) {
 }
 
 // Função específica para o formulário de Edificações
-function createEdificacoesForm(schoolType) {
+function createInformaticaForm(schoolType) {
     return `
-<form id="EdificacoesForm"  action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
+<form id="InformaticaForm"  action="../controllers/controller.php" method="POST" class="w-auto bg-[--ceara-white] rounded-xl shadow-md">
     <!-- Cabeçalho -->
     <div class="bg-[#4a4a4a] p-3 rounded-t-xl">
-        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Edificações</h2>
+        <h2 class="text-3xl font-bold text-[--ceara-white] text-center mb-2">Formulário de Informatica</h2>
     </div>
 
     <!-- Informações Pessoais -->
@@ -1852,8 +1852,8 @@ function createEdificacoesForm(schoolType) {
 </div>
 
         <div class="flex flex-col md:col-span-1">
-            <input type="text" name="curso" value="Edificações" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
-            <input type="hidden" name="curso" value="Edificações">
+            <input type="text" name="curso" value="Informática" class="px-3 py-1.5 bg-gray-50 border border-[--gray-600] rounded-md w-full" disabled>
+            <input type="hidden" name="curso" value="  Informática">
         </div>
 
         <div class="flex flex-col md:col-span-1">
@@ -1972,7 +1972,7 @@ function createEdificacoesForm(schoolType) {
         </div>
     </div>
 <div class="flex justify-center space-x-4 mt-4 pt-3 border-t px-4 pb-4">
-        <button type="button" onclick="closeModalAndRedirect('EdificacoesForm', 'inicio.php');" 
+        <button type="button" onclick="closeModalAndRedirect('InformaticaForm', 'inicio.php');" 
             class="px-6 py-2.5 border-2 border-[#4a4a4a] rounded-md text-[#4a4a4a] hover:bg-[#4a4a4a]/10 text-base flex items-center font-medium">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -2229,14 +2229,14 @@ function showError(message) {
 }
 
 // Exporta as funções necessárias
-window.enfermagemPub = enfermagemPub;
-window.enfermagemPriv = enfermagemPriv;
-window.informaticaPub = informaticaPub;
-window.informaticaPriv = informaticaPriv;
 window.administracaoPub = administracaoPub;
 window.administracaoPriv = administracaoPriv;
 window.edificacoesPub = edificacoesPub;
 window.edificacoesPriv = edificacoesPriv;
+window.eletromecanicaPub = eletromecanicaPub;
+window.eletromecanicaPriv = eletromecanicaPriv;
+window.informaticaPub = informaticaPub;
+window.informaticaPriv = informaticaPriv;
 
 
 
