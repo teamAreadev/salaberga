@@ -7,21 +7,24 @@ function publicaGeral($curso)
 
     if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
         $n = 122;
+        $p = 0; // ñ quebra a linha caso seja cliente 
     } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
         $n = 105;
+        $p = 1; // quebra a linha caso seja cliente 
     }
 
     if (isset($_SESSION['status']) && $_SESSION['status'] == 1){
     $stmtSelect = $conexao->prepare("
-        SELECT candidato.id_candidato, candidato.id_cadastrador, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+        SELECT candidato.id_candidato,candidato.id_cadastrador, usuario.nome_user, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
+        INNER JOIN usuario ON candidato.id_cadastrador = usuario.id
         WHERE candidato.publica = 1
         AND candidato.id_curso1_fk = :curso
         ORDER BY nota.media DESC,
         candidato.data_nascimento DESC,
         nota.l_portuguesa DESC,
-        nota.matematica DESC
+        nota.matematica DESC;
     ");
     } else if (isset($_SESSION['status']) && $_SESSION['status'] == 0){
         $stmtSelect = $conexao->prepare("
@@ -114,11 +117,11 @@ function publicaGeral($curso)
         $pdf->Cell($n, 7, strToUpper(($row['nome'])), 1, 0, 'L', true);
         $pdf->Cell(30, 7, $curso, 1, 0, 'L', true);
         $pdf->Cell(18, 7, $escola, 1, 0, 'L', true);
-        $pdf->Cell(26, 7, $cota, 1, 0, 'L', true);
+        $pdf->Cell(26, 7, $cota, 1, $p, 'L', true); // verificar parâmetro 'p' na parte superior do relatório
         if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
             $pdf->Cell(20, 7, $row['id_candidato'], 1, 0, 'C', true);
             $pdf->Cell(15, 7, number_format($row['media'], 2), 1, 0, 'C', true);
-            $pdf->Cell(35, 7, $row['id_cadastrador'], 1, 1, 'C', true);
+            $pdf->Cell(35, 7, $row['nome_user'], 1, 1, 'C', true);
         }
         $classificacao++;
     }
