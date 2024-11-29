@@ -147,20 +147,19 @@ function logar($email, $senha)
     $result_logar->bindValue(':email', $email);
     $result_logar->bindValue(':senha', $senha);
     $result_logar->execute();
+    $row_count = $result_logar->rowCount();
     $result = $result_logar->fetchAll(PDO::FETCH_ASSOC);
-
+    
     // Se encontrou algum resultado
-    if (!empty($result)) {
-        $key = $result[0]; // Assumindo que sempre haverá apenas um usuário correspondente
+    if ($row_count > 0) {
+         // Assumindo que sempre haverá apenas um usuário correspondente
         $_SESSION['login'] = true;
-        $_SESSION['status'] = $key['status'];
-        $_SESSION['id_cadastrador'] = $key['id'];
-        header('Location: ../views/inicio.php'); // Redirecionar para uma página específica após o login
-        exit();
+        $_SESSION['status'] = $result[0]['status'];
+        $_SESSION['id_cadastrador'] = $result[0]['id'];
+        return $result[0]['status'];
     } else {
         // Se não encontrou resultados, redirecionar para a página inicial
-        header('Location: ../../../index.php');
-        exit();
+        return 2;
     }
 }
 

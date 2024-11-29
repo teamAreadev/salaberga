@@ -14,7 +14,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) 
     // Chama a função logar
     $login = logar($email, $senha);
     
-    switch ($_SESSION['status']) {
+    switch ($login) {
         case 0:
             header('Location: ../views/inicio.php');
             exit();
@@ -22,7 +22,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) 
             header('Location: ../views/inicio_ADM.php');
             exit();
         default:
-            header('Location: ../../../index.php');
+            header('Location: ../../../main/views/autenticacao/login.php?login=erro');
             exit();
     }
 }
@@ -33,7 +33,7 @@ if (isset($_GET['sair'])) {
     session_start();
     session_unset();
     session_destroy();
-    header('Location: ../../../main/index.php'); // Redireciona para a página de escolas parceiras
+    header('Location: ../../../main/views/autenticacao/login.php'); // Redireciona para a página de escolas parceiras
     echo '<script src="../assets/js/clearCache.js"></script>';
     echo '<script>window.location.href = "../../../escolas_parceiras.php";</script>';
     exit();

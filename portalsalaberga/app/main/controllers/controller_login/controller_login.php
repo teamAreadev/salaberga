@@ -31,11 +31,11 @@ if (isset($_POST['login']) && isset($_POST['Email']) && isset($_POST['Password']
 
     if ($login == 0) {
 
-        header('location:../../../subsystems/SS/index.php');
+        header('location:../../../subsystems/SS/index.php?');
         exit();
     } else if ($login == 1) {
 
-        header('location:../../../subsystems/SS/index.php');
+        header('location:../../../subsystems/SS/index.php?');
         exit();
     } else if ($login == 2) {
 
