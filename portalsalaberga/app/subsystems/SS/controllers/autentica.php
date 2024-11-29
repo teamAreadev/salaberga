@@ -12,6 +12,16 @@ if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) 
     //criando a variavel test para chamar a função logar
     require_once('../models/model.php');
     $login = logar($email, $senha);
+
+    if($login == 0){
+
+        $login = 2;
+
+    }else if($login == 2){
+
+        $login = 0;
+    }
+
     switch ($login) {
         //caso a variavel fosse igual a certo
         case 0:
@@ -25,7 +35,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) 
             }
         //caso a variavel fosse igual a erro
         case 2:
-            header('Location: ../../../main/views/autenticação/login.php');
+            header('Location: ../../../main/views/autenticação/login.php?login=erro');
             exit();
     }
 }
