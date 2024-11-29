@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 function cadastrarUsuario($nomeC, $email, $senha, $status)
 {
     require_once('../config/connect.php');
@@ -161,8 +160,10 @@ function logar($email, $senha)
             $_SESSION['status'] = $key['status'];
             $_SESSION['id_cadastrador'] = $key['id'];
             return $login = $key['status'];
+
         } else {
-            return $login = 2;
+
+            return  $login = 2;
         }
     }
 }

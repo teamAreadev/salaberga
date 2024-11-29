@@ -1,11 +1,11 @@
 <?php
 
-if (isset($_POST['id_usuario']) && !empty($_POST['id_usuario'])) {
+if (isset($_POST['nome_usuario']) && !empty($_POST['nome_usuario'])) {
 
-    echo $id_usuario = $_POST['id_usuario'];
+    echo $nome_usuario = $_POST['nome_usuario'];
 
     require_once('../../models/model.php');
-    $result = excluir_usuairo($id_usuario);
+    $result = excluir_usuairo($nome_usuario);
 
     switch ($result) {
 
