@@ -1,5 +1,5 @@
 <?php
-function privadaAC()
+function usuarios()
 {
     require_once('../config/connect.php');
     
@@ -18,7 +18,7 @@ function privadaAC()
     $pdf->Image('../assets/images/logo.png', 8, 8, 15, 0, 'PNG');
     $pdf->SetFont('Arial', 'B', 25);
     $pdf->Cell(65, 8, 'Usuarios', 0, 1, 'C');
-    $pdf->SetFont('Arial', 'b', 12);
+    $pdf->SetFont('Arial', 'B', 12);
     $pdf->Cell(70, 5, 'Relatorio de usuario', 0, 1, 'C');
     $pdf->SetFont('Arial', '', 12);
     $pdf->Cell(210, 10, '', 0, 1, 'C');
@@ -43,14 +43,7 @@ function privadaAC()
         $pdf->SetFillColor($cor, $cor, $cor);
 
         // Definir status
-        switch ($row['status']) {
-            case 1:
-                $status = 'Admin';
-                break;
-            case 2:
-                $status = 'Cliente';
-                break;
-        }
+        $status = ($row['status'] == 1) ? 'Admin' : 'Cliente';
 
         // Imprimir linha no PDF
         $pdf->Cell(10, 7, $row['id'], 1, 0, 'C', true);
@@ -62,4 +55,4 @@ function privadaAC()
     $pdf->Output('usuario.pdf', 'I');
 }
 
-privadaAC();
+usuarios();

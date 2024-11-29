@@ -291,6 +291,11 @@ function notas($id)
     header('Location: ../views/atualizar_nota.php');
     exit();
 }
+function lista_usuario(){
+    require_once('../config/connect.php');
+    $stmtSelect = $conexao->query('select * from usuario');
+    return $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
+}
 
 function excluir_candidato($id_candidato)
 {
@@ -323,18 +328,18 @@ function excluir_candidato($id_candidato)
     }
 }
 
-function excluir_usuairo($id_usuairo)
+function excluir_usuario($nome)
 {
     require_once('../../config/connect.php');
-    $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE id = :id_usuario");
-    $stmtCheck->bindValue(':id_usuario', $id_usuario);
+    $stmtCheck = $conexao->prepare("SELECT * FROM usuario WHERE nome = :nome");
+    $stmtCheck->bindValue(':nome', $nome);
     $stmtCheck->execute();
     $row_count = $stmtCheck->rowCount();
 
     if ($row_count > 0) {
 
-        $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE id = :id_usuario1");
-        $stmt_excluir_usuario->bindValue(':id_usuario1', $id_usuario);
+        $stmt_excluir_usuario = $conexao->prepare("DELETE FROM usuario WHERE nome = :nome1");
+        $stmt_excluir_usuario->bindValue(':nome1', $nome);
         $stmt_excluir_usuario->execute();
 
         if ($stmt_excluir_usuario) {

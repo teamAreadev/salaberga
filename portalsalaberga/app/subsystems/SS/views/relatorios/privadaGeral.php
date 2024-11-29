@@ -1,5 +1,5 @@
 <?php
-function privadaAC($curso)
+function privadaGeral($curso)
 {
     require_once('../config/connect.php');
 
@@ -126,4 +126,4 @@ function privadaAC($curso)
     $pdf->Output('classificacao.pdf', 'I');
 }
 
-privadaAC($curso);
+privadaGeral($curso);
