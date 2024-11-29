@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 // Pega o nome do arquivo atual
 $current_page = basename($_SERVER['PHP_SELF']);
 
@@ -25,7 +24,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] && $_SESSION['status'] == 0)
     }
 } else if (!isset($_SESSION['login']) || !$_SESSION['login']) {
     if (!isCurrentPage('index.php')) {
-        header('Location: ../../../../../index.php');
+        header('Location: ../../../index.php'); // Corrigido para um nível acima
         exit();
     }
 }

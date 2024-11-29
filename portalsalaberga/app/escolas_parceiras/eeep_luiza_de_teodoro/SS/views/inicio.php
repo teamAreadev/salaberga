@@ -2,8 +2,6 @@
 require_once('../controllers/controller_sessao/autenticar_sessao.php');
 require_once('../controllers/controller_sessao/verificar_sessao.php');
 verificarSessao(600);
-$refreshTime = 5;
-header("Refresh: $refreshTime");
 ?>
 
 <!DOCTYPE html>

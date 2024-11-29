@@ -243,6 +243,16 @@
     </head>
 
     <body class="select-none">
+    <script>
+        //Adiciona um novo estado no histórico, assim o botão de voltar não vai sair da página atual
+        window.history.pushState(null, '', window.location.href);
+
+        // Escuta o evento de popstate, que é acionado quando o usuário tenta voltar
+        window.onpopstate = function() {
+            // Redireciona o usuário para a página desejada
+            window.location.href = ''; // Substitua pelo URL da página que você deseja
+        };
+    </script>
         <script type="text/javascript">
             (function(d, t) {
                 var g = d.createElement(t),

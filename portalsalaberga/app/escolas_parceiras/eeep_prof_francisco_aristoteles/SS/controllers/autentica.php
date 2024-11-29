@@ -28,12 +28,16 @@ if (isset($_GET['email']) && isset($_GET['senha']) && !empty($_GET['email']) && 
 }
 
 // Verifica se o usuário deseja sair
-
+ 
 if (isset($_GET['sair'])) {
     session_start();
     session_unset();
     session_destroy();
     header('Location: ../../../index.php'); // Redireciona para a página de escolas parceiras
+    echo '<script src="../assets/js/clearCache.js"></script>';
+    echo '<script>window.location.href = "../../../escolas_parceiras.php";</script>';
     exit();
+
 }
+
 

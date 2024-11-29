@@ -216,7 +216,7 @@
         // Escuta o evento de popstate, que é acionado quando o usuário tenta voltar
         window.onpopstate = function() {
             // Redireciona o usuário para a página desejada
-            window.location.href = '../main/index.php'; // Substitua pelo URL da página que você deseja
+            window.location.href = ''; // Substitua pelo URL da página que você deseja
         };
     </script>
     <!-- Modal de Login -->
