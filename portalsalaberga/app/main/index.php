@@ -609,7 +609,7 @@
                             class="pl-13 space-y-4">
 
                             <!-- Salaberga -->
-                            <a href="../main/views/autenticação/precadastro.php"
+                            <a href="../main/views/autenticacao/login.php"
                                 @click="mobileMenuOpen = false"
                                 class="group flex items-center space-x-3 text-ceara-white hover:text-ceara-orange transition-all duration-300">
                                 <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-200">
