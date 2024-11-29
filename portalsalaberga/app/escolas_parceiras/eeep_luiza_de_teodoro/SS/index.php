@@ -4,6 +4,8 @@ require_once('./controllers/controller_sessao/verificar_sessao.php');
 verificarSessao(600);
 require_once('models/session_manager.php');
 lista();
+$refreshTime = 5;
+header("Refresh: $refreshTime");
 ?>
 
 <!DOCTYPE html>

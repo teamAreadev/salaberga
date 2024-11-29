@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 // Pega o nome do arquivo atual
 $current_page = basename($_SERVER['PHP_SELF']);
 
@@ -21,12 +22,11 @@ if (isset($_SESSION['login']) && $_SESSION['login'] && $_SESSION['status'] == 0)
     if (!isCurrentPage('inicio_ADM.php') && !isCurrentPage('index.php')) {
         header('Location: ../views/inicio_ADM.php');
         exit();
-        }
-    } else if (!isset($_SESSION['login'])) { 
-    if (!isCurrentPage('login.php')) {
-    
-            header('../../../../main/views/autenticação/login.php');
-            exit(); 
+    }
+} else if (!isset($_SESSION['login']) || !$_SESSION['login']) {
+    if (!isCurrentPage('index.php')) {
+        header('Location: ../../../../../index.php');
+        exit();
     }
 }
 ?>

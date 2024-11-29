@@ -365,7 +365,7 @@
                             </span>
                         </div>
                         <div class="space-y-4">
-                            <button onclick="openModal('EEEP Maria Carmem')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <button onclick="openModal(1)" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 Acessar Sistema
                             </button>
                             <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
@@ -402,7 +402,7 @@
                             </span>
                         </div>
                         <div class="space-y-4">
-                            <button onclick="openModal('EEEP Luiza de Teodoro')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <button onclick="openModal(2)" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 Acessar Sistema
                             </button>
                             <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
@@ -439,7 +439,7 @@
                             </span>
                         </div>
                         <div class="space-y-4">
-                            <button onclick="openModal('EEEP Antônio Valmir')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <button onclick="openModal(3)" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 Acessar Sistema
                             </button>
                             <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">
@@ -475,7 +475,7 @@
                             </span>
                         </div>
                         <div class="space-y-4">
-                            <button onclick="openModal('EEEP Professor Francisco')" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <button onclick="openModal(4)" class="block w-full bg-ceara-green hover:bg-ceara-green-dark text-white font-semibold py-4 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
                                 Acessar Sistema
                             </button>
                             <a href="#" class="block w-full text-ceara-green border-2 border-ceara-green hover:bg-ceara-green/5 font-semibold py-4 rounded-2xl transition-all duration-300">

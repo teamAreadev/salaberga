@@ -380,6 +380,35 @@ function showExcluirCandidatoModal() {
     });
 }
 
+function showExcluirUsuarioModal() {
+    Swal.fire({
+        title: '<h2 class="text-2xl font-bold text-gray-800 mb-4">Excluir usuario</h2>',
+        html: `
+        <form action="../controllers/controller_excluir/excluir_usuario.php" method="post" id="courseForm" class="bg-ceara-white rounded-lg p-6">
+            <div class="mb-4">
+             
+                <input type="text" id="courseName" name="id_usuario" required 
+                    class="form-input block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200" 
+                    placeholder="ID do usuário">
+            </div>
+
+         <div class="flex justify-center space-x-4 mt-8">
+                    <button type="button" class="px-6 py-2.5 bg-gray-400 text-ceara-white rounded-lg font-medium hover:bg-gray-500 transition-all duration-200 focus:ring-2 focus:ring-gray-300" onclick="Swal.close()">
+                        Cancelar
+                    </button>
+                    <button type="submit" onclick="submitForm()" class="px-6 py-2.5 bg-ceara-green text-ceara-white rounded-lg font-medium hover:bg-ceara-green-dark transition-all duration-200 focus:ring-2 focus:ring-ceara-green">
+                      Excluir
+                    </button>
+                </div>
+        </form>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: 'rounded-xl shadow-xl'
+        }
+    });
+}
 
 function submitCourse(event) {
     event.preventDefault(); // Impede o envio do formulário padrão
