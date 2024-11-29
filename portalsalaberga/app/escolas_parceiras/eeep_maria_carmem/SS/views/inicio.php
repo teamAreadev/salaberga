@@ -440,20 +440,19 @@ verificarSessao(600);
             padding-top: 10px;
         }
     </style>
-
-    <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
+  <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12" style="position:relative; margin-top: 100px">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <!-- Card Enfermagem -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Enfermagem</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Desenvolvimento de Sistemas</h3>
                     <div class="space-y-4">
-                        <button onclick="enfermagemPub()"
+                        <button onclick="desenvolvimentoSistemasPub()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Pública
                         </button>
-                        <button onclick="enfermagemPriv()"
+                        <button onclick="desenvolvimentoSistemasPriv()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-red-600 hover:to-red-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Privada
@@ -465,14 +464,14 @@ verificarSessao(600);
             <!-- Card Informática -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Informática</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Química</h3>
                     <div class="space-y-4">
-                        <button onclick="informaticaPub()"
+                        <button onclick="quimicaPub()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Pública
                         </button>
-                        <button onclick="informaticaPriv()"
+                        <button onclick="quimicaPriv()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a90e2] to-[#4a90e2] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6ba9e6] hover:to-[#6ba9e6] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Privada
@@ -484,14 +483,14 @@ verificarSessao(600);
             <!-- Card Administração -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Administração</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Secretariado</h3>
                     <div class="space-y-4">
-                        <button onclick="administracaoPub()"
+                        <button onclick="secretariadoPub()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Pública
                         </button>
-                        <button onclick="administracaoPriv()"
+                        <button onclick="secretariadoPriv()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-green-600 hover:to-green-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Privada
@@ -503,14 +502,14 @@ verificarSessao(600);
             <!-- Card Edificações -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
                 <div class="flex flex-col h-full justify-between">
-                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Edificações</h3>
+                    <h3 class="text-2xl lg:text-3xl text-gray-800 mb-6 lg:mb-8 text-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Têxtil</h3>
                     <div class="space-y-4">
-                        <button onclick="edificacoesPub()"
+                        <button onclick="textilPub()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Pública
                         </button>
-                        <button onclick="edificacoesPriv()"
+                        <button onclick="textilPriv()"
                             class="w-full py-2.5 lg:py-3 px-4 lg:px-6 bg-gradient-to-r from-[#4a4a4a] to-[#6a6a6a] text-white rounded-full text-base lg:text-lg transition-all duration-300 hover:from-[#6a6a6a] hover:to-[#8a8a8a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4a4a4a]"
                             style="font-family: 'Source Sans Pro', sans-serif; font-weight: 600; letter-spacing: 0.2px;">
                             Escola Privada
