@@ -37,7 +37,7 @@ function classificados($curso)
 
     //ac_publica
     $stmtSelect_ac_publica = $conexao->prepare("
-    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    SELECT DISTINCT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 1 
@@ -123,7 +123,7 @@ function classificados($curso)
 
     //bairro_publica
     $stmtSelect_bairro_publica = $conexao->prepare("
-    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    SELECT DISTINCT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 1 
@@ -210,7 +210,7 @@ function classificados($curso)
 
     //pcd
     $stmtSelect_pcd_publica = $conexao->prepare("
-    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    SELECT DISTINCT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.id_curso1_fk = :curso3
@@ -296,7 +296,7 @@ function classificados($curso)
 
     //ac_privada
     $stmtSelect_ac_privada = $conexao->prepare("
-    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    SELECT DISTINCT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 0 
@@ -385,7 +385,7 @@ function classificados($curso)
 
     //bairro_privada
     $stmtSelect_bairro_privada = $conexao->prepare("
-    SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+    SELECT DISTINCT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
     FROM candidato 
     INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
     AND candidato.publica = 0 

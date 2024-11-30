@@ -15,7 +15,7 @@ function privadaCotas($curso)
 
     if (isset($_SESSION['status']) && $_SESSION['status'] == 1){
     $stmtSelect = $conexao->prepare("
-        SELECT candidato.id_candidato,candidato.id_cadastrador, usuario.nome_user, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
+        SELECT DISTINCT candidato.id_candidato,candidato.id_cadastrador, usuario.nome_user, candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd, nota.media
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         INNER JOIN usuario ON candidato.id_cadastrador = usuario.id
@@ -30,7 +30,7 @@ function privadaCotas($curso)
     ");
     } else if (isset($_SESSION['status']) && $_SESSION['status'] == 0){
         $stmtSelect = $conexao->prepare("
-        SELECT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd
+        SELECT DISTINCT candidato.nome, candidato.id_curso1_fk, candidato.publica, candidato.bairro, candidato.pcd
         FROM candidato 
         INNER JOIN nota ON nota.candidato_id_candidato = candidato.id_candidato 
         WHERE candidato.publica = 1
