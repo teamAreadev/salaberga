@@ -1136,6 +1136,12 @@ function maskNota(input) {
         }
     }
 
+    // Caso especial para 10
+if (input.value === '10') {
+    input.value = '10';
+    return;
+}
+
     // Converte para número e verifica se é maior que 10
     const numericValue = parseFloat(value);
     if (numericValue > 10) {
