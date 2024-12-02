@@ -8,9 +8,11 @@ function publicaCotas($curso)
     if ((isset($_SESSION['status']) && $_SESSION['status'] == 1)){
         $n = 122;
         $p = 0; // ñ quebra a linha caso seja cliente 
+        $orientacao = 'L';
     } else if ((isset($_SESSION['status']) && $_SESSION['status'] == 0)){
         $n = 105;
         $p = 1; // quebra a linha caso seja cliente 
+        $orientacao = 'P';
     }
 
     if (isset($_SESSION['status']) && $_SESSION['status'] == 1){
@@ -45,7 +47,7 @@ function publicaCotas($curso)
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
 
     require_once('../assets/fpdf/fpdf.php');
-    $pdf = new FPDF('L', 'mm', 'A4');
+    $pdf = new FPDF($orientacao, 'mm', 'A4');
     $pdf->AddPage();
 
     // Cabeçalho com larguras ajustadas
