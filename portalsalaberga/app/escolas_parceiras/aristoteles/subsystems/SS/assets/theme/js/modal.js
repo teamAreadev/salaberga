@@ -673,7 +673,7 @@ function createEnfermagemForm(schoolType) {
             <div class="flex flex-col md:col-span-2">
                 <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full" required>
                     <option value="">Selecione um bairro</option>
-                    <option value="Outra Banda">Outra Banda</option>
+                    <option value="Cota">Cota</option>
                     <option value="Outros Bairros">Outros Bairros</option>
                 </select>
             </div>
@@ -1193,7 +1193,7 @@ function createInformaticaForm(schoolType) {
         <div class="flex flex-col md:col-span-2">
             <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#0000ff] w-full" required>
                 <option value="">Selecione um bairro</option>
-                <option value="Outra Banda">Outra Banda</option>
+                <option value="Cota">Cota</option>
                 <option value="Outros Bairros">Outros Bairros</option>
             </select>
         </div>
@@ -1531,7 +1531,7 @@ function createAdministracaoForm(schoolType) {
         <div class="flex flex-col md:col-span-2">
             <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008000] w-full" required>
                 <option value="">Selecione um bairro</option>
-                <option value="Outra Banda">Outra Banda</option>
+                <option value="Cota">Cota</option>
                 <option value="Outros Bairros">Outros Bairros</option>
             </select>
         </div>
@@ -1873,7 +1873,7 @@ function createEdificacoesForm(schoolType) {
         <div class="flex flex-col md:col-span-2">
             <select name="bairro" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#4a4a4a] w-full" required>
                 <option value="">Selecione um bairro</option>
-                <option value="Outra Banda">Outra Banda</option>
+                <option value="Cota">Cota</option>
                 <option value="Outros Bairros">Outros Bairros</option>
             </select>
         </div>

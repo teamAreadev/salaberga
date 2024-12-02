@@ -235,6 +235,7 @@ function notas($id)
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
     if (empty($result)) {
         header('Location: ../controllers/atualizar.php?erro=1');
+        exit();
     }
     switch ($result[0]['id_curso1_fk']) {
         case 1:

@@ -198,18 +198,19 @@ function delete($senha)
     }
 }
 
+
 function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $id)
 {
     require_once('../config/connect.php');
-    //calculando a média do candidato
+    // Calculando a média do candidato
     if ($ef == 0) {
         $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 8;
     } else {
         $md = ($lp + $ar + $ef + $li + $ma + $ci + $ge + $hi + $re) / 9;
     }
-    //atualizando as notas do candidato
+    
+    // Atualizando as notas do candidato
     $stmtUpdate = $conexao->prepare("UPDATE nota SET l_portuguesa=:lp, arte=:ar, educacao_fisica=:ef, l_inglesa=:li, matematica=:ma, ciencias=:ci, geografia=:ge, historia=:hi, religiao=:re, media=:media WHERE candidato_id_candidato = :id");
-
     $stmtUpdate->BindValue(':lp', $lp);
     $stmtUpdate->BindValue(':ar', $ar);
     $stmtUpdate->BindValue(':ef', $ef);
@@ -220,9 +221,11 @@ function atualizar($lp, $ar, $ef, $li, $ma, $ci, $ge, $hi, $re, $id)
     $stmtUpdate->BindValue(':hi', $hi);
     $stmtUpdate->BindValue(':re', $re);
     $stmtUpdate->BindValue(':media', $md);
-    $stmtUpdate->BindValue(':id', $_SESSION['id']);
+    $stmtUpdate->BindValue(':id', $id);
     $stmtUpdate->execute();
+
 }
+
 function notas($id)
 {
     session_start();
@@ -235,6 +238,7 @@ function notas($id)
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
     if (empty($result)) {
         header('Location: ../controllers/atualizar.php?erro=1');
+        exit();
     }
     switch ($result[0]['id_curso1_fk']) {
         case 1:
