@@ -651,7 +651,7 @@ function createEnfermagemForm(schoolType) {
         <!-- Informações Pessoais -->
         <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
             <div class="flex flex-col md:col-span-6">
-                <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full text-left"  oninput="removeAccents(this)"   placeholder="Nome Completo" required>
+                <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#DC2626] w-full text-center"  oninput="removeAccents(this)"   placeholder="Nome Completo" required>
             </div>
 
            <div class="flex flex-col md:col-span-1">
@@ -1172,7 +1172,7 @@ function createInformaticaForm(schoolType) {
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#0000ff] w-full text-left"  oninput="removeAccents(this)"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#0000ff] w-full text-center"  oninput="removeAccents(this)"  placeholder="Nome Completo" required>
         </div>
      <div class="flex flex-col md:col-span-1">
     <input type="text" name="nasc" maxlength="10" placeholder="DD/MM/AAAA" 
@@ -1509,7 +1509,7 @@ function createAdministracaoForm(schoolType) {
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008000] w-full text-left"  oninput="removeAccents(this)"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#008000] w-full text-center"  oninput="removeAccents(this)"  placeholder="Nome Completo" required>
         </div>
 
          <div class="flex flex-col md:col-span-1">
@@ -1851,7 +1851,7 @@ function createEdificacoesForm(schoolType) {
     <!-- Informações Pessoais -->
     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
         <div class="flex flex-col md:col-span-6">
-            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#4a4a4a] w-full text-left"  oninput="removeAccents(this)"  placeholder="Nome Completo" required>
+            <input type="text" name="nome" class="px-3 py-1.5 border border-[--gray-600] rounded-md focus:ring-1 focus:ring-[#4a4a4a] w-full text-center"  oninput="removeAccents(this)"  placeholder="Nome Completo" required>
         </div>
 
     <div class="flex flex-col md:col-span-1">
