@@ -6,7 +6,7 @@ function showReportsModal() {
             <div class="space-y-6">
                 <div class="relative">
                     <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Tipo de Relatório</label>
-                    <select required id="type" name="tipo" class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
+                    <select required id="type" name="tipo" onchange="toggleCourseSelect()" class="form-select block w-full px-4 py-3 bg-ceara-white border border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-ceara-green focus:border-ceara-green transition-all duration-200">
                         <option value="">Selecione um tipo</option>
                         <option value="1">Publica Geral</option>
                         <option value="2">Publica Ampla Concorência</option>
@@ -44,9 +44,28 @@ function showReportsModal() {
         showCancelButton: false,
         customClass: {
             popup: 'rounded-xl shadow-xl'
+        },
+        didOpen: () => {
+            // Adiciona o script para a função toggleCourseSelect
+            const script = document.createElement('script');
+            script.textContent = `
+                function toggleCourseSelect() {
+                    const typeSelect = document.getElementById('type');
+                    const courseSelect = document.getElementById('course');
+                    if (typeSelect.value === '7') {  // '7' é o valor para "Usuario"
+                        courseSelect.removeAttribute('required');
+                        courseSelect.disabled = true;
+                    } else {
+                        courseSelect.setAttribute('required', '');
+                        courseSelect.disabled = false;
+                    }
+                }
+            `;
+            document.body.appendChild(script);
         }
     });
 }
+
 
 function showatualizModal() {
     Swal.fire({
