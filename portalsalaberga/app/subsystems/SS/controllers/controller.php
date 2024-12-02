@@ -60,7 +60,7 @@ switch ($_POST['bairro']) {
     case 'Outros Bairros':
         $bairro = 0;
         break;
-    case 'Outra Banda':
+    case 'Cota':
         $bairro = 1;
         break;
 }

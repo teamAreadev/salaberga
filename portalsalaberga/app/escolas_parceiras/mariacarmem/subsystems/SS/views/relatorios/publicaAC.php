@@ -84,16 +84,16 @@ function publicaAC($curso)
         // Definir curso
         switch ($row['id_curso1_fk']) {
             case 1:
-                $curso = ('ENFERMAGEM');
+                $curso = ('Dev de Sistemas');
                 break;
             case 2:
-                $curso = ('INFORMATICA');
+                $curso = ('Química');
                 break;
             case 3:
-                $curso = ('ADMINISTRACAO');
+                $curso = ('Secretariado');
                 break;
             case 4:
-                $curso = ('EDIFICACOES');
+                $curso = ('Têxtil');
                 break;
             default:
                 $curso = ('Não definido');
