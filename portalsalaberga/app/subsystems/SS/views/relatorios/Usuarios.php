@@ -7,7 +7,7 @@ function usuarios()
     
     
     $stmtSelect = $conexao->query("
-        SELECT id, nome, email, status FROM usuario;
+        SELECT id, nome_user, email, status FROM usuario;
     ");
     $result = $stmtSelect->fetchAll(PDO::FETCH_ASSOC);
     
