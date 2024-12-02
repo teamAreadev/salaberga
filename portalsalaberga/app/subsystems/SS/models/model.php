@@ -15,7 +15,7 @@ function cadastrarUsuario($nomeC, $email, $senha, $status)
     } else {
 
         // Se o email não existe, procede com a inserção
-        $stmtInsert = $conexao->prepare('INSERT INTO usuario (nome_user, email, senha, status) VALUES (:nomeC, :email, MD5(:senha), :status)');
+        $stmtInsert = $conexao->prepare('INSERT INTO usuario (nome, email, senha, status) VALUES (:nomeC, :email, MD5(:senha), :status)');
 
         $stmtInsert->bindValue(':nomeC', $nomeC);
         $stmtInsert->bindValue(':email', $email);
